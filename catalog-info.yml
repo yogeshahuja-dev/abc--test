@@ -1,0 +1,18 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: my-test-service
+  description: A dummy service to test Backstage GitHub integration
+  annotations:
+    github.com/project-slug: yogeshahuja-dev/abc--test
+  tags:
+    - test
+    - dummy
+  links:
+    - url: https://github.com/yogeshahuja-dev/abc--test
+      title: GitHub Repository
+      icon: github
+spec:
+  type: service
+  lifecycle: experimental
+  owner: guests
