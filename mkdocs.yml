@@ -1,6 +1,8 @@
 site_name: Enterprise Data Lake Documentation
-theme:
-  name: material
+repo_url: ''
+edit_uri: ''
+plugins:
+  - techdocs-core
 nav:
   - Home: index.md
   - Architecture: architecture.md
