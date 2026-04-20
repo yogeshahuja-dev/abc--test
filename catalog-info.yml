@@ -14,3 +14,4 @@ spec:
     - ./components/data-product-api.yaml
     - ./components/cicd-pipeline.yaml
     - ./resources/databricks-workspace.yaml
+    - ./apis/data-product-api.yaml
