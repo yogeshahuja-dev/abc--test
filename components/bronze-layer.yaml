@@ -1,0 +1,20 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: bronze-layer
+  description: Raw data ingestion layer - Landing zone for all source data
+  tags:
+    - databricks
+    - bronze
+    - ingestion
+  links:
+    - url: https://adb-2478587080594690.10.azuredatabricks.net/
+      title: Databricks Workspace
+      icon: dashboard
+spec:
+  type: data-pipeline
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake
+  dependsOn:
+    - resource:databricks-workspace

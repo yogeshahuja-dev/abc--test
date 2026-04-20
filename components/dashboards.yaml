@@ -1,0 +1,20 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: edl-dashboards
+  description: Business dashboards and reports built on Gold layer
+  tags:
+    - dashboard
+    - reporting
+    - power-bi
+  links:
+    - url: https://app.powerbi.com/groups/me/reports/309f9d84-526b-40da-adee-ad0b1c014a31/ReportSection66963be1d29968a5664e?ctid=04c72f56-1848-46a2-8167-8e5d36510cbc&experience=power-bi
+      title: Power BI Dashboard
+      icon: dashboard
+spec:
+  type: website
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake
+  dependsOn:
+    - component:gold-layer

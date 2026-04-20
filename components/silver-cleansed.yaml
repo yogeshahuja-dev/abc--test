@@ -1,0 +1,16 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-cleansed-layer
+  description: Cleansed data layer - Data quality checks, deduplication, standardization
+  tags:
+    - databricks
+    - silver
+    - cleansed
+spec:
+  type: data-pipeline
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake
+  dependsOn:
+    - component:bronze-layer

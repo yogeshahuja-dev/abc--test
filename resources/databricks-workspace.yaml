@@ -1,0 +1,17 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: databricks-workspace
+  description: Azure Databricks workspace for EDL processing
+  tags:
+    - databricks
+    - azure
+    - infrastructure
+  links:
+    - url: https://adb-2478587080594690.10.azuredatabricks.net/
+      title: Databricks Workspace
+      icon: dashboard
+spec:
+  type: database
+  owner: edl-governance
+  system: enterprise-data-lake

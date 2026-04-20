@@ -1,0 +1,17 @@
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: enterprise-data-lake
+  description: Enterprise Data Lake - End to end data platform (Bronze → Silver → Gold)
+  annotations:
+    backstage.io/techdocs-ref: url:https://github.com/yogeshahuja-dev/abc--test
+  tags:
+    - databricks
+    - data-platform
+    - adani
+  links:
+    - url: https://adb-2478587080594690.10.azuredatabricks.net/
+      title: Databricks Workspace
+      icon: dashboard
+spec:
+  owner: edl-governance

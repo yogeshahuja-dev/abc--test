@@ -1,0 +1,103 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: data-product-rest-api
+  description: REST API for accessing data products from Gold layer
+  tags:
+    - rest
+    - data-product
+spec:
+  type: openapi
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake
+  definition: |
+    openapi: 3.0.0
+    info:
+      title: Data Product API
+      version: 1.0.0
+      description: API to access EDL Gold layer data products
+    servers:
+      - url: https://api.adani.com/edl/v1
+    paths:
+      /data-products:
+        get:
+          summary: List all data products
+          operationId: listDataProducts
+          responses:
+            '200':
+              description: List of data products
+              content:
+                application/json:
+                  schema:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        name:
+                          type: string
+                        description:
+                          type: string
+                        domain:
+                          type: string
+                        owner:
+                          type: string
+                        status:
+                          type: string
+                          enum: [active, deprecated, draft]
+      /data-products/{id}:
+        get:
+          summary: Get data product by ID
+          operationId: getDataProduct
+          parameters:
+            - name: id
+              in: path
+              required: true
+              schema:
+                type: string
+          responses:
+            '200':
+              description: Data product details
+              content:
+                application/json:
+                  schema:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      name:
+                        type: string
+                      description:
+                        type: string
+                      schema:
+                        type: object
+                      sla:
+                        type: string
+                      refreshFrequency:
+                        type: string
+      /data-products/{id}/query:
+        post:
+          summary: Query a data product
+          operationId: queryDataProduct
+          parameters:
+            - name: id
+              in: path
+              required: true
+              schema:
+                type: string
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    sql:
+                      type: string
+                    limit:
+                      type: integer
+                      default: 100
+          responses:
+            '200':
+              description: Query results
