@@ -30,7 +30,7 @@
 
 ## Coding Standards
 
-- All code in Python/PySpark
+- All code in Python and PySpark
 - Follow PEP 8 style guide
 - Unit tests required for all transformations
 - Code review required before merge
@@ -50,4 +50,4 @@
 
 ## Contact
 
-For any questions, reach out to the **EDL Governance** team.
+For any questions reach out to the **EDL Governance** team.

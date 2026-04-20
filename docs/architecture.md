@@ -40,7 +40,7 @@
 | Catalog | Backstage |
 | Service Management | ServiceNow |
 
-## Architecture Diagram
+## Architecture Flow
 
 | Layer | Input | Output |
 |-------|-------|--------|

@@ -1,0 +1,8 @@
+site_name: Enterprise Data Lake Documentation
+nav:
+  - Home: index.md
+  - Architecture: architecture.md
+  - Data Model: data-model.md
+  - Onboarding: onboarding.md
+plugins:
+  - techdocs-core
