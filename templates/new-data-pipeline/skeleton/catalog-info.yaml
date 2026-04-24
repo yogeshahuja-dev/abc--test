@@ -1,0 +1,14 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: ${{ values.pipelineName }}
+  description: ${{ values.description }}
+  tags:
+    - databricks
+    - ${{ values.layer }}
+    - data-pipeline
+spec:
+  type: data-pipeline
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

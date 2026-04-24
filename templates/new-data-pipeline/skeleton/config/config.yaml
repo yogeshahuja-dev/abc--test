@@ -1,0 +1,14 @@
+pipeline:
+  name: ${{ values.pipelineName }}
+  description: ${{ values.description }}
+  layer: ${{ values.layer }}
+  owner: edl-governance
+  system: enterprise-data-lake
+
+databricks:
+  workspace: https://your-databricks-workspace.azuredatabricks.net
+  cluster_id: your-cluster-id
+
+schedule:
+  cron: "0 6 * * *"
+  timezone: Asia/Kolkata

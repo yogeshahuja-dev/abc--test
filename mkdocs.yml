@@ -1,6 +1,4 @@
 site_name: Enterprise Data Lake Documentation
-repo_url: ''
-edit_uri: ''
 plugins:
   - techdocs-core
 nav:

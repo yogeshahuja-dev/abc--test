@@ -1,0 +1,85 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: new-data-pipeline
+  title: Create New Data Pipeline
+  description: Scaffold a new Databricks data pipeline with catalog entry
+  tags:
+    - databricks
+    - data-pipeline
+    - edl
+spec:
+  owner: edl-governance
+  type: data-pipeline
+  parameters:
+    - title: Pipeline Details
+      required:
+        - pipelineName
+        - description
+        - layer
+      properties:
+        pipelineName:
+          title: Pipeline Name
+          type: string
+          description: Name of the data pipeline (lowercase, hyphens only)
+          pattern: '^[a-z0-9-]+$'
+          ui:placeholder: 'e.g. customer-ingestion'
+        description:
+          title: Description
+          type: string
+          description: What does this pipeline do?
+          ui:placeholder: 'e.g. Ingests customer data from SAP'
+        layer:
+          title: Data Layer
+          type: string
+          enum:
+            - bronze
+            - silver-cleansed
+            - silver-er
+            - gold
+          description: Which data layer does this pipeline belong to?
+    - title: Repository
+      required:
+        - repoUrl
+      properties:
+        repoUrl:
+          title: Repository Location
+          type: string
+          ui:field: RepoUrlPicker
+          ui:options:
+            allowedHosts:
+              - github.com
+  steps:
+    - id: fetch
+      name: Fetch Template
+      action: fetch:template
+      input:
+        url: ./skeleton
+        values:
+          pipelineName: ${{ parameters.pipelineName }}
+          description: ${{ parameters.description }}
+          layer: ${{ parameters.layer }}
+
+    - id: publish
+      name: Publish to GitHub
+      action: publish:github
+      input:
+        allowedHosts: ['github.com']
+        repoUrl: ${{ parameters.repoUrl }}
+        description: ${{ parameters.description }}
+        repoVisibility: private
+
+    - id: register
+      name: Register in Catalog
+      action: catalog:register
+      input:
+        repoContentsUrl: ${{ steps['publish'].output.repoContentsUrl }}
+        catalogInfoPath: '/catalog-info.yaml'
+
+  output:
+    links:
+      - title: Repository
+        url: ${{ steps['publish'].output.remoteUrl }}
+      - title: Open in Catalog
+        icon: catalog
+        entityRef: ${{ steps['register'].output.entityRef }}
