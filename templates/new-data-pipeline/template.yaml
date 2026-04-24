@@ -38,17 +38,6 @@ spec:
             - silver-er
             - gold
           description: Which data layer does this pipeline belong to?
-    - title: Repository
-      required:
-        - repoUrl
-      properties:
-        repoUrl:
-          title: Repository Location
-          type: string
-          ui:field: RepoUrlPicker
-          ui:options:
-            allowedHosts:
-              - github.com
   steps:
     - id: fetch
       name: Fetch Template
@@ -60,25 +49,15 @@ spec:
           description: ${{ parameters.description }}
           layer: ${{ parameters.layer }}
 
-    - id: publish
-      name: Publish to GitHub
-      action: publish:github
+    - id: log
+      name: Log Output
+      action: debug:log
       input:
-        repoUrl: ${{ parameters.repoUrl }}
-        description: ${{ parameters.description }}
-        repoVisibility: private
-
-    - id: register
-      name: Register in Catalog
-      action: catalog:register
-      input:
-        repoContentsUrl: ${{ steps['publish'].output.repoContentsUrl }}
-        catalogInfoPath: '/catalog-info.yaml'
+        message: "Pipeline ${{ parameters.pipelineName }} created for ${{ parameters.layer }} layer"
+        listWorkspace: true
 
   output:
     links:
-      - title: Repository
-        url: ${{ steps['publish'].output.remoteUrl }}
-      - title: Open in Catalog
+      - title: Pipeline Created Successfully
         icon: catalog
-        entityRef: ${{ steps['register'].output.entityRef }}
+        url: /catalog
