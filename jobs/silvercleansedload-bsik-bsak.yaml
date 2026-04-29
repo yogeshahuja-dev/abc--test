@@ -1,0 +1,33 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: job-silvercleansedload-bsik-bsak
+  title: "Job: SilverCleansedLoad_BSIK_BSAK"
+  description: |
+    Databricks Workflow Job: Moves data from Bronze to Silver Cleansed layer.
+    Processes: T024, LFA1, BSIK, BSAK and other SAP tables.
+    Merges data from AEM + P11 + MUL systems into cleansed master tables.
+    Schedule: Daily 6:00 AM IST.
+  tags:
+    - databricks-job
+    - silver-cleansed
+    - bronze-to-silver
+    - scheduled
+    - procurement
+  links:
+    - url: https://adb-2478587080594690.10.azuredatabricks.net/jobs/499840766542697?o=2478587080594690
+      title: View Job in Databricks
+      icon: dashboard
+spec:
+  type: databricks-job
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake
+  dependsOn:
+    - resource:databricks-workspace
+    - component:bronze-sap-aem-t024-slt
+    - component:bronze-sap-p11-t024-slt
+    - component:bronze-sap-mul-t024-slt
+    - component:bronze-sap-aem-lfa1-slt
+    - component:bronze-sap-p11-lfa1-slt
+    - component:bronze-sap-mul-lfa1-slt

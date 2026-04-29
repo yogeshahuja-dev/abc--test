@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: gold-procurement-po-overview
+  title: gold_procurement.po_overview
+  description: |
+    Purchase Order Overview - Gold curated table.
+    Aggregated PO data enriched with purchasing group information.
+    Populated by Job: goldload-procurement.
+    Feeds: Procurement Cockpit Dashboard, Early Payment Trends Data Product.
+    Schema: gold_procurement | Table: po_overview
+  tags:
+    - gold
+    - procurement
+    - purchase-order
+    - curated
+    - dashboard-source
+  links:
+    - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/gold_procurement/po_overview?o=2478587080594690
+      title: View in Databricks
+      icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake
+  dependsOn:
+    - component:silver-purchasing-group

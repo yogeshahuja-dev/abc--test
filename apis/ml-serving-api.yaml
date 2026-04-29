@@ -1,0 +1,113 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: ml-serving-api
+  title: ML Model Serving API
+  description: |
+    Databricks Model Serving API for ML endpoints.
+    Serves: Procurement Agent (Genie), Payment Prediction Model.
+  tags:
+    - rest
+    - ml
+    - model-serving
+    - databricks
+spec:
+  type: openapi
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake
+  definition: |
+    openapi: 3.0.0
+    info:
+      title: EDL ML Model Serving API
+      version: 1.0.0
+      description: API for Databricks ML model serving endpoints
+    servers:
+      - url: https://adb-2478587080594690.10.azuredatabricks.net/serving-endpoints
+    paths:
+      /procurement-agent/invocations:
+        post:
+          summary: Query Procurement Agent (Genie)
+          operationId: queryProcurementAgent
+          description: Natural language query interface for procurement data
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    query:
+                      type: string
+                      example: "Show top 10 vendors by spend in last quarter"
+                    context:
+                      type: object
+                      properties:
+                        domain:
+                          type: string
+                          example: "procurement"
+                        max_results:
+                          type: integer
+                          example: 10
+          responses:
+            '200':
+              description: Agent response
+              content:
+                application/json:
+                  schema:
+                    type: object
+                    properties:
+                      answer:
+                        type: string
+                      sql_generated:
+                        type: string
+                      data:
+                        type: array
+                        items:
+                          type: object
+                      confidence:
+                        type: number
+                        example: 0.95
+      /payment-prediction/invocations:
+        post:
+          summary: Predict payment timeline
+          operationId: predictPayment
+          description: Predict when a payment will be made and early payment probability
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    vendor_id:
+                      type: string
+                      example: "V001234"
+                    po_number:
+                      type: string
+                      example: "PO4500012345"
+                    invoice_amount:
+                      type: number
+                      example: 150000.00
+                    invoice_date:
+                      type: string
+                      format: date
+                      example: "2026-04-15"
+          responses:
+            '200':
+              description: Payment prediction result
+              content:
+                application/json:
+                  schema:
+                    type: object
+                    properties:
+                      predicted_payment_date:
+                        type: string
+                        format: date
+                      early_payment_probability:
+                        type: number
+                        example: 0.78
+                      discount_opportunity:
+                        type: string
+                        example: "2% if paid within 10 days"
+                      confidence:
+                        type: number
+                        example: 0.89

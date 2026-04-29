@@ -2,14 +2,15 @@ apiVersion: backstage.io/v1alpha1
 kind: Resource
 metadata:
   name: databricks-workspace
-  description: Azure Databricks workspace for EDL processing
+  description: Azure Databricks workspace hosting all EDL processing, Unity Catalog, Jobs, and ML Serving
   tags:
     - databricks
     - azure
     - infrastructure
+    - unity-catalog
   links:
     - url: https://adb-2478587080594690.10.azuredatabricks.net/
-      title: Databricks Workspace
+      title: Open Databricks Workspace
       icon: dashboard
 spec:
   type: database

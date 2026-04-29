@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-sap-cleansed-lfa1-mstr
+  title: silver_sap_cleansed.lfa1_mstr
+  description: |
+    Cleansed and merged Vendor Master from all SAP systems (AEM + P11 + MUL).
+    Transformations: Deduplication, null handling, type casting, source system tagging.
+    Populated by Job: silvercleansedload-bsik-bsak.
+    Schema: silver_sap_cleansed | Table: lfa1_mstr
+  tags:
+    - silver-cleansed
+    - sap
+    - lfa1
+    - vendor
+    - master
+    - merged
+  links:
+    - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver_sap_cleansed/lfa1_mstr?o=2478587080594690
+      title: View in Databricks
+      icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake
+  dependsOn:
+    - component:bronze-sap-aem-lfa1-slt
+    - component:bronze-sap-p11-lfa1-slt
+    - component:bronze-sap-mul-lfa1-slt

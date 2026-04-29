@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: bronze-sap-aem-lfa1-slt
+  title: bronze_sap_aem.lfa1_slt
+  description: |
+    Raw SLT replication of SAP LFA1 (Vendor Master) from AEM system.
+    Source: SAP AEM via SLT replication.
+    Schema: bronze_sap_aem | Table: lfa1_slt
+  tags:
+    - bronze
+    - sap
+    - aem
+    - slt
+    - lfa1
+    - vendor
+    - raw
+  links:
+    - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/bronze_sap_aem/lfa1_slt?o=2478587080594690
+      title: View in Databricks
+      icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake
+  dependsOn:
+    - resource:databricks-workspace

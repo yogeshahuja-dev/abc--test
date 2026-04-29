@@ -1,0 +1,29 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: gold-procurement-pr-overview
+  title: gold_procurement.pr_overview
+  description: |
+    Purchase Requisition Overview - Gold curated table.
+    Aggregated PR data enriched with vendor and material information.
+    Populated by Job: goldload-procurement.
+    Feeds: Procurement Cockpit Dashboard, Early Payment Trends Data Product.
+    Schema: gold_procurement | Table: pr_overview
+  tags:
+    - gold
+    - procurement
+    - purchase-requisition
+    - curated
+    - dashboard-source
+  links:
+    - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/gold_procurement/pr_overview?o=2478587080594690
+      title: View in Databricks
+      icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake
+  dependsOn:
+    - component:silver-vendor
+    - component:silver-material

@@ -1,0 +1,26 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-material
+  title: silver.material
+  description: |
+    Business entity: Material.
+    Derived from cleansed SAP material master tables.
+    Populated by Job: silverload-procurement.
+    Schema: silver | Table: material
+  tags:
+    - silver
+    - material
+    - business-entity
+    - procurement
+  links:
+    - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/material?o=2478587080594690
+      title: View in Databricks
+      icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake
+  dependsOn:
+    - resource:databricks-workspace

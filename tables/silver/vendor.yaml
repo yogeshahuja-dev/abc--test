@@ -1,0 +1,26 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-vendor
+  title: silver.vendor
+  description: |
+    Business entity: Vendor.
+    Derived from silver_sap_cleansed.lfa1_mstr with entity resolution and business logic.
+    Populated by Job: silverload-procurement.
+    Schema: silver | Table: vendor
+  tags:
+    - silver
+    - vendor
+    - business-entity
+    - procurement
+  links:
+    - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/vendor?o=2478587080594690
+      title: View in Databricks
+      icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake
+  dependsOn:
+    - component:silver-sap-cleansed-lfa1-mstr

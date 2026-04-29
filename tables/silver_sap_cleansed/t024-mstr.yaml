@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-sap-cleansed-t024-mstr
+  title: silver_sap_cleansed.t024_mstr
+  description: |
+    Cleansed and merged Purchasing Group master from all SAP systems (AEM + P11 + MUL).
+    Transformations: Deduplication, null handling, type casting, source system tagging.
+    Populated by Job: silvercleansedload-bsik-bsak.
+    Schema: silver_sap_cleansed | Table: t024_mstr
+  tags:
+    - silver-cleansed
+    - sap
+    - t024
+    - purchasing-group
+    - master
+    - merged
+  links:
+    - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver_sap_cleansed/t024_mstr?o=2478587080594690
+      title: View in Databricks
+      icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake
+  dependsOn:
+    - component:bronze-sap-aem-t024-slt
+    - component:bronze-sap-p11-t024-slt
+    - component:bronze-sap-mul-t024-slt

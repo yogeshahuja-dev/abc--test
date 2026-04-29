@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: job-silverload-procurement
+  title: "Job: SilverLoad_Procurement"
+  description: |
+    Databricks Workflow Job: Moves data from Silver Cleansed to Silver layer.
+    Builds business entities: purchasing_group, vendor, material from cleansed masters.
+    Schedule: Daily 7:00 AM IST (after silvercleansedload completes).
+  tags:
+    - databricks-job
+    - silver
+    - silver-cleansed-to-silver
+    - scheduled
+    - procurement
+  links:
+    - url: https://adb-2478587080594690.10.azuredatabricks.net/jobs/492025524435483?o=2478587080594690
+      title: View Job in Databricks
+      icon: dashboard
+spec:
+  type: databricks-job
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake
+  dependsOn:
+    - resource:databricks-workspace
+    - component:silver-sap-cleansed-t024-mstr
+    - component:silver-sap-cleansed-lfa1-mstr

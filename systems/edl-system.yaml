@@ -2,16 +2,36 @@ apiVersion: backstage.io/v1alpha1
 kind: System
 metadata:
   name: enterprise-data-lake
-  description: Enterprise Data Lake - End to end data platform (Bronze → Silver → Gold)
+  description: |
+    Enterprise Data Lake (EDL) - Centralized data platform on Azure Databricks.
+    Medallion Architecture: Bronze > Silver Cleansed > Silver > Gold > Dashboards/Data Products/ML.
+    Covers: SAP source systems (AEM, P11, MUL), Procurement domain, ML model serving.
   annotations:
-    backstage.io/techdocs-ref: dir:..
+    backstage.io/techdocs-ref: url:https://github.com/yogeshahuja-dev/abc--test
   tags:
     - databricks
     - data-platform
-    - adani
+    - medallion-architecture
+    - edl
+    - procurement
   links:
     - url: https://adb-2478587080594690.10.azuredatabricks.net/
       title: Databricks Workspace
       icon: dashboard
+    - url: https://edlcore.adani.com/
+      title: EDL Core Portal
+      icon: docs
+    - url: https://az01lappedlapid02.azurewebsites.net/docs
+      title: EDL Data Model
+      icon: catalog
+    - url: https://az01lappedlapid04.azurewebsites.net/docs
+      title: EDL Data Products
+      icon: search
+    - url: https://az01lappedlapid03.azurewebsites.net/docs
+      title: EDL Data Sharing
+      icon: group
+    - url: https://az01lappedlapid03.azurewebsites.net/docs
+      title: Data Governance Docs
+      icon: docs
 spec:
   owner: edl-governance

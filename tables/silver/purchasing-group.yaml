@@ -1,0 +1,26 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-purchasing-group
+  title: silver.purchasing_group
+  description: |
+    Business entity: Purchasing Group.
+    Derived from silver_sap_cleansed.t024_mstr with business logic applied.
+    Populated by Job: silverload-procurement.
+    Schema: silver | Table: purchasing_group
+  tags:
+    - silver
+    - purchasing-group
+    - business-entity
+    - procurement
+  links:
+    - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/purchasing_group?o=2478587080594690
+      title: View in Databricks
+      icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake
+  dependsOn:
+    - component:silver-sap-cleansed-t024-mstr

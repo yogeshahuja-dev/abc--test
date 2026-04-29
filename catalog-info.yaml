@@ -1,0 +1,55 @@
+apiVersion: backstage.io/v1alpha1
+kind: Location
+metadata:
+  name: edl-catalog
+  description: All EDL Platform Components - Tables, Jobs, Dashboards, Data Products, ML Endpoints
+spec:
+  targets:
+    # System
+    - ./systems/edl-system.yaml
+
+    # Infrastructure
+    - ./resources/databricks-workspace.yaml
+
+    # Bronze Tables
+    - ./tables/bronze/t024-slt-aem.yaml
+    - ./tables/bronze/t024-slt-p11.yaml
+    - ./tables/bronze/t024-slt-mul.yaml
+    - ./tables/bronze/lfa1-slt-aem.yaml
+    - ./tables/bronze/lfa1-slt-p11.yaml
+    - ./tables/bronze/lfa1-slt-mul.yaml
+
+    # Silver Cleansed Tables
+    - ./tables/silver_sap_cleansed/t024-mstr.yaml
+    - ./tables/silver_sap_cleansed/lfa1-mstr.yaml
+
+    # Silver Tables
+    - ./tables/silver/purchasing-group.yaml
+    - ./tables/silver/vendor.yaml
+    - ./tables/silver/material.yaml
+
+    # Gold Tables
+    - ./tables/gold/po-overview.yaml
+    - ./tables/gold/pr-overview.yaml
+
+    # Databricks Jobs
+    - ./jobs/silvercleansedload-bsik-bsak.yaml
+    - ./jobs/silverload-procurement.yaml
+    - ./jobs/goldload-procurement.yaml
+
+    # Dashboards
+    - ./dashboards/procurement-cockpit.yaml
+
+    # Data Products
+    - ./data-products/early-payment-trends.yaml
+
+    # ML Model Endpoints
+    - ./ml-endpoints/procurement-agent.yaml
+    - ./ml-endpoints/payment-prediction-model.yaml
+
+    # APIs
+    - ./apis/data-product-api.yaml
+    - ./apis/ml-serving-api.yaml
+
+    # Templates
+    - ./templates/new-data-pipeline/template.yaml

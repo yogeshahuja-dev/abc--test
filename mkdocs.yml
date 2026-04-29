@@ -1,8 +1,12 @@
 site_name: Enterprise Data Lake Documentation
-plugins:
-  - techdocs-core
 nav:
   - Home: index.md
   - Architecture: architecture.md
+  - Data Lineage: data-lineage.md
   - Data Model: data-model.md
+  - Jobs & Orchestration: jobs.md
+  - Data Products: data-products.md
+  - ML Endpoints: ml-endpoints.md
   - Onboarding: onboarding.md
+plugins:
+  - techdocs-core

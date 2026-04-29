@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: ml-procurement-agent
+  title: "Genie: Procurement Agent"
+  description: |
+    Databricks Genie / AI Agent for procurement domain.
+    Natural language interface to query procurement data.
+    Users can ask: "Show top vendors by spend", "PO status for last month", etc.
+    Powered by: Databricks Model Serving + Gold layer tables.
+  tags:
+    - ml
+    - genie
+    - agent
+    - procurement
+    - ai
+    - model-serving
+  links:
+    - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/models/adani_edl_governance_catalog_prd/genai/prd_proc?o=2478587080594690
+      title: View Model Endpoints
+      icon: dashboard
+spec:
+  type: ml-endpoint
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake
+  dependsOn:
+    - component:gold-procurement-po-overview
+    - component:gold-procurement-pr-overview
+    - resource:databricks-workspace
+  providesApis:
+    - ml-serving-api

@@ -1,0 +1,34 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: dp-early-payment-trends
+  title: "Data Product: Early Payment Trends"
+  description: |
+    Data Product built on Gold layer.
+    Analyzes early payment patterns, discount utilization, and cash flow optimization.
+    Consumers: Finance team, Treasury, Procurement leadership.
+    Served via: Databricks Data Product / REST API.
+    Source tables: gold_procurement.po_overview, gold_procurement.pr_overview.
+  tags:
+    - data-product
+    - procurement
+    - payment
+    - finance
+    - gold-consumer
+  links:
+    - url: https://az01lappedlapid04.azurewebsites.net/docs
+      title: EDL Data Products Portal
+      icon: search
+    - url: hhttps://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/gold_procurement?o=2478587080594690&activeListType=TABLE
+      title: View Gold Tables
+      icon: dashboard
+spec:
+  type: data-product
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake
+  dependsOn:
+    - component:gold-procurement-po-overview
+    - component:gold-procurement-pr-overview
+  providesApis:
+    - data-product-rest-api

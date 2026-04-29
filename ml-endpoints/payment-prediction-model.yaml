@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: ml-payment-prediction
+  title: "Model: Payment Prediction"
+  description: |
+    ML model that predicts payment timelines and early payment probability.
+    Trained on: Historical PO and PR data from Gold layer.
+    Served via: Databricks Model Serving endpoint.
+    Consumers: Early Payment Trends data product, Finance dashboards.
+  tags:
+    - ml
+    - model
+    - prediction
+    - payment
+    - model-serving
+  links:
+    - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/models/adani_edl_governance_catalog_prd/genai/fim_agent_1?o=2478587080594690
+      title: View Model Endpoints
+      icon: dashboard
+spec:
+  type: ml-endpoint
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake
+  dependsOn:
+    - component:gold-procurement-po-overview
+    - component:gold-procurement-pr-overview
+    - resource:databricks-workspace
+  providesApis:
+    - ml-serving-api

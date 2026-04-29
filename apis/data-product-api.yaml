@@ -2,10 +2,14 @@ apiVersion: backstage.io/v1alpha1
 kind: API
 metadata:
   name: data-product-rest-api
-  description: REST API for accessing data products from Gold layer
+  title: Data Product REST API
+  description: |
+    REST API for accessing EDL data products from Gold layer.
+    Serves: Early Payment Trends and other procurement data products.
   tags:
     - rest
     - data-product
+    - procurement
 spec:
   type: openapi
   lifecycle: production
@@ -14,15 +18,15 @@ spec:
   definition: |
     openapi: 3.0.0
     info:
-      title: Data Product API
+      title: EDL Data Product API
       version: 1.0.0
-      description: API to access EDL Gold layer data products
+      description: API to access Enterprise Data Lake Gold layer data products
     servers:
-      - url: https://api.adani.com/edl/v1
+      - url: https://adb-2478587080594690.10.azuredatabricks.net/api/2.0
     paths:
       /data-products:
         get:
-          summary: List all data products
+          summary: List all available data products
           operationId: listDataProducts
           responses:
             '200':
@@ -36,20 +40,27 @@ spec:
                       properties:
                         id:
                           type: string
+                          example: "dp-early-payment-trends"
                         name:
                           type: string
-                        description:
-                          type: string
+                          example: "Early Payment Trends"
                         domain:
                           type: string
-                        owner:
-                          type: string
+                          example: "Procurement"
                         status:
                           type: string
                           enum: [active, deprecated, draft]
+                        owner:
+                          type: string
+                          example: "edl-governance"
+                        gold_tables:
+                          type: array
+                          items:
+                            type: string
+                          example: ["gold_procurement.po_overview", "gold_procurement.pr_overview"]
       /data-products/{id}:
         get:
-          summary: Get data product by ID
+          summary: Get data product details by ID
           operationId: getDataProduct
           parameters:
             - name: id
@@ -75,8 +86,15 @@ spec:
                         type: object
                       sla:
                         type: string
+                        example: "99.5% uptime"
                       refreshFrequency:
                         type: string
+                        example: "Daily 8:00 AM IST"
+                      lineage:
+                        type: array
+                        items:
+                          type: string
+                        example: ["bronze_sap_aem.t024_slt", "silver_sap_cleansed.t024_mstr", "silver.purchasing_group", "gold_procurement.po_overview"]
       /data-products/{id}/query:
         post:
           summary: Query a data product
@@ -95,9 +113,25 @@ spec:
                   properties:
                     sql:
                       type: string
+                      example: "SELECT * FROM gold_procurement.po_overview LIMIT 10"
                     limit:
                       type: integer
                       default: 100
           responses:
             '200':
               description: Query results
+              content:
+                application/json:
+                  schema:
+                    type: object
+                    properties:
+                      columns:
+                        type: array
+                        items:
+                          type: string
+                      data:
+                        type: array
+                        items:
+                          type: object
+                      rowCount:
+                        type: integer

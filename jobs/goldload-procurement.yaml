@@ -1,0 +1,29 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: job-goldload-procurement
+  title: "Job: GoldLoad_Procurement"
+  description: |
+    Databricks Workflow Job: Moves data from Silver to Gold layer.
+    Builds curated tables: po_overview, pr_overview from silver business entities.
+    Schedule: Daily 8:00 AM IST (after silverload completes).
+  tags:
+    - databricks-job
+    - gold
+    - silver-to-gold
+    - scheduled
+    - procurement
+  links:
+    - url: https://adb-2478587080594690.10.azuredatabricks.net/jobs/853801566462346?o=2478587080594690
+      title: View Job in Databricks
+      icon: dashboard
+spec:
+  type: databricks-job
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake
+  dependsOn:
+    - resource:databricks-workspace
+    - component:silver-purchasing-group
+    - component:silver-vendor
+    - component:silver-material
