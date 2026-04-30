@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-finding
+  title: silver.finding
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.finding\n\
+    Layer: silver\nDescription: Finding is a table that captures issues or observations\
+    \ identified during control testing and compliance reviews. It provides visibility\
+    \ into the severity, status, and lifecycle of each finding, enabling timely remediation\
+    \ and risk mitigation. This table supports governance and assurance processes\
+    \ by ensuring transparency, accountability, and effective tracking of control\
+    \ weaknesses across the organization.\nColumns (9):\n  - finding_id (bigint) --\
+    \ Primary key for the audit/control finding\n  - control_id (bigint) -- Foreign\
+    \ key to the related control\n  - entity_key (bigint) -- Foreign key to the impacted\
+    \ entity\n  - severity (string) -- Severity level (e.g., Low, Medium, High)\n\
+    \  - status (string) -- Finding status (e.g., Open, In Progress, Closed)\n  -\
+    \ opened_date (date) -- Date the finding was opened\n  - closed_date (date) --\
+    \ Date the finding was closed\n  - load_timestamp (timestamp) -- Record creation\
+    \ timestamp.\n  - update_timestamp (timestamp) -- Record last updated timestamp.\n\
+    Discovered: 2026-04-30 12:30"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.finding
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: finding
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/finding
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

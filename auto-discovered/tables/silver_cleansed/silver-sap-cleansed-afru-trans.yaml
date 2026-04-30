@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-sap-cleansed-afru-trans
+  title: silver_sap_cleansed.afru_trans
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver_sap_cleansed.afru_trans\n\
+    Layer: silver-cleansed\nColumns (161):\n  - DI_SEQUENCE_NUMBER (bigint) -- Data\
+    \ Services-generated integer for sequencing\n  - DI_OPERATION_TYPE (string) --\
+    \ Data Services-generated row operation type\n  - MANDT (string) -- Client\n \
+    \ - RUECK (bigint) -- Confirmation\n  - RMZHL (bigint) -- Counter\n  - ERSDA (date)\
+    \ -- Entered on\n  - ERNAM (string) -- Entered by\n  - LAEDA (date) -- Last Change\n\
+    \  - AENAM (string) -- Changed By\n  - BUDAT (date) -- Posting date\n  - ARBID\
+    \ (bigint) -- Object ID\n  - WERKS (string) -- Plant\n  - LTXA1 (string) -- Confirmation\
+    \ text\n  - TXTSP (string) -- Language Key\n  - ISERH (double) -- Break time\n\
+    \  - ZEIER (string) -- Unit for break time\n  - ILE01 (string) -- Unit/activity\n\
+    \  - ISM01 (double) -- Activity to Confirm\n  - ILE02 (string) -- Unit/activity\n\
+    \  - ISM02 (double) -- Activity to Confirm\n  ... +141 more\nDiscovered: 2026-04-30\
+    \ 12:23"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver-cleansed
+  - sap
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver_sap_cleansed.afru_trans
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver_sap_cleansed
+    databricks.com/table: afru_trans
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver_sap_cleansed/afru_trans
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

@@ -1,0 +1,85 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-transaction-flow-master
+  title: silver.transaction_flow_master
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.transaction_flow_master\n\
+    Layer: silver\nColumns (30):\n  - client_id (string) -- It is a three-char alphanumeric\
+    \ identifier that represents a client in the SAP system. A client is the highest\
+    \ organizational unit in SAP and serves as a self-contained unit with its own\
+    \ master data and set of tables.\n  - object_id (string) -- Unique persistent\
+    \ GUID representing the business transaction object. This technical key uniquely\
+    \ identifies the transaction object across processes and systems, and is used\
+    \ to link flows, postings, and related records belonging to the same underlying\
+    \ business object.\n  - business_transaction_id (string) -- This ID represents\
+    \ the business‑level transaction reference used by distributor systems and is\
+    \ used for cross‑system reconciliation, reporting, and traceability\n  - version\
+    \ (string) -- Version identifier of the distributor data, representing the source\
+    \ system or data model version (for example, ERP07, CFM1_4). This field supports\
+    \ parallel data versions, system coexistence.\n  - owner (string) -- It specifies\
+    \ the originating application or business area responsible for the distributor\
+    \ business transaction (e.g., 1- Transaction Management, 9- Taxes).\n  - company_code\
+    \ (string) -- \"The company code represents the smallest organizational unit for\
+    \ which a complete, self-contained set of accounts can be drawn up, crucial for\
+    \ legal and financial reporting ⦁ Max 4 characters ⦁ Common values: 1000, 2000\"\
+    \n  - valuation_area (string) -- \"Valuation_area identifies the accounting valuation\
+    \ context under which a transaction is processed, enabling the system to apply\
+    \ different accounting regulations or valuation principles in parallel. 001 -\
+    \ Operative Valuation Area, 002 - Parallel valuation Area\"\n  - flow_number (bigint)\
+    \ -- It is a numeric identifier representing the order of distributor transaction\
+    \ flows within a transaction. It is identified as an integer (1, 2, 3 …)\n  -\
+    \ display_flow_type (string) -- Update type key that is used to carry information\
+    \ on positions and flows in parallel valuation area and in security areas. (eg.\
+    \ VR203 - reset 2 step valuation - Forex, VR303)\n  - assignment_number (string)\
+    \ -- \"Assignment number is additional information reference field, a free-text\
+    \ field used for external or internal reconciliation.Typically a short fixed-length\
+    \ character field (≈10–15 chars)\"\n  - product_type (string) -- Product type\
+    \ is used to categorize the financial product involved in the flow. A short code\
+    \ (3–5 characters) such as (01A-Stocks, 02A - Mutual Funds) driving downstream\
+    \ valuation and reporting logic\n  - transaction_type (string) -- Financial Transaction\
+    \ type specifies which type of transactions can take place in specific product\
+    \ type (100- purchase, 200-sale)\n  - gen_valuation_class (string) -- \"General\
+    \ valuation class is used to classify transactions by asset type. Stored numerically\
+    \ but conceptually represents classification used across valuation areas. (0001\
+    \ - Short-term investment, 0006 - Long term Borrowings)\"\n  - valuation_class\
+    \ (string) -- \"Valuation class is used to classify transactions for financial\
+    \ investments at valuation area level. Valuation classes differ for various valuation\
+    \ areas. Eg. 0001 indicates At fair value through profit or loss 0002 indicates\
+    \ available for sale \"\n  - security_id (string) -- Security ID number is used\
+    \ to identify a security or listed derivative (ISIN, internal ID, etc.) It is\
+    \ used for data linkage, pricing, and regulatory reporting.\n  - security_account\
+    \ (string) -- \"Securities account identifies account to which the transaction\
+    \ flow belongs. It is user‑assigned and linked to the corresponding securities\
+    \ bank account. Eg. (Delivery, MFFUND etc)\"\n  - deal_number (string) -- Key\
+    \ that uniquely identifies a financial transaction/deal within a company code.\n\
+    \  - position_account (string) -- \"It is a identifier name for futures accounts\
+    \ assigned by the user. It relates to the future account at the bank. It is an\
+    \ organizational unit used by banks to manage futures and listed options. (Eg.\
+    \ Futures, Rathi Copp)\"\n  - lot_id (string) -- Lot is smallest possible unit\
+    \ in position management. It is also used to manage positions in by managing single\
+    \ lots. It allows granular tracking of acquisitions and disposals.\n  - long_short_indicator\
+    \ (string) -- Indicates whether the transaction results in a long or short position\
+    \ for the security. Stored as a single‑character indicator (e.g., L = Long, S\
+    \ = Short) and used in position management, valuation, and risk calculations.\n\
+    \  ... +10 more\nDiscovered: 2026-04-30 12:33"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.transaction_flow_master
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: transaction_flow_master
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/transaction_flow_master
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake
+  dependsOn:
+  - component:silver-sap-cleansed-mast-mstr

@@ -1,0 +1,84 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-house-bank
+  title: silver.house_bank
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.house_bank\n\
+    Layer: silver\nColumns (22):\n  - client_id (string) -- It is a three-char alphanumeric\
+    \ identifier that represents a client in the SAP system. A client is the highest\
+    \ organizational unit in SAP and serves as a self-contained unit with its own\
+    \ master data and set of tables.\n  - company_code (string) -- The company code\
+    \ represents the smallest organizational unit for which a complete, self-contained\
+    \ set of accounts can be drawn up, crucial for legal and financial reporting\n\
+    • Max 4 characters\n• Common values: 1000, 2000\n  - house_bank_id (string) --\
+    \ This field represents a short code used to identify the main bank responsible\
+    \ for handling payment and cash-related activities.\nIt helps connect bank account\
+    \ records to the correct bank for processing transactions such as payments and\
+    \ receipts.\n  - account_details_id (string) -- Represents an identifier for bank\
+    \ account details within the house bank configuration. When combined with the\
+    \ house bank ID, this field uniquely identifies a specific bank account for payment\
+    \ processing and account management.\n  - country_key (string) -- It is used to\
+    \ identify the country associated with a bank in the system. The value of country\
+    \ key is typically based on ISO country codes\n• Common Value IN for India\n \
+    \ - bank_key (string) -- Bank identifier within a given country, often corresponding\
+    \ to a domestic routing or clearing number (e.g., German BLZ, Indian IFSC surrogate\
+    \ at master level). Used to route payments and to uniquely reference a bank in\
+    \ master data and payment transactions.\n\nExamples:\nSBIN0000354\nSBIN0000360\n\
+    \  - tel_number (string) -- Stores the primary telephone contact number for the\
+    \ house bank or associated contact person.\n  - contact_person_name (string) --\
+    \ Represents the name of the primary contact person associated with the house\
+    \ bank. It is maintained as free text and is used for communication, documentation,\
+    \ and audit purposes during financial operations.\n  - language_key (string) --\
+    \ The Language Key identifies the language in which texts, descriptions, and user-specific\
+    \ information are stored or displayed in the system\n• 1-character code.\n• Common\
+    \ values: EN = English DE = German FR = French\n  - business_place_code (string)\
+    \ -- This field is used to identify a specific business location within a company\
+    \ code.\n  - bank_desc (string) -- Stores a description or label for a bank account,\
+    \ used to provide contextual identification. The content is free-text and may\
+    \ include information such as the bank name, account purpose, currency etc\nExamples:\n\
+    ICICI Bank 548751000016\nIndian Bank 7313900564\nIndusind Bank 650014162526\n\
+    Foreign exchange account for FRF\n  - currency_key (string) -- It is a standard\
+    \ field that represents the currency key for the company code. It defines the\
+    \ currency in which amounts are recorded, such as INR, USD, or EUR. This field\
+    \ ensures consistency in financial reporting, pricing, and accounting\n  - bank_account_id\
+    \ (string) -- Stores the number used by a bank to identify and manage a specific\
+    \ bank account. This number is referenced for banking transactions such as payments,\
+    \ collections, and account reconciliation\n  - bank_account_type (string) -- Specifies\
+    \ the type or category of a bank account, such as savings, checking, loan, or\
+    \ other account types.\n  - planning_group (string) -- Groups customers or vendors\
+    \ for cash flow planning and liquidity forecasting purposes. It helps organize\
+    \ expected incoming and outgoing payments so that cash management reports are\
+    \ clearer and more meaningful.\n\nExamples:\nB10 represents PNG Vadoor\nB11 represents\
+    \ PNG FDBD.\nB12 represents PNG Noida\n  - settlement_currency (string) -- specifies\
+    \ the currency used to settle bank transfer transactions. It determines the currency\
+    \ in which amounts are processed and cleared during payment execution.\n\nExamples:\n\
+    INR\nUSD\n  - gl_acct_number (string) -- It is a key field in financial accounting\
+    \ tables. It identifies the General Ledger account used for posting financial\
+    \ transactions. This field is essential for determining how amounts are categorized\
+    \ in the chart of accounts. • Max length 10 char\n  - bank_discount_subaccount\
+    \ (string) -- Identifies the subaccount used to post credit amounts resulting\
+    \ from the discounting of bills of exchange through a bank. It ensures that financial\
+    \ impacts from bill discounting are recorded separately and accurately.\n  - HASH_KEY\
+    \ (string) -- System-generated hash key used for uniquely identifying records\
+    \ and ensuring data integrity.\n  - SYS_EFFECTIVE_START_DATE (date) -- System\
+    \ Effective Start Date, indicating when the record became valid in the system.\n\
+    \  ... +2 more\nDiscovered: 2026-04-30 12:31"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.house_bank
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: house_bank
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/house_bank
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

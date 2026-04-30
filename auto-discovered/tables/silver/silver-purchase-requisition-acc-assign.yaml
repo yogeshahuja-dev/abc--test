@@ -1,0 +1,65 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-purchase-requisition-acc-assign
+  title: silver.purchase_requisition_acc_assign
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.purchase_requisition_acc_assign\n\
+    Layer: silver\nDescription: Represents the allocation details for purchase requisition\
+    \ line items, indicating where the requested item’s value should be recorded –\
+    \ such as Internal order, Cost center, Project id. etc\n\nGrain: One row per client_id,identifier,\
+    \ purchase_req_number, purchase_req_item_number,\naccount_assignment_sr_number\n\
+    Columns (12):\n  - client_id (string) -- It is a three-char alphanumeric identifier\
+    \ that represents a client in the SAP system. A client is the highest organizational\
+    \ unit in SAP and serves as a self-contained unit with its own master data and\
+    \ set of tables.\n  - purchase_req_number (string) -- A Purchase Requisition is\
+    \ an internal request created within a company to initiate the procurement of\
+    \ goods or services\n ⦁ max 10-digit character field.\n  - purchase_req_item_number\
+    \ (bigint) -- It identifies each line item within a purchase requisition. It allows\
+    \ multiple items to be managed under a single requisition document, important\
+    \ for detailed procurement tracking. \n⦁ max length 5 digit\n  - account_assignment_sr_number\
+    \ (string) -- It is the serial number for the purchase requisition account assignment\
+    \ segment. It identifies each account assignment line within a purchase requisition\
+    \ item, allowing for multiple account assignments such as split costing ⦁ Numeric\
+    \ internal line number (typically 01, 02, 03...). \n⦁ Distinguishes multiple account\
+    \ assignments for the same PR item.\n  - internal_order_number (string) -- An\
+    \ Internal Order is used to plan, collect, and  monitor costs for specific activities,\
+    \ projects, or tasks within an organization. It acts as a temporary cost collector\
+    \ that can later be settled to cost centers, assets, or other receivers\n  - cost_center\
+    \ (string) -- It is Cost center code for financial tracking and resource allocation\
+    \ within a controlling area that represents a defined location of cost incurrence.\
+    \ It is used to track where costs are incurred within an organization, such as\
+    \ departments, teams, or projects.\n  - wbs_element (int) -- A WBS Element (Work\
+    \ Breakdown Structure Element) is a specific task, activity, or cost‑collecting\
+    \ area within a project. It represents a clearly defined part of the overall project\
+    \ that needs to be planned, budgeted, executed, and monitored separately.\n  -\
+    \ identifier (string) -- Custom discriminator to differentiate vendors across\
+    \ multiple SAP instances when client code alone is insufficient.\n  - HASH_KEY\
+    \ (string) -- System-generated hash key used for uniquely identifying records\
+    \ and ensuring data integrity.\n  - SYS_EFFECTIVE_START_DATE (date) -- System\
+    \ Effective Start Date, indicating when the record became valid in the system.\n\
+    \  - SYS_EFFECTIVE_END_DATE (date) -- System Effective End Date, indicating when\
+    \ the record ceased to be valid in the system.\n  - IS_ACTIVE (string) -- Flag\
+    \ indicating whether the record is currently active. Y indicates an active record\
+    \ which means that it is the latest record N indicates an in-active record which\
+    \ means that this record is old and has been changed\nDiscovered: 2026-04-30 12:32"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.purchase_requisition_acc_assign
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: purchase_requisition_acc_assign
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/purchase_requisition_acc_assign
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake
+  dependsOn:
+  - component:silver-sap-cleansed-equi-mstr

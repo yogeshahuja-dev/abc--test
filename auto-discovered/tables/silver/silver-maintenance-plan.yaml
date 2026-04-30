@@ -1,0 +1,34 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-maintenance-plan
+  title: silver.maintenance_plan
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.maintenance_plan\n\
+    Layer: silver\nColumns (40):\n  - client_id (string)\n  - maintenance_plan (string)\n\
+    \  - created_on (date)\n  - created_by (string)\n  - maintenance_plan_text (string)\n\
+    \  - equipment_id (string)\n  - functional_location_id (string)\n  - strategy\
+    \ (string)\n  - block_indicator (string)\n  - cycle_modification_factor (double)\n\
+    \  - scheduling_indicator (string)\n  - maintenance_plan_object_id (string)\n\
+    \  - maintenance_plan_category (string)\n  - maintenance_plan_start_date (date)\n\
+    \  - maintenance_item (string)\n  - maintenance_item_text (string)\n  - task_list_type\
+    \ (string)\n  - task_list_group_key (string)\n  - group_counter (string)\n  -\
+    \ status (string)\n  ... +20 more\nDiscovered: 2026-04-30 12:31"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.maintenance_plan
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: maintenance_plan
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/maintenance_plan
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

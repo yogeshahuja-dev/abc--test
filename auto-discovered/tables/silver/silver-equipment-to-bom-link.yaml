@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-equipment-to-bom-link
+  title: silver.equipment_to_bom_link
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.equipment_to_bom_link\n\
+    Layer: silver\nColumns (13):\n  - client_id (string)\n  - equipment_id (string)\n\
+    \  - plant_code (string)\n  - bom_usage (string)\n  - bom_id (string)\n  - alternative_bom\
+    \ (string)\n  - created_on (date)\n  - created_by (string)\n  - identifier (string)\n\
+    \  - hash_key (string) -- System-generated hash key used for uniquely identifying\
+    \ records and ensuring data integrity.\n  - is_active (string) -- Flag indicating\
+    \ whether the record is currently active. Y indicates an active record which means\
+    \ that it is the latest record N indicates an in-active record which means that\
+    \ this record is old and has been changed.\n  - sys_effective_start_date (date)\n\
+    \  - sys_effective_end_date (date)\nDiscovered: 2026-04-30 12:30"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.equipment_to_bom_link
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: equipment_to_bom_link
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/equipment_to_bom_link
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake
+  dependsOn:
+  - component:silver-sap-cleansed-equi-mstr

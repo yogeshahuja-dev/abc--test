@@ -1,0 +1,48 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-exchange-rates
+  title: silver.exchange_rates
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.exchange_rates\n\
+    Layer: silver\nColumns (13):\n  - client_id (string) -- It is a three-char alphanumeric\
+    \ identifier that represents a client in the SAP system. A client is the highest\
+    \ organizational unit in SAP and serves as a self-contained unit with its own\
+    \ master data and set of tables.\n  - exchange_rate_type (string) -- This field\
+    \ represents the type of exchange rate used for currency conversion, such as spot\
+    \ rate, average rate, or bank rate. It determines which exchange rate is selected\
+    \ when multiple rates exist for the same currency pair.\n\nExamples:\nI indicates\
+    \ Intrastat exchange rate type\nM indicates Standard translation at average rate\n\
+    P indicates Standard translation for cost planning\n  - from_currency (string)\
+    \ -- This field represents the source currency that is being converted. It defines\
+    \ the currency from which the transaction amount originates.\n  - to_currency\
+    \ (string) -- This field represents the target currency into which the amount\
+    \ is converted. It specifies the destination currency for the exchange rate calculation.\n\
+    \  - exchange_rate (double)\n  - from_currency_factor (double)\n  - to_currency_factor\
+    \ (double)\n  - identifier (string) -- Custom discriminator to differentiate vendors\
+    \ across multiple SAP instances when client code alone is insufficient.\n  - hash_key\
+    \ (string) -- System-generated hash key used for uniquely identifying records\
+    \ and ensuring data integrity.\n  - is_active (string) -- Flag indicating whether\
+    \ the record is currently active. Y indicates an active record which means that\
+    \ it is the latest record N indicates an in-active record which means that this\
+    \ record is old and has been changed.\n  - sys_effective_start_date (date)\n \
+    \ - sys_effective_end_date (date)\n  - validity_start_date (date)\nDiscovered:\
+    \ 2026-04-30 12:30"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.exchange_rates
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: exchange_rates
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/exchange_rates
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

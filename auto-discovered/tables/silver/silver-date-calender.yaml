@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-date-calender
+  title: silver.date_calender
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.date_calender\n\
+    Layer: silver\nDescription: The Date Calendar table is a time dimension that provides\
+    \ a continuous daily date range from 1st January 2018 to 31st December 2030. It\
+    \ enriches each calendar date with standardized temporal attributes, including\
+    \ date keys, month, quarter, and year details, as well as fiscal calendar attributes\
+    \ aligned to an April–March fiscal year.\nColumns (10):\n  - Date (date) -- Actual\
+    \ calendar date in YYYY-MM-DD format.\n  - DateKey (int) -- Surrogate key in YYYYMMDD\
+    \ format for each calendar date.\n  - MonthNumber (int) -- Numeric value of the\
+    \ month (1 for January, 12 for December)\n  - MonthName (string) -- Full name\
+    \ of the month (e.g., October)\n  - QuarterNumber (int) -- Numeric value of the\
+    \ quarter (1 to 4)\n  - QuarterName (string) -- Descriptive name of the quarter\
+    \ (e.g., Q1, Q2, Q3, Q4)\n  - Year (int) -- Calendar year in YYYY format.\n  -\
+    \ FiscalYear (int) -- Fiscal year in YYYY format (e.g., 2025). Fiscal Year starts\
+    \ from April of current year and ends in March of next year\n  - FiscalYearFull\
+    \ (string) -- Full fiscal year label (e.g., FY 2025–2026). Fiscal Year starts\
+    \ from April of current year and ends in March of next year\n  - FiscalYearYY\
+    \ (string) -- Two-digit representation of fiscal year (e.g., 25 for 2025). Fiscal\
+    \ Year starts from April of current year and ends in March of next year\nDiscovered:\
+    \ 2026-04-30 12:30"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.date_calender
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: date_calender
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/date_calender
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

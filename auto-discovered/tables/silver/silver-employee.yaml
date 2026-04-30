@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-employee
+  title: silver.employee
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.employee\n\
+    Layer: silver\nDescription: Employee is a master table that maintains the official\
+    \ record of employees within the organization. It provides essential details for\
+    \ workforce management, including organizational alignment, cost center association,\
+    \ and employment status. This table serves as a single source of truth for HR\
+    \ and financial processes, enabling accurate reporting, resource planning, and\
+    \ compliance with organizational policies.\nColumns (11):\n  - employee_key (bigint)\
+    \ -- Primary key for the employee\n  - employee_id (string) -- Unique employee\
+    \ identifier\n  - full_name (string) -- Full name of the employee\n  - grade (string)\
+    \ -- Employee grade or level\n  - org_unit_key (bigint) -- Foreign key to organizational\
+    \ unit\n  - cost_center_key (bigint) -- Foreign key to cost center\n  - join_date\
+    \ (date) -- Date the employee joined\n  - exit_date (date) -- Date the employee\
+    \ exited (if applicable)\n  - is_current (boolean) -- Indicates if the employee\
+    \ is currently active\n  - load_timestamp (timestamp) -- Timestamp when the record\
+    \ was loaded\n  - update_timestamp (timestamp) -- Timestamp when the record was\
+    \ last updated\nDiscovered: 2026-04-30 12:30"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.employee
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: employee
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/employee
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

@@ -1,0 +1,61 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-nfa-main-er
+  title: silver.nfa_main_er
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.nfa_main_er\n\
+    Layer: silver\nColumns (60):\n  - stage_approval_duration (string) -- Represents\
+    \ the duration taken for the approval process at the current stage of the project.\n\
+    \  - id (string) -- A unique identifier for each record in the dataset, allowing\
+    \ for easy reference and tracking.\n  - project_id (string) -- Identifies the\
+    \ specific project associated with the record, facilitating project management\
+    \ and reporting.\n  - project_owner (string) -- Indicates the individual responsible\
+    \ for overseeing the project, providing accountability and contact information.\n\
+    \  - nfa_subtemplate (string) -- Refers to the specific subtemplate used in the\
+    \ Non-Financial Approval process, which may vary by project.\n  - email (string)\
+    \ -- Contains the email address of the project owner or relevant stakeholders\
+    \ for communication purposes.\n  - version (string) -- Denotes the version of\
+    \ the project or document, helping to track changes and updates over time.\n \
+    \ - employee_id (string) -- Represents the unique identifier for the employee\
+    \ associated with the project, useful for HR and project tracking.\n  - name (string)\
+    \ -- The name of the project or individual involved, providing a clear reference\
+    \ for identification.\n  - transfer_timestamp (string) -- Records the timestamp\
+    \ of when the project or approval was transferred, aiding in timeline management.\n\
+    \  - next_approver_email_id (string) -- Contains the email address of the next\
+    \ approver in the workflow, facilitating smooth transitions in the approval process.\n\
+    \  - bu_name (string) -- Indicates the name of the business unit associated with\
+    \ the project, which can be important for organizational structure.\n  - role\
+    \ (string) -- Describes the role of the individual in the project, clarifying\
+    \ responsibilities and expectations.\n  - created_by_1 (string) -- Identifies\
+    \ the individual who created the record, providing accountability and a point\
+    \ of contact for inquiries.\n  - designation (string) -- Specifies the job title\
+    \ or position of the individual involved, which can be relevant for understanding\
+    \ their authority.\n  - ariba_project_id (string) -- A unique identifier for the\
+    \ project in the ARIBA system, useful for integration and cross-referencing.\n\
+    \  - ho_site (string) -- Refers to the head office site associated with the project,\
+    \ which may impact project logistics and management.\n  - site_name (string) --\
+    \ The name of the site where the project is being executed, providing geographical\
+    \ context.\n  - final_approval_duration (string) -- Represents the total duration\
+    \ taken for the final approval of the project, useful for performance analysis.\n\
+    \  - project_title (string) -- The title of the project, providing a clear and\
+    \ concise reference for identification.\n  ... +40 more\nDiscovered: 2026-04-30\
+    \ 12:31"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.nfa_main_er
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: nfa_main_er
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/nfa_main_er
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

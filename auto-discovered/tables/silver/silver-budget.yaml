@@ -1,0 +1,33 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-budget
+  title: silver.budget
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.budget\n\
+    Layer: silver\nColumns (25):\n  - client_id (string)\n  - ledger (string)\n  -\
+    \ record_type (string)\n  - version (string)\n  - fiscal_year (bigint) -- Fiscal\
+    \ Year\n  - object_number (string)\n  - trans_attr_obj_no (string)\n  - partner_object_no\
+    \ (string)\n  - transaction_currency (string)\n  - debit_credit_ind (string)\n\
+    \  - period (bigint) -- Period\n  - fm_area (string)\n  - funds_center (string)\n\
+    \  - commitment_item (string)\n  - commitment_item_description (string)\n  - workflow_status\
+    \ (string)\n  - amount_type (string)\n  - budget (double)\n  - HASH_KEY (string)\n\
+    \  - SYS_EFFECTIVE_START_DATE (date)\n  ... +5 more\nDiscovered: 2026-04-30 12:30"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.budget
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: budget
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/budget
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

@@ -1,0 +1,33 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-water-usage
+  title: silver.water_usage
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.water_usage\n\
+    Layer: silver\nDescription: Water intake and discharge metering (PM meters + environmental\
+    \ models)\nColumns (8):\n  - water_id (bigint) -- Primary key for the water usage\
+    \ record\n  - plant_key (bigint) -- Foreign key to the plant\n  - meter_point_key\
+    \ (bigint) -- Foreign key to the metering point\n  - period (string) -- Reporting\
+    \ period (e.g., YYYYMM)\n  - volume (decimal(18,2)) -- Volume of water used or\
+    \ discharged\n  - uom (string) -- Unit of measure (e.g., KL, M3)\n  - load_timestamp\
+    \ (timestamp) -- Record creation timestamp.\n  - update_timestamp (timestamp)\
+    \ -- Record last updated timestamp.\nDiscovered: 2026-04-30 12:33"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.water_usage
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: water_usage
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/water_usage
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

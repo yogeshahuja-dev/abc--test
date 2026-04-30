@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-sap-cleansed-trdt-flow-trans
+  title: silver_sap_cleansed.trdt_flow_trans
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver_sap_cleansed.trdt_flow_trans\n\
+    Layer: silver-cleansed\nColumns (109):\n  - DI_SEQUENCE_NUMBER (bigint) -- Data\
+    \ Services-generated integer for sequencing\n  - DI_OPERATION_TYPE (string) --\
+    \ Data Services-generated row operation type\n  - MANDT (string) -- Client\n \
+    \ - BUSTRANS_OS_GUID (string) -- DB object identity\n  - FLOW_NUMBER (bigint)\
+    \ -- Flow number\n  - DIS_FLOWTYPE (string) -- Update Type\n  - ALLOC_NMBR (string)\
+    \ -- Assignment\n  - COMPANY_CODE (string) -- Company Code\n  - VALUATION_AREA\
+    \ (string) -- Valuation Area\n  - PRODUCT_TYPE (string) -- Product Type\n  - TRANSACTION_TYPE\
+    \ (string) -- Transaction Type\n  - COM_VAL_CLASS (bigint) -- Gen. Valn Class\n\
+    \  - VALUATION_CLASS (bigint) -- Valuation class\n  - SECURITY_ID (string) --\
+    \ ID Number\n  - SECURITY_ACCOUNT (string) -- Securities Account\n  - ACCOUNT_GROUP\
+    \ (string) -- Sec. Acct Group\n  - PORTFOLIO (string) -- Portfolio\n  - TRADER\
+    \ (string) -- Trader\n  - LOANS_CONTRACT (string) -- Contract Number\n  - DEAL_NUMBER\
+    \ (string) -- Transaction\n  ... +89 more\nDiscovered: 2026-04-30 12:28"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver-cleansed
+  - sap
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver_sap_cleansed.trdt_flow_trans
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver_sap_cleansed
+    databricks.com/table: trdt_flow_trans
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver_sap_cleansed/trdt_flow_trans
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

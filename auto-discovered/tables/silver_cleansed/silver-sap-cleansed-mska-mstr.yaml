@@ -1,0 +1,33 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-sap-cleansed-mska-mstr
+  title: silver_sap_cleansed.mska_mstr
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver_sap_cleansed.mska_mstr\n\
+    Layer: silver-cleansed\nColumns (63):\n  - MANDT (string)\n  - MATNR (string)\n\
+    \  - WERKS (string)\n  - LGORT (string)\n  - CHARG (string)\n  - SOBKZ (string)\n\
+    \  - VBELN (string)\n  - POSNR (string)\n  - LFGJA (string)\n  - LFMON (string)\n\
+    \  - KASPR (string)\n  - KALAB (string)\n  - KAINS (string)\n  - KASPE (string)\n\
+    \  - KAVLA (string)\n  - KAVIN (string)\n  - KAVSP (string)\n  - KAILL (string)\n\
+    \  - KAILQ (string)\n  - KAILS (string)\n  ... +43 more\nDiscovered: 2026-04-30\
+    \ 12:26"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver-cleansed
+  - sap
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver_sap_cleansed.mska_mstr
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver_sap_cleansed
+    databricks.com/table: mska_mstr
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver_sap_cleansed/mska_mstr
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

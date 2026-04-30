@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-forex-exchange-rate
+  title: silver.forex_exchange_rate
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.forex_exchange_rate\n\
+    Layer: silver\nDescription: Forex_exchange_rate is a reference table that provides\
+    \ the applicable exchange rates between two currencies for a specific date. It\
+    \ supports accurate financial reporting, multi-currency transactions, and global\
+    \ business operations by ensuring consistency in currency conversions across systems\
+    \ and processes. This table is essential for maintaining transparency and compliance\
+    \ in financial statements and performance analysis.\nColumns (3):\n  - from_currency_key\
+    \ (string) -- Key of the base currency in the currency dimension.\n  - to_currency_key\
+    \ (string) -- Key of the quote currency in the currency dimension.\n  - as_on_date_key\
+    \ (int) -- Date key representing the effective date of the exchange rate.\nDiscovered:\
+    \ 2026-04-30 12:30"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.forex_exchange_rate
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: forex_exchange_rate
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/forex_exchange_rate
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

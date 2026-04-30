@@ -1,0 +1,81 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-scheduling-agreements
+  title: silver.scheduling_agreements
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.scheduling_agreements\n\
+    Layer: silver\nDescription: Scheduling agreements (silver). Source: SAP. Includes\
+    \ full business definitions in column comments and governance checks based on\
+    \ provided rules.\nColumns (46):\n  - client_id (string) -- It is a three-char\
+    \ alphanumeric identifier that represents a client in the SAP system. A client\
+    \ is the highest organizational unit in SAP and serves as a self-contained unit\
+    \ with its own master data and set of tables.\n  - scheduling_agreement_number\
+    \ (string) -- Represents the number assigned to a scheduling agreement, used to\
+    \ identify and track that long‑term agreement and its associated delivery schedules.\n\
+    \  - scheduling_agreement_item_number (bigint) -- Represents the line‑item number\
+    \ within a scheduling agreement, identifying each material or service covered\
+    \ under the agreement. Numeric field up to 5 characters.\n  - schedule_number\
+    \ (string) -- This field schedule line is the delivery schedule line counter.\
+    \ It identifies each schedule line within a purchasing document item, supporting\
+    \ precise delivery planning.\n  - vendor_number (string) -- A Vendor number is\
+    \ an identifier assigned to each vendor in the system. It represents the supplier\
+    \ from whom a company purchases goods or services. This code is used throughout\
+    \ the procurement and finance processes. Maximum 10 characters.\n  - creation_date\
+    \ (date) -- This field stores the date when the scheduling agreement is created.\
+    \ Stored in date format (YYYYMMDD). Must be a valid calendar date.\n  - document_type\
+    \ (string) -- Document type indicating nature of scheduling agreement. Examples:\
+    \ LP indicates Scheduling Agreement; LU indicates St. Trnsp. Sch. Agmt; N1LC indicates\
+    \ ACC Central SA; N1LL indicates ACC Local SA.\n  - document_category (string)\
+    \ -- Categorizing the nature of the purchase document, such as standard PO, returns,\
+    \ or consignment to ensure that each document is treated according to its business\
+    \ purpose. Categories: A = Request for Quotation; F = Purchase Order; K = Contract;\
+    \ L = Scheduling Agreement.\n  - company_code (string) -- The company code represents\
+    \ the smallest organizational unit for which a complete, self-contained set of\
+    \ accounts can be drawn up, crucial for legal and financial reporting. Max 4 characters.\
+    \ Common values: 1000, 2000.\n  - buyer_name_id (string) -- User who created the\
+    \ scheduling agreement. Useful for accountability and workflow tracking.\n  -\
+    \ release_indicator (string) -- Release indicator indicating approval status of\
+    \ the scheduling agreement. Common values: 1 - Not released; A, R - Released/approved.\n\
+    \  - validity_start_date (date) -- Validity start date of the scheduling agreement.\
+    \ Marks commencement of the validity period in the scheduling agreement.\n  -\
+    \ validity_end_date (date) -- Validity end date of the scheduling agreement. Indicates\
+    \ expiration of the validity period in the scheduling agreement.\n  - currency_key\
+    \ (string) -- Currency key, crucial for multi-currency operations and financial\
+    \ reporting. Always 3-character ISO codes (e.g., INR, USD, EUR). Alphabetic only.\n\
+    \  - exchange_rate (double) -- Exchange rate applicable to the transaction, facilitating\
+    \ accurate conversion and financial analysis.\n  - payment_term_desc (string)\
+    \ -- The Payment Term Description provides the textual explanation of the payment\
+    \ terms assigned to a scheduling agreement.\n  - cash_discount_days (double) --\
+    \ Additional payment term days to baseline date. Used for flexible payment arrangements.\n\
+    \  - payment_term (string) -- Payment Terms specify the agreed rules for when\
+    \ an invoice becomes due for payment and whether any early‑payment discounts apply.\
+    \ Examples: A027 - Net due in 75 days from invoice date; Z005 - 2% within 7 Days/1%\
+    \ within 30 Days.\n  - release_status (string) -- This field indicates the Release\
+    \ Status of the scheduling agreement. When release status = X, it means the release\
+    \ strategy has been fully executed—i.e., the document (scheduling agreement) has\
+    \ been completely released. When release status is blank, it means the document\
+    \ is not yet released or is still in the process of being approved.\n  - purchase_group_code\
+    \ (string) -- It is a key organizational unit that represents the buyer or group\
+    \ of buyers responsible for specific purchasing activities. It is used to assign\
+    \ responsibility for procurement tasks and to route purchasing documents accordingly.\
+    \ 3-character identifier. Examples: 106 - Spare & Consm-HO; 110 - Custom-Logstc-HO.\n\
+    \  ... +26 more\nDiscovered: 2026-04-30 12:32"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.scheduling_agreements
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: scheduling_agreements
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/scheduling_agreements
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

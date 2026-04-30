@@ -1,0 +1,67 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-purchasing-group
+  title: silver.purchasing_group
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.purchasing_group\n\
+    Layer: silver\nDescription: The table contains information related to purchasing\
+    \ groups within the SAP system. It includes details such as client identifiers,\
+    \ purchase group codes, contact information (telephone, email, fax), and logical\
+    \ destinations for print jobs. This data can be used for managing procurement\
+    \ activities, analyzing purchasing responsibilities, and facilitating communication\
+    \ within the organization. Additionally, it supports tracking changes in purchasing\
+    \ group records over time.\nColumns (15):\n  - client_id (string) -- It is a three-char\
+    \ alphanumeric identifier that represents a client in the SAP system. A client\
+    \ is the highest organizational unit in SAP and serves as a self-contained unit\
+    \ with its own master data and set of tables.\n  - purchase_group_code (string)\
+    \ -- It is a key organizational unit that represents the buyer or group of buyers\
+    \ responsible for specific purchasing activities. It is used to assign responsibility\
+    \ for procurement tasks and to route purchasing documents accordingly.\n⦁ 3 char\
+    \ identifier. Examples:  106 - Spare & Consm-HO 110 - Custom-Logstc-HO\n  - purchase_group_desc\
+    \ (string) -- Descriptive text field associated with the Purchasing Group. It\
+    \ provides a human-readable name or label for the purchasing group, which typically\
+    \ represents a buyer or team responsible for procurement activities.\n ⦁ Free-text\
+    \ description  with max 18 characer.\n  - purchase_group_tel_number (string) --\
+    \ This field  stores contact and communication details of the purchasing groups\n\
+    \  - purchase_group_email (string) -- This field contains the email address in\
+    \ standard internet format  Example: .com, .in, etc\n  - tel_extension (string)\
+    \ -- Specifies the extension number linked to the main telephone number.\n  -\
+    \ tel_number (string) -- Stores the primary contact phone number for the  purchasing\
+    \ organization. This number is used for business communication and coordination.\n\
+    \  - fax_number (string) -- Contains the fax number associated with the  purchasing\
+    \ group.\n  - server (string) -- This field populates Server basis IDENTIFIER\
+    \ field. If IDENTIFIER is AEL_LOCAL, AELG, or MP1, SERVER is set to 300L, 300G,\
+    \ or MP1 respectively. For any other IDENTIFIER, SERVER takes the value from client_id\n\
+    \  - identifier (string) -- Custom discriminator to differentiate vendors across\
+    \ multiple SAP instances when client code alone is insufficient.\n  - HASH_KEY\
+    \ (string) -- System-generated hash key used for uniquely identifying records\
+    \ and ensuring data integrity.\n  - SYS_EFFECTIVE_START_DATE (date) -- System\
+    \ Effective Start Date, indicating when the record became valid in the system.\n\
+    \  - SYS_EFFECTIVE_END_DATE (date) -- System Effective End Date, indicating when\
+    \ the record ceased to be valid in the system.\n  - IS_ACTIVE (string) -- Flag\
+    \ indicating whether the record is currently active. Y indicates an active record\
+    \ which means that it is the latest record N indicates an in-active record which\
+    \ means that this record is old and has been changed\n  - purchase_group_manager\
+    \ (string) -- Descriptive text field associated with the Purchasing Group. It\
+    \ provides a human-readable name or label for the purchasing group, which typically\
+    \ represents a buyer or team responsible for procurement activities. Free-text\
+    \ description  with max 18 character.\nDiscovered: 2026-04-30 12:32"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.purchasing_group
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: purchasing_group
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/purchasing_group
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

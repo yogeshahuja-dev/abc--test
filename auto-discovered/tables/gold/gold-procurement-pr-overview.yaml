@@ -1,0 +1,81 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: gold-procurement-pr-overview
+  title: gold_procurement.pr_overview
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.gold_procurement.pr_overview\n\
+    Layer: gold\nDescription: The pr_overview dataset provides granular details of\
+    \ procurement transactions, including: Requisition & Order Info: Unique IDs, item\
+    \ numbers, creation/release dates, document types. Buyer & Vendor Details: Names,\
+    \ codes, MSME status, vendor classification. Material & Item Data: Material numbers,\
+    \ descriptions, groups, units, quantities, account assignments. Financials: Unit\
+    \ prices, net order values, normalized INR values, exchange rates, currency keys.\
+    \ Organizational Attributes: Client, plant, company, business unit, location codes.\
+    \ Status & Tracking: Release/deletion indicators, delivery dates, ARC status,\
+    \ emergency PO flags. Additional Fields: Industry sector, trading partner codes,\
+    \ OPEX/CAPEX classification, timeframe inclusion/exclusion. Grain: One row per\
+    \ requisition item per instance.\nColumns (76):\n  - IDENTIFIER (string) -- Custom\
+    \ discriminator to differentiate vendors across multiple SAP instances when client\
+    \ code alone is insufficient.\n  - PR_PURCHASE_REQ_NUMBER (string) -- Unique purchase\
+    \ requisition number. Tracks and identifies requisition requests in procurement\
+    \ lifecycle.\n  - PURCHASE_REQ_ITEM_NUMBER (string) -- It uniquely identifies\
+    \ each line item within a purchase requisition. It allows multiple items to be\
+    \ managed under a single requisition document, important for detailed procurement\
+    \ tracking.\n  - BUYER_NAME (string) -- User who created the purchase requisition.\
+    \ Useful for accountability and workflow tracking.\n  - CLIENT_ID (string) --\
+    \ It is a three-digit identifier that represents a client in the SAP system. A\
+    \ client is the highest organizational unit in SAP and serves as a self-contained\
+    \ unit with its own master data and set of tables.\n  - PURCHASE_CATEGORY (string)\
+    \ -- Categorizing the nature of the purchase document, such as standard PO, returns,\
+    \ or consignment to ensures that each document is treated according to its business\
+    \ purpose. The different categories are:\na. Request for Quatations\nb. Purchase\
+    \ Orders\nc. Purchase Requisitions\nd. Contracts\ne. Scheduling Agreements\n \
+    \ - PR_PURCHASE_ORDER_NUMBER (string) -- Unique purchase order number assigned\
+    \ by SAP. Serves as the primary key for procurement transactions and links header\
+    \ and item details for procurement transactions.\n  - PURCHASE_ORDER_ITEM_NUMBER\
+    \ (bigint) -- Purchase order item number. Identifies individual line items within\
+    \ a purchase order for granular tracking of materials, quantities, prices, and\
+    \ delivery schedules.\n  - DELETION_INDICATOR (string) -- Deletion indicator marking\
+    \ PR items flagged for removal. This doesn't physically remove the item from the\
+    \ database but flags it.\n  - TRACKING_NUMBER (string) -- Tracking number used\
+    \ for shipment tracking or vendor identification.\n  - RELEASE_INDICATOR (string)\
+    \ -- Release code indicating the status of the purchase requisition or order approval\
+    \ process.\n  - PLANT_IDENTIFIER (string) -- It is a 4-character alphanumeric\
+    \ code. Plant code where material/service will be used. Critical for logistics\
+    \ and planning.\n  - STORAGE_TYPE (string) -- It is used to identify missing or\
+    \ incomplete purchase requisition\n  - MATERIAL_NUMBER (string) -- Material Number\
+    \ is a unique identifier assigned to each material item in the inventory, crucial\
+    \ for tracking and managing inventory levels.\n  - MATERIAL_GROUP (string) --\
+    \ It is a classification key used to group materials with similar characteristics\
+    \ or usage. This field helps in organizing and managing materials efficiently\
+    \ within procurement, inventory management, and reporting processes.\n  - ACCOUNT_ASSIGNMENT_CATEGORY\
+    \ (string) -- It is a key field used in purchasing documents to determine how\
+    \ the costs of a procurement are assigned to accounts such as cost centers, internal\
+    \ orders, assets, etc.\n  - VENDOR_NUMBER (string) -- Vendor code, a unique identifier\
+    \ assigned to each vendor. This field is essential for linking vendor data across\
+    \ various SAP modules, such as procurement and finance\n  - ORDER_DELIVERY_DATE\
+    \ (date) -- The date on which a purchase requisition was requested. It is important\
+    \ for planning and scheduling procurement activities\n  - CHANGED_ON_DATE (date)\
+    \ -- Date when the purchase requisition was created in the system.\n  - MATERIAL_UNITS\
+    \ (string) -- Base unit of measure defines how quantities of a material are measured\
+    \ and managed in the system.\n  ... +56 more\nDiscovered: 2026-04-30 12:33"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - gold
+  - procurement
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.gold_procurement.pr_overview
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: gold_procurement
+    databricks.com/table: pr_overview
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/gold_procurement/pr_overview
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

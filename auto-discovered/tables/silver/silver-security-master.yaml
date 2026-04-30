@@ -1,0 +1,67 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-security-master
+  title: silver.security_master
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.security_master\n\
+    Layer: silver\nColumns (20):\n  - client_id (string) -- It is a three-char alphanumeric\
+    \ identifier that represents a client in the SAP system. A client is the highest\
+    \ organizational unit in SAP and serves as a self-contained unit with its own\
+    \ master data and set of tables.\n  - security_id (string) -- Unique number used\
+    \ to identify the identify a security or listed derivative\n  - identifier (string)\
+    \ -- Custom discriminator to differentiate vendors across multiple SAP instances\
+    \ when client code alone is insufficient.\n  - product_category (bigint) -- Product\
+    \ category is internal key that controls processing of object defined by product\
+    \ type (010-stock, 020 - Investment)\n  - security_status_indicator (bigint) --\
+    \ Status of security defining if the security is active, inactive (01- active,\
+    \ 00- inactive, 02- obsolete).\n  - product_type (string) -- Product type of the\
+    \ transaction helps distinguish between different category of transactions (01A-Stocks,\
+    \ 02A - Mutual Funds).\n  - industry_key (string) -- Industry key for classification\
+    \ of the type for industry Ex. (001-finance, 002- trade, manufacturing etc).\n\
+    \  - security_type_ind (bigint) -- Security type indicator as per the form of\
+    \ transfer(2- quoted, 3-unquoted etc.).\n  - short_text (string) -- Contains the\
+    \ General Name (short text) of the security .\n  - long_text (string) -- Stores\
+    \ the Long Text description of the security.\n  - issue_currency (string) -- It\
+    \ represents the currency in which the security is issued. It helps identify the\
+    \ monetary unit used for recording the transaction.\n  - issue_price (string)\
+    \ -- It represents the base price or standard price used for issuing the item.\
+    \ It helps determine the amount that will be applied when the item is processed.\n\
+    \  - deletion_indicator (string) -- Deletion indicator marking records whether\
+    \ they are deleted from achiving or reorganizing program, and it helps ensure\
+    \ the item is not used for any further processing. X indicates it is deleted\n\
+    \  - created_by (string) -- User ID of the person who created the record. It is\
+    \ important for accountability and auditing ⦁ max 12 chars\n  - created_on (date)\
+    \ -- It represents the date on which the record was first entered.\n  - rating\
+    \ (string) -- It represents the prority/safety or risk level assigned to the item.\
+    \ It helps show how significant, or high‑value the item is within the process.\
+    \ A1 indicates lowest credit risk in short term, AA indicates High degree of safety\n\
+    \  - sys_effective_start_date (date) -- System Effective Start Date, indicating\
+    \ when the record became valid in the system.\n  - sys_effective_end_date (date)\
+    \ -- System Effective End Date, indicating when the record ceased to be valid\
+    \ in the system.\n  - is_active (string) -- Flag indicating whether the record\
+    \ is currently active. Y indicates an active record which means that it is the\
+    \ latest record N indicates an in-active record which means that this record is\
+    \ old and has been changed\n  - hash_key (string) -- System-generated hash key\
+    \ used for uniquely identifying records and ensuring data integrity.\nDiscovered:\
+    \ 2026-04-30 12:32"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.security_master
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: security_master
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/security_master
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake
+  dependsOn:
+  - component:silver-sap-cleansed-mast-mstr

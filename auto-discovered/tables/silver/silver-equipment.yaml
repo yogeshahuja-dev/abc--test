@@ -1,0 +1,69 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-equipment
+  title: silver.equipment
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.equipment\n\
+    Layer: silver\nColumns (19):\n  - client_id (string) -- It is a three-char alphanumeric\
+    \ identifier that represents a client in the SAP system. A client is the highest\
+    \ organizational unit in SAP and serves as a self-contained unit with its own\
+    \ master data and set of tables.\n  - equipment_id (string) -- Equipment represents\
+    \ a physical asset such as a machine, tool, or device that is maintained as an\
+    \ individual item. It allows organizations to track condition, maintenance history,\
+    \ and costs for each asset to ensure reliable and efficient operations.\n  - warranty_end_date\
+    \ (date) -- Warranty end date for equipment is the date until which the equipment\
+    \ is covered by the manufacturer’s or supplier’s warranty.\n  - warranty_start_date\
+    \ (date) -- Warranty start date is the date from which the manufacturer or supplier\
+    \ officially begins covering the equipment under warranty. It marks the beginning\
+    \ of the period during which repairs or replacements are provided at no cost according\
+    \ to the warranty terms.\n  - plant_code (string) -- A Plant Code represents a\
+    \ specific physical or organizational location within a company where materials\
+    \ are stored, produced, or managed. Example: 2001 - APSEZ-MUNDRA-SEZ-OPS-W/O LOP,\
+    \ 2401 - AHPL-HAZIRA-PROJECTS\n  - measuring_point_id (string) -- Measuring point\
+    \ is a defined place on or related to an asset where a specific condition or value—such\
+    \ as temperature, pressure, or speed—is captured. It allows maintenance teams\
+    \ to record and monitor these values over time so they can understand the asset’s\
+    \ status and act when readings show unusual behavior.\n  - created_on (date) --\
+    \ The date when the equipment record was first created in the system.\n  - equipment_category\
+    \ (string) -- A label that identifies what type of asset it is, such as a machine,\
+    \ tool. Examples: 1 indicates Mundra Solar PV Limited, A indicates Connection,\
+    \ B indicates Linear Asset, C indicates IT EQUIPMENTS.\n  - inventory_no (string)\
+    \ -- An identifier assigned to the asset for tracking it within the organization’s\
+    \ asset register.\n  - manufacturer (string) -- The name of the company that produced\
+    \ or supplied the equipment; this field is used mainly for information and reference.\
+    \ Examples: Toshiba, Siemens.\n  - serial_number (string) -- An identifier physically\
+    \ assigned by the manufacturer to identify the specific unit.\n  - equipment_object_no\
+    \ (string) -- This is the technical identifier assigned to equipment in SAP.\n\
+    \  - equipment_desc (string) -- A short, clear text that describes what the equipment\
+    \ is or what it is used for.\n  - identifier (string) -- Custom discriminator\
+    \ to differentiate vendors across multiple SAP instances when client code alone\
+    \ is insufficient.\n  - hash_key (string) -- System-generated hash key used for\
+    \ uniquely identifying records and ensuring data integrity.\n  - is_active (string)\
+    \ -- Flag indicating whether the record is currently active. Y indicates an active\
+    \ record which means that it is the latest record N indicates an in-active record\
+    \ which means that this record is old and has been changed.\n  - sys_effective_start_date\
+    \ (date)\n  - sys_effective_end_date (date)\n  - is_bom_linked (boolean) -- It\
+    \ indicates whether a bill of materials exists for the equipment. It shows if\
+    \ the equipment has an associated BOM that can be used for planning or maintenance\
+    \ activities.\nDiscovered: 2026-04-30 12:30"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.equipment
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: equipment
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/equipment
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake
+  dependsOn:
+  - component:silver-sap-cleansed-equi-mstr

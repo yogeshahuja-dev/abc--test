@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-control-test-result
+  title: silver.control_test_result
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.control_test_result\n\
+    Layer: silver\nDescription: Control_Test_Result is a table that captures the outcomes\
+    \ of control testing activities conducted across business processes. It provides\
+    \ a structured record of each test performed within a defined period, including\
+    \ the scope of review and any identified exceptions. This table supports risk\
+    \ management and compliance by enabling transparent reporting of control effectiveness,\
+    \ helping stakeholders monitor adherence to governance standards and take corrective\
+    \ actions where necessary.\nColumns (8):\n  - test_id (bigint) -- Primary key\
+    \ for the control test result\n  - control_id (bigint) -- Foreign key to the tested\
+    \ control\n  - period (string) -- Testing period (e.g., YYYYMM)\n  - population\
+    \ (int) -- Total population size for testing\n  - sample_size (int) -- Sample\
+    \ size used for testing\n  - exceptions_count (int) -- Number of exceptions found\n\
+    \  - load_timestamp (timestamp) -- Record creation timestamp.\n  - update_timestamp\
+    \ (timestamp) -- Record last updated timestamp.\nDiscovered: 2026-04-30 12:30"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.control_test_result
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: control_test_result
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/control_test_result
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

@@ -1,0 +1,34 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-geography
+  title: silver.geography
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.geography\n\
+    Layer: silver\nDescription: Geography is a reference table that defines the geographical\
+    \ structure used across the organization. It provides standardized information\
+    \ on countries, regions, and ISO codes, enabling consistent reporting, compliance,\
+    \ and analysis for global operations. This table supports accurate mapping of\
+    \ business data to geographic hierarchies, ensuring transparency and alignment\
+    \ in planning and performance tracking.\nColumns (4):\n  - geo_key (string) --\
+    \ Unique geography key.\n  - country (string) -- Country name.\n  - region (string)\
+    \ -- Region or zone within the geography hierarchy.\n  - iso_code (string) --\
+    \ ISO country/region code (e.g., ISO 3166).\nDiscovered: 2026-04-30 12:31"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.geography
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: geography
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/geography
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

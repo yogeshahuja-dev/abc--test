@@ -1,0 +1,83 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-bom-line-item
+  title: silver.bom_line_item
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.bom_line_item\n\
+    Layer: silver\nColumns (22):\n  - client_id (string) -- It is a three-char alphanumeric\
+    \ identifier that represents a client in the SAP system. A client is the highest\
+    \ organizational unit in SAP and serves as a self-contained unit with its own\
+    \ master data and set of tables.\n  - bom_category (string) -- This key defines\
+    \ a Bill of Materials (BOM) based on the type of object it is linked to, such\
+    \ as a material, equipment, functional location, or document. Common Values: D\
+    \ indicates Document Structure, E indicates Equipment BOM, K indicates Order BOM,\
+    \ M indicates Material BOM, S indicates Standard BOM, T indicates Functional Location\
+    \ BOM, P indicates Work Breakdown Structure BOM\n  - bom_id (string) -- A Bill\
+    \ of Materials (BOM) is a structured list of all components, materials, assemblies,\
+    \ subassemblies, and quantities required to manufacture, maintain, or repair a\
+    \ product or equipment. It serves as the blueprint for production by specifying\
+    \ what is needed and how items relate to each other.\n  - deletion_indicator (string)\
+    \ -- It is an Indicator showing that the BOM item has been deleted. Common Values:\
+    \ X indicates that the item is marked for deletion, Blank indicates that the item\
+    \ is not marked for deletion.\n  - created_on (date) -- It represents the date\
+    \ on which the BOM was created.\n  - created_by (string) -- It represents the\
+    \ user who created the BOM.\n  - bom_component (string) -- It refers to the material\
+    \ that is listed as part of a bill of materials and used to build a product or\
+    \ assembly.\n  - bom_item_category (string) -- It defines how each item in a bill\
+    \ of materials is classified based on its purpose or behavior, such as whether\
+    \ it represents a material, a document, or a stock‑managed item. Examples: C indicates\
+    \ Compatible Unit, D indicates Document item, I indicates PM structure element,\
+    \ K indicates Class item, L indicates Stock item.\n  - bom_item_no (string) --\
+    \ It is a sequential number used to uniquely identify and order components within\
+    \ a bill of materials. It helps maintain a clear structure by showing the position\
+    \ of each component in relation to others in the list.\n  - unit_of_measure (string)\
+    \ -- Base unit of measure defines how quantities of a material are measured and\
+    \ managed in the system. Max 3-character. Stored in ISO UOM format (ea, kg, l,\
+    \ m, etc.). EA - each/unit/single piece, KG - kilogram, G - gram.\n  - component_quantity\
+    \ (double) -- It is the amount of a specific component required to produce the\
+    \ defined base quantity of a product. It ensures the correct proportion of each\
+    \ component is used during production or assembly.\n  - material_provision_indicator\
+    \ (string) -- It identifies whether the material for an item is supplied externally\
+    \ rather than sourced internally. It is used to control item selection during\
+    \ material planning and indicates whether the material is provided by a vendor\
+    \ or by a customer.\n  - pm_relevance_indicator (string) -- This indicator shows\
+    \ that an item is used in maintenance‑related activities. Common Values: X indicates\
+    \ that the item is used in plant and maintenance activities, Blank indicates that\
+    \ the item is not used in plant and maintenance activities.\n  - production_relevance_indicator\
+    \ (string) -- It indicates that the item is relevant to the production process.\
+    \ Common Values: X indicates that the item is relevant to production process,\
+    \ Blank indicates that the item is not relevant to production process.\n  - pm_assembly_indicator\
+    \ (string) -- It identifies an item as part of a larger technical object or assembly\
+    \ for which maintenance activities are planned and executed. Common Values: X\
+    \ indicates that the item is included in plant and maintenance assembly, Blank\
+    \ indicates that the item is not included in plant and maintenance assembly.\n\
+    \  - identifier (string) -- Custom discriminator to differentiate vendors across\
+    \ multiple SAP instances when client code alone is insufficient.\n  - hash_key\
+    \ (string) -- System-generated hash key used for uniquely identifying records\
+    \ and ensuring data integrity.\n  - is_active (string) -- Flag indicating whether\
+    \ the record is currently active. Y indicates an active record which means that\
+    \ it is the latest record. N indicates an in-active record which means that this\
+    \ record is old and has been changed.\n  - sys_effective_start_date (date) --\
+    \ System Effective Start Date, indicating when the record became valid in the\
+    \ system.\n  - sys_effective_end_date (date) -- System Effective End Date, indicating\
+    \ when the record ceased to be valid in the system.\n  ... +2 more\nDiscovered:\
+    \ 2026-04-30 12:30"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.bom_line_item
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: bom_line_item
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/bom_line_item
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

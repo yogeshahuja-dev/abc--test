@@ -1,0 +1,66 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-transaction-master
+  title: silver.transaction_master
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.transaction_master\n\
+    Layer: silver\nColumns (16):\n  - client_id (string) -- It is a three-char alphanumeric\
+    \ identifier that represents a client in the SAP system. A client is the highest\
+    \ organizational unit in SAP and serves as a self-contained unit with its own\
+    \ master data and set of tables.\n  - object_id_trans (string) -- Unique persistent\
+    \ GUID representing the business transaction object. This technical key uniquely\
+    \ identifies the transaction object across processes and systems and is used to\
+    \ link flows, postings, and related records.\n  - business_trans_id (string) --\
+    \ Unique identifier for the distributor business transaction, representing the\
+    \ business‑level transaction reference shared across systems.\n  - business_trans_category\
+    \ (string) -- Bustranscat defines the category or nature of a business transaction,\
+    \ used to classify transactions for valuation and accounting treatment across\
+    \ ledgers. Examples: 1000 indicates Payment/Investment(asset), 2001 indicates\
+    \ Purchase, 2002 indicates Sale.\n  - transaction_date (date) -- TRL date representing\
+    \ the position (ledger) date of the transaction. It determines when the position\
+    \ is effective for valuation, accruals, and ledger reporting.\n  - booking_state\
+    \ (string) -- Indicates the posting status of the transaction within the treasury\
+    \ ledger lifecycle. S = Scheduled, F = Fixed, R = Reversed.\n  - valuation_area\
+    \ (string) -- Valuation area identifies the accounting valuation context for processing\
+    \ a transaction. Examples: 001 Operative Valuation Area, 002 Parallel Valuation\
+    \ Area.\n  - object_id_trdbustrans (string) -- Unique persistent GUID representing\
+    \ the business transaction object, used to link flows, postings, and related records\
+    \ belonging to the same business object.\n  - version (string) -- Version identifier\
+    \ of the distributor data, representing the source system or data model version\
+    \ (e.g., ERP07, CFM1_4). Enables support for parallel versions.\n  - owner (bigint)\
+    \ -- Identifies the originating application or business area for the business\
+    \ transaction (e.g., 1 = Transaction Management, 9 = Taxes).\n  - company_code\
+    \ (string) -- The company code represents the smallest organizational unit for\
+    \ which a complete set of accounts is maintained, essential for legal and financial\
+    \ reporting. Max 4 characters (e.g., 1000, 2000).\n  - identifier (string) --\
+    \ Custom discriminator to differentiate vendors across multiple SAP instances\
+    \ when client code alone is insufficient.\n  - sys_effective_start_date (date)\
+    \ -- System Effective Start Date, indicating when the record became valid in the\
+    \ system.\n  - sys_effective_end_date (date) -- System Effective End Date, indicating\
+    \ when the record ceased to be valid in the system.\n  - is_active (string) --\
+    \ Flag indicating whether the record is currently active. Y = latest active record,\
+    \ N = old or changed record.\n  - hash_key (string) -- System-generated hash key\
+    \ used for uniquely identifying records and ensuring data integrity.\nDiscovered:\
+    \ 2026-04-30 12:33"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.transaction_master
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: transaction_master
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/transaction_master
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake
+  dependsOn:
+  - component:silver-sap-cleansed-trlt-transaction-trans
+  - component:silver-sap-cleansed-mast-mstr

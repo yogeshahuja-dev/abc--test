@@ -1,0 +1,62 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-cost-center
+  title: silver.cost_center
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.cost_center\n\
+    Layer: silver\nColumns (15):\n  - client_id (string) -- It is a three-char alphanumeric\
+    \ identifier that represents a client in the SAP system. A client is the highest\
+    \ organizational unit in SAP and serves as a self-contained unit with its own\
+    \ master data and set of tables.\n  - controlling_area (string) -- It defines\
+    \ the highest organizational unit in Controlling (CO) and groups company codes\
+    \ for cost accounting purposes. Examples: 1000- Adani Infrastructure Grp\n  -\
+    \ cost_center (string) -- It is Cost center code for financial tracking and resource\
+    \ allocation within a controlling area that represents a defined location of cost\
+    \ incurrence. It is used to track where costs are incurred within an organization,\
+    \ such as departments, teams, or projects.\n  - valid_to_date (date) -- This is\
+    \ the final date until which the cost centre will remain valid — basically the\
+    \ “end date” of the record.\n  - identifier (string) -- Custom discriminator to\
+    \ differentiate vendors across multiple SAP instances when client code alone is\
+    \ insufficient.\n  - valid_from_date (date) -- This is the date from which the\
+    \ cost centre becomes valid — basically the “start date” of the record.\n  - company_code\
+    \ (string) -- The company code represents the smallest organizational unit for\
+    \ which a complete, self-contained set of accounts can be drawn up, crucial for\
+    \ legal and financial reporting ⦁ Max 4 characters ⦁ Common values: 1000, 2000\n\
+    \  - profit_center (string) -- A Profit Centre is an internal organizational unit\
+    \ used to measure the financial performance of a specific area of the business.\
+    \ It allows a company to track revenues, costs, and profitability for a defined\
+    \ segment Examples: 2101050 - APSEZ-MARINE-HPCL 1UPNDG0799 - H R DEPT 1UPNDG0299\
+    \ - BILLING DEPT\n  - cost_centre_short_text (string) -- Stores the short name\
+    \ of the cost center, like a brief label describing the department.\n  - cost_centre_long_text\
+    \ (string) -- Contains the long, detailed description of the cost center for clearer\
+    \ understanding.\n  - object_number (string) -- This field represents an unique\
+    \ object number assigned to a cost center. It serves as the internal technical\
+    \ identifier that links the cost center to various controlling objects across\
+    \ the system.\n  - sys_effective_start_date (date) -- System Effective Start Date,\
+    \ indicating when the record became valid in the system.\n  - sys_effective_end_date\
+    \ (date) -- System Effective End Date, indicating when the record ceased to be\
+    \ valid in the system.\n  - is_active (string) -- Flag indicating whether the\
+    \ record is currently active. Y indicates an active record which means that it\
+    \ is the latest record N indicates an in-active record which means that this record\
+    \ is old and has been changed\n  - hash_key (string) -- System-generated hash\
+    \ key used for uniquely identifying records and ensuring data integrity.\nDiscovered:\
+    \ 2026-04-30 12:30"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.cost_center
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: cost_center
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/cost_center
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

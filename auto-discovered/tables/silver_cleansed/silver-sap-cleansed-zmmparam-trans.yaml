@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-sap-cleansed-zmmparam-trans
+  title: silver_sap_cleansed.zmmparam_trans
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver_sap_cleansed.zmmparam_trans\n\
+    Layer: silver-cleansed\nColumns (42):\n  - DI_SEQUENCE_NUMBER (int) -- Data Services-generated\
+    \ integer for sequencing\n  - DI_OPERATION_TYPE (string) -- Data Services-generated\
+    \ row operation type\n  - MANDT (string) -- Client\n  - COND (string) -- Condition\n\
+    \  - PARAM1 (string) -- PARAM1\n  - PARAM2 (string) -- PARAM2\n  - PARAM3 (string)\
+    \ -- PARAM3\n  - COND_DESCR (string) -- Condition Description\n  - ACTIVE (string)\
+    \ -- ACTIVE\n  - VALUE1 (string) -- Value\n  - DESCR1 (string) -- Description\n\
+    \  - VALUE2 (string) -- Value\n  - DESCR2 (string) -- Description\n  - VALUE3\
+    \ (string) -- Value\n  - DESCR3 (string) -- Description\n  - VALUE4 (string) --\
+    \ New Value\n  - DESCR4 (string) -- Description\n  - VALUE5 (string) -- Value\n\
+    \  - DESCR5 (string) -- Description\n  - VALUE6 (string) -- Value\n  ... +22 more\n\
+    Discovered: 2026-04-30 12:29"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver-cleansed
+  - sap
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver_sap_cleansed.zmmparam_trans
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver_sap_cleansed
+    databricks.com/table: zmmparam_trans
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver_sap_cleansed/zmmparam_trans
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

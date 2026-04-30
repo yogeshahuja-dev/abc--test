@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: gold-procurement-po-overview-po-plant
+  title: gold_procurement.po_overview_po_plant
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.gold_procurement.po_overview_po_plant\n\
+    Layer: gold\nColumns (14):\n  - po_number (string) -- Unique purchase order number\
+    \ assigned by SAP. Serves as the primary key for procurement transactions and\
+    \ links header and item details for procurement transactions.\n  - plant_code\
+    \ (string) -- It is a 4-character alphanumeric code. Plant code where material/service\
+    \ will be used. Critical for logistics and planning.\n  - po_first_release_date\
+    \ (date)\n  - pr_first_release_date (date)\n  - pr_last_change_date (date)\n \
+    \ - effective_value_in_lc (double)\n  - plant_name (string)\n  - material_service\
+    \ (string)\n  - capex_opex_count (string)\n  - vendor_code (string)\n  - vendor_name\
+    \ (string)\n  - reason_for_ordering (string)\n  - catalogue_non_catalogue (string)\n\
+    \  - arc_non_arc (string)\nDiscovered: 2026-04-30 12:33"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - gold
+  - procurement
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.gold_procurement.po_overview_po_plant
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: gold_procurement
+    databricks.com/table: po_overview_po_plant
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/gold_procurement/po_overview_po_plant
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake
+  dependsOn:
+  - component:silver-plant
+  - component:silver-po-schedule-lines
+  - component:silver-plant-material

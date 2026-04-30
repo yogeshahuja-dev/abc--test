@@ -1,0 +1,61 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-resources
+  title: silver.resources
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.resources\n\
+    Layer: silver\nColumns (14):\n  - client_id (string) -- It is a three-char alphanumeric\
+    \ identifier that represents a client in the SAP system. A client is the highest\
+    \ organizational unit in SAP and serves as a self-contained unit with its own\
+    \ master data and set of tables.\n  - validity_start_date (date) -- Validity Start\
+    \ Date represents the date from which the work centre is considered active and\
+    \ available for planning and execution of work. Activities can be assigned to\
+    \ the work centre only from this date onward.\n  - validity_end_date (date) --\
+    \ Validity End Date represents the date until which the work centre remains active\
+    \ and usable. After this date, the work centre is no longer available for planning\
+    \ or assigning new activities.\n  - work_centre_id (string) -- A Work Center represents\
+    \ the specific place, team, or resource responsible for carrying out work at a\
+    \ location. It is used to plan, assign, and manage work by linking activities\
+    \ to the appropriate operational unit.\n  - plant_code (string) -- A Plant Code\
+    \ represents a specific physical or organizational location within a company where\
+    \ materials are stored, produced, or managed Example: 2001 - APSEZ-MUNDRA-SEZ-OPS-W/O\
+    \ LOP 2401 - AHPL-HAZIRA-PROJECTS\n  - deletion_indicator (string) -- Deletion\
+    \ Indicator shows whether a work centre is marked as inactive and no longer intended\
+    \ for use. When set, the work centre cannot be used for new planning activities,\
+    \ but its historical records remain available for reference.\n\nCommon Values:\n\
+    X indicates that the Work centre is marked for deletion\nBlank indicates that\
+    \ the work centre is not marked for deletion\n  - work_centre_desc (string) --\
+    \ It is a field in which describes the operating resource/workcentre in more detail\n\
+    \  - identifier (string) -- Custom discriminator to differentiate vendors across\
+    \ multiple SAP instances when client code alone is insufficient.\n  - hash_key\
+    \ (string) -- System-generated hash key used for uniquely identifying records\
+    \ and ensuring data integrity.\n  - is_active (string) -- Flag indicating whether\
+    \ the record is currently active. Y indicates an active record which means that\
+    \ it is the latest record N indicates an in-active record which means that this\
+    \ record is old and has been changed.\n  - sys_effective_start_date (date)\n \
+    \ - sys_effective_end_date (date)\n  - operating_resource_type (string) -- It\
+    \ is a classification used to identify the nature of the operating resource involved\
+    \ in carrying out work. It defines whether the resource represents labor, machinery,\
+    \ or a combination of labor and materials required to complete a task or project.\n\
+    \nExamples:\nA indicates Work center\nAA indicates Work center alias\nFH indicates\
+    \ Production resources/tools\nH indicates Hierarchy\n  - operating_resource_id\
+    \ (bigint)\nDiscovered: 2026-04-30 12:32"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.resources
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: resources
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/resources
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

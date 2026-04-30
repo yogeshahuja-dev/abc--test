@@ -1,0 +1,51 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: gold-procurement-arc-ignored
+  title: gold_procurement.arc_ignored
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.gold_procurement.arc_ignored\n\
+    Layer: gold\nDescription: The ARC_Ignored_PO_Table provides detailed metadata\
+    \ for procurement orders and line items excluded from ARC considerations. It includes:\
+    \ Date Ranges & Categorization: Key attributes for spend segmentation. Exclusion\
+    \ Indicators: Flags for ignored or non-ARC records. Reporting Attributes: Columns\
+    \ designed for compliance and spend analytics. Grain: One row per PO line item\
+    \ excluded from ARC.\nColumns (8):\n  - CLIENT_ID (string) -- It is a three-digit\
+    \ identifier that represents a client in the SAP system. A client is the highest\
+    \ organizational unit in SAP and serves as a self-contained unit with its own\
+    \ master data and set of tables.\n  - PURCHASE_ORDER_NUMBER (string) -- Unique\
+    \ purchase order number assigned by SAP. Serves as the primary key for procurement\
+    \ transactions and links header and item details for procurement transactions.\n\
+    \  - PURCHASE_ORDER_ITEM_NUMBER (int) -- Purchase order item number. Identifies\
+    \ individual line items within a purchase order for granular tracking of materials,\
+    \ quantities, prices, and delivery schedules.\n  - MIN_VALIDITY_START_DATE (date)\
+    \ -- This field populates the minimum date of field \"Validity start date\" basis\
+    \ material and plant\n  - MAX_VALIDITY_END_DATE (date) -- This field populates\
+    \ the maximum date of field \"Validity end date\" basis material and plant\n \
+    \ - CATEGORY (string) -- This field categorizes the purchase order into Material-Plant\
+    \ or Material-Company Code based on specific business rules\n  - ARC_IGNORED_COL\
+    \ (string) -- ARC compliance indicates whether a Purchase Order was created following\
+    \ applicable ARC conditions; if conditions existed but were ignored, it is marked\
+    \ as 'ARC Ignored', otherwise as 'ARC Followed\n  - ARC_APPLICABLE (string) --\
+    \ Indicates whether an Annual Rate Contract (ARC) is applicable for the Purchase\
+    \ Order (PO). If the PO falls under an existing ARC agreement based on material,\
+    \ it is tagged as ARC Applicable.\nDiscovered: 2026-04-30 12:33"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - gold
+  - procurement
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.gold_procurement.arc_ignored
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: gold_procurement
+    databricks.com/table: arc_ignored
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/gold_procurement/arc_ignored
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

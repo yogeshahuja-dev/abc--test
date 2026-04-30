@@ -1,0 +1,70 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-one-time-account-details
+  title: silver.one_time_account_details
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.one_time_account_details\n\
+    Layer: silver\nColumns (18):\n  - client_id (string) -- It is a three-char alphanumeric\
+    \ identifier that represents a client in the SAP system. A client is the highest\
+    \ organizational unit in SAP and serves as a self-contained unit with its own\
+    \ master data and set of tables.\n  - accounting_doc_number (string) -- An identifier\
+    \ of Accounting document; essential for audit and reconciliation ⦁ Max 10-digit\
+    \ ⦁ Unique within fiscal year, identifier and company code.\n  - fiscal_year (bigint)\
+    \ -- Accounting fiscal year (YYYY) in which the transaction is posted ⦁ 4-digit\
+    \ year format (YYYY).\n  - company_code (string) -- The company code represents\
+    \ the smallest organizational unit for which a complete, self-contained set of\
+    \ accounts can be drawn up, crucial for legal and financial reporting ⦁ Max 4\
+    \ characters ⦁ Common values: 1000, 2000\n  - accounting_line_item_number (bigint)\
+    \ -- It identifies each line item in a accounting document. For example, if a\
+    \ vendor invoice has multiple expense lines, each will have a distinct line item\
+    \ number value (e.g., 001, 002, 003). ⦁ 3-digit numeric. ⦁ Identifies specific\
+    \ posting line.\n  - identifier (string) -- Custom discriminator to differentiate\
+    \ vendors across multiple SAP instances when client code alone is insufficient.\n\
+    \  - vendor_customer_name (string) -- It represents Name1, which is the primary\
+    \ name field used to store the first line of the name of a one-time vendor or\
+    \ one-time customer in FI documents. This field is filled when posting accounting\
+    \ documents that use one-time master records. ⦁ Alphanumeric including spaces\
+    \ max length 35..\n  - region (string) -- Region code indicating the geographic\
+    \ area associated with the transaction, essential for regional spend analysis\
+    \ and compliance. Max 3-character code (e.g., 09 - Jammu and Kashmir , 19 Punjab).\n\
+    \  - country_key (string) -- It is used to identify the country associated with\
+    \ a vendor or customer in the system. The value of country key is typically based\
+    \ on ISO country codes ⦁ Common Value  IN for India\n  - country_name (string)\
+    \ -- It provides the country name. This is essential for user interfaces and reports\
+    \ that require country names in the local language.\n  - region_desc (string)\
+    \ -- The Region Description specifies the name or description of a region, state,\
+    \ or province within a country. Examples: ANDHRA PRADESH, ARUNACHAL PRADESH, ASSAM\n\
+    \  - gst_number (string) -- It stores the tax identification number for a one-time\
+    \ vendor or one‑time customer within an accounting document. ⦁ It is alphanumeric.\
+    \ ⦁ Must match GSTIN structure. ⦁ Sensitive commercial information.\n  - pan_number\
+    \ (string) -- The Permanent Account Number of the vendor or customer, critical\
+    \ for tax reporting and compliance with financial regulations ⦁ Critical field.\
+    \ ⦁ Always 10-character alphanumeric (e.g., ABCDE1234F). ⦁ Sensitive personal/commercial\
+    \ information\n  - sys_effective_start_date (date) -- System Effective Start Date,\
+    \ indicating when the record became valid in the system.\n  - sys_effective_end_date\
+    \ (date) -- System Effective End Date, indicating when the record ceased to be\
+    \ valid in the system.\n  - is_active (string) -- Flag indicating whether the\
+    \ record is currently active. Y indicates an active record which means that it\
+    \ is the latest record N indicates an in-active record which means that this record\
+    \ is old and has been changed\n  - hash_key (string) -- System-generated hash\
+    \ key used for uniquely identifying records and ensuring data integrity.\n  -\
+    \ language_key (string)\nDiscovered: 2026-04-30 12:31"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.one_time_account_details
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: one_time_account_details
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/one_time_account_details
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

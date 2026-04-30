@@ -1,0 +1,58 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-company
+  title: silver.company
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.company\n\
+    Layer: silver\nDescription: The company table contains essential details about\
+    \ legal entities within the organization. Each record includes a unique client\
+    \ identifier, company code, company name, and location details such as city and\
+    \ country. It also specifies the currency used for transactions and includes fields\
+    \ to indicate whether the record is active and the validity period. This table\
+    \ supports financial reporting, compliance, and operational processes by providing\
+    \ a central reference for company information.\nColumns (11):\n  - client_id (string)\
+    \ -- It is a three-char alphanumeric identifier that represents a client in the\
+    \ SAP system. A client is the highest organizational unit in SAP and serves as\
+    \ a self-contained unit with its own master data and set of tables.\n  - company_code\
+    \ (string) -- The company code represents the smallest organizational unit for\
+    \ which a complete, self-contained set of accounts can be drawn up, crucial for\
+    \ legal and financial reporting\n ⦁ Max 4 characters\n ⦁ Common values: 1000,\
+    \ 2000\n  - company_name (string) -- Descriptive name of the company code. Used\
+    \ for display and reporting purposes\n  - city (string) -- It is a standard field\
+    \ used to store the city name of the company. It plays a crucial role in logistics,\
+    \ billing, and reporting processes, as it helps identify the geographical location\
+    \ of company.\n  - country_key (string) -- It is used to identify the country\
+    \ associated with the company code and it is typically based on ISO country codes\
+    \ (e.g., IN for India)\n  - currency_key (string) -- It is a standard field that\
+    \ represents the currency key for the company code. It defines the currency in\
+    \ which amounts are recorded, such as INR, USD, or EUR. This field ensures consistency\
+    \ in financial reporting, pricing, and accounting\n  - identifier (string) --\
+    \ Custom discriminator to differentiate vendors across multiple SAP instances\
+    \ when client code alone is insufficient.\n  - HASH_KEY (string) -- System-generated\
+    \ hash key used for uniquely identifying records and ensuring data integrity.\n\
+    \  - SYS_EFFECTIVE_START_DATE (date) -- System Effective Start Date, indicating\
+    \ when the record became valid in the system.\n  - SYS_EFFECTIVE_END_DATE (date)\
+    \ -- System Effective End Date, indicating when the record ceased to be valid\
+    \ in the system.\n  - IS_ACTIVE (string) -- Flag indicating whether the record\
+    \ is currently active. Y indicates an active record which means that it is the\
+    \ latest record N indicates an in-active record which means that this record is\
+    \ old and has been changed\nDiscovered: 2026-04-30 12:30"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.company
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: company
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/company
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

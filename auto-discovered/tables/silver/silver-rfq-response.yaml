@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-rfq-response
+  title: silver.rfq_response
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.rfq_response\n\
+    Layer: silver\nDescription: Vendor responses to RFQs with pricing and status\n\
+    Columns (10):\n  - response_id (bigint) -- Primary key for the RFQ response\n\
+    \  - rfq_id (bigint) -- Foreign key to the RFQ\n  - vendor_id (bigint) -- Foreign\
+    \ key to the responding vendor\n  - response_date (date) -- Date the response\
+    \ was submitted\n  - quoted_amount (decimal(18,2)) -- Total quoted amount\n  -\
+    \ currency (string) -- Currency of the quote\n  - validity_days (int) -- Validity\
+    \ period of the quote in days\n  - status (string) -- Response status (e.g., Submitted,\
+    \ Withdrawn, Accepted)\n  - load_timestamp (timestamp) -- Record creation timestamp.\n\
+    \  - update_timestamp (timestamp) -- Record last updated timestamp.\nDiscovered:\
+    \ 2026-04-30 12:32"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.rfq_response
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: rfq_response
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/rfq_response
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

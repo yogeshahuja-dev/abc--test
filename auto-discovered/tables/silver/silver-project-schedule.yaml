@@ -1,0 +1,50 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-project-schedule
+  title: silver.project_schedule
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.project_schedule\n\
+    Layer: silver\nDescription: Represents project work breakdown structure elements\
+    \ with their fiscal period assignments, linking WBS elements to organizational\
+    \ units (plant, company code) for project planning and monitoring. Grain: One\
+    \ row per WBS element per instance\nColumns (9):\n  - client_id (string) -- It\
+    \ is a three-char alphanumeric identifier that represents a client in the SAP\
+    \ system. A client is the highest organizational unit in SAP and serves as a self-contained\
+    \ unit with its own master data and set of tables..\n  - wbs_element (int) --\
+    \ A WBS Element (Work Breakdown Structure Element) is a specific task, activity,\
+    \ or cost‑collecting area within a project. It represents a clearly defined part\
+    \ of the overall project that needs to be planned, budgeted, executed, and monitored\
+    \ separately.\n  - external_project_number (string) -- An identifier for a project\
+    \ definition. It links all project-related structures and data under one project.\n\
+    \  - wbs_description (string) -- Short description or first line of text for WBS\
+    \ elements. Used for quick identification and reporting.\n  - plant_code (string)\
+    \ -- A Plant Code represents a specific physical or organizational location within\
+    \ a company where materials are stored, produced, or managed \nExample: \n2001\
+    \ - APSEZ-MUNDRA-SEZ-OPS-W/O LOP \n2401 - AHPL-HAZIRA-PROJECTS\n  - company_code\
+    \ (string) -- Partner company code, relevant in inter-company transactions, ensuring\
+    \ accurate corporate collaboration and reporting.\n  - custom_period (string)\
+    \ -- It is a concatenated field of Year and month based on specified business\
+    \ rules\n  - FY (int) -- It populates the fiscal year in YYYY format\n  - identifier\
+    \ (string) -- Custom discriminator to differentiate vendors across multiple SAP\
+    \ instances when client code alone is insufficient.\nDiscovered: 2026-04-30 12:32"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.project_schedule
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: project_schedule
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/project_schedule
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake
+  dependsOn:
+  - component:silver-sap-cleansed-proj-mstr

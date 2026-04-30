@@ -1,0 +1,49 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: gold-procurement-opex-capex
+  title: gold_procurement.opex_capex
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.gold_procurement.opex_capex\n\
+    Layer: gold\nDescription: The Opex_Capex_Classification_Table provides a structured\
+    \ view of procurement transactions categorized as Operational Expenditure (OPEX)\
+    \ or Capital Expenditure (CAPEX). It enables: Spend Segmentation: Clear classification\
+    \ of expenses for accurate financial reporting and compliance. Budget Optimization:\
+    \ Insights into expenditure patterns to support effective allocation and forecasting.\
+    \ Performance Monitoring: Tracking trends across departments, projects, and time\
+    \ periods for strategic planning. This dataset is essential for spend analytics,\
+    \ budget control, and financial governance, ensuring transparency and alignment\
+    \ with organizational objectives. Grain: One row per PO or PR item with OPEX/CAPEX\
+    \ classification.\nColumns (4):\n  - CLIENT_ID (string) -- It is a three-digit\
+    \ identifier that represents a client in the SAP system. A client is the highest\
+    \ organizational unit in SAP and serves as a self-contained unit with its own\
+    \ master data and set of tables.\n  - PURCHASE_ORDER_NUMBER (string) -- Unique\
+    \ purchase order number assigned by SAP. Serves as the primary key for procurement\
+    \ transactions and links header and item details for procurement transactions.\n\
+    \  - PURCHASE_ORDER_ITEM_NUMBER (int) -- Purchase order item number. Identifies\
+    \ individual line items within a purchase order for granular tracking of materials,\
+    \ quantities, prices, and delivery schedules.\n  - OPEX_CAPEX (string) -- Classification\
+    \ of PO's into operational expenditures (OPEX) or capital expenditures (CAPEX)\
+    \ basis WBS element, important for budgeting and financial analysis.\nDiscovered:\
+    \ 2026-04-30 12:33"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - gold
+  - procurement
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.gold_procurement.opex_capex
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: gold_procurement
+    databricks.com/table: opex_capex
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/gold_procurement/opex_capex
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake
+  dependsOn:
+  - component:silver-nfa-opex

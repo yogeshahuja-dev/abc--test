@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: gold-procurement-po-changed-greater-than-3-times
+  title: gold_procurement.po_changed_greater_than_3_times
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.gold_procurement.po_changed_greater_than_3_times\n\
+    Layer: gold\nDescription: The PO_Change_Frequency_Table tracks purchase orders\
+    \ that have been revised more than three times. It enables detailed analysis of:\
+    \ Change Patterns: Frequency and nature of PO modifications. Process Efficiency:\
+    \ Identifying bottlenecks in approvals or specification changes. Risk Indicators:\
+    \ Supplier communication gaps or compliance risks. Grain: One row per PO per instance.\n\
+    Columns (3):\n  - CLIENT_ID (string) -- It is a three-digit identifier that represents\
+    \ a client in the SAP system. A client is the highest organizational unit in SAP\
+    \ and serves as a self-contained unit with its own master data and set of tables.\n\
+    \  - OBJECT_ID (string) -- It refers to Purchase Order number. Serves as the primary\
+    \ key for procurement transactions and links header and item details for procurement\
+    \ transactions.\n  - DISTINCT_CHANGE_NUMBER (int) -- Represents the count of unique\
+    \ change document numbers (CHANGENR) associated with a specific OBJECTID (Purchase\
+    \ Order) in the SAP for the below fields:\n1. Quantity\n2. Net Price\n3. Net Value\n\
+    4. Payment Terms\n5. Total Value at the time of release\nDiscovered: 2026-04-30\
+    \ 12:33"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - gold
+  - procurement
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.gold_procurement.po_changed_greater_than_3_times
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: gold_procurement
+    databricks.com/table: po_changed_greater_than_3_times
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/gold_procurement/po_changed_greater_than_3_times
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake
+  dependsOn:
+  - component:silver-po-schedule-lines

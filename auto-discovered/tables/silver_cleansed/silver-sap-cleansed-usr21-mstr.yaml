@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-sap-cleansed-usr21-mstr
+  title: silver_sap_cleansed.usr21_mstr
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver_sap_cleansed.usr21_mstr\n\
+    Layer: silver-cleansed\nColumns (31):\n  - MANDT (string)\n  - BNAME (string)\n\
+    \  - PERSNUMBER (string)\n  - ADDRNUMBER (string)\n  - KOSTL (string)\n  - START_MENU\
+    \ (string)\n  - IDADTYPE (bigint)\n  - BPPERSON (string)\n  - ORGANIZATION (string)\n\
+    \  - RESPONSIBLE (string)\n  - TECHDESC (string)\n  - IDENTITY_GUID (string)\n\
+    \  - SYS_INGESTION_DATE (date)\n  - SYS_FILE_NAME (string)\n  - SYS_MODIFIED_TIME\
+    \ (timestamp)\n  - IDENTIFIER (string)\n  - HASH_KEY (string)\n  - _errors (array<struct<name:string,message:string,columns:array<string>,filter:string,function:string,run_time:timestamp,run_id:string,user_metadata:map<string,string>>>)\n\
+    \  - _warnings (array<struct<name:string,message:string,columns:array<string>,filter:string,function:string,run_time:timestamp,run_id:string,user_metadata:map<string,string>>>)\n\
+    \  - error_codes (array<string>)\n  ... +11 more\nDiscovered: 2026-04-30 12:28"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver-cleansed
+  - sap
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver_sap_cleansed.usr21_mstr
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver_sap_cleansed
+    databricks.com/table: usr21_mstr
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver_sap_cleansed/usr21_mstr
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake
+  dependsOn:
+  - component:bronze-sap-mul-usr21-slt

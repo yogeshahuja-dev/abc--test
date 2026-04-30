@@ -1,0 +1,71 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-gate-pass-outward-header
+  title: silver.gate_pass_outward_header
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.gate_pass_outward_header\n\
+    Layer: silver\nDescription: gate_pass_outward is a transactional table that tracks\
+    \ the confirmation and clearance stages of goods movement within the plant. It\
+    \ records key milestones such as store confirmation, security clearance, and export\
+    \ documentation, ensuring proper authorization and compliance throughout the process.\
+    \ This table supports operational control, audit readiness, and transparency by\
+    \ providing a clear record of status updates for each gate pass\nColumns (35):\n\
+    \  - client_id (string) -- It is a three-char alphanumeric identifier that represents\
+    \ a client in the SAP system. A client is the highest organizational unit in SAP\
+    \ and serves as a self-contained unit with its own master data and set of tables.\n\
+    \  - gate_pass_number (string) -- The Gate Pass Number identifies a gate pass\
+    \ document used to authorize and record the movement of goods or vehicles in or\
+    \ out of a plant or warehouse. Max length 10 char.\n  - gate_pass_status (string)\
+    \ -- Displays the status of gate outward entry, for example SEZ clearance, cancelled,\
+    \ gate exit, etc. Examples: RGI indicates Request; STC indicates Stores - Confirmation;\
+    \ SZC indicates SEZ - Clearance; SEC indicates Security Acknowledgement.\n  -\
+    \ outward_type (string) -- Specifies the nature of outward movement (for example\
+    \ domestic, import, contractor, subcontractor, etc.). Max length 3 char. Examples:\
+    \ REJ indicates Rejection; SCR indicates Scrap; SC indicates Subcontract; CO indicates\
+    \ Contractor; RET indicates Returnable; NRT indicates Non-Returnable.\n  - store_confirmation_date\
+    \ (date) -- Date when the gate pass store confirmation was received for dispatch.\n\
+    \  - store_confirmation_time (string) -- Time at which the gate pass confirmation\
+    \ was recorded.\n  - security_clearance_date (date) -- Date when security clearance\
+    \ was granted for the outward movement. Max length 8 char in ddmmyyyy format and\
+    \ must be a valid calendar date.\n  - security_clearance_time (string) -- Time\
+    \ of security verification or clearance.\n  - expected_return_date (date) -- This\
+    \ field captures the date by which the outward materials are expected to return\
+    \ to the premises.\n  - vehicle_number (string) -- This field stores the registration\
+    \ number of the vehicle entering the premises. It is used for identification,\
+    \ tracking, and linking gatepass records to a specific vehicle.\n  - created_by\
+    \ (string) -- This field represents the user who created the gatepass.\n  - contractor_name\
+    \ (string) -- This field captures the name of the contractor or external agency\
+    \ to whom the material, tools, or assets are being issued.\n  - vendor_address\
+    \ (string) -- Contractor or vendor address where the material has been dispatched.\n\
+    \  - destination (string) -- The destination field specifies the location, site,\
+    \ or address where the outward material is being sent.\n  - contact_person (string)\
+    \ -- Contact person of the contractor or vendor to whom the material was dispatched.\n\
+    \  - user_remarks (string) -- This field captures any additional comments, notes,\
+    \ or clarifications entered by the user during the gatepass process.\n  - stores_user\
+    \ (string) -- This field identifies the stores department personnel responsible\
+    \ for creating, reviewing, or approving the gatepass transaction.\n  - stores_remark\
+    \ (string) -- This field captures comments or notes entered by the stores department\
+    \ regarding the gatepass transaction.\n  - identifier (string) -- Custom discriminator\
+    \ to differentiate vendors across multiple SAP instances when client code alone\
+    \ is insufficient.\n  - sys_effective_start_date (date) -- System Effective Start\
+    \ Date, indicating when the record became valid in the system.\n  ... +15 more\n\
+    Discovered: 2026-04-30 12:31"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.gate_pass_outward_header
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: gate_pass_outward_header
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/gate_pass_outward_header
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

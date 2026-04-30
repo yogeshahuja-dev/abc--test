@@ -1,0 +1,68 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-change-history
+  title: silver.change_history
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.change_history\n\
+    Layer: silver\nDescription: The change_log table tracks changes made to key business\
+    \ objects for audit and compliance purposes. Each record includes the object identifier,\
+    \ the change document number, the table and field that were modified, the new\
+    \ field value, and the date of change. It also contains classification details\
+    \ and validity indicators to show whether the record is active. This table helps\
+    \ business teams monitor updates to critical data, maintain transparency, and\
+    \ ensure accurate historical tracking for governance and reporting.\nColumns (19):\n\
+    \  - client_id (string) -- It is a three-char alphanumeric identifier that represents\
+    \ a client in the SAP system. A client is the highest organizational and serves\
+    \ as a self-contained unit with its own master data and set of tables.\n  - object_id\
+    \ (string) -- An identifier of the object that was changed. Often corresponds\
+    \ to a business object like a material number or vendor ID\n. ⦁ Max length 90\
+    \ char\n  - change_document_number (string) -- A number assigned to a change document.\
+    \ Used to track changes across tables. \n⦁ Used to join item rows to header metadata\
+    \ (user, date, tcode).\n⦁ Always present for change items.\n  - object_class (string)\
+    \ -- Represents the class of the object that was changed (e.g., material, vendor,\
+    \ customer). Used to categorize change documents. \n⦁ Text code identifying the\
+    \ type of object. \n⦁ Maps to change document header CDHDR-OBJECTCLAS\n.⦁ Max\
+    \ length 15 char\n  - changed_table_name (string) -- Name of the table where the\
+    \ change occurred. Helps identify the data source affected.\n ⦁ Max length 30\
+    \ char\n  - changed_field_name (string) -- Name of the field that was changed.\
+    \ Indicates which attribute was modified. \n⦁ Max length 30 char\n  - new_field_value\
+    \ (string) -- New value of the field after the change.\n  - old_field_value (string)\
+    \ -- Previous value of the field before the change.\n  - change_date (date) --\
+    \ Date when the change was made.\n  - identifier (string) -- Custom discriminator\
+    \ to differentiate vendors across multiple SAP instances when client code alone\
+    \ is insufficient.\n  - HASH_KEY (string) -- System-generated hash key used for\
+    \ uniquely identifying records and ensuring data integrity.\n  - SYS_EFFECTIVE_START_DATE\
+    \ (date) -- System Effective Start Date, indicating when the record became valid\
+    \ in the system.\n  - SYS_EFFECTIVE_END_DATE (date) -- System Effective End Date,\
+    \ indicating when the record ceased to be valid in the system.\n  - IS_ACTIVE\
+    \ (string) -- Flag indicating whether the record is currently active. Y indicates\
+    \ an active record which means that it is the latest record N indicates an in-active\
+    \ record which means that this record is old and has been changed\n  - changed_by_user\
+    \ (string) -- User ID of the person who made the change.\n  - change_time (string)\
+    \ -- Time when the change was made.\n  - transaction_code (string) -- The TCODE\
+    \ field captures the transaction code used when a change was made in the system.\
+    \ It identifies which SAP transaction was executed by the user at the time the\
+    \ change occurred.\n  - changed_record_key (string) -- Key of the specific record\
+    \ in the table that was changed. Often includes concatenated key fields. \n⦁ Max\
+    \ length 70 char\n  - change_type (string) -- Indicates the type of change (U\
+    \ = Update, I = Insert, S = Special, D = Delete) client\nDiscovered: 2026-04-30\
+    \ 12:30"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.change_history
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: change_history
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/change_history
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

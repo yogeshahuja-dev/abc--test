@@ -1,0 +1,33 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-sap-cleansed-bseg-trans
+  title: silver_sap_cleansed.bseg_trans
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver_sap_cleansed.bseg_trans\n\
+    Layer: silver-cleansed\nColumns (477):\n  - MANDT (string)\n  - BUKRS (string)\n\
+    \  - BELNR (string)\n  - GJAHR (int)\n  - BUZEI (int)\n  - BUZID (string)\n  -\
+    \ AUGDT (date)\n  - AUGCP (date)\n  - AUGBL (string)\n  - BSCHL (string)\n  -\
+    \ KOART (string)\n  - UMSKZ (string)\n  - UMSKS (string)\n  - ZUMSK (string)\n\
+    \  - SHKZG (string)\n  - GSBER (string)\n  - PARGB (string)\n  - TAX_COUNTRY (string)\n\
+    \  - MWSKZ (string)\n  - TXDAT_FROM (date)\n  ... +457 more\nDiscovered: 2026-04-30\
+    \ 12:24"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver-cleansed
+  - sap
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver_sap_cleansed.bseg_trans
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver_sap_cleansed
+    databricks.com/table: bseg_trans
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver_sap_cleansed/bseg_trans
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

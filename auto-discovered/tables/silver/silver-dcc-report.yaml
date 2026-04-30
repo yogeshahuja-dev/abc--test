@@ -1,0 +1,72 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-dcc-report
+  title: silver.dcc_report
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.dcc_report\n\
+    Layer: silver\nColumns (65):\n  - client_id (string) -- It is a three-char alphanumeric\
+    \ identifier that represents a client in the SAP system. A client is the highest\
+    \ organizational unit in SAP and serves as a self-contained unit with its own\
+    \ master data and set of tables.\n  - company_code (string) -- The company code\
+    \ representing the smallest organizational unit for which a complete, self-contained\
+    \ set of accounts can be drawn up, crucial for legal and financial reporting.\
+    \ ⦁ Max 4 characters ⦁ Common values: 1000, 2000\n  - checklist_fiscal_year (bigint)\
+    \ -- Fiscal year (YYYY) in which the checklist is created ⦁ 4-digit year format\
+    \ (YYYY)\n  - reference_document_number (string) -- This field displays the document\
+    \ number associated with the transaction. For PO‑based processes, it shows the\
+    \ material document number of the GRN/SES. For non‑PO‑based processes or advances\
+    \ etc, it shows the corresponding accounting document number.\n  - bar_code (string)\
+    \ -- A unique barcode is generated for each invoice/document to simplify identification\
+    \ and establish a link between the physical invoice and its digital record.\n\
+    \  - checklist_creation_date (date) -- The date on which the checklist was initially\
+    \ created in the system.\n  - checklist_creator (string) -- Identifies the user\
+    \ who creates the checklist.\n  - checklist_key (string) -- This field represents\
+    \ the key used to identify and reference a specific checklist.\n  - purchase_order_number\
+    \ (string) -- A Purchase Order Number is an identifier assigned to a purchase\
+    \ order created by a company for procuring goods or services from a vendor. It\
+    \ is used throughout the procurement cycle to track, reference, and manage the\
+    \ order ⦁ Maximum 10 character field\n  - checklist_doc_type (bigint) -- This\
+    \ field represents the type of document for which the checklist is created and\
+    \ the scanning process is performed.\n  - purchase_order_item_number (bigint)\
+    \ -- Purchase order item number. Identifies individual line items within a purchase\
+    \ order for granular tracking of materials, quantities, prices, and delivery schedules.\
+    \ ⦁ Numeric field upto 5 character.\n  - condition_type (string) -- This field\
+    \ represents the pricing condition type used to determine which specific price,\
+    \ discount, surcharge, or other condition is applied during pricing.\n  - reference_document_line_item\
+    \ (bigint) -- This field displays the line item number of the document associated\
+    \ with the transaction. It identifies the specific item within the reference document\
+    \ (GRN/SES) to which the entry is linked.\n  - checklist_status (string) -- This\
+    \ field represents the status of the checklist and indicates whether the checklist\
+    \ is completed or cancelled.\n  - scan_date (date) -- This field represents the\
+    \ date on which the document was scanned.\n  - scanned_username (string) -- This\
+    \ field represents the username of the person who performed the document scanning.\n\
+    \  - vendor_number (string) -- A Vendor number is an identifier assigned to each\
+    \ vendor in the system. It represents the supplier from whom a company purchases\
+    \ goods or services. This code is used throughout the procurement and finance\
+    \ processes ⦁ Maximum 10 character field.\n  - identifier (string) -- Custom discriminator\
+    \ to differentiate vendors across multiple SAP instances when client code alone\
+    \ is insufficient.\n  - invoice_category (bigint) -- This field stores the numeric\
+    \ code that identifies the invoice category. For example, a value of 2 denotes\
+    \ a normal invoice, while a value of 5 denotes a labour payment invoice.\n  -\
+    \ document_desc (string) -- This field is a free field which captures the descriptive\
+    \ text associated with the document. Examples: TMS_VENDOR, HOLD_LD_RELEASE_PO\n\
+    \  ... +45 more\nDiscovered: 2026-04-30 12:30"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.dcc_report
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: dcc_report
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/dcc_report
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

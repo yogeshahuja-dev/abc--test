@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-sap-cleansed-mcha-mstr
+  title: silver_sap_cleansed.mcha_mstr
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver_sap_cleansed.mcha_mstr\n\
+    Layer: silver-cleansed\nColumns (72):\n  - MANDT (string)\n  - MATNR (string)\n\
+    \  - WERKS (string)\n  - CHARG (string)\n  - LVORM (string)\n  - ERSDA (date)\n\
+    \  - ERNAM (string)\n  - AENAM (string)\n  - LAEDA (date)\n  - VERAB (date)\n\
+    \  - VFDAT (date)\n  - ZUSCH (string)\n  - ZUSTD (string)\n  - ZAEDT (date)\n\
+    \  - LIFNR (string)\n  - LICHA (string)\n  - VLCHA (string)\n  - VLWRK (string)\n\
+    \  - VLMAT (string)\n  - BATCH_ID (string)\n  ... +52 more\nDiscovered: 2026-04-30\
+    \ 12:25"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver-cleansed
+  - sap
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver_sap_cleansed.mcha_mstr
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver_sap_cleansed
+    databricks.com/table: mcha_mstr
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver_sap_cleansed/mcha_mstr
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake
+  dependsOn:
+  - component:bronze-sap-mul-mcha-slt
+  - component:bronze-sap-mul-mcha

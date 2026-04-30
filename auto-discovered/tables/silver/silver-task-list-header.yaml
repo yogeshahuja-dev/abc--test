@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-task-list-header
+  title: silver.task_list_header
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.task_list_header\n\
+    Layer: silver\nColumns (19):\n  - client_id (string)\n  - task_list_type (string)\n\
+    \  - task_list_group_key (string)\n  - group_counter (string)\n  - task_list_desc\
+    \ (string)\n  - controlling_area (string)\n  - created_on (date)\n  - created_by\
+    \ (string)\n  - task_list_usuage (string)\n  - plant_code (string)\n  - task_list_status\
+    \ (string)\n  - maintenance_strategy (string)\n  - planning_plant (string)\n \
+    \ - identifier (string)\n  - hash_key (string) -- System-generated hash key used\
+    \ for uniquely identifying records and ensuring data integrity.\n  - is_active\
+    \ (string) -- Flag indicating whether the record is currently active. Y indicates\
+    \ an active record which means that it is the latest record N indicates an in-active\
+    \ record which means that this record is old and has been changed.\n  - sys_effective_start_date\
+    \ (date)\n  - sys_effective_end_date (date)\n  - counter (bigint)\nDiscovered:\
+    \ 2026-04-30 12:32"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.task_list_header
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: task_list_header
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/task_list_header
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

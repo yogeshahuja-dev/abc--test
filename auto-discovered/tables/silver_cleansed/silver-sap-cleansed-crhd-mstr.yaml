@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-sap-cleansed-crhd-mstr
+  title: silver_sap_cleansed.crhd_mstr
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver_sap_cleansed.crhd_mstr\n\
+    Layer: silver-cleansed\nColumns (155):\n  - DI_SEQUENCE_NUMBER (bigint) -- Data\
+    \ Services-generated integer for sequencing\n  - DI_OPERATION_TYPE (string) --\
+    \ Data Services-generated row operation type\n  - MANDT (string) -- Client\n \
+    \ - OBJTY (string) -- Object Type\n  - OBJID (bigint) -- Object ID\n  - BEGDA\
+    \ (date) -- Start date\n  - ENDDA (date) -- End Date\n  - AEDAT_GRND (date) --\
+    \ Changed on\n  - AENAM_GRND (string) -- User Name\n  - AEDAT_VORA (date) -- Changed\
+    \ on\n  - AENAM_VORA (string) -- User Name\n  - AEDAT_TERM (date) -- Changed on\n\
+    \  - AENAM_TERM (string) -- User Name\n  - AEDAT_TECH (date) -- Changed on\n \
+    \ - AENAM_TECH (string) -- User Name\n  - ARBPL (string) -- Work Center\n  - WERKS\
+    \ (string) -- Plant\n  - VERWE (string) -- Work Center Category\n  - LVORM (string)\
+    \ -- Deletion flag\n  - PAR01 (string) -- 1st parameter\n  ... +135 more\nDiscovered:\
+    \ 2026-04-30 12:24"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver-cleansed
+  - sap
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver_sap_cleansed.crhd_mstr
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver_sap_cleansed
+    databricks.com/table: crhd_mstr
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver_sap_cleansed/crhd_mstr
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake
+  dependsOn:
+  - component:bronze-sap-mul-crhd-slt

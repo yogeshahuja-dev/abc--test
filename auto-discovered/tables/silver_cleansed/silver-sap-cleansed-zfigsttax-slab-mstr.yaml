@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-sap-cleansed-zfigsttax-slab-mstr
+  title: silver_sap_cleansed.zfigsttax_slab_mstr
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver_sap_cleansed.zfigsttax_slab_mstr\n\
+    Layer: silver-cleansed\nColumns (26):\n  - DI_SEQUENCE_NUMBER (bigint) -- Data\
+    \ Services-generated integer for sequencing\n  - DI_OPERATION_TYPE (string) --\
+    \ Data Services-generated row operation type\n  - MANDT (string) -- Client\n \
+    \ - HSN (string) -- Control code\n  - DATBI (date) -- Valid to\n  - FWBAS_BI (double)\
+    \ -- Tax base amount upto\n  - TAXIM (string) -- Tax ind. f. material\n  - DATAB\
+    \ (date) -- Valid From\n  - FWBAS_BB (double) -- Tax base amount from\n  - TAXSLAB\
+    \ (string) -- TAXSLAB\n  - RCM_INDICATOR (string)\n  - ODQ_CHANGEMODE (string)\
+    \ -- Change Mode for a Data Record in the Delta\n  - ODQ_ENTITYCNTR (double) --\
+    \ Number of Data Units (Data Records for Example)\n  - DI_TIMESTAMP (timestamp)\n\
+    \  - SYS_INGESTION_DATE (date)\n  - SYS_FILE_NAME (string)\n  - SYS_MODIFIED_TIME\
+    \ (timestamp)\n  - IDENTIFIER (string)\n  - HASH_KEY (string)\n  - SYS_EFFECTIVE_START_DATE\
+    \ (date)\n  ... +6 more\nDiscovered: 2026-04-30 12:29"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver-cleansed
+  - sap
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver_sap_cleansed.zfigsttax_slab_mstr
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver_sap_cleansed
+    databricks.com/table: zfigsttax_slab_mstr
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver_sap_cleansed/zfigsttax_slab_mstr
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake
+  dependsOn:
+  - component:bronze-sap-mul-zfigsttax-slab-slt

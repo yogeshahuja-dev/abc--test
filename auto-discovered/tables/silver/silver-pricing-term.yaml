@@ -1,0 +1,34 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-pricing-term
+  title: silver.pricing_term
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.pricing_term\n\
+    Layer: silver\nDescription: Pricing term master table with formula, index, and\
+    \ escalation logic\nColumns (8):\n  - price_term_key (bigint) -- Primary key for\
+    \ the pricing term\n  - formula_type (string) -- Type of pricing formula applied\n\
+    \  - index_code (string) -- Reference index code used for pricing\n  - escalation_rule\
+    \ (string) -- Escalation rule or logic for price adjustment\n  - valid_from (date)\
+    \ -- Start date of pricing term validity\n  - valid_to (date) -- End date of pricing\
+    \ term validity\n  - load_timestamp (timestamp) -- Timestamp when the record was\
+    \ loaded\n  - update_timestamp (timestamp) -- Timestamp when the record was last\
+    \ updated\nDiscovered: 2026-04-30 12:32"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.pricing_term
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: pricing_term
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/pricing_term
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

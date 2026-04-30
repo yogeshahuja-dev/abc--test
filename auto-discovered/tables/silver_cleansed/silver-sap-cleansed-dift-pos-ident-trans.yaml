@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-sap-cleansed-dift-pos-ident-trans
+  title: silver_sap_cleansed.dift_pos_ident_trans
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver_sap_cleansed.dift_pos_ident_trans\n\
+    Layer: silver-cleansed\nColumns (43):\n  - DI_SEQUENCE_NUMBER (bigint) -- Data\
+    \ Services-generated integer for sequencing\n  - DI_OPERATION_TYPE (string) --\
+    \ Data Services-generated row operation type\n  - MANDT (string) -- Client\n \
+    \ - OS_GUID (string) -- DB object identity\n  - CONTEXT (string) -- Context\n\
+    \  - IDENTIFIED_OID (string) -- DB object identity\n  - IDENTIFIED_CLS (string)\
+    \ -- DB object identity\n  - VALUATION_AREA (string) -- Valuation Area\n  - COM_VAL_CLASS\
+    \ (bigint) -- Gen. Valn Class\n  - VALUATION_CLASS (bigint) -- Valuation class\n\
+    \  - ACCOUNTING_CODE (string) -- Accounting Code\n  - COMPANY_CODE (string) --\
+    \ Company Code\n  - PRODUCT_TYPE (string) -- Product Type\n  - SECURITY_ACCOUNT\
+    \ (string) -- Securities Account\n  - SECURITY_ID (string) -- ID Number\n  - PORTFOLIO\
+    \ (string) -- Portfolio (Position)\n  - TRADER (string) -- Trader\n  - ACCOUNT_GROUP\
+    \ (string) -- Sec. Acct Group\n  - LOANS_CONTRACT (string) -- Contract Number\n\
+    \  - POSITION_ACCOUNT (string) -- Futures Account\n  ... +23 more\nDiscovered:\
+    \ 2026-04-30 12:24"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver-cleansed
+  - sap
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver_sap_cleansed.dift_pos_ident_trans
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver_sap_cleansed
+    databricks.com/table: dift_pos_ident_trans
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver_sap_cleansed/dift_pos_ident_trans
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

@@ -1,0 +1,75 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-gst-document-details
+  title: silver.gst_document_details
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.gst_document_details\n\
+    Layer: silver\nColumns (71):\n  - client_id (string) -- It is a three-char alphanumeric\
+    \ identifier that represents a client in the SAP system. A client is the highest\
+    \ organizational unit in SAP and serves as a self-contained unit with its own\
+    \ master data and set of tables.\n  - company_code (string) -- The company code\
+    \ represents the smallest organizational unit for which a complete, self-contained\
+    \ set of accounts can be drawn up, crucial for legal and financial reporting ⦁\
+    \ Max 4 characters ⦁ Common values: 1000, 2000\n  - accounting_doc_number (string)\
+    \ -- An identifier of Accounting document; essential for audit and reconciliation\
+    \ ⦁ Max 10-digit ⦁ Unique within fiscal year, identifier and company code.\n \
+    \ - fiscal_year (bigint) -- Accounting fiscal year (YYYY) in which the transaction\
+    \ is posted ⦁ 4-digit year format (YYYY).\n  - line_item (bigint) -- Buzei represents\
+    \ the sequential line item number inside an FI or MM accounting document.\n  -\
+    \ identifier (string) -- Custom discriminator to differentiate vendors across\
+    \ multiple SAP instances when client code alone is insufficient.\n  - document_type\
+    \ (string) -- Type of Accounting document (invoice, debit note, credit note, advance,\
+    \ payment, etc.). Examples: KR - \"Vendor Invoice\" KZ - \"Vendor Payment\"\n\
+    \  - posting_date (date) -- It is the date on which a financial transaction is\
+    \ posted, determining the accounting period for the entry.\n  - document_date\
+    \ (date) -- It is the field that stores the document date, representing the actual\
+    \ date on which a business transaction occurred, such as the date on an invoice\
+    \ or delivery note etc\n  - business_place (string) -- Represents the branch or\
+    \ business location of a vendor/company\n  - gstin_number (string) -- The GST\
+    \ Identification Number assigned to a business under India GST law.\n  - entry_date\
+    \ (date) -- Records the system entry date, which may differ from the actual transaction\
+    \ or posting date. Useful for auditing and tracking.\n  - ref_document_number\
+    \ (string) -- Ref document number stores a reference number related to the document,\
+    \ such as an invoice number, delivery note, or external document ID. It is used\
+    \ to link one document to another document or customer/vendor references and helps\
+    \ in document tracking, auditing, and cross-referencing between systems.\n  -\
+    \ reference_key (string) -- Stores the key of the reference document (e.g., PO\
+    \ number, SO number, etc.). It links the accounting document to its source. This\
+    \ field is crucial for traceability and reconciliation. It supports integrated\
+    \ business processes.\n  - gst_number (string) -- It stores the tax identification\
+    \ number for the business partner generally GST number ⦁ It is alphanumeric ⦁\
+    \ Must match GSTIN structure. ⦁ Sensitive commercial information.\n  - amount_loc_curr_header\
+    \ (double) -- Amount in local currency, indicating the financial value of the\
+    \ transaction. This helps in financial reporting and cost management.\n  - gl_acct_number_header\
+    \ (string) -- It is a key field in financial accounting tables. It identifies\
+    \ the General Ledger account used for posting financial transactions. This field\
+    \ is essential for determining how amounts are categorized in the chart of accounts.\
+    \ ⦁ Max length 10 char\n  - asp_invoice_type (string) -- A vendor invoice created\
+    \ for services rendered—such as R indicates regular, SEWP indicates SEZ export\
+    \ with payment\n  - debit_credit_ind_header (string) -- Debit/Credit Indicator,\
+    \ identifying whether the transaction is a debit or credit. It is crucial for\
+    \ accurate financial reconciliation common value S stands for Debit H stands for\
+    \ Credit\n  - tax_code_header (string) -- Specifies the tax code used for calculating\
+    \ input/output tax. Determines how tax is calculated and posted for the transaction.\
+    \ Examples- 1 indicates GST Domestic Sales -Output -2 indicates GST : Customer\
+    \ Adv (Intra State) 18% &A indicates GST Domestic Supply-Cenvatable\n  ... +51\
+    \ more\nDiscovered: 2026-04-30 12:31"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.gst_document_details
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: gst_document_details
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/gst_document_details
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

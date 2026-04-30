@@ -1,0 +1,92 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-purchase-order-detail
+  title: silver.purchase_order_detail
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.purchase_order_detail\n\
+    Layer: silver\nDescription: The table contains detailed information about purchase\
+    \ orders and their associated items within the procurement process. It includes\
+    \ data such as client identifiers, purchase order numbers, item details, pricing,\
+    \ and delivery indicators. This table can be used for tracking procurement transactions,\
+    \ analyzing purchasing patterns, managing inventory, and ensuring compliance with\
+    \ procurement policies.\nColumns (33):\n  - client_id (string) -- It is a three-char\
+    \ alphanumeric identifier that represents a client in the SAP system. A client\
+    \ is the highest organizational unit in SAP and serves as a self-contained unit\
+    \ with its own master data and set of tables.\n  - purchase_order_number (string)\
+    \ -- A Purchase Order Number is an identifier assigned to a purchase order created\
+    \ by a company for procuring goods or services from a vendor. It is used throughout\
+    \ the procurement cycle to track, reference, and manage the order.\n⦁ Maximum\
+    \ 10 character field\n  - purchase_order_item_number (bigint) -- Purchase order\
+    \ item number. Identifies individual line items within a purchase order for granular\
+    \ tracking of materials, quantities, prices, and delivery schedules.\n ⦁ Numeric\
+    \ field upto 5 character.\n  - purchase_req_number (string) -- Purchase requisition\
+    \ number linked to the Purchase Order item. Enables traceability from purchase\
+    \ requisition to purchase order.\n  - purchase_req_item_number (bigint) -- It\
+    \ identifies each line item within a purchase requisition. It allows multiple\
+    \ items to be managed under a single requisition document, important for detailed\
+    \ procurement tracking.\n ⦁ max length 5 digit\n  - change_date (date) -- Last\
+    \ change date of the Purchase Order item. Important for audit trails and lifecycle\
+    \ tracking.\n  - quoted_unit_price (string) -- Base unit of measure for pricing.\
+    \ Standardizes measurement across transactions.\n  - effective_value (double)\
+    \ -- Represents the effective value of a line item in a purchasing document. It\
+    \ reflects the price of the item after considering all applicable conditions such\
+    \ as discounts, surcharges, delivery costs, and non-deductible taxes.\n  - final_delivery_indicator\
+    \ (string) -- Delivery completed indicator. Marks whether delivery for this item\
+    \ is completed. X stands for delivery completed, else (Blank, Null or Space) delivery\
+    \ is pending\n  - account_assignment_category (string) -- It is a key field used\
+    \ in purchasing documents to determine how the costs of a procurement are assigned\
+    \ to accounts such as cost centers, internal orders, assets, etc. Examples: A\
+    \ indicates Assets F indicates Order Q indicates Projects- Materials\n  - deletion_indicator\
+    \ (string) -- Deletion indicator marking Purchase Order line items flagged for\
+    \ removal. This doesn't physically remove the Purchase Order line item from the\
+    \ database but flags it. Blank - Active;  L - Deleted. S -  Deleted\n  - material_group\
+    \ (string) -- It is a classification key used to group materials with similar\
+    \ characteristics or usage. this field helps in organizing and managing materials\
+    \ efficiently within procurement, inventory management, and reporting processes.\
+    \ \n⦁ max length 9-character.\n ⦁ groups similar materials \n⦁ Examples: 1492\
+    \ is the material group for SEEKER 1532 is the material group for COMPRESSORS\
+    \ 1572 is the material group for BLOWERS & FANS 1601 is the material group for\
+    \ MINING MACHINERY\n  - material_number (string) -- Material Number is a identifier\
+    \ assigned to each material item in the inventory, crucial for tracking and managing\
+    \ inventory levels.\n⦁ Max length 18-character\n  - material_units (string) --\
+    \ Base unit of measure defines how quantities of a material are measured and managed\
+    \ in the system.\n ⦁ max 3-character\n ⦁ stored in iso uom format (ea, kg, l,\
+    \ m, etc.).\nEA - each / unit / single piece \nKG - kilogram\nG - gram\n  - quantity\
+    \ (double) -- Quantity ordered for the PO item. Essential for inventory and procurement\
+    \ planning. ⦁ numeric field with decimal allowed.\n  - net_price (double) -- It\
+    \ indicates the net price per unit of a material or service in purchasing documents.\
+    \ It excludes taxes, discounts, and additional charges, reflecting the actual\
+    \ agreed price between the buyer and seller for the material. \n⦁ Mandatory for\
+    \ valued items.\n  - net_order_value (double) -- Net order value for the Purchase\
+    \ Order item. Important for budgeting and spend analysis. It is calculated by\
+    \ multiplying the net price by the quantity of goods or services.  It is numeric\
+    \ field , with max length 13 and decimals are allowed\n  - price_unit (double)\
+    \ -- It is a standard field that represents the price unit, indicating the quantity\
+    \ for which a material’s price is specified. This field ensures accurate pricing\
+    \ and unit conversions in purchasing documents.  For example: Rs.1000 is for 3\
+    \ quantity where the requirement is 1 quantity. Net price will be 1000, Quantity\
+    \ will be 1 and price unit  is 3. Hence Netorder Value will be Rs.333\n  - purchase_order_item_desc\
+    \ (string) -- Short text description of material/service for quick identification.\n\
+    \  - plant_code (string) -- A Plant Code represents a specific physical or organizational\
+    \ location within a company where materials are stored, produced, or managed Example:\
+    \ 2001 - APSEZ-MUNDRA-SEZ-OPS-W/O LOP 2401 - AHPL-HAZIRA-PROJECTS\n  ... +13 more\n\
+    Discovered: 2026-04-30 12:32"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.purchase_order_detail
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: purchase_order_detail
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/purchase_order_detail
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

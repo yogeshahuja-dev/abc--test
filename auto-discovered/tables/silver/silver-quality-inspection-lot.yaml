@@ -1,0 +1,34 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-quality-inspection-lot
+  title: silver.quality_inspection_lot
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.quality_inspection_lot\n\
+    Layer: silver\nDescription: Quality inspection lot table with material and plant\
+    \ linkage\nColumns (8):\n  - inspection_lot_id (bigint) -- Primary key for the\
+    \ inspection lot\n  - material_key (bigint) -- Foreign key to the inspected material\n\
+    \  - plant_key (bigint) -- Foreign key to the plant where inspection occurred\n\
+    \  - lot_start (date) -- Start date of the inspection lot\n  - lot_end (date)\
+    \ -- End date of the inspection lot\n  - result_status (string) -- Status of the\
+    \ inspection result (e.g., Passed, Failed, Pending)\n  - load_timestamp (timestamp)\
+    \ -- Timestamp when the record was loaded\n  - update_timestamp (timestamp) --\
+    \ Timestamp when the record was last updated\nDiscovered: 2026-04-30 12:32"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.quality_inspection_lot
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: quality_inspection_lot
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/quality_inspection_lot
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

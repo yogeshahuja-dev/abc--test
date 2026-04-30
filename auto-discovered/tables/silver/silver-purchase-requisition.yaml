@@ -1,0 +1,93 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-purchase-requisition
+  title: silver.purchase_requisition
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.purchase_requisition\n\
+    Layer: silver\nDescription: The table contains data related to purchase requisitions\
+    \ and orders within the procurement process. It includes details such as client\
+    \ identifiers, unique requisition and order numbers, item specifics, requester\
+    \ information, and vendor details. This data can be used for tracking procurement\
+    \ activities, analyzing purchasing patterns, managing vendor relationships, and\
+    \ ensuring accountability in the procurement workflow.\nColumns (36):\n  - client_id\
+    \ (string) -- It is a three-char alphanumeric identifier that represents a client\
+    \ in the SAP system. A client is the highest organizational unit in SAP and serves\
+    \ as a self-contained unit with its own master data and set of tables.\n  - purchase_req_number\
+    \ (string) -- A Purchase Requisition is an internal request created within a company\
+    \ to initiate the procurement of goods or services\n ⦁ max 10-digit characters.\n\
+    \  - purchase_req_item_number (bigint) -- It identifies each line item within\
+    \ a purchase requisition. It allows multiple items to be managed under a single\
+    \ requisition document, important for detailed procurement tracking.\n ⦁ max length\
+    \ 5 digit\n  - purchase_order_number (string) -- A Purchase Order Number is an\
+    \ identifier assigned to a purchase order created by a company for procuring goods\
+    \ or services from a vendor. It is used throughout the procurement cycle to track,\
+    \ reference, and manage the order.\n ⦁ Maximum 10 character field\n  - purchase_order_item_number\
+    \ (bigint) -- Purchase order item number. Identifies individual line items within\
+    \ a purchase order for granular tracking of materials, quantities, prices, and\
+    \ delivery schedules\n⦁ numeric field upto 5 character.\n  - requester_name (string)\
+    \ -- Name of the requisitioner or requester of the purchase.\n  - purchase_group_code\
+    \ (string) -- It is a key organizational unit that represents the buyer or group\
+    \ of buyers responsible for specific purchasing activities. It is used to assign\
+    \ responsibility for procurement tasks and to route purchasing documents accordingly\n\
+    \ ⦁ 3 char identifier. Examples: 106 - Spare & Consm-HO 110 - Custom-Logstc-HO\n\
+    \  - requisition_date (date) -- The date on which a purchase requisition was requested.\
+    \ It is important for planning and scheduling procurement activities\n  - tracking_number\
+    \ (string) -- Tracking number used for shipment tracking or vendor identification.\n\
+    \  - purchase_category (string) -- Categorizing the nature of the purchase document,\
+    \ such as standard Purchase requisition, returns, or consignment to ensures that\
+    \ each document is treated according to its business purpose.\nThe different categories\
+    \ are: \nA indicates Request for quotation \nB indicates Purchase requisition\n\
+    F indicates Purchase order \nI indicates Info record \nK indicates Contract\n\
+    L indicates Scheduling agreement \nQ indicates Service entry sheet \nW indicates\
+    \ Source list\n  - purchase_type (string) -- Document type indicating nature of\
+    \ purchase requisition (eg.. ZEMG means Emergency PR, ZMRP stands for MRP PR,\
+    \ etc).\n  - changed_on_date (date) -- Date when the purchase requisition was\
+    \ last changed in the system.\n  - requisitioner_name_id (string) -- User who\
+    \ created the purchase requisition. Useful for accountability and workflow tracking.\n\
+    \  - release_date (date) -- The date on which a document (purchase requisition)\
+    \ was released or approved in the system.\n  - release_indicator (string) -- Release\
+    \ indicator indicating the status of the purchase requisition or order approval\
+    \ process. Common Values: \n1 indicates Request for quotation \n2 indicates RFQ/purchase\
+    \ order \n3 indicates RFQ/PO no change of date\n4 indicates RFQ/PO no changes\
+    \ A indicates Fixed RFQ B indicates Fixed RFQ/purchase order X indicates Blocked.\n\
+    \  - account_assignment_category (string) -- It is a key field used in purchasing\
+    \ documents to determine how the costs of a procurement are assigned to accounts\
+    \ such as cost centers, internal orders, assets, etc. Common Values: A indicates\
+    \ Assets F indicates Order K indicates Cost center\n  - vendor_number (string)\
+    \ -- A Vendor number is an identifier assigned to each vendor in the system. It\
+    \ represents the supplier from whom a company purchases goods or services. This\
+    \ code is used throughout the procurement and finance processes \n⦁ Maximum 10\
+    \ character field.\n  - deletion_indicator (string) -- Deletion indicator marking\
+    \ PR items flagged for removal. This doesn't physically remove the item from the\
+    \ database but flags it.\n Common Values:\nX indicates Marked for deletion \n\
+    Blank indicates Active\n  - material_group (string) -- It is a classification\
+    \ key used to group materials with similar characteristics or usage. this field\
+    \ helps in organizing and managing materials efficiently within procurement, inventory\
+    \ management, and reporting processes.\n⦁ max length 9-character.\n⦁ groups similar\
+    \ materials\n⦁ Examples: 1492 is the material group for SEEKER 1532 is the material\
+    \ group for COMPRESSORS 1572 is the material group for BLOWERS & FANS 1601 is\
+    \ the material group for MINING MACHINERY\n  - material_number (string) -- Material\
+    \ Number is an identifier assigned to each material item in the inventory, crucial\
+    \ for tracking and managing inventory levels.\n⦁ Max length 18-character\n  ...\
+    \ +16 more\nDiscovered: 2026-04-30 12:32"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.purchase_requisition
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: purchase_requisition
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/purchase_requisition
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake
+  dependsOn:
+  - component:silver-sap-cleansed-equi-mstr

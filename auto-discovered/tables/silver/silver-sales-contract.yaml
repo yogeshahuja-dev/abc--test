@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-sales-contract
+  title: silver.sales_contract
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.sales_contract\n\
+    Layer: silver\nDescription: Sales contract master table with SCD Type 2 support\
+    \ and party references\nColumns (16):\n  - contract_key (bigint) -- Primary key\
+    \ for the sales contract\n  - contract_id (string) -- Unique contract identifier\n\
+    \  - contract_type (string) -- Type of contract (e.g., fixed, time & material)\n\
+    \  - vendor_key (bigint) -- Foreign key to the vendor\n  - customer_key (bigint)\
+    \ -- Foreign key to the customer\n  - entity_key (bigint) -- Foreign key to the\
+    \ owning entity\n  - start_date (date) -- Contract start date\n  - end_date (date)\
+    \ -- Contract end date\n  - currency_key (string) -- Foreign key to currency\n\
+    \  - contract_value (decimal(18,2)) -- Total value of the contract\n  - status\
+    \ (string) -- Current status of the contract (e.g., Active, Closed)\n  - effective_start_date\
+    \ (date) -- Start date for SCD Type 2 tracking\n  - effective_end_date (date)\
+    \ -- End date for SCD Type 2 tracking\n  - is_current (boolean) -- Indicates if\
+    \ the record is currently active\n  - load_timestamp (timestamp) -- Timestamp\
+    \ when the record was loaded\n  - update_timestamp (timestamp) -- Timestamp when\
+    \ the record was last updated\nDiscovered: 2026-04-30 12:32"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.sales_contract
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: sales_contract
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/sales_contract
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

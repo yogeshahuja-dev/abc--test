@@ -1,0 +1,62 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-po-schedule-lines
+  title: silver.po_schedule_lines
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.po_schedule_lines\n\
+    Layer: silver\nDescription: The table contains data related to purchasing documents\
+    \ within the SAP system. It includes details such as client identifiers, purchase\
+    \ order numbers, item quantities, delivery dates, and received quantities. This\
+    \ data can be used for tracking procurement activities, managing delivery schedules,\
+    \ and analyzing inventory levels. Additionally, it supports versioning and change\
+    \ detection through fields related to the technical implementation of Slowly Changing\
+    \ Dimensions (SCD2).\nColumns (12):\n  - client_id (string) -- It is a three-char\
+    \ alphanumeric identifier that represents a client in the SAP system. A client\
+    \ is the highest organizational unit in SAP and serves as a self-contained unit\
+    \ with its own master data and set of tables.\n  - purchase_order_number (string)\
+    \ -- A Purchase Order Number is an identifier assigned to a purchase order created\
+    \ by a company for procuring goods or services from a vendor. It is used throughout\
+    \ the procurement cycle to track, reference, and manage the order.\n⦁ Maximum\
+    \ 10 character field\n  - purchase_order_item_number (bigint) -- Purchase order\
+    \ item number. Identifies individual line items within a purchase order for granular\
+    \ tracking of materials, quantities, prices, and delivery schedules. \n⦁ Numeric\
+    \ field upto 5 character.\n  - delivery_date (date) -- The date on which the vendor\
+    \ is expected to deliver the goods or services for a particular item in a purchasing\
+    \ document. It is a key field and is used to manage and monitor delivery schedules.\
+    \ \n⦁ Cannot be blank for valid procurement documents. \n⦁ stored in date format\
+    \ (YYYYMMDD). \n⦁ Must be a valid calendar date.\n  - po_delivery_schedule_number\
+    \ (string) -- This field schedule line is the delivery schedule line counter.\
+    \ It identifies each schedule line within a purchasing document item, supporting\
+    \ precise delivery planning\n  - scheduled_quantity (double) -- Quantity to be\
+    \ delivered by the vendor in respect of the schedule line.\n  - received_quantity\
+    \ (string) -- The field  indicates the quantity of goods received into stock from\
+    \ the order till date\n  - identifier (string) -- Custom discriminator to differentiate\
+    \ vendors across multiple SAP instances when client code alone is insufficient.\n\
+    \  - HASH_KEY (string) -- System-generated hash key used for uniquely identifying\
+    \ records and ensuring data integrity.\n  - SYS_EFFECTIVE_START_DATE (date) --\
+    \ System Effective Start Date, indicating when the record became valid in the\
+    \ system.\n  - SYS_EFFECTIVE_END_DATE (date) -- System Effective End Date, indicating\
+    \ when the record ceased to be valid in the system.\n  - IS_ACTIVE (string) --\
+    \ Flag indicating whether the record is currently active. Y indicates an active\
+    \ record which means that it is the latest record N indicates an in-active record\
+    \ which means that this record is old and has been changed\nDiscovered: 2026-04-30\
+    \ 12:31"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.po_schedule_lines
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: po_schedule_lines
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/po_schedule_lines
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-sap-cleansed-mdkp-mstr
+  title: silver_sap_cleansed.mdkp_mstr
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver_sap_cleansed.mdkp_mstr\n\
+    Layer: silver-cleansed\nColumns (115):\n  - DI_SEQUENCE_NUMBER (bigint) -- Data\
+    \ Services-generated integer for sequencing\n  - DI_OPERATION_TYPE (string) --\
+    \ Data Services-generated row operation type\n  - MANDT (string) -- Client\n \
+    \ - DTART (string) -- MRP list type\n  - MATNR (string) -- Material\n  - PLWRK\
+    \ (string) -- Plant\n  - PLSCN (bigint) -- Planning Scenario\n  - DTNUM (bigint)\
+    \ -- No. MRP table\n  - DSDAT (date) -- MRP date\n  - BDBKZ (string) -- Processed\
+    \ MRP lists\n  - SLKZ1 (string) -- Exception\n  - SLKZ2 (string) -- Exception\n\
+    \  - SLKZ3 (string) -- Exception\n  - SLKZ4 (string) -- Exception\n  - SLKZ5 (string)\
+    \ -- Exception\n  - SLKZ6 (string) -- Exception\n  - SLKZ7 (string) -- Exception\n\
+    \  - SLKZ8 (string) -- Exception\n  - VRKZ1 (string) -- Processing ind.\n  - VRKZ2\
+    \ (string) -- Processing ind.\n  ... +95 more\nDiscovered: 2026-04-30 12:26"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver-cleansed
+  - sap
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver_sap_cleansed.mdkp_mstr
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver_sap_cleansed
+    databricks.com/table: mdkp_mstr
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver_sap_cleansed/mdkp_mstr
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

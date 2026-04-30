@@ -1,0 +1,83 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-vendor-ledger
+  title: silver.vendor_ledger
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.vendor_ledger\n\
+    Layer: silver\nDescription: A vendor ledger is a sub-ledger that records all financial\
+    \ transactions with a vendor, including invoices, credit notes, advances, and\
+    \ payments. It provides a detailed view of outstanding liabilities and settlement\
+    \ history for each vendor, supporting reconciliation and compliance.\nColumns\
+    \ (57):\n  - client_id (string) -- It is a three-char alphanumeric identifier\
+    \ that represents a client in the SAP system. A client is the highest organizational\
+    \ unit in SAP and serves as a self-contained unit with its own master data and\
+    \ set of tables.\n  - company_code (string) -- The company code represents the\
+    \ smallest organizational unit for which a complete, self-contained set of accounts\
+    \ can be drawn up, crucial for legal and financial reporting. \n⦁ Max 4 characters\
+    \ Common Values : 1000, 2000\n  - accounting_doc_number (string) -- An identifier\
+    \ of Accounting document; essential for audit and reconciliation\n⦁ Max 10-digit\n\
+    ⦁ Unique within fiscal year, identifier and company code.\n  - fiscal_year (bigint)\
+    \ -- Accounting fiscal year (YYYY) in which the transaction is posted\n⦁ 4-digit\
+    \ year format (YYYY)\n  - accounting_line_item_number (bigint) -- It identifies\
+    \ each line item in a financial document. For example, if a vendor invoice has\
+    \ multiple expense lines, each will have a distinct line item number value (e.g.,\
+    \ 001, 002, 003)\n⦁ 3-digit numeric\n⦁ Identifies specific posting line.\n  -\
+    \ vendor_number (string) -- A Vendor number is an identifier assigned to each\
+    \ vendor in the system. It represents the supplier from whom a company purchases\
+    \ goods or services. This code is used throughout the procurement and finance\
+    \ processes \n⦁ Maximum 10 character field.\n  - clearing_doc_number (string)\
+    \ -- Document used for clearing open items, used in accounting to track reconciliation\
+    \ processes\n⦁ Maximum length 10 char.\n  - clearing_date (date) -- Date when\
+    \ clearing occurred; important for cash flow management\n⦁ Date on which the vendor\
+    \ line item was cleared\n⦁ Used for Accounts Payable aging analytics\n⦁ Stored\
+    \ in YYYYMMDD format. ⦁ Must be a valid calendar date.\n  - document_type (string)\
+    \ -- Type of Accounting document (invoice, debit note, credit note, advance, payment,\
+    \ etc.). Examples: KR - Vendor Invoice KZ - Vendor Payment\n  - document_date\
+    \ (date) -- It is the field that stores the document date, representing the actual\
+    \ date on which a business transaction occurred, such as the date on an invoice\
+    \ or delivery note etc.\n  - posting_date (date) -- It is the date on which a\
+    \ financial transaction is posted, determining the accounting period for the entry.\n\
+    \  - business_place_code (string) -- This field is used to identify a specific\
+    \ business location within a company code.\n  - amount_loc_curr (double) -- Amount\
+    \ in local currency, indicating the financial value of the transaction. This helps\
+    \ in financial reporting and cost management.\n  - financial_budget_item (string)\
+    \ -- It is a field used to classify vendor line items for cash management and\
+    \ liquidity planning. It indicates how a particular vendor transaction should\
+    \ be considered when forecasting cash inflows and outflows.\n  - business_area\
+    \ (string) -- It is an internal organizational unit used to represent a specific\
+    \ area of operations or responsibility within a company, such as a product line,\
+    \ division, or geographical region. It enables internal financial reporting by\
+    \ segmenting data across different business areas and allows companies to generate\
+    \ balance sheets and profit & loss statements for each business area.\n  - gl_acct_number\
+    \ (string) -- It is a key field in financial accounting tables. It identifies\
+    \ the General Ledger account used for posting financial transactions. This field\
+    \ is essential for determining how amounts are categorized in the chart of accounts.\
+    \ ⦁ Max length 10 char\n  - identifier (string) -- Custom discriminator to differentiate\
+    \ vendors across multiple SAP instances when client code alone is insufficient.\n\
+    \  - profit_center (string) -- A Profit Centre is an internal organizational unit\
+    \ used to measure the financial performance of a specific area of the business.\
+    \ It allows a company to track revenues, costs, and profitability for a defined\
+    \ segment Examples: 2101050 - APSEZ-MARINE-HPCL 1UPNDG0799 - H R DEPT 1UPNDG0299\
+    \ - BILLING DEPT\n  - reco_gl_acct_number (string) -- Represents the master G/L\
+    \ account number from the vendor master or reconciliation account\n  - accounting_line_item_number_text\
+    \ (string) -- It is used to store descriptive or explanatory text related to line\
+    \ items in accounting documents.\n  ... +37 more\nDiscovered: 2026-04-30 12:33"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.vendor_ledger
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: vendor_ledger
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/vendor_ledger
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

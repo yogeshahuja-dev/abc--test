@@ -1,0 +1,73 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-project-stock
+  title: silver.project_stock
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.project_stock\n\
+    Layer: silver\nDescription: The table contains inventory management data related\
+    \ to materials and their status within the SAP system. It includes details such\
+    \ as client identifiers, plant codes, material numbers, and various stock statuses\
+    \ (e.g., unrestricted, quality inspection, blocked). This data can be used for\
+    \ logistics planning, inventory tracking, and project management, as well as for\
+    \ analyzing stock levels and managing special inventory types.\nColumns (15):\n\
+    \  - client_id (string) -- It is a three-char alphanumeric identifier that represents\
+    \ a client in the SAP system. A client is the highest organizational unit in SAP\
+    \ and serves as a self-contained unit with its own master data and set of tables.\n\
+    \  - plant_code (string) -- A Plant Code represents a specific physical or organizational\
+    \ location within a company where materials are stored, produced, or managed Example:\
+    \ 2001 - APSEZ-MUNDRA-SEZ-OPS-W/O LOP 2401 - AHPL-HAZIRA-PROJECTS\n  - material_number\
+    \ (string) -- Material Number is a identifier assigned to each material item in\
+    \ the inventory, crucial for tracking and managing inventory levels.\n⦁ Max length\
+    \ 18-character\n  - storage_location (string) -- It is a key organizational unit\
+    \ within a plant used to manage inventory at a more detailed level. It is a 4-character\
+    \ field and is essential for tracking where materials are physically or logically\
+    \ stored. \n⦁ 4-character (e.g., CS01, CS02).\n⦁ Identifies the exact storage\
+    \ subset within a plant\n  - batch_number (string) -- Used to identify a specific\
+    \ quantity of material that was produced or received under the same conditions.\
+    \ It is a key field in batch management, allowing companies to track and manage\
+    \ inventory at a more granular level.\n⦁ Max length 10-char.\n⦁ Uniquely identifies\
+    \ a batch of material with same manufacturing attributes.\n  - wbs_element (int)\
+    \ -- A WBS Element (Work Breakdown Structure Element) is a specific task, activity,\
+    \ or cost‑collecting area within a project. It represents a clearly defined part\
+    \ of the overall project that needs to be planned, budgeted, executed, and monitored\
+    \ separately.\n  - valuated_unrestricted_stock (string) -- It represents the quantity\
+    \ of stock available for use and valuated in inventory accounting.\n  - stock_in_quality_inspection\
+    \ (double) -- It indicates stock under Quality inspection and not yet available\
+    \ for unrestricted or end use.\n  - blocked_stock (double) -- It represents stock\
+    \ that is blocked and cannot be used until released.\n  - special_stock_ind (string)\
+    \ -- It is the Special Stock Indicator field used to identify and manage non-standard\
+    \ inventory types such as consignment, project, or sales order stock. It ensures\
+    \ accurate tracking, valuation, and reporting of special stock Examples: E indicates\
+    \ Orders on hand F indicates SC Customer Order Stock I indicate SC RTP J indicates\
+    \ SC Vendor consignment Q indicates Project Stock\n  - identifier (string) --\
+    \ Custom discriminator to differentiate vendors across multiple SAP instances\
+    \ when client code alone is insufficient.\n  - HASH_KEY (string) -- System-generated\
+    \ hash key used for uniquely identifying records and ensuring data integrity.\n\
+    \  - SYS_EFFECTIVE_START_DATE (date) -- System Effective Start Date, indicating\
+    \ when the record became valid in the system.\n  - SYS_EFFECTIVE_END_DATE (date)\
+    \ -- System Effective End Date, indicating when the record ceased to be valid\
+    \ in the system.\n  - IS_ACTIVE (string) -- Flag indicating whether the record\
+    \ is currently active. Y indicates an active record which means that it is the\
+    \ latest record N indicates an in-active record which means that this record is\
+    \ old and has been changed\nDiscovered: 2026-04-30 12:32"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.project_stock
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: project_stock
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/project_stock
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake
+  dependsOn:
+  - component:silver-sap-cleansed-proj-mstr

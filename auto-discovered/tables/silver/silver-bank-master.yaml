@@ -1,0 +1,74 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-bank-master
+  title: silver.bank_master
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.bank_master\n\
+    Layer: silver\nColumns (19):\n  - client_id (string) -- It is a three-char alphanumeric\
+    \ identifier that represents a client in the SAP system. A client is the highest\
+    \ organizational unit in SAP and serves as a self-contained unit with its own\
+    \ master data and set of tables.\n  - country_key (string) -- It is used to identify\
+    \ the country associated with a bank in the system. The value of country_key is\
+    \ typically based on ISO country codes\n• Common Value IN for India\n  - bank_key\
+    \ (string) -- Bank identifier within a given country, often corresponding to a\
+    \ domestic routing or clearing number (e.g., German BLZ, Indian IFSC surrogate\
+    \ at master level). Used to route payments and to uniquely reference a bank in\
+    \ master data and payment transactions.\n\nExamples:\nSBIN0000354\nSBIN0000360\n\
+    \  - creation_date (date) -- Date when the Bank key was created. Useful for tracking\
+    \ master data lifecycle and audit purposes.\n• Max length 8 char\n• Format: YYYY-MM-DD.\n\
+    \  - created_by (string) -- User ID of the person who created the bank key. It\
+    \ is important for accountability and auditing\n• max 12 chars\n  - bank_name\
+    \ (string) -- Official name of the bank as maintained in the bank master. Displayed\
+    \ on payment documents, vendor bank details, confirmations, and reports.\n\nExamples:\n\
+    STATE BANK OF INDIA\nAXIS BANK\n  - region (string) -- Region code indicating\
+    \ the geographic area associated with the bank key. Max 3-character code (e.g.,\
+    \ 09 - Jammu and Kashmir, 19 Punjab).\n  - city (string) -- Specifies the city\
+    \ where the bank is located. It is part of the bank's address and is used in correspondence.\n\
+    \  - swift_bic_code (string) -- This field is used to identify the banks in international\
+    \ payment networks. Required for cross-border transfers (e.g., SWIFT MT messages\
+    \ and ISO 20022) and sanctions screening. Ensures accurate routing of international\
+    \ transactions and partner bank identification.\n\nExamples:\nADCC0000046\nADCC0000047\n\
+    ADCC0000048\n  - bank_group (string) -- Logical grouping of banks used for internal\
+    \ classification, consolidation, or regulatory segmentation.\n  - deletion_indicator\
+    \ (string) -- Deletion indicator marking bank key flagged for removal. This doesn't\
+    \ physically remove the item from the database but flags it.\nCommon Values:\n\
+    X indicates Marked for deletion\nBlank indicates Active\n  - bank_key_alt (string)\
+    \ -- Alternative field representing the bank number depending on country settings.\
+    \ Often overlaps with bank_key usage.\n  - address_id (string) -- A reference\
+    \ number used to connect a record to its stored address details. It helps the\
+    \ system find and manage the correct address information for a record easily.\n\
+    \  - branch_name (string) -- Bank Branch refers to the textual, human-readable\
+    \ name or description of a bank branch, used to clearly identify a specific location.\n\
+    \nExamples:\nAHMEDABAD\nB. C. ROAD\n  - check_digit_method (string) -- Specifies\
+    \ the check-digit procedure used to validate bank/account numbers for the country\
+    \ or bank. Ensures structural correctness of entered numbers and reduces transaction\
+    \ rejections.\n  - HASH_KEY (string) -- System-generated hash key used for uniquely\
+    \ identifying records and ensuring data integrity.\n  - SYS_EFFECTIVE_START_DATE\
+    \ (date) -- System Effective Start Date, indicating when the record became valid\
+    \ in the system.\n  - SYS_EFFECTIVE_END_DATE (date) -- System Effective End Date,\
+    \ indicating when the record ceased to be valid in the system.\n  - IS_ACTIVE\
+    \ (string) -- Flag indicating whether the record is currently active. Y indicates\
+    \ an active record which means that it is the latest record N indicates an in-active\
+    \ record which means that this record is old and has been changed\nDiscovered:\
+    \ 2026-04-30 12:30"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.bank_master
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: bank_master
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/bank_master
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake
+  dependsOn:
+  - component:silver-sap-cleansed-mast-mstr

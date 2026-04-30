@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-asset
+  title: silver.asset
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.asset\n\
+    Layer: silver\nDescription: The asset table maintains master data for physical\
+    \ or financial assets, including unique identifiers, asset classification, and\
+    \ hierarchical relationships through parent asset references. It captures key\
+    \ operational details such as plant association, commissioning date, and current\
+    \ status, along with effective start and end dates to manage validity periods.\
+    \ Audit fields like load and update timestamps ensure accurate tracking of changes\
+    \ and data integrity.\nColumns (12):\n  - asset_key (bigint) -- Primary key for\
+    \ the asset\n  - asset_id (string) -- Unique equipment tag or asset identifier\n\
+    \  - asset_class (string) -- Classification of the asset (e.g., electrical, mechanical)\n\
+    \  - plant_key (bigint) -- Foreign key to the associated plant\n  - parent_asset_key\
+    \ (bigint) -- Self-referencing foreign key to parent asset\n  - commissioning_date\
+    \ (date) -- Date the asset was commissioned\n  - status (string) -- Current status\
+    \ of the asset (e.g., Active, Retired, Under Maintenance)\n  - effective_start_date\
+    \ (date) -- Start date for SCD Type 2 tracking\n  - effective_end_date (date)\
+    \ -- End date for SCD Type 2 tracking\n  - is_current (boolean) -- Indicates if\
+    \ the record is currently active\n  - load_timestamp (timestamp) -- Timestamp\
+    \ when the record was loaded\n  - update_timestamp (timestamp) -- Timestamp when\
+    \ the record was last updated\nDiscovered: 2026-04-30 12:30"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.asset
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: asset
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/asset
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

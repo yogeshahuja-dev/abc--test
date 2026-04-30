@@ -1,0 +1,72 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: gold-procurement-arc-lookup-data-table
+  title: gold_procurement.arc_lookup_data_table
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.gold_procurement.arc_lookup_data_table\n\
+    Layer: gold\nDescription: This table is intermediate table holding the ARC (Annual\
+    \ Rate Contract)  or Non-ARC and used as a lookup table\nColumns (38):\n  - CLIENT_ID\
+    \ (string) -- It is a three-digit identifier that represents a client in the SAP\
+    \ system. A client is the highest organizational unit in SAP and serves as a self-contained\
+    \ unit with its own master data and set of tables.\n  - BU (string) -- Business\
+    \ Unit denotes the organizational division responsible for the PO, enabling financial\
+    \ accountability, budget tracking, and performance analysis.\n  - COMPANY_CODE\
+    \ (string) -- The company code representing the smallest organizational unit for\
+    \ which a complete, self-contained set of accounts can be drawn up, crucial for\
+    \ legal and financial reporting.\n  - BU_BASED_ON_COMPANY (string) -- Business\
+    \ unit designation based on Company code\n  - COMPANY_NAME (string) -- Descriptive\
+    \ name of the company code. Used for display and reporting purposes across SAP\
+    \ modules.\n  - PLANT_CODE (string) -- It is a 4-character alphanumeric code.\
+    \ Plant code where material/service will be used. Critical for logistics and planning.\n\
+    \  - PLANT_NAME (string) -- Primary name of the plant. Displayed in reports and\
+    \ transaction screens for identification and operational clarity.\n  - VENDOR_CODE\
+    \ (string) -- Vendor code, a unique identifier assigned to each vendor. This field\
+    \ is essential for linking vendor data across various SAP modules, such as procurement\
+    \ and finance\n  - VENDOR_NAME (string) -- This field is used to store the primary\
+    \ name of a vendor. It typically contains the company name or the individual name,\
+    \ depending on the type of vendor.\n  - MATERIAL_CODE (string) -- Material Number\
+    \ is a unique identifier assigned to each material item in the inventory, crucial\
+    \ for tracking and managing inventory levels.\n  - MATERIAL_DESCRIPTION_EKPO (string)\
+    \ -- Short text description of material/service for quick identification derived\
+    \ from table EKPO\n  - MATERIAL_DESCRIPTION_MAKT (string) -- Short text description\
+    \ of material for quick identification derived from table MAKT.\n  - PURCHASE_ORDER_DOCUMENT_CATEGORY\
+    \ (string) -- Categorizing the nature of the purchase document, such as standard\
+    \ PO, returns, or consignment to ensures that each document is treated according\
+    \ to its business purpose. The different categories are:\na. Request for Quatations\n\
+    b. Purchase Orders\nc. Purchase Requisitions\nd. Contracts\ne. Scheduling Agreements\n\
+    \  - CONTRACT_NUMBER (string) -- Contract Number refers to a purchasing document\
+    \ that represents a long-term agreement between a company and a vendor to supply\
+    \ materials or services under predefined conditions.\n  - CONTRACT_LINE_ITEM (int)\
+    \ -- Contract Line Item refers to an individual item within a purchase contract.\
+    \ Each line item specifies details such as the material or service, quantity,\
+    \ price, and delivery terms.\n  - CREATION_DATE (date) -- Date when the procurement\
+    \ document or transaction was created, important for audit trails and historical\
+    \ analysis.\n  - FY (string) -- Represents the financial year corresponding to\
+    \ the PO creation date (AEDAT). The financial year is determined based on the\
+    \ organization’s fiscal calendar\n  - VALIDITY_STARTDATE (date) -- Validity start\
+    \ date of the purchase order. Marks commencement of validity period in purchase\
+    \ order.\n  - VALIDITY_ENDDATE (date) -- Validity end date of the purchase order.\
+    \ Indicates expiration of validity period in purchase order.\n  - NET_VALUE (double)\
+    \ -- Net order value for the PO item. Important for budgeting and spend analysis.\
+    \ It is calculated by multiplying the net price by the quantity of goods or services.\n\
+    \  ... +18 more\nDiscovered: 2026-04-30 12:33"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - gold
+  - procurement
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.gold_procurement.arc_lookup_data_table
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: gold_procurement
+    databricks.com/table: arc_lookup_data_table
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/gold_procurement/arc_lookup_data_table
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

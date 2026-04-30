@@ -1,0 +1,76 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-gate-pass-outward-item
+  title: silver.gate_pass_outward_item
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.gate_pass_outward_item\n\
+    Layer: silver\nDescription: gate_pass_outward_item is a transactional table that\
+    \ details the materials associated with each gate pass request. It captures information\
+    \ such as material identifiers, descriptions, quantities, and values, ensuring\
+    \ accurate documentation of goods movement. This table supports operational control,\
+    \ inventory management, and compliance by providing a clear record of material-level\
+    \ transactions linked to gate pass processes.\nColumns (24):\n  - client_id (string)\
+    \ -- It is a three-char alphanumeric identifier that represents a client in the\
+    \ SAP system. A client is the highest organizational unit in SAP and serves as\
+    \ a self-contained unit with its own master data and set of tables.\n  - request_number\
+    \ (string) -- The request number is the reference ID generated when a user raises\
+    \ a request for sending materials outside the premises.\n  - gate_pass_number\
+    \ (string) -- The Gate Pass Number identifies a gate pass document used to authorize\
+    \ and record the movement of goods or vehicles in or out of a plant or warehouse.\
+    \ Max length 10 char.\n  - serial_number (bigint) -- Serial number of the item\
+    \ in the gate outward pass detail list. Max length 5 char. Line item sequence\
+    \ within a gate pass (1, 2, 3…).\n  - material_number (string) -- Material Number\
+    \ is an identifier assigned to each material item in the inventory, crucial for\
+    \ tracking and managing inventory levels. Max length 18-character.\n  - material_desc\
+    \ (string) -- Short text description of material for quick identification in reports\
+    \ and user interfaces. Max 40 character, free text description.\n  - material_quantity\
+    \ (double) -- Total quantity of the material being sent outward. Quantity field.\
+    \ Max length 13 char with decimals.\n  - return_quantity (double) -- Quantity\
+    \ of the material that is expected to be returned. Quantity field. Max length\
+    \ 15 char with decimals.\n  - unit_of_measure (string) -- Unit of measure for\
+    \ the goods, essential for consistency in quantity tracking and reporting. Max\
+    \ length 3 char. Unit of measure of items (e.g., EA, KG, G). EA - Each / Unit\
+    \ / Single piece; KG - Kilogram; G - Gram.\n  - hsn_code (string) -- HSN code\
+    \ used for tax classification of goods and services, relevant for GST compliance.\n\
+    \  - material_value (double) -- Total value of the material in the local currency\
+    \ (e.g., INR). Amount field of 13 char with decimals.\n  - material_document_number\
+    \ (string) -- Material document number is an identifier assigned to each material\
+    \ document created during goods movements such as goods receipt, goods issue,\
+    \ or transfer postings.\n  - material_document_year (bigint) -- Fiscal year in\
+    \ which the material document was created. Used with Material document number\
+    \ to identify a document. Max length 4 char with YYYY format.\n  - identifier\
+    \ (string) -- Custom discriminator to differentiate vendors across multiple SAP\
+    \ instances when client code alone is insufficient.\n  - plant_code (string) --\
+    \ A Plant Code represents a specific physical or organizational location within\
+    \ a company where materials are stored, produced, or managed. Example: 2001 -\
+    \ APSEZ-MUNDRA-SEZ-OPS-W/O LOP; 2401 - AHPL-HAZIRA-PROJECTS\n  - storage_location\
+    \ (string) -- It is a key organizational unit within a plant used to manage inventory\
+    \ at a more detailed level. It is a 4-character field and is essential for tracking\
+    \ where materials are physically or logically stored.\n  - sales_order_number\
+    \ (string) -- Number of the sales document (e.g., order, delivery). Useful for\
+    \ linking vendor transactions to SD module.\n  - billing_document (string) --\
+    \ Number of the sales billing document. Useful for linking vendor transactions\
+    \ to SD module.\n  - gst_percentage (string) -- This field captures the applicable\
+    \ GST rate (e.g., 5%, 12%, 18%) to be applied on the material or service involved\
+    \ in the gatepass transaction.\n  - gst_value (double) -- This field stores the\
+    \ calculated tax amount based on the GST percentage and the taxable value of the\
+    \ goods.\n  ... +4 more\nDiscovered: 2026-04-30 12:31"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.gate_pass_outward_item
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: gate_pass_outward_item
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/gate_pass_outward_item
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

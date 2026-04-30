@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-control
+  title: silver.control
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.control\n\
+    Layer: silver\nDescription: Control is a master table that defines the key governance\
+    \ and compliance controls implemented across business processes. It provides a\
+    \ structured view of each control’s purpose, domain of application, and ownership,\
+    \ ensuring accountability and alignment with organizational objectives. This table\
+    \ supports risk management and regulatory adherence by enabling consistent monitoring\
+    \ and execution of controls at defined intervals, fostering transparency and operational\
+    \ integrity.\nColumns (8):\n  - control_id (bigint) -- Primary key for the internal\
+    \ control\n  - name (string) -- Control name or title\n  - domain (string) --\
+    \ Domain or process area (e.g., Finance, IT, Operations)\n  - objective (string)\
+    \ -- Control objective or purpose\n  - frequency (string) -- Frequency of control\
+    \ execution (e.g., Monthly, Quarterly)\n  - owner (string) -- Control owner or\
+    \ responsible party\n  - load_timestamp (timestamp) -- Record creation timestamp.\n\
+    \  - update_timestamp (timestamp) -- Record last updated timestamp.\nDiscovered:\
+    \ 2026-04-30 12:30"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.control
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: control
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/control
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

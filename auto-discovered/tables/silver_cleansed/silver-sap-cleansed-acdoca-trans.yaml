@@ -1,0 +1,33 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-sap-cleansed-acdoca-trans
+  title: silver_sap_cleansed.acdoca_trans
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver_sap_cleansed.acdoca_trans\n\
+    Layer: silver-cleansed\nColumns (539):\n  - DI_SEQUENCE_NUMBER (bigint)\n  - DI_OPERATION_TYPE\
+    \ (string)\n  - RCLNT (string)\n  - RLDNR (string)\n  - RBUKRS (string)\n  - GJAHR\
+    \ (bigint)\n  - BELNR (string)\n  - DOCLN (string)\n  - RYEAR (bigint)\n  - DOCNR_LD\
+    \ (string)\n  - RRCTY (string)\n  - RMVCT (string)\n  - VORGN (string)\n  - VRGNG\
+    \ (string)\n  - BTTYPE (string)\n  - CBTTYPE (string)\n  - CLOSINGSTEP (bigint)\n\
+    \  - AWTYP (string)\n  - AWSYS (string)\n  - AWORG (string)\n  ... +519 more\n\
+    Discovered: 2026-04-30 12:23"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver-cleansed
+  - sap
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver_sap_cleansed.acdoca_trans
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver_sap_cleansed
+    databricks.com/table: acdoca_trans
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver_sap_cleansed/acdoca_trans
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

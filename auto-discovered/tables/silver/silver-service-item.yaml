@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-service-item
+  title: silver.service_item
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.service_item\n\
+    Layer: silver\nDescription: Service item master table with SCD-lite support and\
+    \ classification details\nColumns (10):\n  - service_key (bigint) -- Primary key\
+    \ for the service item\n  - service_code (string) -- Unique code identifying the\
+    \ service\n  - service_name (string) -- Descriptive name of the service\n  - uom\
+    \ (string) -- Unit of measure for the service (e.g., hours, days)\n  - category\
+    \ (string) -- Service category or classification\n  - effective_start_date (date)\
+    \ -- Start date for SCD-lite tracking\n  - effective_end_date (date) -- End date\
+    \ for SCD-lite tracking\n  - is_current (boolean) -- Indicates if the record is\
+    \ currently active\n  - load_timestamp (timestamp) -- Timestamp when the record\
+    \ was loaded\n  - update_timestamp (timestamp) -- Timestamp when the record was\
+    \ last updated\nDiscovered: 2026-04-30 12:32"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.service_item
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: service_item
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/service_item
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

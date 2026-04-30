@@ -1,0 +1,86 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-order-details
+  title: silver.order_details
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.order_details\n\
+    Layer: silver\nColumns (30):\n  - client_id (string) -- It is a three-char alphanumeric\
+    \ identifier that represents a client in the SAP system. A client is the highest\
+    \ organizational unit in SAP and serves as a self-contained unit with its own\
+    \ master data and set of tables.\n  - internal_order_number (string) -- An Internal\
+    \ Order is used to plan, collect, and monitor costs for specific activities, projects,\
+    \ or tasks within an organization. It acts as a temporary cost collector that\
+    \ can later be settled to cost centers, assets, or other receivers.\n  - special_procurement_type\
+    \ (string) -- It is an indicator that defines how a material should be sourced.\
+    \ It specifies the particular procurement method used for the material, such as\
+    \ external procurement, internal production, or other special sourcing arrangements.\
+    \ Examples: 0 indicates Standard external procurement, 2 indicates Consignment,\
+    \ 3 indicates Subcontracting, 7 indicates Stock transfer.\n  - wbs_element (bigint)\
+    \ -- A WBS Element (Work Breakdown Structure Element) is a specific task, activity,\
+    \ or cost‑collecting area within a project. It represents a clearly defined part\
+    \ of the overall project that needs to be planned, budgeted, executed, and monitored\
+    \ separately.\n  - procurement_type (string) -- It is an indicator that specifies\
+    \ how a material is sourced. A material can be produced in‑house, procured externally,\
+    \ or allowed to use both methods depending on business needs. Common Values: E\
+    \ indicates In-House Production, F indicates External Procurement, Blank indicates\
+    \ No Procurement, X indicates Both Procurement Types.\n  - quantity (double) --\
+    \ It is the quantity of a specific item that is planned or requested within an\
+    \ order. It represents how much of that item is required or needs to be processed\
+    \ as part of the order.\n  - received_quantity (double) -- The field indicates\
+    \ the quantity of goods received into stock from the order till date.\n  - quantity_variance\
+    \ (double) -- It is the quantity that shows how much the actual goods receipt\
+    \ of the finished product is likely to differ from the planned quantity.\n  -\
+    \ order_uom (string) -- Base unit of measure defines how quantities of a material\
+    \ are measured and managed in the system. Max 3-character, stored in ISO UOM format\
+    \ (ea, kg, l, m, etc.). EA - each/unit/single piece, KG - kilogram, G - gram.\n\
+    \  - material_units (string) -- Base unit of measure defines how quantities of\
+    \ a material are measured and managed in the system. Max 3-character, stored in\
+    \ ISO UOM format (ea, kg, l, m, etc.). EA - each/unit/single piece, KG - kilogram,\
+    \ G - gram.\n  - material_number (string) -- Material Number is an identifier\
+    \ assigned to each material item in the inventory, crucial for tracking and managing\
+    \ inventory levels. Max length 18-character.\n  - delivery_date (date) -- This\
+    \ field specifies when the material was produced/delivered to stock.\n  - goods_receipt_indicator\
+    \ (string) -- This field specifies whether the item involves a goods receipt.\n\
+    \  - final_delivery_indicator (string) -- Delivery completed indicator. Marks\
+    \ whether delivery for this item is completed. X stands for delivery completed,\
+    \ else (Blank, Null or Space) delivery is pending.\n  - planning_plant (string)\
+    \ -- Planning Plant represents the site or facility responsible for planning and\
+    \ managing maintenance activities related to a location. It identifies which operational\
+    \ unit oversees scheduling, resources, and execution of work. Examples: 5111 indicates\
+    \ AGEL-AHMEDABAD, 5112 indicates AGEL-LAHORI-WIND-OPS.\n  - plant_code (string)\
+    \ -- A Plant Code represents a specific physical or organizational location within\
+    \ a company where materials are stored, produced, or managed. Example: 2001 -\
+    \ APSEZ-MUNDRA-SEZ-OPS-W/O LOP, 2401 - AHPL-HAZIRA-PROJECTS.\n  - internal_order_category\
+    \ (bigint) -- Order Category defines the fundamental characteristics and behavior\
+    \ of an internal order. It determines how an order is processed, controlled, and\
+    \ handled throughout its lifecycle, while allowing multiple order types to share\
+    \ the same underlying technical properties.\n  - internal_order_type (string)\
+    \ -- It is a key that differentiates internal orders according to their purpose.\
+    \ Examples: PM10 indicates General Maintenance order, PM20 indicates Preventive\
+    \ Maintenance order, PM30 indicates Calibration order, PM40 indicates Audit order,\
+    \ PM50 indicates Refurbishment order.\n  - basic_order_finish_date (date) -- It\
+    \ is the planned date on which the internal order is expected to be completed.\
+    \ It represents the target finish date used for scheduling and tracking the order’s\
+    \ progress.\n  - scheduled_finish_date (date) -- It is the planned date on which\
+    \ the internal order is expected to be completed according to the schedule. It\
+    \ represents the target finishing point used to monitor and track the order’s\
+    \ progress.\n  ... +10 more\nDiscovered: 2026-04-30 12:31"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.order_details
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: order_details
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/order_details
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

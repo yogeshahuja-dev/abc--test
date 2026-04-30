@@ -1,0 +1,33 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-sap-cleansed-ymaillist-trans
+  title: silver_sap_cleansed.ymaillist_trans
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver_sap_cleansed.ymaillist_trans\n\
+    Layer: silver-cleansed\nColumns (32):\n  - DI_SEQUENCE_NUMBER (bigint)\n  - DI_OPERATION_TYPE\
+    \ (string)\n  - MANDT (string)\n  - UNAME (string)\n  - TCODE (string)\n  - HKONT\
+    \ (string)\n  - WERKS (string)\n  - EMAIL (string)\n  - SUBJECT (string)\n  -\
+    \ MAIL_TO (string)\n  - MAIL_CC (string)\n  - MAIL_BCC (string)\n  - USERNAME\
+    \ (string)\n  - SPART (string)\n  - VKORG (string)\n  - ODQ_CHANGEMODE (string)\n\
+    \  - ODQ_ENTITYCNTR (double)\n  - DI_TIMESTAMP (timestamp)\n  - SYS_INGESTION_DATE\
+    \ (date)\n  - SYS_FILE_NAME (string)\n  ... +12 more\nDiscovered: 2026-04-30 12:29"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver-cleansed
+  - sap
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver_sap_cleansed.ymaillist_trans
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver_sap_cleansed
+    databricks.com/table: ymaillist_trans
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver_sap_cleansed/ymaillist_trans
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

@@ -1,0 +1,63 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-maintenance-notification
+  title: silver.maintenance_notification
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.maintenance_notification\n\
+    Layer: silver\nColumns (31):\n  - notification_no (string) -- A number assigned\
+    \ to a notification. It identifies the notification in the system and is used\
+    \ for tracking, processing, and referencing tasks such as maintenance, quality\
+    \ issues, or service requests.\n  - notification_type (string) -- Key that enables\
+    \ notifications to be differentiated and grouped according to notification category,\
+    \ notification origin and other criteria. Examples: S1-New Conn Serv Notf, S2-Activity\
+    \ Report, S3-After Sale Serv Notf, S4-New Conn Partil Notf\n  - priority_type\
+    \ (string) -- Key specifying which priority values are allowed for a given notification\
+    \ type. Examples: NN-Non Conformity Notif, PM-PM priorities, PS-Priorities for\
+    \ PS\n  - priority_id (string) -- Indicates the level of importance assigned to\
+    \ processing an order or notification. Common Values: A-High, B-Normal, C-Low,\
+    \ E-Emergency, S-Shut Down\n  - created_by (string) -- User id of the person who\
+    \ created the notification\n  - notfication_date (date) -- Date on which the notification\
+    \ is created\n  - reported_by (string) -- User id of the person who reported the\
+    \ notification\n  - internal_order_number (string) -- Internal Order used to plan,\
+    \ collect, and monitor costs for specific activities, projects, or tasks within\
+    \ an organization.\n  - notification_item (bigint) -- Identifier used to represent\
+    \ a specific issue, defect, or observation recorded within a notification.\n \
+    \ - notification_item_txt (string) -- Short description of notification item.\n\
+    \  - problem_code (string) -- Key for the problem determined from the assigned\
+    \ catalog.\n  - no_of_defects (bigint) -- Number of defects observed during the\
+    \ inspection.\n  - functional_location_id (string) -- Identifier for a specific\
+    \ physical place within a site (area, building, floor, room, etc.).\n  - plant_code\
+    \ (string) -- Plant Code represents a specific physical or organizational location\
+    \ within a company. Example: 2001-APSEZ-MUNDRA-SEZ-OPS-W/O LOP, 2401-AHPL-HAZIRA-PROJECTS\n\
+    \  - Inspection_lot_no (bigint) -- Number assigned to an inspection lot. Used\
+    \ to track, process, and document all inspection activities.\n  - defective_qty\
+    \ (double) -- Portion of the nonconforming quantity caused by internal factors.\
+    \ Represents defects originating within the plant or organization.\n  - material_number\
+    \ (string) -- Material Number is an identifier assigned to each material item\
+    \ in inventory. Max length 18-character.\n  - cost_centre (string) -- Cost center\
+    \ code for financial tracking and resource allocation within a controlling area.\n\
+    \  - client_id (string) -- It is a three-char alphanumeric identifier that represents\
+    \ a client in the SAP system. A client is the highest organizational unit in SAP\
+    \ and serves as a self-contained unit with its own master data and set of tables.\n\
+    \  - hash_key (string) -- System-generated hash key used for uniquely identifying\
+    \ records and ensuring data integrity.\n  ... +11 more\nDiscovered: 2026-04-30\
+    \ 12:31"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.maintenance_notification
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: maintenance_notification
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/maintenance_notification
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

@@ -1,0 +1,33 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-sap-cleansed-faglflext-trans
+  title: silver_sap_cleansed.faglflext_trans
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver_sap_cleansed.faglflext_trans\n\
+    Layer: silver-cleansed\nColumns (141):\n  - RCLNT (string)\n  - RYEAR (string)\n\
+    \  - OBJNR00 (string)\n  - OBJNR01 (string)\n  - OBJNR02 (string)\n  - OBJNR03\
+    \ (string)\n  - OBJNR04 (string)\n  - OBJNR05 (string)\n  - OBJNR06 (string)\n\
+    \  - OBJNR07 (string)\n  - OBJNR08 (string)\n  - DRCRK (string)\n  - RPMAX (string)\n\
+    \  - ACTIV (string)\n  - RMVCT (string)\n  - RTCUR (string)\n  - RUNIT (string)\n\
+    \  - AWTYP (string)\n  - RLDNR (string)\n  - RRCTY (string)\n  ... +121 more\n\
+    Discovered: 2026-04-30 12:24"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver-cleansed
+  - sap
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver_sap_cleansed.faglflext_trans
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver_sap_cleansed
+    databricks.com/table: faglflext_trans
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver_sap_cleansed/faglflext_trans
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-incoterms
+  title: silver.incoterms
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.incoterms\n\
+    Layer: silver\nDescription: Incoterms is a reference table that defines international\
+    \ commercial terms used in trade agreements. It provides standardized codes and\
+    \ associated location details to ensure clarity in responsibilities, costs, and\
+    \ risks between buyers and sellers during the shipping process. This table supports\
+    \ global trade compliance and operational efficiency by enabling consistent interpretation\
+    \ of delivery terms across transactions.\nColumns (5):\n  - incoterms_key (bigint)\
+    \ -- Primary key for the Incoterm record\n  - incoterms_code (string) -- Standard\
+    \ Incoterms code (e.g., FOB, CIF)\n  - location_text (string) -- Location details\
+    \ associated with the Incoterm\n  - load_timestamp (timestamp) -- Timestamp when\
+    \ the record was loaded\n  - update_timestamp (timestamp) -- Timestamp when the\
+    \ record was last updated\nDiscovered: 2026-04-30 12:31"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.incoterms
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: incoterms
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/incoterms
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

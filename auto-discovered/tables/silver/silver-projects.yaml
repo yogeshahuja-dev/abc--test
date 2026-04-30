@@ -1,0 +1,74 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-projects
+  title: silver.projects
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.projects\n\
+    Layer: silver\nDescription: The table contains data related to project management\
+    \ within the SAP system, specifically focusing on Work Breakdown Structure (WBS)\
+    \ elements. It includes details such as client identifiers, project descriptions,\
+    \ cost centers, and project hierarchies. This data can be used for project tracking,\
+    \ cost analysis, and reporting on project performance. It is useful for understanding\
+    \ the structure of projects, managing costs, and ensuring accurate financial reporting\
+    \ across different company codes.\nColumns (20):\n  - client_id (string) -- It\
+    \ is a three-char alphanumeric identifier that represents a client in the SAP\
+    \ system. A client is the highest organizational unit in SAP and serves as a self-contained\
+    \ unit with its own master data and set of tables.\n  - wbs_element (int) -- A\
+    \ WBS Element (Work Breakdown Structure Element) is a specific task, activity,\
+    \ or cost‑collecting area within a project. It represents a clearly defined part\
+    \ of the overall project that needs to be planned, budgeted, executed, and monitored\
+    \ separately.\n  - wbs_description (string) -- Short description or first line\
+    \ of text for WBS elements. Used for quick identification and reporting.\n  -\
+    \ wbs_project_id (string) -- It is the identifier for a Work Breakdown Structure\
+    \ (WBS) element, used to organize project tasks hierarchically.\n  - internal_project_number\
+    \ (string) -- It represents the current project number, linking WBS elements to\
+    \ their respective parent project.\n  - company_code (string) -- Partner company\
+    \ code, relevant in inter-company transactions, ensuring accurate corporate collaboration\
+    \ and reporting.\n  - requesting_cost_center (string) -- It identifies the cost\
+    \ center that requested the project or WBS element.\n  - cost_category (string)\
+    \ -- It classifies costs for reporting and analysis. \n⦁ Max length 20 char. \n\
+    Common Values: HARD, SOFT, LAND\n  - identifier (string) -- Custom discriminator\
+    \ to differentiate vendors across multiple SAP instances when client code alone\
+    \ is insufficient.\n  - settlement_rule_number (string) -- Identifier for a WBS\
+    \ element, primarily used in settlement rules and cost allocation processes for\
+    \ accurate financial linkage.\n  - project_hierarchy (string) -- Indicates the\
+    \ hierarchical depth of a WBS element within the project structure, supporting\
+    \ organization, reporting, and control of project tasks.\n  - internal_project_number_proj\
+    \ (string) -- Project definition (internal number) – a internal identifier for\
+    \ the project\n  - external_project_number (string) -- An identifier for a project\
+    \ definition. It links all project-related structures and data under one project.\n\
+    \  - project_description (string) -- Short description or first line of text for\
+    \ project definitions.\n  - plant_code (string) -- A Plant Code represents a specific\
+    \ physical or organizational location within a company where materials are stored,\
+    \ produced, or managed \nExample: \n2001 - APSEZ-MUNDRA-SEZ-OPS-W/O LOP \n2401\
+    \ - AHPL-HAZIRA-PROJECTS\n  - responsible_company_code (string) -- It determines\
+    \ the legal entity under which the project is managed and accounted.\n  - HASH_KEY\
+    \ (string) -- System-generated hash key used for uniquely identifying records\
+    \ and ensuring data integrity.\n  - SYS_EFFECTIVE_START_DATE (date) -- System\
+    \ Effective Start Date, indicating when the record became valid in the system.\n\
+    \  - SYS_EFFECTIVE_END_DATE (date) -- System Effective End Date, indicating when\
+    \ the record ceased to be valid in the system.\n  - IS_ACTIVE (string) -- Flag\
+    \ indicating whether the record is currently active. Y indicates an active record\
+    \ which means that it is the latest record N indicates an in-active record which\
+    \ means that this record is old and has been changed\nDiscovered: 2026-04-30 12:32"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.projects
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: projects
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/projects
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake
+  dependsOn:
+  - component:silver-sap-cleansed-proj-mstr

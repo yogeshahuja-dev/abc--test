@@ -1,0 +1,70 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-trm-transaction-line-item
+  title: silver.trm_transaction_line_item
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.trm_transaction_line_item\n\
+    Layer: silver\nDescription: TRM Transaction Header table containing financial\
+    \ transaction details from SAP Treasury and Risk Management module\nColumns (94):\n\
+    \  - client_id (string) -- It is a three-character alphanumeric identifier that\
+    \ represents a client in the SAP system. A client is the highest organizational\
+    \ unit in SAP and serves as a self-contained unit with its own master data and\
+    \ set of tables.\n  - company_code (string) -- Represents the smallest organizational\
+    \ unit for which a complete, self-contained set of accounts can be created. It\
+    \ is essential for legal and financial reporting. Maximum 4 characters (e.g.,\
+    \ 1000, 2000).\n  - transaction_number (string) -- An identifier used to represent\
+    \ a financial transaction such as borrowing, lending, or investing. It uniquely\
+    \ distinguishes a deal from all other financial activities.\n  - transaction_activity\
+    \ (bigint) -- An identifier used to distinguish a specific activity or stage within\
+    \ a financial transaction. It enables tracking multiple actions within the same\
+    \ transaction.\n  - entry_date (date) -- Records the system date on which the\
+    \ transaction was entered. This may differ from the transaction or posting date\
+    \ and is useful for audit purposes.\n  - entry_time (string) -- Records the system\
+    \ entry time when the financial transaction was created.\n  - transaction_flow\
+    \ (bigint) -- Represents an individual cash flow or movement generated as part\
+    \ of a financial transaction, such as interest payment, principal repayment, or\
+    \ fee.\n  - entered_by (string) -- User ID of the person who created the financial\
+    \ record. Used for accountability and audit tracking.\n  - last_changed_by (string)\
+    \ -- User ID of the person who last modified the financial record.\n  - changed_date\
+    \ (date) -- It refers to the date on which the financial transaction was last\
+    \ modified in the system.\n  - changed_time (string) -- It refers to the time\
+    \ when the financial transaction was last modified in the system.\n  - contract_type\
+    \ (string) -- Indicates the type of contract involved, such as borrowing, lending,\
+    \ or investment. It provides a high-level understanding of the transaction’s purpose.\n\
+    \  - flow_type (string) -- Describes the nature of the cash movement within a\
+    \ transaction, such as payment, receipt, or charge, indicating how the flow should\
+    \ be treated.\n  - flow_classification (string) -- Defines how transaction amounts\
+    \ are categorized based on purpose. Common values: 1 = Structure characteristics,\
+    \ 2 = Accrual/deferral, 3 = Valuation, 4 = Transfer.\n  - flow_category (string)\
+    \ -- Provides additional business context for the flow or condition when used\
+    \ together with the flow classification.\n  - direction_of_transaction (bigint)\
+    \ -- Indicates whether the flow relates to outgoing, incoming, or both sides of\
+    \ the transaction. Values: 0 = Incoming and outgoing, 1 = Outgoing, 2 = Incoming.\n\
+    \  - condition (bigint) -- Represents a specific rule or condition applied to\
+    \ the transaction, defining how interest, charges, or other calculated values\
+    \ are determined.\n  - condition_item_effective_date (date) -- The date from which\
+    \ a specific condition item becomes valid and applicable in the transaction.\n\
+    \  - condition_type (bigint) -- A code identifying the type of condition applied,\
+    \ indicating how the system calculates and processes the condition.\n  - account_assignment_reference\
+    \ (string) -- Stores a reference linking the transaction or flow to a specific\
+    \ account, purpose, or reporting requirement.\n  ... +74 more\nDiscovered: 2026-04-30\
+    \ 12:33"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.trm_transaction_line_item
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: trm_transaction_line_item
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/trm_transaction_line_item
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

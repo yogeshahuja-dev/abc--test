@@ -1,0 +1,90 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-purchase-order-header
+  title: silver.purchase_order_header
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.purchase_order_header\n\
+    Layer: silver\nDescription: The table contains detailed information about purchase\
+    \ orders, including key identifiers, vendor associations, creation dates, and\
+    \ financial terms. This data can be utilized for tracking procurement workflows,\
+    \ auditing vendor transactions, and analyzing purchase order trends over time.\
+    \ Possible use cases include assessing the approval status of purchase orders,\
+    \ managing compliance with financial reporting requirements, and deriving insights\
+    \ into purchasing patterns within the organization.\nColumns (38):\n  - client_id\
+    \ (string) -- It is a three-char alphanumeric identifier that represents a client\
+    \ in the SAP system. A client is the highest organizational unit in SAP and serves\
+    \ as a self-contained unit with its own master data and set of tables..\n  - purchase_order_number\
+    \ (string) -- A Purchase Order Number is an identifier assigned to a purchase\
+    \ order created by a company for procuring goods or services from a vendor. It\
+    \ is used throughout the procurement cycle to track, reference, and manage the\
+    \ order. \n\n⦁ Maximum 10 character field\n  - vendor_number (string) -- A Vendor\
+    \ number is an identifier assigned to each vendor in the system. It represents\
+    \ the supplier from whom a company purchases goods or services. This code is used\
+    \ throughout the procurement and finance processes ⦁ Maximum 10 character field.\n\
+    \  - creation_date (date) -- This field stores the date when the purchase order\
+    \ is created.\n⦁ Represents the date when the Purchase Order was created .\n⦁\
+    \ Cannot be blank for valid procurement documents \n⦁ stored in date format (YYYYMMDD).\n\
+    ⦁ Must be a valid calendar date.\n  - purchase_order_document_type (string) --\
+    \ Document type indicating nature of purchase order (e.g.,NB means PO- Material-Deomstic,\
+    \ UB means PO-STO, ZCAT means PO-Ariba-Catalog)\n  - purchase_order_document_category\
+    \ (string) -- Categorizing the nature of the purchase document, such as standard\
+    \ PO, returns, or consignment to ensures that each document is treated according\
+    \ to its business purpose. The different categories are: A stands for Request\
+    \ for Quotation F stands for Purchase Order K stands for Contract L stands for\
+    \ Scheduling Agreement\n  - company_code (string) -- The company code represents\
+    \ the smallest organizational unit for which a complete, self-contained set of\
+    \ accounts can be drawn up, crucial for legal and financial reporting. \n ⦁ Max\
+    \ 4 characters Common Values : 1000, 2000\n  - created_by (string) -- User who\
+    \ created the purchase order. Useful for accountability and workflow tracking.\n\
+    \  - release_indicator (string) -- Release indicator indicating approval status\
+    \ of the purchase order. \n ⦁ common values 1 - Not released\n A,R - Released/\
+    \ approved)\n  - validity_start_date (date) -- Validity start date of the purchase\
+    \ order. Marks commencement of validity period in purchase order.\n  - validity_end_date\
+    \ (date) -- Validity end date of the purchase order. Indicates expiration of validity\
+    \ period in purchase order.\n  - incompleteness_indicator (string) -- The Incompleteness\
+    \ Indicator in a purchase order shows whether the purchase order still has missing\
+    \ or incomplete data that must be filled before the document can be fully processed.\n\
+    \  - server (string) -- This field populates Server basis IDENTIFIER field. If\
+    \ IDENTIFIER is AEL_LOCAL, AELG, or MP1, SERVER is set to 300L, 300G, or MP1 respectively.\
+    \ For any other IDENTIFIER, SERVER takes the value from client_id\n  - currency_key\
+    \ (string) -- Currency key, crucial for multi-currency operations and financial\
+    \ reporting. \n⦁ Always 3-character ISO codes (eg. INR, USD, EUR).\n⦁ Alphabetic\
+    \ only.\n  - exchange_rate (double) -- Exchange rate applicable to the transaction,\
+    \ facilitating accurate conversion and financial analysis.\n  - language_key (string)\
+    \ -- The Language Key identifies the language in which texts, descriptions, and\
+    \ user‑specific information are stored or displayed in the system \n⦁ 1-character\
+    \ code.\n⦁ Common values: EN = English DE =German FR = French\n  - payment_term_desc\
+    \ (string) -- The Payment Term Description provides the textual explanation of\
+    \ the payment terms assigned to a Purchase Order\n  - payment_term (string) --\
+    \ Payment Terms specify the agreed rules for when an invoice becomes due for payment\
+    \ and whether any early‑payment discounts apply. \nExamples: A027 - Net due in\
+    \ 75 days from invoice date Z005 - 2% within 7 Days/1% within 30 Days\n  - release_status\
+    \ (string) -- This field indicates the Release Status of the purchase order document.\
+    \ When release status = 'X', it means the release strategy has been fully executed—i.e.,\
+    \ the document (Purchase Order) has been completely released. When release status\
+    \ is blank, it means the document is not yet released or is still in the process\
+    \ of being approved\n  - purchase_group_code (string) -- It is a key organizational\
+    \ unit that represents the buyer or group of buyers responsible for specific purchasing\
+    \ activities. It is used to assign responsibility for procurement tasks and to\
+    \ route purchasing documents accordingly. \n⦁ 3 char identifier. Examples: 106\
+    \ - Spare & Consm-HO 110 - Custom-Logstc-HO\n  ... +18 more\nDiscovered: 2026-04-30\
+    \ 12:32"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.purchase_order_header
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: purchase_order_header
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/purchase_order_header
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

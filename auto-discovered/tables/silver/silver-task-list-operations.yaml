@@ -1,0 +1,33 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-task-list-operations
+  title: silver.task_list_operations
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.task_list_operations\n\
+    Layer: silver\nColumns (31):\n  - client_id (string)\n  - task_list_type (string)\n\
+    \  - task_list_group_key (string)\n  - created_by (string)\n  - created_on (date)\n\
+    \  - plant_code (string)\n  - bom_id (string)\n  - bom_category (string)\n  -\
+    \ task_desc (string)\n  - control_key (string)\n  - standard_value_1 (double)\n\
+    \  - standard_value_2 (double)\n  - standard_value_3 (double)\n  - uom_1 (string)\n\
+    \  - uom_2 (string)\n  - uom_3 (string)\n  - base_quantity (double)\n  - activity_type\
+    \ (string)\n  - functional_location_id (string)\n  - equipment_id (string)\n \
+    \ ... +11 more\nDiscovered: 2026-04-30 12:32"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.task_list_operations
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: task_list_operations
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/task_list_operations
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

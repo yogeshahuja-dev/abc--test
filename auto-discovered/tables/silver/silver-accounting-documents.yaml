@@ -1,0 +1,91 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-accounting-documents
+  title: silver.accounting_documents
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.accounting_documents\n\
+    Layer: silver\nDescription: This table contains detailed information about financial\
+    \ accounting documents, including both header-level and line-item-level attributes.\
+    \ It is designed to support transaction tracking, reconciliation, reporting, and\
+    \ audit processes. Each record represents a unique line item within an accounting\
+    \ document and includes identifiers, dates, amounts, tax details, and reference\
+    \ information.\nColumns (81):\n  - client_id (string) -- It is a three-char alphanumeric\
+    \ identifier that represents a client in the SAP system. A client is the highest\
+    \ organizational unit in SAP and serves as a self-contained unit with its own\
+    \ master data and set of tables.\n  - company_code (string) -- The company code\
+    \ represents the smallest organizational unit for which a complete, self-contained\
+    \ set of accounts can be drawn up, crucial for legal and financial reporting.\
+    \ \n⦁ Max 4 characters Common Values : 1000, 2000\n  - accounting_doc_number (string)\
+    \ -- An identifier of Accounting document; essential for audit and reconciliation\
+    \ \n⦁ Max 10-digit. \n⦁ Unique within fiscal year,identifer and company code.\n\
+    \  - fiscal_year (bigint) -- Accounting fiscal year (YYYY) in which the transaction\
+    \ is posted\n⦁ 4-digit year format (YYYY).\n  - accounting_line_item_number (bigint)\
+    \ -- It identifies each line item in a financial document. For example, if a vendor\
+    \ invoice has multiple expense lines, each will have a distinct line item number\
+    \ value (e.g., 001, 002, 003). \n⦁ 3-digit numeric.\n ⦁ Identifies specific posting\
+    \ line.\n  - internal_order_number (string) -- An Internal Order is used to plan,\
+    \ collect, and monitor costs for specific activities, projects, or tasks within\
+    \ an organization. It acts as a temporary cost collector that can later be settled\
+    \ to cost centers, assets, or other receivers\n  - clearing_doc_number (string)\
+    \ -- Document used for clearing open items, used in accounting to track reconciliation\
+    \ processes.\n⦁ Maximum length 10 char.\n  - clearing_date (date) -- Date when\
+    \ clearing occurred; important for cash flow management\n⦁ Date on which the Accounting\
+    \ line item was cleared\n⦁ Stored in YYYYMMDD format\n⦁ Must be a valid calendar\
+    \ date.\n  - posting_key (string) -- It determines the type of posting (e.g.,\
+    \ debit or credit) and the account type (e.g., customer, vendor, G/L). It controls\
+    \ whether the entry is CR or DR\n Examples: Posting key - 40- Debit for GL Account\
+    \ 50 - Credit for GL acount\n  - amount_loc_curr (double) -- Amount in local currency,\
+    \ indicating the financial value of the transaction. This helps in financial reporting\
+    \ and cost management.\n  - purchase_order_number (string) -- A Purchase Order\
+    \ Number is an identifier assigned to a purchase order created by a company for\
+    \ procuring goods or services from a vendor. It is used throughout the procurement\
+    \ cycle to track, reference, and manage the order\n⦁ Maximum 10 character field\n\
+    \  - purchase_order_item_number (bigint) -- Purchase order item number. Identifies\
+    \ individual line items within a purchase order for granular tracking of materials,\
+    \ quantities, prices, and delivery schedules. ⦁ Numeric field upto 5 character.\n\
+    \  - fund_center_code (string) -- It is a key organizational element in Funds\
+    \ Management (FM) used to represent the unit responsible for managing and controlling\
+    \ budgeted funds. It ensures expenditures are within allocated budgets and enables\
+    \ detailed financial reporting by funds center.\n  - gl_acct_number (string) --\
+    \ It is a key field in financial accounting tables. It identifies the General\
+    \ Ledger account used for posting financial transactions. This field is essential\
+    \ for determining how amounts are categorized in the chart of accounts\n⦁ Max\
+    \ length 10 char\n  - hsn_sac_code (string) -- HSN/SAC code used for tax classification\
+    \ of goods and services, relevant for GST compliance.\n  - account_type (string)\
+    \ -- Account type is used in financial and controlling transactions to specify\
+    \ the type of account involved, such as: D for Customer K for Vendor S for General\
+    \ Ledger Account A for Asset M for Material This field is essential in determining\
+    \ how postings are processed and which master data is referenced during financial\
+    \ transactions.\n  - cost_center (string) -- It is Cost center code for financial\
+    \ tracking and resource allocation within a controlling area that represents a\
+    \ defined location of cost incurrence. It is used to track where costs are incurred\
+    \ within an organization, such as departments, teams, or projects.\n  - customer_number\
+    \ (string) -- Customer number, an identifier assigned to each customer. It is\
+    \ a character-type (CHAR) field. This field is essential for linking customer\
+    \ data across various domains, such as sales, distribution, customer relationship\n\
+    ⦁ Maximum 10 char field\n  - vendor_number (string) -- A Vendor number is an identifier\
+    \ assigned to each vendor in the system. It represents the supplier from whom\
+    \ a company purchases goods or services. This code is used throughout the procurement\
+    \ and finance processes\n⦁ Maximum 10 character field.\n  - material_number (string)\
+    \ -- Material Number is an identifier assigned to each material item in the inventory,\
+    \ crucial for tracking and managing inventory levels\n⦁ Max length 18-character\n\
+    \  ... +61 more\nDiscovered: 2026-04-30 12:29"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.accounting_documents
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: accounting_documents
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/accounting_documents
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

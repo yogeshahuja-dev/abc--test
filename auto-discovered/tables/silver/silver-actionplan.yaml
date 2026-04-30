@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-actionplan
+  title: silver.actionplan
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.actionplan\n\
+    Layer: silver\nDescription: The actionplan table stores details of corrective\
+    \ or improvement actions linked to specific findings. Each record includes a unique\
+    \ action plan identifier, associated finding, responsible owner, due date, and\
+    \ current status, along with timestamps for data load and updates. This structure\
+    \ supports tracking, accountability, and timely resolution of issues.\nColumns\
+    \ (7):\n  - action_plan_id (bigint) -- Primary key for the remediation action\
+    \ plan\n  - finding_id (bigint) -- Foreign key to the related finding\n  - owner_employee_key\
+    \ (bigint) -- Foreign key to the employee responsible for remediation\n  - due_date\
+    \ (date) -- Due date for completing the action plan\n  - status (string) -- Current\
+    \ status (e.g., Planned, In Progress, Completed)\n  - load_timestamp (timestamp)\
+    \ -- Record creation timestamp.\n  - update_timestamp (timestamp) -- Record last\
+    \ updated timestamp.\nDiscovered: 2026-04-30 12:29"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.actionplan
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: actionplan
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/actionplan
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

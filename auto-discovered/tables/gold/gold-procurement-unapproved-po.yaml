@@ -1,0 +1,43 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: gold-procurement-unapproved-po
+  title: gold_procurement.unapproved_po
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.gold_procurement.unapproved_po\n\
+    Layer: gold\nDescription: This table provides granular details of POs that have\
+    \ not yet received approval. It enables: Workflow Monitoring: Identifying pending\
+    \ approvals across business units. Bottleneck Analysis: Detecting delays in procurement\
+    \ processes. Operational Efficiency: Ensuring timely PO processing to support\
+    \ business continuity. This dataset is essential for process optimization, spend\
+    \ control, and compliance monitoring. Grain: One row per PO pending approval.\n\
+    Columns (3):\n  - CLIENT_ID (string) -- It is a three-digit identifier that represents\
+    \ a client in the SAP system. A client is the highest organizational unit in SAP\
+    \ and serves as a self-contained unit with its own master data and set of tables.\n\
+    \  - PURCHASE_ORDER_NUMBER (string) -- Unique purchase order number assigned by\
+    \ SAP. Serves as the primary key for procurement transactions and links header\
+    \ and item details for procurement transactions.\n  - UNAPPROVED_PO (string) --\
+    \ PO's that are not released and date difference of current date and PO creation\
+    \ date (AEDAT) is more than 15 days, are tagged as 'Unappproved PO\nDiscovered:\
+    \ 2026-04-30 12:33"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - gold
+  - procurement
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.gold_procurement.unapproved_po
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: gold_procurement
+    databricks.com/table: unapproved_po
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/gold_procurement/unapproved_po
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake
+  dependsOn:
+  - component:silver-po-schedule-lines

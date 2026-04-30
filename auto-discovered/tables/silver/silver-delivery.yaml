@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-delivery
+  title: silver.delivery
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.delivery\n\
+    Layer: silver\nDescription: Delivery is a transactional table that captures details\
+    \ of product shipments linked to customer orders. It provides visibility into\
+    \ delivery numbers, associated sales orders, and shipping locations, enabling\
+    \ accurate tracking of goods movement and fulfillment performance. This table\
+    \ supports operational efficiency and customer satisfaction by ensuring timely\
+    \ and transparent delivery management across the supply chain.\nColumns (7):\n\
+    \  - delivery_no (string) -- Primary key for the delivery document\n  - so_number\
+    \ (string) -- Foreign key to the related sales order\n  - delivery_date (date)\
+    \ -- Date of outbound or inbound delivery\n  - ship_from_location_key (bigint)\
+    \ -- Foreign key to the shipping origin location\n  - ship_to_location_key (bigint)\
+    \ -- Foreign key to the shipping destination location\n  - load_timestamp (timestamp)\
+    \ -- Timestamp when the record was loaded\n  - update_timestamp (timestamp) --\
+    \ Timestamp when the record was last updated\nDiscovered: 2026-04-30 12:30"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.delivery
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: delivery
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/delivery
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

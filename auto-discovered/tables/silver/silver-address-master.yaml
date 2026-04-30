@@ -1,0 +1,66 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-address-master
+  title: silver.address_master
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.address_master\n\
+    Layer: silver\nColumns (21):\n  - client_id (string) -- It is a three-char alphanumeric\
+    \ identifier that represents a client in the SAP system. A client is the highest\
+    \ organizational unit in SAP and serves as a self-contained unit with its own\
+    \ master data and set of tables.\n  - address_number (string) -- It is a code\
+    \ that identifies an address record and allows the system to reference the correct\
+    \ location details. It ensures that the place being described consistently uses\
+    \ the same stored address information.\n  - valid_from_date (date) -- The date\
+    \ from which this address record becomes active.\n  - identifier (string) -- Custom\
+    \ discriminator to differentiate vendors across multiple SAP instances when client\
+    \ code alone is insufficient.\n  - valid_to_date (date) -- The date until which\
+    \ the address is valid.\n  - name (string) -- Main name line of the address plus\
+    \ additional extended name. Usually contains the person or organization’s primary\
+    \ name and secondary name\n  - full_name_text (string) -- Complete name stored\
+    \ in a single field. Often used for display or correspondence.\n  - street_addr\
+    \ (string) -- It represents the primary, second supplementary street or address\
+    \ line recorded as part of the vendor’s address in the system.\n  - city_name\
+    \ (string) -- The CITY1 field stores the primary city name of the address. It\
+    \ is the standard text representation of the city associated with an address number\
+    \ (ADDRNUMBER)\n  - postal_code (string) -- It represents the postal or ZIP code\
+    \ recorded as part of the Address\n  - country_key (string) -- It is used to identify\
+    \ the country. The value of country key is typically based on ISO country codes\
+    \ ⦁ Common Value  IN for India\n  - region (string) -- Region code indicating\
+    \ the geographic area associated with the transaction, essential for regional\
+    \ spend analysis and compliance. Max 3-character code (e.g., 09 - Jammu and Kashmir\
+    \ , 19 Punjab).\n  - language_key (string) -- The language in which the address\
+    \ description is maintained.\n  - contact_number (string) -- Stores the mobile\
+    \ phone number for the address contact.\n  - street_name (string) -- It represents\
+    \ the street name recorded as part of the vendor’s address in the system\n  -\
+    \ country_name (string) -- It provides the country name. This is essential for\
+    \ user interfaces and reports that require country names in the local language.\n\
+    \  - region_desc (string) -- The Region Description specifies the name or description\
+    \ of a region, state, or province within a country. Examples: ANDHRA PRADESH,\
+    \ ARUNACHAL PRADESH, ASSAM\n  - sys_effective_start_date (date) -- System Effective\
+    \ Start Date, indicating when the record became valid in the system.\n  - sys_effective_end_date\
+    \ (date) -- System Effective End Date, indicating when the record ceased to be\
+    \ valid in the system.\n  - is_active (string) -- Flag indicating whether the\
+    \ record is currently active. Y indicates an active record which means that it\
+    \ is the latest record N indicates an in-active record which means that this record\
+    \ is old and has been changed\n  ... +1 more\nDiscovered: 2026-04-30 12:29"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.address_master
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: address_master
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/address_master
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake
+  dependsOn:
+  - component:silver-sap-cleansed-mast-mstr

@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-auction-result
+  title: silver.auction_result
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.auction_result\n\
+    Layer: silver\nDescription: The auction_result table captures the outcome of bids\
+    \ placed in an auction. Each record includes a unique result identifier, the associated\
+    \ auction and vendor identifiers, the bid amount, and the timestamp of the bid.\
+    \ It also stores the rank of the bid, current status, and audit fields for load\
+    \ and update timestamps, enabling accurate tracking of bidding activity and final\
+    \ results.\nColumns (9):\n  - result_id (bigint) -- Primary key for the auction\
+    \ result\n  - auction_id (bigint) -- Foreign key to the auction\n  - vendor_id\
+    \ (bigint) -- Foreign key to the participating vendor\n  - bid_amount (decimal(18,2))\
+    \ -- Bid amount submitted by the vendor\n  - bid_time (timestamp) -- Timestamp\
+    \ of the bid\n  - rank (int) -- Rank of the bid (e.g., 1 for winning bid)\n  -\
+    \ status (string) -- Bid status (e.g., Accepted, Rejected)\n  - load_timestamp\
+    \ (timestamp) -- Record creation timestamp.\n  - update_timestamp (timestamp)\
+    \ -- Record last updated timestamp.\nDiscovered: 2026-04-30 12:30"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.auction_result
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: auction_result
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/auction_result
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

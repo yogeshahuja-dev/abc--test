@@ -1,0 +1,79 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-gate-pass-inward
+  title: silver.gate_pass_inward
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.gate_pass_inward\n\
+    Layer: silver\nDescription: Gate_Pass is a transactional table that records the\
+    \ movement of goods into and out of the plant premises. It captures essential\
+    \ details such as client information, gate pass identifiers, vehicle weighment\
+    \ data, and associated purchase or sales orders. This table supports operational\
+    \ control, compliance, and traceability by ensuring accurate documentation of\
+    \ material movements, enabling efficient logistics management and audit readiness.\n\
+    Columns (32):\n  - client_id (string) -- It is a three-char alphanumeric identifier\
+    \ that represents a client in the SAP system. A client is the highest organizational\
+    \ unit in SAP and serves as a self-contained unit with its own master data and\
+    \ set of tables.\n  - gate_pass_number (string) -- The Gate Pass Number identifies\
+    \ a gate pass document used to authorize and record the movement of goods or vehicles\
+    \ in or out of a plant or warehouse. Max length 10 char.\n  - inward_type (string)\
+    \ -- Specifies the nature of inward movement (e.g., domestic, import, contractor,\
+    \ subcontractor, etc.). Max length 3 char. Examples: LDF indicates Local Materials-Duty\
+    \ Free; LD indicates Local Materials-Duty Paid; ID indicates Imported Materials\
+    \ - Duty Free; DOM indicates Domestic; IMP indicates Import.\n  - gate_pass_creation_date\
+    \ (date) -- Date when the gate pass was generated. Max length 8 char ddmmyyyy\
+    \ format, valid calendar date.\n  - gate_in_time (string) -- Timestamp of when\
+    \ the vehicle/material entered the premises/plant. Time field with max length\
+    \ 6 char.\n  - gate_in_date (date) -- Date of vehicle/material entry in the premises/plant.\n\
+    \  - plant_code (string) -- A Plant Code represents a specific physical or organizational\
+    \ location within a company where materials are stored, produced, or managed.\
+    \ Example: 2001 - APSEZ-MUNDRA-SEZ-OPS-W/O LOP 2401 - AHPL-HAZIRA-PROJECTS\n \
+    \ - purchase_order_number (string) -- A Purchase Order Number is an identifier\
+    \ assigned to a purchase order created by a company for procuring goods or services\
+    \ from a vendor. It is used throughout the procurement cycle to track, reference,\
+    \ and manage the order. Maximum 10 character field.\n  - sales_order_number (string)\
+    \ -- Number of the sales document (e.g., order, delivery). Useful for linking\
+    \ vendor transactions to SD module.\n  - weighment_required (string) -- This field\
+    \ indicates whether an incoming material or vehicle must undergo weight measurement\
+    \ during the entry process. Common Values: Y indicates Weightment required; N\
+    \ indicates Weightment not required.\n  - gross_weight (double) -- Gross weight\
+    \ is the total weight of the vehicle including the material/load it is carrying.\
+    \ It is measured at the time of entry\n  - vehicle_tare_weight (double) -- Vehicle\
+    \ tare weight is the empty weight of the vehicle without any material or load.\
+    \ It is used as a reference to calculate the actual material weight.\n  - net_weight\
+    \ (double) -- Net weight is the actual weight of the material being transported.\
+    \ It is calculated as: net_weight = gross_weight – vehicle_tare_weight.\n  - unit_of_measure\
+    \ (string) -- Base unit of measure defines how quantities of a material are measured\
+    \ and managed in the system. Max 3-character. Stored in ISO UOM format (ea, kg,\
+    \ l, m, etc.). EA - each / unit / single piece; KG - kilogram; G - gram\n  - gate_pass_status\
+    \ (string) -- Displays the status of gate inward entry. Examples: SGI indicates\
+    \ Gate Inward Entry - SEZ Clearance; OGI indicates Gate Inward Entry - Security\
+    \ Officer; GWI indicates Gate Inward Entry - Weighing Inspector - Gross Wt.; TWI\
+    \ indicates Gate Inward Entry - Weighing Inspector - Tare Wt of Veh.\n  - created_by\
+    \ (string) -- This field represents the user who created the gatepass\n  - gate_out_date\
+    \ (date) -- Date of vehicle/material exit in the premises/plant.\n  - gate_out_time\
+    \ (string) -- Timestamp of when the vehicle/material exited the premises/plant.\
+    \ Time field with max length 6 char.\n  - material_document_number (string) --\
+    \ Material document number is an identifier assigned to each material document\
+    \ created during goods movements such as goods receipt, goods issue, or transfer\
+    \ postings.\n  - material_document_year (bigint) -- Fiscal year in which the material\
+    \ document was created. Used with Material document number to identify a document.\
+    \ Max length 4 Char with YYYY format\n  ... +12 more\nDiscovered: 2026-04-30 12:31"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.gate_pass_inward
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: gate_pass_inward
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/gate_pass_inward
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

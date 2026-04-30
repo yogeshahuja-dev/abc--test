@@ -1,0 +1,34 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-currency
+  title: silver.currency
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.currency\n\
+    Layer: silver\nDescription: Currency is a reference table that provides standardized\
+    \ information about currencies used across the organization. It ensures consistency\
+    \ in financial transactions, reporting, and analysis by maintaining a clear list\
+    \ of recognized currencies and their short names. This table supports accurate\
+    \ and transparent handling of multi-currency operations, enabling seamless integration\
+    \ across financial and business processes.\nColumns (3):\n  - currency_id (string)\
+    \ -- Unique identifier for the currency.\n  - currency (string) -- Currency name.\n\
+    \  - currency_short_name (string) -- Standard currency code (e.g., INR, USD).\n\
+    Discovered: 2026-04-30 12:30"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.currency
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: currency
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/currency
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

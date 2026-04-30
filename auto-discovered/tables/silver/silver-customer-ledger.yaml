@@ -1,0 +1,85 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-customer-ledger
+  title: silver.customer_ledger
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.customer_ledger\n\
+    Layer: silver\nColumns (59):\n  - unique_id (string) -- Composite key derived\
+    \ from client_id, company_code, customer_number, special_gl_type, special_gl_ind,\
+    \ clearing_date, clearing_doc_number, assignment_number, fiscal_year, accounting_doc_number,\
+    \ line_item_number\n  - client_id (string) -- It is a three-char alphanumeric\
+    \ identifier that represents a client in the SAP system. A client is the highest\
+    \ organizational unit in SAP and serves as a self-contained unit with its own\
+    \ master data and set of tables.\n  - company_code (string) -- The company code\
+    \ represents the smallest organizational unit for which a complete, self-contained\
+    \ set of accounts can be drawn up, crucial for legal and financial reporting.\n\
+    ⦁ Max 4 characters Common Values : 1000, 2000\n  - customer_number (string) --\
+    \ Customer number, an identifier assigned to each customer. It is a character-type\
+    \ (CHAR) field. This field is essential for linking customer data across various\
+    \ domains, such as sales, distribution, customer relationship\n⦁ Maximum 10 char\
+    \ field\n  - special_gl_type (string) -- The special G/L transaction type groups\
+    \ together similar special G/L transactions. Example: A indicates for all types\
+    \ of down payments as well as down payment requests W indicates for all types\
+    \ of bills of exchange as well as bill of exchange payment requests.\n  - special_gl_ind\
+    \ (string) -- The Special G/L Indicator is used to classify and process special\
+    \ types of financial transactions that are not posted through regular customer\
+    \ or vendor accounts. It identifies transactions that require separate tracking,\
+    \ reporting, or accounting treatment, such as down payments, bills of exchange,\
+    \ guarantees, or other special postings. Examples: A (Down Payment), H (Guarantee),\n\
+    \  - clearing_date (date) -- Date when clearing occurred; important for cash flow\
+    \ management\n⦁ Date on which the customer line item was cleared\n⦁ Used for Accounts\
+    \ Receivable aging analytics\n⦁ Stored in YYYYMMDD format. ⦁ Must be a valid calendar\
+    \ date.\n  - clearing_doc_number (string) -- Document used for clearing open items,\
+    \ used in accounting to track reconciliation processes\n⦁ Maximum length 10 char.\n\
+    \  - assignment_number (string) -- It is a free text field (internal tracking\
+    \ records) often used to enter: Invoice numbers, Cheque or reference numbers,\
+    \ Customer/Vendor reference numbers, etc.\n⦁ Max length 18 char.\n  - fiscal_year\
+    \ (bigint) -- Accounting fiscal year (YYYY) in which the transaction is posted\n\
+    ⦁ 4-digit year format (YYYY)\n  - accounting_doc_number (string) -- An identifier\
+    \ of Accounting document; essential for audit and reconciliation\n⦁ Max 10-digit\n\
+    ⦁ Unique within fiscal year, identifier and company code.\n  - line_item_number\
+    \ (bigint) -- It identifies each line item in a financial document. For example,\
+    \ if a vendor invoice has multiple expense lines, each will have a distinct line\
+    \ item number value (e.g., 001, 002, 003)\n⦁ 3-digit numeric\n⦁ Identifies specific\
+    \ posting line.\n  - posting_date (date) -- It is the date on which a financial\
+    \ transaction is posted, determining the accounting period for the entry.\n  -\
+    \ document_date (date) -- It is the field that stores the document date, representing\
+    \ the actual date on which a business transaction occurred, such as the date on\
+    \ an invoice or delivery note etc.\n  - entry_date (date) -- Records the system\
+    \ entry date, which may differ from the actual transaction or posting date. Useful\
+    \ for auditing and tracking.\n  - currency_key (string) -- It is a standard field\
+    \ that represents the currency key for the company. It defines the currency in\
+    \ which amounts are recorded, such as INR, USD, or EUR. This field ensures consistency\
+    \ in financial reporting, pricing, and accounting\n  - reference (string) -- reference\
+    \ Stores a reference number related to the document, such as an invoice number,\
+    \ delivery note, or external document ID. It is used to link 1 document to another\
+    \ document or customer/vendor references and helps in document tracking, auditing,\
+    \ and cross-referencing between systems.\n  - document_type (string) -- Type of\
+    \ Accounting document (invoice, debit note, credit note, advance, payment, etc.).\
+    \ Examples: KR - \"Vendor Invoice\" KZ - \"Vendor Payment\n  - posting_period\
+    \ (bigint) -- Indicates the month in which a financial document is posted. Works\
+    \ with fiscal year to define posting period.\n  - target_special_gl_ind (string)\
+    \ -- Specifies the special G/L indicator used for down payment requests, determining\
+    \ how the subsequent down payment will be posted. Once assigned, it cannot be\
+    \ changed, as it defines the required or allowed account assignments (e.g., asset,\
+    \ project) for the down payment process.\n  ... +39 more\nDiscovered: 2026-04-30\
+    \ 12:30"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.customer_ledger
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: customer_ledger
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/customer_ledger
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

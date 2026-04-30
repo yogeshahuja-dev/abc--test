@@ -1,0 +1,33 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-rfq
+  title: silver.rfq
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.rfq\n\
+    Layer: silver\nDescription: Request for Quotation master table tracking sourcing\
+    \ events\nColumns (8):\n  - rfq_id (bigint) -- Primary key for the RFQ\n  - rfq_number\
+    \ (string) -- Unique RFQ identifier\n  - issue_date (date) -- Date the RFQ was\
+    \ issued\n  - due_date (date) -- Deadline for vendor responses\n  - buyer_org\
+    \ (string) -- Organization or department issuing the RFQ\n  - status (string)\
+    \ -- Current status (e.g., Open, Closed, Awarded)\n  - load_timestamp (timestamp)\
+    \ -- Record creation timestamp.\n  - update_timestamp (timestamp) -- Record last\
+    \ updated timestamp.\nDiscovered: 2026-04-30 12:32"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.rfq
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: rfq
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/rfq
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

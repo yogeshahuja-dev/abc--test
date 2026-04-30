@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-sap-cleansed-knb1-mstr
+  title: silver_sap_cleansed.knb1_mstr
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver_sap_cleansed.knb1_mstr\n\
+    Layer: silver-cleansed\nColumns (114):\n  - MANDT (string)\n  - KUNNR (string)\n\
+    \  - BUKRS (string)\n  - PERNR (bigint)\n  - ERDAT (date)\n  - ERNAM (string)\n\
+    \  - SPERR (string)\n  - LOEVM (string)\n  - ZUAWA (string)\n  - BUSAB (string)\n\
+    \  - AKONT (string)\n  - BEGRU (string)\n  - KNRZE (string)\n  - KNRZB (string)\n\
+    \  - ZAMIM (string)\n  - ZAMIV (string)\n  - ZAMIR (string)\n  - ZAMIB (string)\n\
+    \  - ZAMIO (string)\n  - ZWELS (string)\n  ... +94 more\nDiscovered: 2026-04-30\
+    \ 12:25"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver-cleansed
+  - sap
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver_sap_cleansed.knb1_mstr
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver_sap_cleansed
+    databricks.com/table: knb1_mstr
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver_sap_cleansed/knb1_mstr
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake
+  dependsOn:
+  - component:bronze-sap-mul-knb1-slt

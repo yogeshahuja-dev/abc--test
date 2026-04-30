@@ -1,0 +1,48 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: gold-procurement-main-filters-table
+  title: gold_procurement.main_filters_table
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.gold_procurement.main_filters_table\n\
+    Layer: gold\nDescription: The PO_PR_Bridge_Table consolidates shared columns from\
+    \ both PO and PR datasets, creating a common reference point for procurement reporting.\
+    \ It acts as the base for interaction between PO Overview and PR Overview tables,\
+    \ supporting integrated analysis of requisition-to-order processes, spend tracking,\
+    \ and lifecycle monitoring. Grain: One row per unique PO-PR linkage based on common\
+    \ attributes.\nColumns (8):\n  - SERVER (string) -- It is a three-digit identifier\
+    \ that represents a client in the SAP system. A client is the highest organizational\
+    \ unit in SAP and serves as a self-contained unit with its own master data and\
+    \ set of tables.\n  - COMPANY_CODE (string) -- The company code representing the\
+    \ smallest organizational unit for which a complete, self-contained set of accounts\
+    \ can be drawn up, crucial for legal and financial reporting.\n  - COMPANY_NAME\
+    \ (string) -- Descriptive name of the company code. Used for display and reporting\
+    \ purposes across SAP modules.\n  - BU_BASED_ON_PLANT (string) -- Business unit\
+    \ designation based on Plant\n  - BU_BASED_ON_COMPANY (string) -- Business unit\
+    \ designation based on Company code\n  - PLANT_CODE (string) -- It is a 4-character\
+    \ alphanumeric code. Plant code where material/service will be used. Critical\
+    \ for logistics and planning.\n  - PLANT_NAME (string) -- Primary name of the\
+    \ plant. Displayed in reports and transaction screens for identification and operational\
+    \ clarity.\n  - LOCATION (string) -- This field populates the geographical location\
+    \ of the plant,\nDiscovered: 2026-04-30 12:33"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - gold
+  - procurement
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.gold_procurement.main_filters_table
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: gold_procurement
+    databricks.com/table: main_filters_table
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/gold_procurement/main_filters_table
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake
+  dependsOn:
+  - component:silver-nfa-main-er

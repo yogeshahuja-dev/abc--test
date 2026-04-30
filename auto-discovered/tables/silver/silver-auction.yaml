@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-auction
+  title: silver.auction
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.auction\n\
+    Layer: silver\nDescription: The auction table stores information about auctions,\
+    \ including a unique auction identifier, auction type, scheduled date, start and\
+    \ end times, and a description of the item being auctioned. It also tracks the\
+    \ current status of the auction and includes audit fields for load and update\
+    \ timestamps to ensure accurate monitoring and data integrity.\nColumns (9):\n\
+    \  - auction_id (bigint) -- Primary key for the auction\n  - auction_type (string)\
+    \ -- Type of auction (e.g., Forward, Reverse)\n  - auction_date (date) -- Date\
+    \ the auction is held\n  - start_time (timestamp) -- Auction start time\n  - end_time\
+    \ (timestamp) -- Auction end time\n  - item_description (string) -- Description\
+    \ of item or service being auctioned\n  - status (string) -- Auction status (e.g.,\
+    \ Scheduled, Completed, Cancelled)\n  - load_timestamp (timestamp) -- Record creation\
+    \ timestamp.\n  - update_timestamp (timestamp) -- Record last updated timestamp.\n\
+    Discovered: 2026-04-30 12:30"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.auction
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: auction
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/auction
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

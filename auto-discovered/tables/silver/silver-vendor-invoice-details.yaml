@@ -1,0 +1,81 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-vendor-invoice-details
+  title: silver.vendor_invoice_details
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.vendor_invoice_details\n\
+    Layer: silver\nColumns (33):\n  - client_id (string) -- It is a three-char alphanumeric\
+    \ identifier that represents a client in the SAP system. A client is the highest\
+    \ organizational unit in SAP and serves as a self-contained unit with its own\
+    \ master data and set of tables.\n  - invoice_document (string) -- An identifier\
+    \ of invoice document; essential for audit and reconciliation ⦁ Max 10-digit.\
+    \ ⦁ Unique within fiscal year,identifer and company code.\n  - fiscal_year (bigint)\
+    \ -- Fiscal year in which the invoice document was created. Used with invoice\
+    \ document number to identify a document ⦁ Max length 4 Char with YYYY format\n\
+    \  - company_code (string) -- The company code represents the smallest organizational\
+    \ unit for which a complete, self-contained set of accounts can be drawn up, crucial\
+    \ for legal and financial reporting ⦁ Max 4 characters ⦁ Common values: 1000,\
+    \ 2000\n  - entry_date (date) -- Records the system entry date, which may differ\
+    \ from the actual transaction or posting date. Useful for auditing and tracking.\n\
+    \  - document_line_item_number (bigint) -- It identifies each line item in a invoice\
+    \ document. For example, if a vendor invoice has multiple expense lines, each\
+    \ will have a distinct line item number value (e.g., 001, 002, 003). ⦁ 3-digit\
+    \ numeric. ⦁ Identifies specific posting line.\n  - purchase_order_number (string)\
+    \ -- A Purchase Order Number is an identifier assigned to a purchase order created\
+    \ by a company for procuring goods or services from a vendor. It is used throughout\
+    \ the procurement cycle to track, reference, and manage the order ⦁ Maximum 10\
+    \ character field\n  - purchase_order_item_number (bigint) -- Purchase order item\
+    \ number. Identifies individual line items within a purchase order for granular\
+    \ tracking of materials, quantities, prices, and delivery schedules. ⦁ Numeric\
+    \ field upto 5 character.\n  - material_number (string) -- Material Number is\
+    \ an identifier assigned to each material item in the inventory, crucial for tracking\
+    \ and managing inventory levels. ⦁ Max length 18-character\n  - quantity (double)\
+    \ -- Quantity of goods or services involved in the transaction.\n  - material_units\
+    \ (string) -- Base unit of measure defines how quantities of a material are measured\
+    \ and managed in the system. ⦁ max 3-character. ⦁ stored in iso uom format (ea,\
+    \ kg, l, m, etc.). EA - each / unit / single piece. KG - kilogram G - gram\n \
+    \ - plant_code (string) -- A Plant Code represents a specific physical or organizational\
+    \ location within a company where materials are stored, produced, or managed Example:\
+    \ 2001 - APSEZ-MUNDRA-SEZ-OPS-W/O LOP 2401 - AHPL-HAZIRA-PROJECTS\n  - ref_document_number\
+    \ (string) -- Ref document number stores a reference number related to the document,\
+    \ such as an invoice number, delivery note, or external document ID. It is used\
+    \ to link one document to another document or customer/vendor references and helps\
+    \ in document tracking, auditing, and cross-referencing between systems.\n  -\
+    \ item_category (int) -- The field identifies the type of item being invoiced,\
+    \ such as a material item, service item, or text-only line. It determines how\
+    \ the invoice line should be processed. Examples: 0 indicates Standard, 1 indicates\
+    \ Limit, 2 indicates Consignment, 3 indicates Subcontracting\n  - unplanned_delivery_costs\
+    \ (double) -- This field indicates the unplanned delivery costs that are part\
+    \ of the value of the item. This field helps identify and track these additional\
+    \ charges separately from the main invoice amount.\n  - posting_date (date) --\
+    \ It is the date on which a financial transaction is posted, determining the accounting\
+    \ period for the entry.\n  - document_date (date) -- It is the field that stores\
+    \ the document date, representing the actual date on which a business transaction\
+    \ occurred, such as the date on an invoice or delivery note etc\n  - document_type\
+    \ (string) -- Type of Accounting document (invoice, debit note, credit note, advance,\
+    \ payment, etc.). Examples: KR - \"Vendor Invoice\" KZ - \"Vendor Payment\n  -\
+    \ created_by_user (string) -- user ID who created the document. Important for\
+    \ accountability and audit tracking.\n  - vendor_number (string) -- A Vendor number\
+    \ is an identifier assigned to each vendor in the system. It represents the supplier\
+    \ from whom a company purchases goods or services. This code is used throughout\
+    \ the procurement and finance processes ⦁ Maximum 10 character field.\n  ... +13\
+    \ more\nDiscovered: 2026-04-30 12:33"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.vendor_invoice_details
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: vendor_invoice_details
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/vendor_invoice_details
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

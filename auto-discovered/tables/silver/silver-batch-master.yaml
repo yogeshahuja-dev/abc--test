@@ -1,0 +1,68 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-batch-master
+  title: silver.batch_master
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.batch_master\n\
+    Layer: silver\nDescription: Batch Master table represents the foundational record\
+    \ for each distinct batch of a material, capturing the identifiers and attributes\
+    \ that uniquely distinguish one batch from another. This entity holds information\
+    \ such as the batch ID, material ID, plant, and key quality or classification\
+    \ characteristics used for traceability and inventory segregation across business\
+    \ processes.\nColumns (14):\n  - client_id (string) -- It is a three-char alphanumeric\
+    \ identifier that represents a client in the SAP system. A client is the highest\
+    \ organizational unit in SAP and serves as a self-contained unit with its own\
+    \ master data and set of tables..\n  - material_number (string) -- Material Number\
+    \ is a identifier assigned to each material item in the inventory, crucial for\
+    \ tracking and managing inventory levels. ⦁ Max length 18-character\n  - plant_code\
+    \ (string) -- A Plant Code represents a specific physical or organizational location\
+    \ within a company where materials are stored, produced, or managed  Example:\
+    \ 2001 - APSEZ-MUNDRA-SEZ-OPS-W/O LOP  2401 - AHPL-HAZIRA-PROJECTS\n  - batch_number\
+    \ (string) -- Used to identify a specific quantity of material that was produced\
+    \ or received under the same conditions. It is a key field in batch management,\
+    \ allowing companies to track and manage inventory at a more granular level. \n\
+    ⦁ Max length 10-char. \n⦁ Uniquely identifies a batch of material with same manufacturing\
+    \ attributes.\n  - batch_del_flag (string) -- This indicator specifies whether\
+    \ a batch at the plant level is marked for deletion. X indicates that the material\
+    \ is flagged for deletion, Blank indicates that the material is not flagged for\
+    \ deletion\n  - creation_date (date) -- Represents the date on which the batch\
+    \ is created.\n  - shelf_life_expiration_date (date) -- Expiration or best-before\
+    \ date for a material batch. Ensures compliance and quality control for perishable\
+    \ goods.\n  - valuation_type (string) -- Used in split valuation to differentiate\
+    \ material values based on origin, quality, or procurement type. ⦁ max length\
+    \ 10 characters. \n⦁We have handled null values for this attribute\n  - date_of_manufacture\
+    \ (date) -- It stands for Date of Manufacture. It is a field used primarily in\
+    \ batch management to record the production date of a material batch. This date\
+    \ is crucial for processes involving shelf life, warranty, quality control, and\
+    \ compliance.\n  - identifier (string) -- Custom discriminator to differentiate\
+    \ vendors across multiple SAP instances when client code alone is insufficient.\n\
+    \  - HASH_KEY (string) -- System-generated hash key used for uniquely identifying\
+    \ records and ensuring data integrity.\n  - SYS_EFFECTIVE_START_DATE (date) --\
+    \ System Effective Start Date, indicating when the record became valid in the\
+    \ system.\n  - SYS_EFFECTIVE_END_DATE (date) -- System Effective End Date, indicating\
+    \ when the record ceased to be valid in the system.\n  - IS_ACTIVE (string) --\
+    \ Flag indicating whether the record is currently active. Y indicates an active\
+    \ record which means that it is the latest record N indicates an in-active record\
+    \ which means that this record is old and has been changed\nDiscovered: 2026-04-30\
+    \ 12:30"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.batch_master
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: batch_master
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/batch_master
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake
+  dependsOn:
+  - component:silver-sap-cleansed-mast-mstr

@@ -1,0 +1,74 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-purchase-order-detail-acc-assign
+  title: silver.purchase_order_detail_acc_assign
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.purchase_order_detail_acc_assign\n\
+    Layer: silver\nDescription: Represents the distribution details for purchase order\
+    \ line items, specifying where the item’s value should be allotted to internal\
+    \ order, Cost center, Project id etc\n \nGrain: One row per client_id, identifier,\
+    \  purchase_order_number, purchase_order_item_number, po_seq_number\nColumns (15):\n\
+    \  - client_id (string) -- It is a three-char alphanumeric identifier that represents\
+    \ a client in the SAP system. A client is the highest organizational unit in SAP\
+    \ and serves as a self-contained unit with its own master data and set of tables.\n\
+    \  - purchase_order_number (string) -- A Purchase Order Number is an identifier\
+    \ assigned to a purchase order created by a company for procuring goods or services\
+    \ from a vendor. It is used throughout the procurement cycle to track, reference,\
+    \ and manage the order. \n⦁ Maximum 10 character field\n  - purchase_order_item_number\
+    \ (bigint) -- Purchase order item number. Identifies individual line items within\
+    \ a purchase order for granular tracking of materials, quantities, prices, and\
+    \ delivery schedules. \n⦁ Numeric field upto 5 character.\n  - po_seq_number (bigint)\
+    \ -- It identifies each account assignment line for a purchase order (PO) item.\
+    \ Used when a PO item has multiple account assignments (e.g., split between cost\
+    \ centers, internal orders, projects).\n ⦁ Max 2-digit numeric (01, 02…).\n  -\
+    \ internal_order_number (string) -- An Internal Order is used to plan, collect,\
+    \ and  monitor costs for specific activities, projects, or tasks within an organization.\
+    \ It acts as a temporary cost collector that can later be settled to cost centers,\
+    \ assets, or other receivers\n  - cost_center (string) -- It is Cost center code\
+    \ for financial tracking and resource allocation within a controlling area that\
+    \ represents a defined location of cost incurrence. It is used to track where\
+    \ costs are incurred within an organization, such as departments, teams, or projects.\n\
+    \  - wbs_element (int) -- A WBS Element (Work Breakdown Structure Element) is\
+    \ a specific task, activity, or cost‑collecting area within a project. It represents\
+    \ a clearly defined part of the overall project that needs to be planned, budgeted,\
+    \ executed, and monitored separately.\n  - fund_center_code (string) -- It is\
+    \ a key organizational element in Funds Management (FM) used to represent the\
+    \ unit responsible for managing and controlling budgeted funds. It ensures expenditures\
+    \ are within allocated budgets and enables detailed financial reporting by funds\
+    \ center.\n  - gl_acct_number (string) -- It is a key field in financial accounting\
+    \ tables. It identifies the General Ledger account used for posting financial\
+    \ transactions. This field is essential for determining how amounts are categorized\
+    \ in the chart of accounts. ⦁  Max  length 10 char.\n  - net_order_value (double)\
+    \ -- Net order value for the Purchase Order item. Important for budgeting and\
+    \ spend analysis. It is calculated by multiplying the net price by the quantity\
+    \ of goods or services.  It is numeric field , with max length 13 and decimals\
+    \ are allowed\n  - identifier (string) -- Custom discriminator to differentiate\
+    \ vendors across multiple SAP instances when client code alone is insufficient.\n\
+    \  - HASH_KEY (string) -- System-generated hash key used for uniquely identifying\
+    \ records and ensuring data integrity.\n  - SYS_EFFECTIVE_START_DATE (date) --\
+    \ System Effective Start Date, indicating when the record became valid in the\
+    \ system.\n  - SYS_EFFECTIVE_END_DATE (date) -- System Effective End Date, indicating\
+    \ when the record ceased to be valid in the system.\n  - IS_ACTIVE (string) --\
+    \ Flag indicating whether the record is currently active. Y indicates an active\
+    \ record which means that it is the latest record N indicates an in-active record\
+    \ which means that this record is old and has been changed\nDiscovered: 2026-04-30\
+    \ 12:32"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.purchase_order_detail_acc_assign
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: purchase_order_detail_acc_assign
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/purchase_order_detail_acc_assign
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

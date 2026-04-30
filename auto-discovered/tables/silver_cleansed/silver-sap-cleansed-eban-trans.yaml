@@ -1,0 +1,33 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-sap-cleansed-eban-trans
+  title: silver_sap_cleansed.eban_trans
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver_sap_cleansed.eban_trans\n\
+    Layer: silver-cleansed\nColumns (308):\n  - MANDT (string)\n  - BANFN (string)\n\
+    \  - BNFPO (bigint)\n  - BSART (string)\n  - BSTYP (string)\n  - BSAKZ (string)\n\
+    \  - LOEKZ (string)\n  - STATU (string)\n  - ESTKZ (string)\n  - FRGKZ (string)\n\
+    \  - FRGZU (string)\n  - FRGST (string)\n  - EKGRP (string)\n  - ERNAM (string)\n\
+    \  - ERDAT (date)\n  - AFNAM (string)\n  - TXZ01 (string)\n  - MATNR (string)\n\
+    \  - EMATN (string)\n  - WERKS (string)\n  ... +288 more\nDiscovered: 2026-04-30\
+    \ 12:24"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver-cleansed
+  - sap
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver_sap_cleansed.eban_trans
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver_sap_cleansed
+    databricks.com/table: eban_trans
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver_sap_cleansed/eban_trans
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

@@ -1,0 +1,44 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: gold-procurement-emergency-po
+  title: gold_procurement.emergency_po
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.gold_procurement.emergency_po\n\
+    Layer: gold\nDescription: This table identifies Emergency Purchase Orders by linking\
+    \ PR and PO details at item level. Grain: One row per PO item per instance.\n\
+    Columns (6):\n  - CLIENT_ID (string) -- It is a three-digit identifier that represents\
+    \ a client in the SAP system. A client is the highest organizational unit in SAP\
+    \ and serves as a self-contained unit with its own master data and set of tables.\n\
+    \  - PR_PURCHASE_ORDER_NUMBER (string) -- Unique purchase order number assigned\
+    \ by SAP. Serves as the primary key for procurement transactions and links header\
+    \ and item details for procurement transactions.\n  - PURCHASE_ORDER_ITEM_NUMBER\
+    \ (bigint) -- Purchase order item number. Identifies individual line items within\
+    \ a purchase order for granular tracking of materials, quantities, prices, and\
+    \ delivery schedules.\n  - PURCHASE_REQ_NUMBER (string) -- Purchase requisition\
+    \ number linked to the PO item. Enables traceability from requisition to order.\n\
+    \  - PURCHASE_REQ_ITEM_NUMBER (string) -- Purchase requisition item number. Specifies\
+    \ individual line items within the requisition.\n  - EMERGENCY_PO (string) --\
+    \ Classifies a Purchase Order (PO) as Emergency or Normal based on its document\
+    \ type.\nDiscovered: 2026-04-30 12:33"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - gold
+  - procurement
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.gold_procurement.emergency_po
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: gold_procurement
+    databricks.com/table: emergency_po
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/gold_procurement/emergency_po
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake
+  dependsOn:
+  - component:silver-po-schedule-lines

@@ -1,0 +1,77 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-stock-valuation
+  title: silver.stock_valuation
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.stock_valuation\n\
+    Layer: silver\nDescription: The table contains data related to inventory valuation\
+    \ and management within the SAP system. It includes details such as valuation\
+    \ areas, material numbers, pricing methods, and stock quantities. This data can\
+    \ be used for inventory tracking, financial reporting, and cost analysis. Use\
+    \ cases include evaluating inventory costs, managing special stock types, and\
+    \ analyzing pricing strategies.\nColumns (21):\n  - client_id (string) -- It is\
+    \ a three-char alphanumeric identifier that represents a client in the SAP system.\
+    \ A client is the highest organizational unit in SAP and serves as a self-contained\
+    \ unit with its own master data and set of tables.\n  - material_number (string)\
+    \ -- Material Number is a identifier assigned to each material item in the inventory,\
+    \ crucial for tracking and managing inventory levels. \n⦁ Max length 18-character\n\
+    \  - wbs_element (int) -- A WBS Element (Work Breakdown Structure Element) is\
+    \ a specific task, activity, or cost‑collecting area within a project. It represents\
+    \ a clearly defined part of the overall project that needs to be planned, budgeted,\
+    \ executed, and monitored separately.\n  - special_stock_ind (string) -- It is\
+    \ the Special Stock Indicator field used to identify and manage non-standard inventory\
+    \ types such as consignment, project, or sales order stock. It ensures accurate\
+    \ tracking, valuation, and reporting of special stock Examples: E indicates Orders\
+    \ on hand F indicates SC Customer Order Stock I indicates SC RTP J indicates SC\
+    \ Vendor consignment Q indicates Project Stock\n  - valuation_area (string) --\
+    \ Key for valuation area linked to the plant. Determines inventory valuation method\
+    \ and supports cost accounting. ⦁ Max length 4 char\n  - valuation_type (string)\
+    \ -- Used in split valuation to differentiate material values based on origin,\
+    \ quality, or procurement type.\n ⦁ max length 10 characters. \n⦁We have handled\
+    \ null values for this attribute\n  - identifier (string) -- Custom discriminator\
+    \ to differentiate vendors across multiple SAP instances when client code alone\
+    \ is insufficient.\n  - condition_record_number (string) -- Condition record number\
+    \ used for linking pricing or valuation conditions.\n  - total_valuated_stock\
+    \ (string) -- Represents the total quantity of valuated stock for a material.\
+    \ Important for inventory and financial reporting.\n  - standard_price (double)\
+    \ -- Fixed price used for valuating inventory and cost of goods sold in standard\
+    \ costing environments. \n⦁ Numeric field max length 11 char, decimals allowed\n\
+    \  - moving_avg_price (double) -- Current moving average price of the material.\
+    \ Used for dynamic valuation based on actual costs\n⦁ Numeric field max length\
+    \ 11 char, decimals allowed\n  - price_control_ind (string) -- Determines whether\
+    \ valuation uses standard price (S) or moving average price (V). Impacts cost\
+    \ updates during movements.\n⦁ max length 1 characters.\n  - rate_table (string)\
+    \ -- Rate table reference for valuation or pricing logic applied to material stock.\n\
+    \  - HASH_KEY (string) -- System-generated hash key used for uniquely identifying\
+    \ records and ensuring data integrity.\n  - SYS_EFFECTIVE_START_DATE (date) --\
+    \ System Effective Start Date, indicating when the record became valid in the\
+    \ system.\n  - SYS_EFFECTIVE_END_DATE (date) -- System Effective End Date, indicating\
+    \ when the record ceased to be valid in the system.\n  - IS_ACTIVE (string) --\
+    \ Flag indicating whether the record is currently active. Y indicates an active\
+    \ record which means that it is the latest record N indicates an in-active record\
+    \ which means that this record is old and has been changed\n  - total_stock_value\
+    \ (double) -- Represents the total value of the stock in the local currency for\
+    \ the valuation area. \n⦁ Numeric field max length 11 char, decimals allowed\n\
+    \  - price_unit (double) -- Defines the quantity for which the price is maintained\
+    \ (e.g., per 1, per 100 units).\n  - deletion_indicator (string) -- Indicates\
+    \ whether the material valuation record is marked for deletion. Useful for filtering\
+    \ obsolete records.\n  ... +1 more\nDiscovered: 2026-04-30 12:32"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.stock_valuation
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: stock_valuation
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/stock_valuation
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

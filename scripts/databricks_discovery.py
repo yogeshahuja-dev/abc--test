@@ -1,9 +1,14 @@
 """
-Databricks Auto-Discovery for Backstage
-=========================================
-Uses SQL Statement Execution REST API.
-Authentication: Databricks-native SPN (OAuth2 M2M).
-Connection: DIRECT (no proxy).
+Databricks Focused Discovery for Backstage POC
+================================================
+Discovers tables from 4 specific schemas only:
+  - bronze_sap_mul       (Raw SAP data from MUL system)
+  - silver_sap_cleansed  (Cleansed and merged masters)
+  - silver               (Business entities)
+  - gold_procurement     (Curated procurement tables)
+
+Authentication: Databricks-native SPN (OAuth2 M2M)
+Connection: SQL Statement Execution REST API (direct, no proxy)
 """
 
 import os
@@ -16,7 +21,7 @@ from datetime import datetime
 import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
-# Remove any proxy env vars to ensure direct connection
+# Remove proxy (direct connection)
 for key in ["HTTP_PROXY", "HTTPS_PROXY", "http_proxy", "https_proxy"]:
     os.environ.pop(key, None)
 
@@ -29,9 +34,14 @@ DATABRICKS_HOST = "https://adb-2478587080594690.10.azuredatabricks.net"
 CLIENT_ID = "0c30a662-4213-4184-b4e0-55cd298a1c4d"
 CLIENT_SECRET = os.environ.get("DATABRICKS_CLIENT_SECRET", "dosea8a9acbae130f2ab7ae6b35bf20db634")
 WAREHOUSE_ID = os.environ.get("DATABRICKS_WAREHOUSE_ID", "9a99a601e597a874")
-CATALOG = os.environ.get("DATABRICKS_CATALOG", "adani_edl_governance_catalog_dev")
+CATALOG = "adani_edl_governance_catalog_dev"
 
-SCHEMAS_TO_SKIP = ["information_schema", "default", "__databricks_internal"]
+SCHEMAS_TO_DISCOVER = [
+    "bronze_sap_mul",
+    "silver_sap_cleansed",
+    "silver",
+    "gold_procurement",
+]
 
 OUTPUT_BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 AUTO_DIR = os.path.join(OUTPUT_BASE, "auto-discovered")
@@ -41,104 +51,95 @@ CATALOG_FILE = os.path.join(AUTO_DIR, "catalog-info.yaml")
 OWNER = "edl-governance"
 SYSTEM = "enterprise-data-lake"
 
+TOKEN = None
+
 
 # ============================================================
 # AUTHENTICATION
 # ============================================================
 
-TOKEN = None
-
 def get_token():
-    """Get OAuth token from Databricks OIDC."""
     global TOKEN
-
-    payload = {
-        "grant_type": "client_credentials",
-        "client_id": CLIENT_ID,
-        "client_secret": CLIENT_SECRET,
-        "scope": "all-apis",
-    }
-
     r = requests.post(
         f"{DATABRICKS_HOST}/oidc/v1/token",
-        data=payload,
+        data={
+            "grant_type": "client_credentials",
+            "client_id": CLIENT_ID,
+            "client_secret": CLIENT_SECRET,
+            "scope": "all-apis",
+        },
         headers={"Content-Type": "application/x-www-form-urlencoded"},
         verify=False,
         timeout=30,
     )
-
     if r.status_code == 200:
         TOKEN = r.json()["access_token"]
         return True
-    else:
-        print(f"  AUTH FAILED: {r.status_code} - {r.text}")
-        return False
+    print(f"  AUTH FAILED: {r.status_code} - {r.text}")
+    return False
 
 
 # ============================================================
-# SQL EXECUTION VIA REST API
+# SQL EXECUTION
 # ============================================================
 
-def run_sql(sql, timeout_seconds=50):
-    """Execute SQL using Databricks SQL Statement Execution API."""
+def run_sql(sql):
     global TOKEN
 
-    url = f"{DATABRICKS_HOST}/api/2.0/sql/statements"
+    r = requests.post(
+        f"{DATABRICKS_HOST}/api/2.0/sql/statements",
+        json={
+            "warehouse_id": WAREHOUSE_ID,
+            "statement": sql,
+            "wait_timeout": "50s",
+            "disposition": "INLINE",
+            "format": "JSON_ARRAY",
+        },
+        headers={
+            "Authorization": f"Bearer {TOKEN}",
+            "Content-Type": "application/json",
+        },
+        verify=False,
+        timeout=60,
+    )
 
-    payload = {
-        "warehouse_id": WAREHOUSE_ID,
-        "statement": sql,
-        "wait_timeout": "50s",
-        "disposition": "INLINE",
-        "format": "JSON_ARRAY",
-    }
-
-    headers = {
-        "Authorization": f"Bearer {TOKEN}",
-        "Content-Type": "application/json",
-    }
-
-    r = requests.post(url, json=payload, headers=headers, verify=False, timeout=60)
-    
     if r.status_code != 200:
-        print(f"    SQL API error ({r.status_code}): {r.text[:200]}")
+        print(f"    SQL error ({r.status_code}): {r.text[:200]}")
         return None
 
     result = r.json()
     status = result.get("status", {}).get("state", "")
 
-    # Handle async execution
-    if status == "PENDING" or status == "RUNNING":
-        statement_id = result.get("statement_id", "")
-        for _ in range(timeout_seconds):
+    if status in ("PENDING", "RUNNING"):
+        sid = result.get("statement_id", "")
+        for _ in range(50):
             time.sleep(1)
-            poll_url = f"{DATABRICKS_HOST}/api/2.0/sql/statements/{statement_id}"
-            pr = requests.get(poll_url, headers=headers, verify=False, timeout=30)
+            pr = requests.get(
+                f"{DATABRICKS_HOST}/api/2.0/sql/statements/{sid}",
+                headers={"Authorization": f"Bearer {TOKEN}"},
+                verify=False,
+                timeout=30,
+            )
             if pr.status_code == 200:
                 result = pr.json()
                 status = result.get("status", {}).get("state", "")
                 if status == "SUCCEEDED":
                     break
                 elif status == "FAILED":
-                    error = result.get("status", {}).get("error", {})
-                    print(f"    SQL FAILED: {error.get('message', 'unknown')}")
+                    err = result.get("status", {}).get("error", {})
+                    print(f"    SQL FAILED: {err.get('message', 'unknown')}")
                     return None
-            else:
-                break
 
     if status == "SUCCEEDED":
         manifest = result.get("manifest", {})
-        columns = [col["name"] for col in manifest.get("schema", {}).get("columns", [])]
-        data_array = result.get("result", {}).get("data_array", [])
-        return {"columns": columns, "rows": data_array}
-
+        cols = [c["name"] for c in manifest.get("schema", {}).get("columns", [])]
+        rows = result.get("result", {}).get("data_array", [])
+        return {"columns": cols, "rows": rows}
     elif status == "FAILED":
-        error = result.get("status", {}).get("error", {})
-        print(f"    SQL FAILED: {error.get('message', 'unknown error')}")
+        err = result.get("status", {}).get("error", {})
+        print(f"    SQL FAILED: {err.get('message', 'unknown')}")
         return None
-    else:
-        print(f"    Unexpected status: {status}")
-        return None
+    return None
 
 
 # ============================================================
@@ -155,20 +156,26 @@ def sanitize(name):
 
 def detect_layer(schema):
     s = schema.lower()
-    if "bronze" in s: return "bronze"
-    elif "silver_sap_cleansed" in s or "silver_cleansed" in s: return "silver-cleansed"
-    elif "silver" in s: return "silver"
-    elif "gold" in s: return "gold"
+    if "bronze" in s:
+        return "bronze"
+    elif "silver_sap_cleansed" in s or "silver_cleansed" in s:
+        return "silver-cleansed"
+    elif "silver" in s:
+        return "silver"
+    elif "gold" in s:
+        return "gold"
     return "other"
 
 
 def get_tags(schema):
     layer = detect_layer(schema)
     tags = ["databricks", "auto-discovered", "unity-catalog"]
-    if layer != "other": tags.append(layer)
+    if layer != "other":
+        tags.append(layer)
     s = schema.lower()
-    for kw in ["sap", "aem", "p11", "mul", "procurement"]:
-        if kw in s: tags.append(kw)
+    for kw in ["sap", "mul", "procurement"]:
+        if kw in s:
+            tags.append(kw)
     return tags
 
 
@@ -181,32 +188,10 @@ def save(filepath, data):
 
 
 # ============================================================
-# DISCOVERY
+# DISCOVER TABLES
 # ============================================================
 
-def discover_schemas():
-    """Get all schemas in the catalog."""
-    print(f"\n  Running: SHOW SCHEMAS IN `{CATALOG}`")
-    result = run_sql(f"SHOW SCHEMAS IN `{CATALOG}`")
-
-    if not result:
-        return []
-
-    schemas = []
-    for row in result["rows"]:
-        sname = row[0] if row else ""
-        if sname and sname not in SCHEMAS_TO_SKIP:
-            schemas.append(sname)
-
-    print(f"  Found {len(schemas)} schemas:")
-    for s in schemas:
-        print(f"    - {s}")
-
-    return schemas
-
-
 def discover_tables(schemas):
-    """Discover all tables in all schemas."""
     print("\n" + "=" * 60)
     print("DISCOVERING TABLES")
     print("=" * 60)
@@ -219,6 +204,7 @@ def discover_tables(schemas):
 
         result = run_sql(f"SHOW TABLES IN `{CATALOG}`.`{sname}`")
         if not result:
+            print(f"    FAILED or empty")
             continue
 
         tables = []
@@ -239,14 +225,14 @@ def discover_tables(schemas):
             # Get table comment
             comment = None
             try:
-                desc_result = run_sql(f"DESCRIBE TABLE EXTENDED `{CATALOG}`.`{sname}`.`{tname}`")
-                if desc_result:
-                    for row in desc_result["rows"]:
+                dr = run_sql(f"DESCRIBE TABLE EXTENDED `{CATALOG}`.`{sname}`.`{tname}`")
+                if dr:
+                    for row in dr["rows"]:
                         if len(row) >= 2:
-                            field = str(row[0]).strip()
-                            value = str(row[1]).strip()
-                            if field.lower() == "comment" and value and value.lower() not in ("", "none", "null"):
-                                comment = value
+                            f_name = str(row[0]).strip()
+                            f_val = str(row[1]).strip()
+                            if f_name.lower() == "comment" and f_val and f_val.lower() not in ("", "none", "null"):
+                                comment = f_val
                                 break
             except:
                 pass
@@ -254,42 +240,50 @@ def discover_tables(schemas):
             # Get columns
             columns = []
             try:
-                col_result = run_sql(f"DESCRIBE TABLE `{CATALOG}`.`{sname}`.`{tname}`")
-                if col_result:
-                    for row in col_result["rows"]:
+                cr = run_sql(f"DESCRIBE TABLE `{CATALOG}`.`{sname}`.`{tname}`")
+                if cr:
+                    for row in cr["rows"]:
                         if len(row) >= 2:
-                            col_name = str(row[0]).strip()
-                            col_type = str(row[1]).strip()
-                            col_comment = str(row[2]).strip() if len(row) > 2 and row[2] else None
+                            cn = str(row[0]).strip()
+                            ct = str(row[1]).strip()
+                            cc = str(row[2]).strip() if len(row) > 2 and row[2] else None
 
-                            if col_name.startswith("#") or col_name == "":
+                            if cn.startswith("#") or cn == "":
                                 break
-                            if col_type == "":
+                            if ct == "":
                                 continue
-                            if col_comment and col_comment.lower() in ("", "none", "null"):
-                                col_comment = None
+                            if cc and cc.lower() in ("", "none", "null"):
+                                cc = None
 
-                            columns.append({"name": col_name, "type": col_type, "comment": col_comment})
+                            columns.append({"name": cn, "type": ct, "comment": cc})
             except:
                 pass
 
             # Build description
-            desc_parts = [f"Auto-discovered from Databricks Unity Catalog.", f"Full name: {full_name}"]
+            desc = [
+                f"Auto-discovered from Databricks Unity Catalog.",
+                f"Full name: {full_name}",
+                f"Layer: {layer}",
+            ]
             if comment:
-                desc_parts.append(f"Description: {comment}")
+                desc.append(f"Description: {comment}")
             if columns:
-                desc_parts.append(f"Columns ({len(columns)}):")
-                for col in columns[:15]:
+                desc.append(f"Columns ({len(columns)}):")
+                for col in columns[:20]:
                     line = f"  - {col['name']} ({col['type']})"
                     if col.get("comment"):
                         line += f" -- {col['comment']}"
-                    desc_parts.append(line)
-                if len(columns) > 15:
-                    desc_parts.append(f"  ... +{len(columns)-15} more")
-            desc_parts.append(f"Discovered: {datetime.now().strftime('%Y-%m-%d %H:%M')}")
+                    desc.append(line)
+                if len(columns) > 20:
+                    desc.append(f"  ... +{len(columns)-20} more")
+            desc.append(f"Discovered: {datetime.now().strftime('%Y-%m-%d %H:%M')}")
 
-            subfolder = {"bronze": "bronze", "silver-cleansed": "silver_cleansed",
-                         "silver": "silver", "gold": "gold"}.get(layer, "other")
+            subfolder = {
+                "bronze": "bronze",
+                "silver-cleansed": "silver_cleansed",
+                "silver": "silver",
+                "gold": "gold",
+            }.get(layer, "other")
 
             fpath = os.path.join(TABLES_DIR, subfolder, f"{ename}.yaml")
 
@@ -299,7 +293,7 @@ def discover_tables(schemas):
                 "metadata": {
                     "name": ename,
                     "title": f"{sname}.{tname}",
-                    "description": "\n".join(desc_parts),
+                    "description": "\n".join(desc),
                     "tags": tags,
                     "annotations": {
                         "databricks.com/full-table-name": full_name,
@@ -325,16 +319,20 @@ def discover_tables(schemas):
             all_files.append(f"./{os.path.relpath(fpath, OUTPUT_BASE).replace(chr(92), '/')}")
             total += 1
 
-    print(f"\n  Total tables: {total}")
+    print(f"\n  Total tables discovered: {total}")
     return all_files
 
 
-def apply_lineage(all_files):
-    """Apply lineage based on schema naming patterns."""
+# ============================================================
+# APPLY LINEAGE
+# ============================================================
+
+def apply_lineage():
     print("\n" + "=" * 60)
     print("APPLYING LINEAGE")
     print("=" * 60)
 
+    # Load all entities
     mapping = {}
     for root, dirs, files_list in os.walk(TABLES_DIR):
         for f in files_list:
@@ -359,6 +357,7 @@ def apply_lineage(all_files):
                     "layer": detect_layer(schema),
                 }
 
+    # Group by layer
     by_layer = {}
     for full_name, info in mapping.items():
         layer = info["layer"]
@@ -367,8 +366,9 @@ def apply_lineage(all_files):
         by_layer[layer][full_name] = info
 
     print(f"  Tables by layer:")
-    for layer, tables in by_layer.items():
-        print(f"    {layer}: {len(tables)}")
+    for layer in ["bronze", "silver-cleansed", "silver", "gold"]:
+        count = len(by_layer.get(layer, {}))
+        print(f"    {layer}: {count}")
 
     count = 0
 
@@ -378,25 +378,29 @@ def apply_lineage(all_files):
         upstreams = []
 
         if layer == "gold":
+            # Gold depends on silver tables
             for s_full, s_info in by_layer.get("silver", {}).items():
                 s_table = s_info["table"].lower()
-                t_words = set(table.replace("_", " ").split())
-                s_words = set(s_table.replace("_", " ").split())
-                if t_words & s_words:
+                t_words = set(table.replace("_", " ").split()) - {"slt", "mstr", "master", "raw", "overview"}
+                s_words = set(s_table.replace("_", " ").split()) - {"slt", "mstr", "master", "raw"}
+                common = t_words & s_words
+                if len(common) >= 1:
                     upstreams.append(f"component:{s_info['entity_name']}")
 
         elif layer == "silver":
+            # Silver depends on silver-cleansed
             for sc_full, sc_info in by_layer.get("silver-cleansed", {}).items():
                 sc_table = sc_info["table"].lower()
-                t_base = table.replace("_", "")
-                sc_base = sc_table.replace("_mstr", "").replace("_master", "").replace("_", "")
-                if t_base == sc_base or table in sc_table or sc_table.replace("_mstr", "") in table:
+                t_base = table.replace("_mstr", "").replace("_master", "")
+                sc_base = sc_table.replace("_mstr", "").replace("_master", "")
+                if t_base == sc_base or t_base in sc_table or sc_base in table:
                     upstreams.append(f"component:{sc_info['entity_name']}")
 
         elif layer == "silver-cleansed":
+            # Silver cleansed depends on bronze tables
             for b_full, b_info in by_layer.get("bronze", {}).items():
                 b_table = b_info["table"].lower()
-                t_base = table.replace("_mstr", "").replace("_master", "")
+                t_base = table.replace("_mstr", "").replace("_master", "").replace("_cleansed", "")
                 b_base = b_table.replace("_slt", "").replace("_raw", "").replace("_delta", "")
                 if t_base == b_base:
                     upstreams.append(f"component:{b_info['entity_name']}")
@@ -408,12 +412,16 @@ def apply_lineage(all_files):
             data["spec"]["dependsOn"] = list(set(upstreams))
             save(fpath, data)
             count += 1
+            print(f"    {info['entity_name']} <- {list(set(upstreams))[:3]}{'...' if len(upstreams) > 3 else ''}")
 
     print(f"\n  Lineage relationships added: {count}")
 
 
+# ============================================================
+# GENERATE CATALOG
+# ============================================================
+
 def generate_catalog(all_files):
-    """Generate master catalog-info.yaml."""
     print("\n" + "=" * 60)
     print("GENERATING CATALOG-INFO.YAML")
     print("=" * 60)
@@ -422,7 +430,6 @@ def generate_catalog(all_files):
     silver_c = sorted([f for f in all_files if "/silver_cleansed/" in f])
     silver = sorted([f for f in all_files if "/silver/" in f and "/silver_cleansed/" not in f])
     gold = sorted([f for f in all_files if "/gold/" in f])
-    other = sorted([f for f in all_files if "/other/" in f])
 
     catalog = {
         "apiVersion": "backstage.io/v1alpha1",
@@ -432,13 +439,14 @@ def generate_catalog(all_files):
             "description": (
                 f"Auto-discovered from Databricks Unity Catalog.\n"
                 f"Catalog: {CATALOG}\n"
+                f"Schemas: {', '.join(SCHEMAS_TO_DISCOVER)}\n"
                 f"Sync: {datetime.now().strftime('%Y-%m-%d %H:%M')}\n"
                 f"Bronze: {len(bronze)}, Silver Cleansed: {len(silver_c)}, "
-                f"Silver: {len(silver)}, Gold: {len(gold)}, Other: {len(other)}"
+                f"Silver: {len(silver)}, Gold: {len(gold)}"
             ),
         },
         "spec": {
-            "targets": bronze + silver_c + silver + gold + other,
+            "targets": bronze + silver_c + silver + gold,
         },
     }
 
@@ -448,7 +456,6 @@ def generate_catalog(all_files):
     print(f"  Silver Cleansed: {len(silver_c)}")
     print(f"  Silver:          {len(silver)}")
     print(f"  Gold:            {len(gold)}")
-    print(f"  Other:           {len(other)}")
     print(f"  TOTAL:           {len(all_files)}")
 
 
@@ -458,80 +465,88 @@ def generate_catalog(all_files):
 
 def main():
     print("=" * 60)
-    print("DATABRICKS AUTO-DISCOVERY FOR BACKSTAGE")
-    print(f"Workspace:  {DATABRICKS_HOST}")
-    print(f"Catalog:    {CATALOG}")
-    print(f"Warehouse:  {WAREHOUSE_ID}")
-    print(f"Time:       {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    print("DATABRICKS FOCUSED DISCOVERY FOR BACKSTAGE POC")
+    print("=" * 60)
+    print(f"  Workspace:  {DATABRICKS_HOST}")
+    print(f"  Catalog:    {CATALOG}")
+    print(f"  Warehouse:  {WAREHOUSE_ID}")
+    print(f"  Schemas:")
+    for s in SCHEMAS_TO_DISCOVER:
+        print(f"    - {s}")
+    print(f"  Time:       {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     print("=" * 60)
 
-    # Authenticate
+    # Step 1: Authenticate
     print("\n1. Authenticating SPN...")
     if not get_token():
         print("\nFATAL: Authentication failed!")
         sys.exit(1)
     print("   OK!")
 
-    # Test SQL execution
+    # Step 2: Test SQL
     print("\n2. Testing SQL execution...")
     result = run_sql("SELECT 1 AS test")
     if not result:
         print("\nFATAL: SQL execution failed!")
-        print("\nTroubleshooting:")
-        print(f"  Warehouse ID: {WAREHOUSE_ID}")
-        print("  1. Is the SQL Warehouse RUNNING? (not stopped/paused)")
-        print("  2. Does the SPN have access to this warehouse?")
-        print("     Go to SQL Warehouse > Permissions > Add SPN")
-        print("  3. Is your IP whitelisted in workspace IP Access Lists?")
+        print("  Check: Is SQL Warehouse running?")
         sys.exit(1)
-    print("   SQL execution works!")
+    print("   OK!")
 
-    # Test catalog access
-    print(f"\n3. Testing access to catalog: {CATALOG}...")
+    # Step 3: Verify schemas exist
+    print(f"\n3. Verifying schemas...")
     result = run_sql(f"SHOW SCHEMAS IN `{CATALOG}`")
     if not result:
-        print(f"\nFATAL: Cannot access catalog {CATALOG}!")
-        print("  SPN may need USE CATALOG / USE SCHEMA permissions")
+        print(f"\nFATAL: Cannot list schemas in {CATALOG}")
         sys.exit(1)
-    print("   Catalog access works!")
 
-    # Create directories
+    available = [row[0] for row in result["rows"]]
+    valid_schemas = []
+    for s in SCHEMAS_TO_DISCOVER:
+        if s in available:
+            print(f"   OK      {s}")
+            valid_schemas.append(s)
+        else:
+            print(f"   MISSING {s} (skipping)")
+
+    if not valid_schemas:
+        print("\nFATAL: No target schemas found!")
+        sys.exit(1)
+
+    # Step 4: Create directories
     os.makedirs(TABLES_DIR, exist_ok=True)
 
-    # Discover schemas
-    print("\n4. Discovering schemas...")
-    schemas = discover_schemas()
-    if not schemas:
-        print("\nNo schemas found!")
-        sys.exit(1)
-
-    # Discover tables
-    print("\n5. Discovering tables...")
-    all_files = discover_tables(schemas)
+    # Step 5: Discover tables
+    print("\n4. Discovering tables...")
+    all_files = discover_tables(valid_schemas)
     if not all_files:
         print("\nNo tables found!")
         sys.exit(1)
 
-    # Apply lineage
-    print("\n6. Applying lineage...")
-    apply_lineage(all_files)
+    # Step 6: Apply lineage
+    print("\n5. Applying lineage...")
+    apply_lineage()
 
-    # Generate catalog
-    print("\n7. Generating catalog...")
+    # Step 7: Generate catalog
+    print("\n6. Generating catalog...")
     generate_catalog(all_files)
 
     # Summary
     print("\n" + "=" * 60)
     print("DISCOVERY COMPLETE!")
     print("=" * 60)
-    print(f"  Catalog:  {CATALOG}")
-    print(f"  Tables:   {len(all_files)}")
-    print(f"  Output:   {AUTO_DIR}")
+    print(f"  Catalog:    {CATALOG}")
+    print(f"  Schemas:    {len(valid_schemas)}")
+    print(f"  Tables:     {len(all_files)}")
+    print(f"  Output:     {AUTO_DIR}")
     print(f"\nNext steps:")
-    print(f"  1. Review: dir auto-discovered\\tables")
+    print(f"  1. Review:")
+    print(f"     dir auto-discovered\\tables\\bronze")
+    print(f"     dir auto-discovered\\tables\\silver_cleansed")
+    print(f"     dir auto-discovered\\tables\\silver")
+    print(f"     dir auto-discovered\\tables\\gold")
     print(f"  2. Push to git:")
     print(f"     git add .")
-    print(f'     git commit -m "Auto-discovery sync from Databricks"')
+    print(f'     git commit -m "Auto-discovery: 4 schemas from Databricks"')
     print(f"     git push origin main")
     print(f"  3. Register in Backstage:")
     print(f"     Create > Register Existing Component")

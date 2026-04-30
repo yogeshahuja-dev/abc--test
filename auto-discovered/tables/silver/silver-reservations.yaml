@@ -1,0 +1,73 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-reservations
+  title: silver.reservations
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.reservations\n\
+    Layer: silver\nDescription: The table contains data related to material reservations\
+    \ within the SAP system. It includes details such as client identifiers, reservation\
+    \ numbers, dates, and quantities related to materials needed for production or\
+    \ maintenance. This data can be used for logistics planning, tracking material\
+    \ consumption, and financial reporting. Additionally, it supports project management\
+    \ by indicating whether materials are reserved for specific projects or operations\
+    \ and maintenance.\nColumns (19):\n  - client_id (string) -- It is a three-char\
+    \ alphanumeric identifier that represents a client in the SAP system. A client\
+    \ is the highest organizational unit in SAP and serves as a self-contained unit\
+    \ with its own master data and set of tables.\n  - reservation_number (string)\
+    \ -- A Reservation Number identifies a material reservation created within the\
+    \ organization. A reservation is an internal request to set aside or allocate\
+    \ stock for a specific purpose so that the required quantity is available when\
+    \ needed. \n⦁ Max length is 10 Characters\n  - reservation_item_number (string)\
+    \ -- This  field represents a sequential item number within a reservation document\
+    \ (RSNUM) that uniquely identifies each material line item in the reservation.\
+    \ It works in combination with reversation number to form the primary key.\n Max\
+    \ 4 char numeric\n  - reservation_date (date) -- Date when reservation was created\
+    \ for the material. \n⦁ Max length 8 char, DDMMYYYY format\n  - plant_code (string)\
+    \ -- A Plant Code represents a specific physical or organizational location within\
+    \ a company where materials are stored, produced, or managed Example: 2001 - APSEZ-MUNDRA-SEZ-OPS-W/O\
+    \ LOP 2401 - AHPL-HAZIRA-PROJECTS\n  - material_number (string) -- Material Number\
+    \ is a identifier assigned to each material item in the inventory, crucial for\
+    \ tracking and managing inventory levels.\n⦁ Max length 18-character\n  - requirement_date\
+    \ (date) -- Date on which the component is required for production or maintenance.\
+    \ ⦁ Max length 18-char (ddmmyyy) format\n  - required_quantity (string) -- Quantity\
+    \ of the component required for production. Used in planning and reservation.\
+    \ \n⦁ quantity field with 13 char decimals allowed\n  - withdrawn_quantity (string)\
+    \ -- Quantity already withdrawn from stock. Helps in tracking consumption. \n\
+    ⦁ quantity field with 13 char decimals allowed\n  - reservation_status (string)\
+    \ -- Represent the status of the reservation. If Requirement quantity > Withdrawn\
+    \ quantity then Open else closed\n  - project_onm_flagging (string) -- Flag indicating\
+    \ whether material is reserved for a project or O&M.\n  - withdrawn_value (double)\
+    \ -- Value of withdrawn quantity. Used in financial reporting.\n  - quantity_in_unit_of_entry\
+    \ (string) -- Quantity entered in the unit specified by the user. Useful when\
+    \ unit of entry differs from base unit of measure.\n  - excluded_quantity_flag\
+    \ (string) -- If Requirement and Withdrawn quantity both are zero then exclude\
+    \ the reservation\n  - identifier (string) -- Custom discriminator to differentiate\
+    \ vendors across multiple SAP instances when client code alone is insufficient.\n\
+    \  - HASH_KEY (string) -- System-generated hash key used for uniquely identifying\
+    \ records and ensuring data integrity.\n  - SYS_EFFECTIVE_START_DATE (date) --\
+    \ System Effective Start Date, indicating when the record became valid in the\
+    \ system.\n  - SYS_EFFECTIVE_END_DATE (date) -- System Effective End Date, indicating\
+    \ when the record ceased to be valid in the system.\n  - IS_ACTIVE (string) --\
+    \ Flag indicating whether the record is currently active. Y indicates an active\
+    \ record which means that it is the latest record N indicates an in-active record\
+    \ which means that this record is old and has been changed\nDiscovered: 2026-04-30\
+    \ 12:32"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.reservations
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: reservations
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/reservations
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

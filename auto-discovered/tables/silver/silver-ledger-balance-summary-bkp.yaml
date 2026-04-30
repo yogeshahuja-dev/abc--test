@@ -1,0 +1,79 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-ledger-balance-summary-bkp
+  title: silver.ledger_balance_summary_bkp
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.ledger_balance_summary_bkp\n\
+    Layer: silver\nDescription: The table contains financial transaction data related\
+    \ to clients in the SAP system. It includes details such as fiscal year, ledger\
+    \ identification, general ledger account numbers, and currency information. This\
+    \ data can be used for financial reporting, analyzing account balances, and understanding\
+    \ the financial position of different clients. Additionally, it supports tracking\
+    \ changes over time with effective start and end dates, which can be useful for\
+    \ auditing and compliance purposes.\nColumns (48):\n  - client_id (string) --\
+    \ It is a three-char alphanumeric identifier that represents a client in the SAP\
+    \ system. A client is the highest organizational unit in SAP and serves as a self-contained\
+    \ unit with its own master data and set of tables.\n  - fiscal_year (bigint) --\
+    \ Accounting fiscal year (YYYY) in which the transaction is posted. \n4-digit\
+    \ year format (YYYY)\n  - ledger_id (string) -- Identifies the ledger in General\
+    \ Ledger Accounting. Used to distinguish between leading and non-leading ledgers.\
+    \ \n⦁ 2-character code.\n⦁ Determines ledger-specific postings.\n⦁ Common values:\
+    \ FA – Leading Ledger IF - IFRS Ledger\n  - gl_acct_number (string) -- It is a\
+    \ key field in financial accounting tables. It identifies the General Ledger account\
+    \ used for posting financial transactions. This field is essential for determining\
+    \ how amounts are categorized in the chart of accounts.\n⦁ Max length 10 char\n\
+    \  - company_code (string) -- The company code represents the smallest organizational\
+    \ unit for which a complete, self-contained set of accounts can be drawn up, crucial\
+    \ for legal and financial reporting. \n⦁ Max 4 characters Common Values : 1000,\
+    \ 2000\n  - currency_key (string) -- Currency code, crucial for multi-currency\
+    \ operations and financial reporting. \n ⦁ Always 3-character ISO codes (eg. INR,\
+    \ USD, EUR)\n⦁ Alphabetic only\n  - blc_car_fwd_local_currency (double) -- Balance\
+    \ carried forward in local currency. It shows the cumulative balance carried forward\
+    \ in the local currency of the company code\n⦁ Always stored in local (company\
+    \ code) currency\n⦁ Max length 23 characters.\n  - blc_car_fwd_transaction_currency\
+    \ (double) -- Balance carried forward in transaction currency. It represents the\
+    \ amount carried forward from previous periods in the currency of the original\
+    \ transaction. ⦁ Max length 23 characters.\n  - category_number (string) -- Category\
+    \ number extracted from GL Account (first digit after removing zeros)\n  - category_name\
+    \ (string) -- Category Name as to GL belongs to which categories among Assets,\
+    \ Liabilities, Income, Expense\n  - transaction_currency_bal_period1 (double)\
+    \ -- Net postings in transaction currency for posting period 01 of the fiscal\
+    \ year, excluding opening balance ⦁ Max length 23 characters\n  - transaction_currency_bal_period2\
+    \ (double) -- Net postings in transaction currency for posting period 02 of the\
+    \ fiscal year, excluding opening balance ⦁ Max length 23 characters\n  - transaction_currency_bal_period3\
+    \ (double) -- Net postings in transaction currency for posting period 03 of the\
+    \ fiscal year, excluding opening balance ⦁ Max length 23 characters\n  - transaction_currency_bal_period4\
+    \ (double) -- Net postings in transaction currency for posting period 04 of the\
+    \ fiscal year, excluding opening balance ⦁ Max length 23 characters\n  - transaction_currency_bal_period5\
+    \ (double) -- Net postings in transaction currency for posting period 05 of the\
+    \ fiscal year, excluding opening balance ⦁ Max length 23 characters\n  - transaction_currency_bal_period6\
+    \ (double) -- Net postings in transaction currency for posting period 06 of the\
+    \ fiscal year, excluding opening balance ⦁ Max length 23 characters\n  - transaction_currency_bal_period7\
+    \ (double) -- Net postings in transaction currency for posting period 07 of the\
+    \ fiscal year, excluding opening balance ⦁ Max length 23 characters\n  - transaction_currency_bal_period8\
+    \ (double) -- Net postings in transaction currency for posting period 08 of the\
+    \ fiscal year, excluding opening balance ⦁ Max length 23 characters\n  - transaction_currency_bal_period9\
+    \ (double) -- Net postings in transaction currency for posting period 09 of the\
+    \ fiscal year, excluding opening balance ⦁ Max length 23 characters\n  - transaction_currency_bal_period10\
+    \ (double) -- Net postings in transaction currency for posting period 10 of the\
+    \ fiscal year, excluding opening balance \n⦁ Max length 23 characters\n  ... +28\
+    \ more\nDiscovered: 2026-04-30 12:31"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.ledger_balance_summary_bkp
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: ledger_balance_summary_bkp
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/ledger_balance_summary_bkp
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-notification-task
+  title: silver.notification_task
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.notification_task\n\
+    Layer: silver\nColumns (20):\n  - client_id (string)\n  - notification_no (string)\n\
+    \  - task_desc (string)\n  - creation_date (date)\n  - created_by (string)\n \
+    \ - planned_task_start_date (date)\n  - planned_task_end_date (date)\n  - task_completion_date\
+    \ (date)\n  - task_code (string)\n  - task_code_grp (string)\n  - task_catalog_type\
+    \ (string)\n  - task_completed_by (string)\n  - notification_object_item_id (string)\n\
+    \  - identifier (string)\n  - hash_key (string) -- System-generated hash key used\
+    \ for uniquely identifying records and ensuring data integrity.\n  - is_active\
+    \ (string) -- Flag indicating whether the record is currently active. Y indicates\
+    \ an active record which means that it is the latest record N indicates an in-active\
+    \ record which means that this record is old and has been changed.\n  - sys_effective_start_date\
+    \ (date)\n  - sys_effective_end_date (date)\n  - sequential_task_number (bigint)\n\
+    \  - notification_item (bigint)\nDiscovered: 2026-04-30 12:31"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.notification_task
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: notification_task
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/notification_task
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

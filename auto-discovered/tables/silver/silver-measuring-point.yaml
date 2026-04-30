@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-measuring-point
+  title: silver.measuring_point
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.measuring_point\n\
+    Layer: silver\nColumns (15):\n  - measuring_point_id (string)\n  - measuring_point_desc\
+    \ (string)\n  - creation_date (date)\n  - target_value (double)\n  - client_id\
+    \ (string) -- It is a three-char alphanumeric identifier that represents a client\
+    \ in the SAP system. A client is the highest organizational unit in SAP and serves\
+    \ as a self-contained unit with its own master data and set of tables\n  - hash_key\
+    \ (string) -- System-generated hash key used for uniquely identifying records\
+    \ and ensuring data integrity.\n  - identifier (string) -- Custom discriminator\
+    \ to differentiate vendors across multiple SAP instances when client code alone\
+    \ is insufficient.\n  - is_active (string) -- Flag indicating whether the record\
+    \ is currently active. Y indicates an active record which means that it is the\
+    \ latest record N indicates an in-active record which means that this record is\
+    \ old and has been changed.\n  - sys_effective_start_date (date)\n  - sys_effective_end_date\
+    \ (date)\n  - measuring_point_object_id (string)\n  - position_no (string)\n \
+    \ - measuring_point_category (string)\n  - inactive_indicator (string)\n  - deletion_indicator\
+    \ (string)\nDiscovered: 2026-04-30 12:31"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.measuring_point
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: measuring_point
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/measuring_point
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

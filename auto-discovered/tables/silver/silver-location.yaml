@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-location
+  title: silver.location
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.location\n\
+    Layer: silver\nDescription: The table contains detailed information about various\
+    \ locations. It includes data such as addresses, cities, states, postal codes,\
+    \ and geographic coordinates (latitude and longitude). This information can be\
+    \ used for mapping, location-based analysis, and understanding regional distributions\
+    \ of customers or services.\nColumns (8):\n  - location_key (bigint) -- Unique\
+    \ location key.\n  - address_line (string) -- Street and locality details.\n \
+    \ - city (string) -- City name.\n  - state (string) -- State or province.\n  -\
+    \ postal_code (string) -- Postal or ZIP code.\n  - country_code (string) -- Country\
+    \ code (e.g., ISO alpha-2).\n  - latitude (string) -- Latitude coordinate.\n \
+    \ - longitude (string) -- Longitude coordinate.\nDiscovered: 2026-04-30 12:31"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.location
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: location
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/location
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

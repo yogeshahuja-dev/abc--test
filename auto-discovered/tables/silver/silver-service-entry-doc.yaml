@@ -1,0 +1,48 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-service-entry-doc
+  title: silver.service_entry_doc
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.service_entry_doc\n\
+    Layer: silver\nDescription: Silver-level curated SERVICE ENTITY DOC dataset from\
+    \ SAP ESSR (with system SCD fields).\nColumns (27):\n  - client_id (string) --\
+    \ Three-character SAP client identifier; highest org unit in SAP.\n  - service_entry_sheet_number\
+    \ (string) -- Number assigned to a service entry sheet for tracking/approvals/audits.\n\
+    \  - creation_date (date) -- Date when the service entry sheet was created (YYYYMMDD).\n\
+    \  - created_by (string) -- User who created the service entry sheet.\n  - changed_date\
+    \ (date) -- Last change date of the service entry sheet.\n  - changed_by (string)\
+    \ -- User who made the last change.\n  - document_date (date) -- Business document\
+    \ date (e.g., invoice or delivery note date).\n  - posting_date (date) -- Posting\
+    \ date determining the accounting period for the entry.\n  - document_header_text\
+    \ (string) -- Free-text description to explain transaction context.\n  - purchase_order_number\
+    \ (string) -- PO number used across procurement; up to 10 characters.\n  - purchase_order_item_number\
+    \ (bigint) -- PO item number (up to 5 digits).\n  - purchase_req_number (string)\
+    \ -- Purchase Requisition number (up to 10 digits).\n  - purchase_req_item_number\
+    \ (bigint) -- Purchase Requisition item number (up to 5 digits).\n  - deletion_indicator\
+    \ (string) -- X = marked for deletion; blank = active.\n  - ref_document_number\
+    \ (string) -- External reference (invoice, delivery note, etc.) for cross-linking.\n\
+    \  - currency_key (string) -- 3-letter ISO currency code (e.g., INR, USD, EUR).\n\
+    \  - price_reference_date (date) -- Date used to determine applicable service\
+    \ pricing.\n  - gross_value (double) -- Total value of service lines in the entry\
+    \ sheet.\n  - package_number (bigint) -- Internal number to group related services\
+    \ in one section.\n  - service_short_text (string) -- Short description for quick\
+    \ identification of the service.\n  ... +7 more\nDiscovered: 2026-04-30 12:32"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.service_entry_doc
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: service_entry_doc
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/service_entry_doc
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

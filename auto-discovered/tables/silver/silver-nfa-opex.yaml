@@ -1,0 +1,47 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-nfa-opex
+  title: silver.nfa_opex
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.nfa_opex\n\
+    Layer: silver\nColumns (72):\n  - approval_flow_status_desc (string)\n  - approval_request_arrival_date\
+    \ (string) -- Date/time when the approval request reached the current queue/stage.\n\
+    \  - approval_request_departure_date (string) -- Date/time when the approval request\
+    \ left the current queue/stage.\n  - delegate_email_i_d (string) -- Email address\
+    \ of the delegated user (if any).\n  - delegate_i_d (string) -- Unique identifier\
+    \ of the delegate user.\n  - flow_type (string) -- Approval workflow as per defined\
+    \ Delegation of Authority for NFA (e.g., DOA, SUBDOA).\n  - initiator_email_i_d\
+    \ (string) -- Email address of the user who initiated the request.\n  - monetory_limit\
+    \ (string) -- Availability of monetary limit for NFAs - Yes/No.\n  - next_approver_email_i_d\
+    \ (string) -- Email address of the next approver in the flow.\n  - next_approver_g_u_i_d\
+    \ (string) -- GUID of the next approver.\n  - next_approver_i_d (string) -- Employee\
+    \ ID of the next approver.\n  - others_remark (string) -- Additional remarks provided\
+    \ by approver.\n  - parameters_deferred_uri (string) -- Link of the report created\
+    \ after every approval.\n  - stage_approval_duration (string) -- It is the number\
+    \ of days taken by Approver to take action.\n  - user_category (string) -- Defined\
+    \ category of the user as per approval workflow (e.g., Business, CHMO, G2, RSA,\
+    \ GSA).\n  - wbs_numbr (string) -- Work Breakdown Structure number related to\
+    \ the request.\n  - metadata_type (string) -- Meta data fetched during the Api\
+    \ call.\n  - metadata_uri (string) -- Link returned in the response body of the\
+    \ API.\n  - approval_comment (string) -- A comment provided by the approver at\
+    \ the time of taking an approval action.\n  - approval_designation (string) --\
+    \ Designation of the approver.\n  ... +52 more\nDiscovered: 2026-04-30 12:31"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.nfa_opex
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: nfa_opex
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/nfa_opex
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

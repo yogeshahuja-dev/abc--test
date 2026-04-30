@@ -1,0 +1,62 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-nfa-subapproval-er
+  title: silver.nfa_subapproval_er
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.nfa_subapproval_er\n\
+    Layer: silver\nColumns (60):\n  - stage_approval_duration (string) -- Represents\
+    \ the total time taken for each stage of the approval process, allowing for analysis\
+    \ of efficiency at different stages.\n  - approval_request_arrival_date (string)\
+    \ -- Indicates the date and time when the approval request was received, useful\
+    \ for tracking the start of the approval process.\n  - summarized_next_approver_email_id\
+    \ (string) -- Contains the email address of the next approver in the workflow,\
+    \ facilitating communication and follow-up.\n  - id (string) -- A unique identifier\
+    \ for each record in the table, essential for referencing specific approval requests.\n\
+    \  - project_id (string) -- Identifies the project associated with the approval\
+    \ request, linking it to relevant project details.\n  - project_owner (string)\
+    \ -- Denotes the individual responsible for the project, providing insight into\
+    \ project management and accountability.\n  - email (string) -- Holds the email\
+    \ address of the project owner, enabling direct communication regarding the approval\
+    \ process.\n  - version (string) -- Tracks the version of the approval request,\
+    \ which is important for maintaining a history of changes and updates.\n  - employee_id\
+    \ (string) -- Represents the unique identifier for the employee involved in the\
+    \ approval process, useful for HR and project tracking.\n  - name (string) --\
+    \ Contains the name of the project owner or approver, aiding in identifying key\
+    \ stakeholders in the approval process.\n  - transfer_timestamp (string) -- Records\
+    \ the date and time when the approval request was transferred to the next approver,\
+    \ helping to analyze workflow efficiency.\n  - bu_name (string) -- Indicates the\
+    \ name of the business unit associated with the project, providing context for\
+    \ organizational structure.\n  - role (string) -- Describes the role of the individual\
+    \ in the approval process, clarifying responsibilities and authority levels.\n\
+    \  - version_number (string) -- Represents the specific version number of the\
+    \ approval request, important for tracking changes over time.\n  - created_by_1\
+    \ (string) -- Identifies the individual who created the record, useful for accountability\
+    \ and tracking the origin of requests.\n  - created_at_1 (string) -- Records the\
+    \ timestamp of when the record was created, providing context for the approval\
+    \ timeline.\n  - designation (string) -- Describes the job title of the project\
+    \ owner or approver, offering insight into their level of authority.\n  - ariba_project_id\
+    \ (string) -- Contains the identifier for the project in the ARIBA system, linking\
+    \ it to external project management tools.\n  - ho_site (string) -- Indicates\
+    \ the head office site associated with the project, providing geographical context.\n\
+    \  - site_name (string) -- Represents the name of the site where the project is\
+    \ located, useful for site-specific analysis.\n  ... +40 more\nDiscovered: 2026-04-30\
+    \ 12:31"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.nfa_subapproval_er
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: nfa_subapproval_er
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/nfa_subapproval_er
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

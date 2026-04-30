@@ -1,0 +1,77 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: gold-procurement-po-overview
+  title: gold_procurement.po_overview
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.gold_procurement.po_overview\n\
+    Layer: gold\nDescription: This table provides line-level details of purchase orders,\
+    \ including category classifications and key attributes such as PO number, vendor\
+    \ details, creation date, document type, validity period, buyer, purchasing group,\
+    \ and sourcing country. It identifies whether a PO is Opex or Capex, Material\
+    \ or Service, ARC or Non-ARC, Ariba or Non-Ariba, Domestic or Import, and includes\
+    \ vendor MSME status and category. The dataset supports procurement tracking,\
+    \ vendor performance analysis, purchase order lifecycle management, and compliance\
+    \ with financial reporting. It also enables monitoring of KPIs like PO approval\
+    \ lead time, Post-Facto POs, and PO revisions. Grain: One row per PO item per\
+    \ instance.\nColumns (105):\n  - CLIENT_ID (string) -- It is a three-digit identifier\
+    \ that represents a client in the SAP system. A client is the highest organizational\
+    \ unit in SAP and serves as a self-contained unit with its own master data and\
+    \ set of tables.\n  - CURRENCY_KEY (string) -- Currency code, crucial for multi-currency\
+    \ operations and financial reporting.\n  - EXCHANGE_RATE (double) -- Exchange\
+    \ rate applicable to the transaction, facilitating accurate conversion and financial\
+    \ analysis.\n  - PURCHASE_ORDER_NUMBER (string) -- Unique purchase order number\
+    \ assigned by SAP. Serves as the primary key for procurement transactions and\
+    \ links header and item details for procurement transactions.\n  - VALIDITY_START_DATE\
+    \ (date) -- Validity start date of the purchase order. Marks commencement of validity\
+    \ period in purchase order.\n  - VALIDITY_END_DATE (date) -- Validity end date\
+    \ of the purchase order. Indicates expiration of validity period in purchase order.\n\
+    \  - BUYER_NAME (string) -- User who created the purchase order. Useful for accountability\
+    \ and workflow tracking.\n  - PURCHASE_GROUP_CODE (string) -- It is a key organizational\
+    \ unit that represents the buyer or group of buyers responsible for specific purchasing\
+    \ activities. It is used to assign responsibility for procurement tasks and to\
+    \ route purchasing documents accordingly.\n  - RFP_INDICATOR (string) -- Ariba\
+    \ RFP refers to the Request for Proposal process managed through SAP Ariba, a\
+    \ cloud-based procurement and supply chain solution. It allows organizations to\
+    \ digitally manage sourcing events, including inviting suppliers, collecting bids,\
+    \ and evaluating proposals.\n  - RFP_NUMBER (string) -- RFP Number is automatically\
+    \ generated when an RFP event is created. It is used to identify the event in\
+    \ the Ariba Sourcing dashboard.\n  - PURCHASE_ORDER_DOCUMENT_CATEGORY (string)\
+    \ -- Categorizing the nature of the purchase document, such as standard PO, returns,\
+    \ or consignment to ensures that each document is treated according to its business\
+    \ purpose. The different categories are:\na. Request for Quatations\nb. Purchase\
+    \ Orders\nc. Purchase Requisitions\nd. Contracts\ne. Scheduling Agreements\n \
+    \ - PURCHASE_TYPE (string) -- Document type indicating nature of purchase order\
+    \ (e.g., standard, subcontracting, framework).\n  - DELETION_INDICATOR (string)\
+    \ -- Deletion indicator, marking orders flagged for removal from the system.\n\
+    \  - RELEASE_INDICATOR_PO (string) -- Release code indicating approval status\
+    \ of the purchase order.\n  - IDENTIFIER (string) -- Custom discriminator to differentiate\
+    \ vendors across multiple SAP instances when client code alone is insufficient.\n\
+    \  - CREATION_DATE (date) -- This field stores the date when the purchase order\
+    \ is created\n  - PURCHASE_DOCUMENT_DATE (date) -- It is the Purchase Order document\
+    \ date\n  - PAYMENT_TERM (string) -- Payment term key defining conditions under\
+    \ which payments are made.\n  - MONTH (int) -- Represents the month extracted\
+    \ from the Purchase Order (PO) creation date (AEDAT).\n  - YEAR (int) -- Represents\
+    \ the year extracted from the Purchase Order (PO) creation date (AEDAT)\n  ...\
+    \ +85 more\nDiscovered: 2026-04-30 12:33"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - gold
+  - procurement
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.gold_procurement.po_overview
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: gold_procurement
+    databricks.com/table: po_overview
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/gold_procurement/po_overview
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake
+  dependsOn:
+  - component:silver-po-schedule-lines

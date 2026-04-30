@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-sap-cleansed-marm-mstr
+  title: silver_sap_cleansed.marm_mstr
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver_sap_cleansed.marm_mstr\n\
+    Layer: silver-cleansed\nColumns (63):\n  - MANDT (string)\n  - MATNR (string)\n\
+    \  - MEINH (string)\n  - UMREZ (double)\n  - UMREN (double)\n  - EANNR (string)\n\
+    \  - EAN11 (string)\n  - NUMTP (string)\n  - LAENG (string)\n  - BREIT (string)\n\
+    \  - HOEHE (string)\n  - MEABM (string)\n  - VOLUM (string)\n  - VOLEH (string)\n\
+    \  - BRGEW (string)\n  - GEWEI (string)\n  - MESUB (string)\n  - ATINN (string)\n\
+    \  - MESRT (string)\n  - XFHDW (string)\n  ... +43 more\nDiscovered: 2026-04-30\
+    \ 12:25"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver-cleansed
+  - sap
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver_sap_cleansed.marm_mstr
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver_sap_cleansed
+    databricks.com/table: marm_mstr
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver_sap_cleansed/marm_mstr
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake
+  dependsOn:
+  - component:bronze-sap-mul-marm
+  - component:bronze-sap-mul-marm-slt

@@ -1,0 +1,78 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-tax-details
+  title: silver.tax_details
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.tax_details\n\
+    Layer: silver\nDescription: The table contains financial transaction data related\
+    \ to clients and their accounting activities within the SAP system. It includes\
+    \ details such as client identifiers, company codes, accounting document numbers,\
+    \ fiscal years, and general ledger account numbers. This data can be used for\
+    \ financial reporting, auditing, and tax calculations, as well as for analyzing\
+    \ transaction trends and ensuring compliance with accounting standards.\nColumns\
+    \ (21):\n  - client_id (string) -- It is a three-char alphanumeric identifier\
+    \ that represents a client in the SAP system. A client is the highest organizational\
+    \ unit in SAP and serves as a self-contained unit with its own master data and\
+    \ set of tables..\n  - company_code (string) -- The company code represents the\
+    \ smallest organizational unit for which a complete, self-contained set of accounts\
+    \ can be drawn up, crucial for legal and financial reporting.\n ⦁ Max 4 characters\
+    \ Common Values : 1000, 2000\n  - accounting_doc_number (string) -- An identifier\
+    \ of Accounting document; essential for audit and reconciliation\n⦁ Max 10-digit.\n\
+    ⦁ Unique within fiscal year, identifier and company code.\n  - fiscal_year (bigint)\
+    \ -- Accounting fiscal year (YYYY) in which the transaction is posted. ⦁ 4-digit\
+    \ year format (YYYY)\n  - accounting_line_item_number (bigint) -- It identifies\
+    \ each line item in a financial document. For example, if a vendor invoice has\
+    \ multiple expense lines, each will have a distinct line item number value (e.g.,\
+    \ 001, 002, 003)\n⦁ 3-digit numeric\n⦁ Identifies specific posting line.\n  -\
+    \ gl_acct_number (string) -- It is a key field in financial accounting tables.\
+    \ It identifies the General Ledger account used for posting financial transactions.\
+    \ This field is essential for determining how amounts are categorized in the chart\
+    \ of accounts.\n⦁ Max length 10 char\n  - tax_base_amount (double) -- Base amount\
+    \ on which tax is calculated. Used for determining the taxable portion of the\
+    \ transaction.\n  - tax_amt_loc_curr (double) -- Represents the amount of tax\
+    \ calculated based on the tax code (In local currency). Used in financial postings\
+    \ and reporting.\n  - tax_code (string) -- Specifies the tax code used for calculating\
+    \ input/output tax. Determines how tax is calculated and posted for the transaction.\
+    \ Examples: \n1 indicates GST Domestic Sales -Output\n2 indicates GST : Customer\
+    \ Adv (Intra State) 18%\nA indicates GST Domestic Supply-Cenvatable\n  - tax_group\
+    \ (string) -- Used to group related tax line items for efficient organization\
+    \ and reporting.\n  - tax_procedure (string) -- Tax Calculation Procedure – determines\
+    \ how taxes are calculated\nExamples: TAXINJ indicates Sales Tax India \nTAXINN\
+    \ indicates IN; India taxes new\n  - language_key (string) -- The Language Key\
+    \ identifies the language in which texts, descriptions, and user‑specific information\
+    \ are stored or displayed in the system\n⦁ 1-character code. \n⦁ Common values:\
+    \ EN = English DE = German FR = French\n  - payment_term_desc (string) -- Description\
+    \ of the Tax Code – e.g., Output Tax 18%, Input Tax 5%.\n  - identifier (string)\
+    \ -- Custom discriminator to differentiate vendors across multiple SAP instances\
+    \ when client code alone is insufficient.\n  - HASH_KEY (string) -- System-generated\
+    \ hash key used for uniquely identifying records and ensuring data integrity.\n\
+    \  - SYS_EFFECTIVE_START_DATE (date) -- System Effective Start Date, indicating\
+    \ when the record became valid in the system.\n  - SYS_EFFECTIVE_END_DATE (date)\
+    \ -- System Effective End Date, indicating when the record ceased to be valid\
+    \ in the system.\n  - IS_ACTIVE (string) -- Flag indicating whether the record\
+    \ is currently active. Y indicates an active record which means that it is the\
+    \ latest record N indicates an in-active record which means that this record is\
+    \ old and has been changed\n  - debit_credit_ind (string) -- Debit/Credit Indicator,\
+    \ identifying whether the transaction is a debit or credit. It is crucial for\
+    \ accurate financial reconciliation. common value S stands for Debit H stands\
+    \ for Credit\n  - condition_type (string) -- Identify the tax condition applied\
+    \ to the accounting item.\n  ... +1 more\nDiscovered: 2026-04-30 12:32"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.tax_details
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: tax_details
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/tax_details
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

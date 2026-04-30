@@ -1,0 +1,79 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-plant-material
+  title: silver.plant_material
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.plant_material\n\
+    Layer: silver\nDescription: The table contains data related to materials management\
+    \ within the SAP system. It includes information such as client identifiers, material\
+    \ numbers, planning types, and various time metrics related to procurement and\
+    \ inventory management. This data can be used for analyzing inventory levels,\
+    \ managing procurement processes, and optimizing material planning. Use cases\
+    \ include tracking material status, assessing delivery times, and ensuring compliance\
+    \ with inventory management practices.\nColumns (21):\n  - client_id (string)\
+    \ -- It is a three-char alphanumeric identifier that represents a client in the\
+    \ SAP system. A client is the highest organizational unit in SAP and serves as\
+    \ a self-contained unit with its own master data and set of tables.\n  - material_number\
+    \ (string) -- Material Number is a identifier assigned to each material item in\
+    \ the inventory, crucial for tracking and managing inventory levels. \n⦁ Max length\
+    \ 18-character\n  - plant_code (string) -- A Plant Code represents a specific\
+    \ physical or organizational location within a company where materials are stored,\
+    \ produced, or managed Example: 2001 - APSEZ-MUNDRA-SEZ-OPS-W/O LOP 2401 - AHPL-HAZIRA-PROJECTS\n\
+    \  - identifier (string) -- Custom discriminator to differentiate vendors across\
+    \ multiple SAP instances when client code alone is insufficient.\n  - mrp_type\
+    \ (string) -- Controls how the material is planned (e.g., reorder point, forecast-based).\
+    \ \n⦁ Common Values ND indicates no planning PD indicates mrp\n  - marked_for_deletion_flag\
+    \ (string) -- Marks the material for deletion at the plant level.  Common Values:\
+    \ X indicates marked for deletion;  blank indicates active.\n  - abc_indicator\
+    \ (string) -- Inventory categorization method based on the value and movement\
+    \ rate of items, aiding in stock management. Common Values: A idicates Significant\
+    \ Material B indicates Medium Significance C indicates  Low Significance\n  -\
+    \ fsn_indicator (string) -- Classification of inventory based on frequency, seasonality,\
+    \ and novelty for demand planning.  Common Values:\nF indicates Fast Moving\n\
+    S indicates Slow Moving \nN indicates Non Moving\n  - planned_delivery_time (double)\
+    \ -- This field indicates the number of calendar days required by the vendor to\
+    \ deliver the material after receiving the purchase order.\n  - goods_receipt_processing_time\
+    \ (double) -- This field represents the number of workdays required after receiving\
+    \ the material for inspection and placement into storage.\n  - total_replenishment_lead_time\
+    \ (double) -- Total Replenishment Lead Time is the total time required to fully\
+    \ replenish a material, starting from the moment a requirement is identified until\
+    \ the material is available in stock.\n  - reorder_point (string) -- Minimum stock\
+    \ level that triggers procurement. Used in reorder point planning.\n  - safety_stock_qty\
+    \ (string) -- Safety Stock is the minimum quantity of material that should always\
+    \ be available in inventory to protect against unexpected demand or supply delays.\n\
+    \  - stock_cap (string) -- Maximum Stock Level defines the highest quantity of\
+    \ a material that should be held in inventory at a plant.\n  - material_status\
+    \ (string) -- This field indicates the current status of a material at a specific\
+    \ plant, controlling whether it can be used for activities such as procurement,\
+    \ production, or inventory movements.  Examples: 01 indicates Inctve Plnt/Discnt\
+    \ Prdct 02 idnciates Blocked for task list/BOM 03 indicates Project Mat in O&M\
+    \ Plant\n  - material_class (string) -- It is a custom field used to further classify\
+    \ materials based on specific business requirements. Common values are: 01-Vital\
+    \ Insurance 02-Vital Non Insurance 03-Essential 04-Desirable 05-Insurance Spare\
+    \ 06-Regular Spare 07-Critical Spare 08-Obsolete / Undesirable\n  - service_level\
+    \ (double) -- Percentage specifying what proportion of the requirement is to be\
+    \ covered by the warehouse stock.\n  - HASH_KEY (string) -- System-generated hash\
+    \ key used for uniquely identifying records and ensuring data integrity.\n  -\
+    \ SYS_EFFECTIVE_START_DATE (date) -- System Effective Start Date, indicating when\
+    \ the record became valid in the system.\n  - SYS_EFFECTIVE_END_DATE (date) --\
+    \ System Effective End Date, indicating when the record ceased to be valid in\
+    \ the system.\n  ... +1 more\nDiscovered: 2026-04-30 12:31"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.plant_material
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: plant_material
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/plant_material
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

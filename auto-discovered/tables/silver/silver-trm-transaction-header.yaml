@@ -1,0 +1,78 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-trm-transaction-header
+  title: silver.trm_transaction_header
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.trm_transaction_header\n\
+    Layer: silver\nColumns (60):\n  - client_id (string) -- It is a three-char alphanumeric\
+    \ identifier that represents a client in the SAP system. A client is the highest\
+    \ organizational unit in SAP and serves as a self-contained unit with its own\
+    \ master data and set of tables.\n  - company_code (string) -- The company code\
+    \ represents the smallest organizational unit for which a complete, self-contained\
+    \ set of accounts can be drawn up (used) for legal and financial reporting.\n\
+    • Max 4 Characters\nDatatype Values: 2000, 2000\n  - transaction_number (string)\
+    \ -- Unique identifier for a financial transaction in the Treasury and Risk Management\
+    \ (TRM) module. This number is automatically assigned by the system and serves\
+    \ as the primary reference for tracking and managing all treasury transactions\
+    \ including money market deals, foreign exchange, derivatives, and securities.\n\
+    \  - entered_by (string) -- User ID of the person who originally created the financial\
+    \ transaction record in the system. This field is automatically populated by SAP\
+    \ when the transaction is first saved and is important for audit trail purposes.\n\
+    \  - entry_date (date) -- This field stores the date on which the financial transaction\
+    \ was entered in the system.\n  - entry_time (string) -- Records the system entry\
+    \ time when the financial transaction was created.\n  - last_changed_by (string)\
+    \ -- User ID of the person who last modified the financial transaction record.\
+    \ This field is updated automatically each time the transaction is saved after\
+    \ modification.\n  - changed_date (date) -- It refers to the date on which the\
+    \ financial transaction was last modified in the system.\n  - changed_time (string)\
+    \ -- It refers to the time when the financial transaction was last modified in\
+    \ the system.\n  - contract_type (string) -- This represents the type of Contract\
+    \ (treasury) was, such as borrowing, lending money, or investing in funds. It\
+    \ indicates what kind of financial arrangement the record is about, helping to\
+    \ understand its purpose at a glance.\n  - product_category (bigint) -- Broad\
+    \ classification of the financial product, such as Money Market (5xx), Foreign\
+    \ Exchange (4xx), Derivatives (6xx), or Securities (0xx). Used to group related\
+    \ products for reporting, processing, and risk management.\n  - transaction_category\
+    \ (bigint) -- Categorizes the transaction based on its business purpose, such\
+    \ as 100 (External Transaction) or 200 (Internal Transaction). Helps in segregating\
+    \ and reporting different types of financial activities.\n  - product_type (string)\
+    \ -- Specific type of financial product within a product category, such as Fixed\
+    \ Deposit, Commercial Paper, or Interest Rate Swap. Provides more granular classification\
+    \ than the product category.\n  - transaction_type (string) -- This field indicates\
+    \ the transaction type for the accounting document line item. It helps classify\
+    \ the postings (e.g., normal, payment, clearing). This supports financial processing\
+    \ and audit trails.\n  - class (string) -- Classification attribute that provides\
+    \ additional grouping or categorization capabilities for the financial transaction.\
+    \ Used for custom reporting and analysis.\n  - master_agreement (string) -- Reference\
+    \ to the master agreement or framework agreement (such as ISDA) under which the\
+    \ financial transaction is executed. Links related transactions to their governing\
+    \ agreement.\n  - activity_no_status (bigint) -- Activity number that tracks the\
+    \ current processing status and lifecycle stage of the financial transaction within\
+    \ the treasury workflow.\n  - last_active_activity (bigint) -- Indicates the most\
+    \ recent active activity or processing step performed on the financial transaction.\
+    \ Used for tracking transaction progress through its lifecycle.\n  - active_status\
+    \ (bigint) -- Current active status of the financial transaction. Indicates whether\
+    \ the transaction is currently active, inactive, reversed, or closed.\n  - business_partner\
+    \ (string) -- Identifier for the business partner (counterparty) involved in the\
+    \ financial transaction. Links to the SAP Business Partner master data and is\
+    \ essential for counterparty risk management.\n  ... +40 more\nDiscovered: 2026-04-30\
+    \ 12:33"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.trm_transaction_header
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: trm_transaction_header
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/trm_transaction_header
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

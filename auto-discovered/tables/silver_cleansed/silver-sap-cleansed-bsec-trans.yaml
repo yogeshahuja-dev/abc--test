@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-sap-cleansed-bsec-trans
+  title: silver_sap_cleansed.bsec_trans
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver_sap_cleansed.bsec_trans\n\
+    Layer: silver-cleansed\nColumns (64):\n  - DI_SEQUENCE_NUMBER (bigint)\n  - DI_OPERATION_TYPE\
+    \ (string)\n  - MANDT (string) -- Client\n  - BUKRS (string) -- Company Code\n\
+    \  - BELNR (string) -- Accounting Document Number\n  - GJAHR (bigint) -- Fiscal\
+    \ Year\n  - BUZEI (bigint) -- Number of Line Item Within Accounting Document\n\
+    \  - NAME1 (string) -- Name 1\n  - NAME2 (string) -- Name 2\n  - NAME3 (string)\
+    \ -- Name 3\n  - NAME4 (string) -- Name 4\n  - PSTLZ (string) -- Postal Code\n\
+    \  - ORT01 (string) -- City\n  - LAND1 (string) -- Country Key\n  - STRAS (string)\
+    \ -- House number and street\n  - PFACH (string) -- PO Box\n  - PSTL2 (string)\
+    \ -- P.O. Box Postal Code\n  - PSKTO (string) -- PO Bank Current Acct No. or Building\
+    \ Society Ref. No.\n  - BANKN (string) -- Bank account number\n  - BANKL (string)\
+    \ -- Bank Keys\n  ... +44 more\nDiscovered: 2026-04-30 12:24"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver-cleansed
+  - sap
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver_sap_cleansed.bsec_trans
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver_sap_cleansed
+    databricks.com/table: bsec_trans
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver_sap_cleansed/bsec_trans
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

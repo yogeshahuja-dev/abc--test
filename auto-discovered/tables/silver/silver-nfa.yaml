@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-nfa
+  title: silver.nfa
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.nfa\n\
+    Layer: silver\nDescription: Non-Financial Approval records for governance and\
+    \ compliance tracking\nColumns (9):\n  - nfa_id (bigint) -- Primary key for the\
+    \ NFA record\n  - reference_doc_id (string) -- Reference to related document or\
+    \ transaction\n  - requestor_id (bigint) -- ID of the person initiating the NFA\n\
+    \  - approval_status (string) -- Approval status (e.g., Pending, Approved, Rejected)\n\
+    \  - approval_date (date) -- Date of final approval\n  - justification (string)\
+    \ -- Justification or remarks for the NFA\n  - nfa_type (string) -- Type of NFA\
+    \ (e.g., Budgetary, Compliance)\n  - load_timestamp (timestamp) -- Captures the\
+    \ timestamp when the NFA record was loaded into the system, useful for tracking\
+    \ data freshness.\n  - update_timestamp (timestamp) -- Records the timestamp of\
+    \ the last update made to the NFA record, providing insight into the record's\
+    \ history.\nDiscovered: 2026-04-30 12:31"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.nfa
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: nfa
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/nfa
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

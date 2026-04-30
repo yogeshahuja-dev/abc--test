@@ -1,0 +1,34 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-sales-order-line
+  title: silver.sales_order_line
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.sales_order_line\n\
+    Layer: silver\nDescription: Sales order line item table with product, plant, and\
+    \ pricing details\nColumns (9):\n  - so_number (string) -- Foreign key to the\
+    \ sales order header\n  - so_line_no (int) -- Line number within the sales order\
+    \ (composite PK)\n  - product_key (bigint) -- Foreign key to the ordered product\n\
+    \  - plant_key (bigint) -- Foreign key to the delivering plant\n  - ordered_qty\
+    \ (double) -- Quantity ordered\n  - net_price (double) -- Net price per unit\n\
+    \  - uom (string) -- Unit of measure for the ordered quantity\n  - load_timestamp\
+    \ (timestamp) -- Timestamp when the record was loaded\n  - update_timestamp (timestamp)\
+    \ -- Timestamp when the record was last updated\nDiscovered: 2026-04-30 12:32"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.sales_order_line
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: sales_order_line
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/sales_order_line
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-freight-order
+  title: silver.freight_order
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.freight_order\n\
+    Layer: silver\nDescription: Freight_Order is a transactional table that captures\
+    \ details of planned freight movements, including carrier information, transportation\
+    \ mode, and scheduled pickup and delivery timelines. It provides visibility into\
+    \ freight costs and supports effective logistics planning, cost management, and\
+    \ performance tracking. This table enables transparency and control over transportation\
+    \ activities, ensuring timely deliveries and optimized supply chain operations..\n\
+    Columns (8):\n  - freight_id (bigint) -- Primary key for the freight order\n \
+    \ - carrier_key (bigint) -- Foreign key to the carrier or logistics provider\n\
+    \  - mode (string) -- Mode of transport (e.g., Road, Rail, Air, Sea)\n  - planned_pickup\
+    \ (timestamp) -- Planned pickup timestamp\n  - planned_delivery (timestamp) --\
+    \ Planned delivery timestamp\n  - freight_cost (decimal(18,2)) -- Total freight\
+    \ cost\n  - load_timestamp (timestamp) -- Timestamp when the record was loaded\n\
+    \  - update_timestamp (timestamp) -- Timestamp when the record was last updated\n\
+    Discovered: 2026-04-30 12:30"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.freight_order
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: freight_order
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/freight_order
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

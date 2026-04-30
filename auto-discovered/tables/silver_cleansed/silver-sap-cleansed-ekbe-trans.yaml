@@ -1,0 +1,33 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-sap-cleansed-ekbe-trans
+  title: silver_sap_cleansed.ekbe_trans
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver_sap_cleansed.ekbe_trans\n\
+    Layer: silver-cleansed\nColumns (127):\n  - MANDT (string)\n  - EBELN (string)\n\
+    \  - EBELP (bigint)\n  - ZEKKN (bigint)\n  - VGABE (string)\n  - GJAHR (bigint)\n\
+    \  - BELNR (string)\n  - BUZEI (bigint)\n  - BEWTP (string)\n  - BWART (string)\n\
+    \  - BUDAT (date)\n  - MENGE (string)\n  - BPMNG (string)\n  - DMBTR (double)\n\
+    \  - WRBTR (double)\n  - WAERS (string)\n  - AREWR (double)\n  - WESBS (string)\n\
+    \  - BPWES (string)\n  - SHKZG (string)\n  ... +107 more\nDiscovered: 2026-04-30\
+    \ 12:24"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver-cleansed
+  - sap
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver_sap_cleansed.ekbe_trans
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver_sap_cleansed
+    databricks.com/table: ekbe_trans
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver_sap_cleansed/ekbe_trans
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

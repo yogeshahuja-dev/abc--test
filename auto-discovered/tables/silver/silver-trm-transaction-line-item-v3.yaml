@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-trm-transaction-line-item-v3
+  title: silver.trm_transaction_line_item_v3
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.trm_transaction_line_item_v3\n\
+    Layer: silver\nColumns (94):\n  - client_id (string) -- Client\n  - company_code\
+    \ (string) -- Company Code\n  - transaction_number (string) -- Transaction\n \
+    \ - transaction_activity (bigint) -- Activity\n  - entry_date (date) -- Entered\
+    \ On\n  - entry_time (string) -- Entry Time\n  - transaction_flow (bigint) --\
+    \ Flow\n  - entered_by (string) -- Entered by\n  - last_changed_by (string) --\
+    \ Last Changed by\n  - changed_date (date) -- Changed on\n  - changed_time (string)\
+    \ -- Time changed\n  - contract_type (string) -- Contract Type\n  - flow_type\
+    \ (string) -- Flow Type\n  - flow_classification (string) -- Classification\n\
+    \  - flow_category (string) -- Category\n  - direction_of_transaction (bigint)\
+    \ -- Direction\n  - condition (bigint) -- Condition\n  - condition_item_effective_date\
+    \ (date) -- Item Effective From\n  - condition_type (bigint) -- Condition Type\n\
+    \  - account_assignment_reference (string) -- Acct Assignment Ref.\n  ... +74\
+    \ more\nDiscovered: 2026-04-30 12:33"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.trm_transaction_line_item_v3
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: trm_transaction_line_item_v3
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/trm_transaction_line_item_v3
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

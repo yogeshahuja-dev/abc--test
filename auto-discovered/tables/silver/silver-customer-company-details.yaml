@@ -1,0 +1,84 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-customer-company-details
+  title: silver.customer_company_details
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.customer_company_details\n\
+    Layer: silver\nColumns (21):\n  - client_id (string) -- It is a three-char alphanumeric\
+    \ identifier that represents a client in the SAP system. A client is the highest\
+    \ organizational unit in SAP and serves as a self-contained unit with its own\
+    \ master data and set of tables.\n  - company_code (string) -- The company code\
+    \ represents the smallest organizational unit for which a complete, self-contained\
+    \ set of accounts can be drawn up, crucial for legal and financial reporting\n\
+    • Max 4 characters\n• Common values: 1000, 2000\n  - customer_number (string)\
+    \ -- Customer number, an identifier assigned to each customer. It is a character-type\
+    \ (CHAR) field. This field is essential for linking customer data across various\
+    \ domains, such as sales, distribution, customer relationship\n• Maximum 10 char\
+    \ field\n  - created_by (string) -- User ID of the user who originally created\
+    \ the record in the system. Important for accountability and audit trails.\n•\
+    \ Max length 12 char.\n• Supports audit transparency.\n  - creation_date (date)\
+    \ -- Date when the customer was entered into the system\n  - deletion_indicator\
+    \ (string) -- Deletion indicator marking a record as flagged for removal at the\
+    \ company code level. This flag does not physically delete the record from the\
+    \ database, but identifies it as inactive and pending removal during cleanup or\
+    \ archiving processes.\nCommon Values:\nX indicates Marked for deletion\nBlank\
+    \ indicates Active\n  - house_bank_id (string) -- This field represents a short\
+    \ code used to identify the main bank responsible for handling payment and cash-related\
+    \ activities.\nIt helps connect bank account records to the customer details\n\
+    \  - payment_term (string) -- Payment Terms specify the agreed rules for when\
+    \ an invoice becomes due for payment and whether any early-payment discounts apply.\
+    \ Examples: A027 - Net due in 75 days from invoice date Z005 - 2% within 7 Days/1%\
+    \ within 30 Days\n  - reco_account (string) -- This field specifies the general\
+    \ ledger account that is automatically updated whenever transactions are posted\
+    \ to the related subledger, such as invoices or payments.\n  - customer_posting_block_flag\
+    \ (string) -- It is a field used to indicate a posting block for a customer for\
+    \ specific company codes. It prevents financial transactions such as invoice postings\
+    \ or payments for that particular customer for a company code. Common Values:\
+    \ X = customer blocked; blank = Active\n  - Legal_Pay_Notice_Flag (string) --\
+    \ Determines whether a payment notice is to be generated for the legal department\
+    \ when a payment is posted to the customer account\nCommon Values:\nX - Payment\
+    \ notice sent to Legal Department\nBlank - No payment notice sent\n  - Acct_Pay_Notice_Flag\
+    \ (string) -- Indicator that determines whether a payment notice is to be created\
+    \ for the accounting department when a payment is posted to a customer account.\n\
+    Common Values:\nX - Payment notice sent to Accounting Department\nBlank - No payment\
+    \ notice sent\n  - Cust_Vend_Clear_Flag (string) -- Indicator that determines\
+    \ whether customer open items can be cleared against a corresponding vendor account\
+    \ during payment and clearing processes.\nCommon Values:\nX - Clearing between\
+    \ vendor and customer enabled\nBlank - No clearing between vendor and customer\n\
+    \  - payment_block (string) -- Payment block indicator that determines whether\
+    \ payments are blocked for the customer.\n\nCommon Values:\nX indicates that the\
+    \ Customer is blocked for payment\nBlank indicates that the Customer is not blocked\
+    \ for Payment\n  - clearing_block_indicator (string) -- Indicator for periodic\
+    \ account statements. When set, customer receives scheduled statements per agreed\
+    \ frequency.\n\nExamples:\n1 indicates Weekly account statement\n2 indicates Monthly\
+    \ account statement\n  - Pay_History_Flag (string) -- Indicator that determines\
+    \ whether the payment history of a customer is recorded and tracked.\nCommon Values:\n\
+    \nX - Record payment history\nBlank - Do not record payment history\n  - boe_limit_amount\
+    \ (double) -- Specifies the maximum amount allowed for a bill of exchange in payment\
+    \ transactions, expressed in local currency.\nDuring automated payments, this\
+    \ limit is used to split payments into multiple bills of exchange when the total\
+    \ amount exceeds the defined maximum.\n  - HASH_KEY (string) -- System-generated\
+    \ hash key used for uniquely identifying records and ensuring data integrity.\n\
+    \  - SYS_EFFECTIVE_START_DATE (date) -- System Effective Start Date, indicating\
+    \ when the record became valid in the system.\n  - SYS_EFFECTIVE_END_DATE (date)\
+    \ -- System Effective End Date, indicating when the record ceased to be valid\
+    \ in the system.\n  ... +1 more\nDiscovered: 2026-04-30 12:30"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.customer_company_details
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: customer_company_details
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/customer_company_details
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

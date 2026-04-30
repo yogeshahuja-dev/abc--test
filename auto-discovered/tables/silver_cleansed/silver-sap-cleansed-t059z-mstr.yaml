@@ -1,0 +1,42 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-sap-cleansed-t059z-mstr
+  title: silver_sap_cleansed.t059z_mstr
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver_sap_cleansed.t059z_mstr\n\
+    Layer: silver-cleansed\nColumns (33):\n  - DI_SEQUENCE_NUMBER (bigint) -- Data\
+    \ Services-generated integer for sequencing\n  - DI_OPERATION_TYPE (string) --\
+    \ Data Services-generated row operation type\n  - MANDT (string) -- Client\n \
+    \ - LAND1 (string) -- Country Key\n  - WITHT (string) -- Withholding tax type\n\
+    \  - WT_WITHCD (string) -- Withholding tax code\n  - QSCOD (string) -- Official\
+    \ Withholding Tax Key\n  - QPROZ (double) -- Percentage subject to tax\n  - QSATZ\
+    \ (double) -- Withholding tax rate\n  - QSATR (double) -- Reduced w/tax rate\n\
+    \  - XQFOR (string) -- Withh.tax formula\n  - REGIO (string) -- Region\n  - FPRCD\
+    \ (string) -- Provincial tax code\n  - QEKAR (string) -- Income type\n  - WT_POSIN\
+    \ (string) -- Posting indicator\n  - WT_RATEZ (bigint) -- W/tax rate counter\n\
+    \  - WT_RATEN (bigint) -- W/tax rate denomintr\n  - WITHCD2 (string)\n  - ODQ_CHANGEMODE\
+    \ (string) -- Change Mode for a Data Record in the Delta\n  - ODQ_ENTITYCNTR (double)\
+    \ -- Number of Data Units (Data Records for Example)\n  ... +13 more\nDiscovered:\
+    \ 2026-04-30 12:27"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver-cleansed
+  - sap
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver_sap_cleansed.t059z_mstr
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver_sap_cleansed
+    databricks.com/table: t059z_mstr
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver_sap_cleansed/t059z_mstr
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake
+  dependsOn:
+  - component:bronze-sap-mul-t059z-slt

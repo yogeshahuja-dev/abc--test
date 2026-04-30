@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-gl-account
+  title: silver.gl_account
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.gl_account\n\
+    Layer: silver\nDescription: gl_account is a master table that defines the organization’s\
+    \ financial accounts used for reporting and analysis. It provides a structured\
+    \ view of account codes, names, and classification under different statement types,\
+    \ ensuring consistency in financial statements and compliance with accounting\
+    \ standards. This table serves as a single source of truth for managing account\
+    \ hierarchies, enabling accurate transaction posting, budgeting, and performance\
+    \ tracking..\nColumns (9):\n  - account_key (bigint) -- Primary Key\n  - account_code\
+    \ (string) -- Account code identifier\n  - account_name (string) -- Descriptive\
+    \ name of the account\n  - statement_type (string) -- Type of financial statement:\
+    \ P&L, BS, or CF\n  - effective_start_date (date) -- Start date for SCD-lite tracking\n\
+    \  - effective_end_date (date) -- End date for SCD-lite tracking\n  - is_current\
+    \ (boolean) -- Flag indicating current active record\n  - load_timestamp (timestamp)\
+    \ -- Timestamp when the record was loaded\n  - update_timestamp (timestamp) --\
+    \ Timestamp when the record was last updated\nDiscovered: 2026-04-30 12:31"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.gl_account
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: gl_account
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/gl_account
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

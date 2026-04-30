@@ -1,0 +1,87 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-material
+  title: silver.material
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.material\n\
+    Layer: silver\nDescription: The table contains detailed information about materials\
+    \ used within the SAP system. It includes identifiers for clients and materials,\
+    \ classifications for material types and groups, and various attributes related\
+    \ to material management such as shelf life, status, and deletion flags. This\
+    \ data can be utilized for inventory management, procurement processes, and quality\
+    \ assurance, helping teams to track material usability, manage lifecycles, and\
+    \ ensure compliance with standards.\nColumns (21):\n  - client_id (string) --\
+    \ It is a three-char alphanumeric identifier that represents a client in the SAP\
+    \ system. A client is the highest organizational unit in SAP and serves as a self-contained\
+    \ unit with its own master data and set of tables.\n  - material_number (string)\
+    \ -- Material Number is an identifier assigned to each material item in the inventory,\
+    \ crucial for tracking and managing inventory levels.\n⦁ Max length 18-character\n\
+    \  - material_group (string) -- It is a classification key used to group materials\
+    \ with similar characteristics or usage. this field helps in organizing and managing\
+    \ materials efficiently within procurement, inventory management, and reporting\
+    \ processes. \n⦁ max length 9-character.\n⦁ groups similar materials\n⦁ Examples:\
+    \ 1492 is the material group for SEEKER 1532 is the material group for COMPRESSORS\
+    \ 1572 is the material group for BLOWERS & FANS 1601 is the material group for\
+    \ MINING MACHINERY\n  - material_units (string) -- Base unit of measure defines\
+    \ how quantities of a material are measured and managed in the system.\n⦁ max\
+    \ 3-character. \n⦁ stored in iso uom format (ea, kg, l, m, etc.). EA - each /\
+    \ unit / single piece \nKG - kilogram \nG - gram\n  - material_type (string) --\
+    \ It classifies materials based on their purpose and usage within the system.\
+    \ it determines how a material behaves in procurement, inventory, and accounting\
+    \ processes.\n⦁ max 4-character.\nexamples : ROH is the material type for sap-raw\
+    \ material UNBW is the material type for sap-non valuated material VERP is the\
+    \ material type for sap-packaging material VKHM is the material type for sap-additionals\n\
+    \  - marked_for_deletion_flag (string) -- Marks the material for deletion at the\
+    \ client level. prevents it from being used in new transactions. supports data\
+    \ lifecycle management and cleanup. Common Values: X indicates marked for deletion;\
+    \ blank indicates active.\n  - material_status_code (string) -- It is used to\
+    \ control the usability of a material across all plants. this status can restrict\
+    \ or allow certain functions such as purchasing, sales, production, or inventory\
+    \ management depending on how it's configured in customizing. Examples : 01 indicates\
+    \ inctve plnt/discnt prdct 02 indicates blocked for task list/bom 03 indicates\
+    \ project mat in o&m plant\n  - scrap_flag (int) -- If the material is marked\
+    \ as scrap\n  - min_remaining_shelf_life (double) -- Minimum remaining shelf life\
+    \ in days. ensures quality standards during procurement and storage.\n  - total_shelf_life\
+    \ (double) -- Indicates the total shelf life of the material. it is used in batch\
+    \ management and inventory control. this field supports expiration tracking and\
+    \ quality assurance.\n  - period_indicator_for_expirationdate (string) -- The\
+    \ Period Indicator for Shelf Life Expiration Date specifies the time unit used\
+    \ to define a material’s shelf life. It tells the system whether the shelf life\
+    \ is measured in days, weeks, months, or years.\n  - rounding_rule (string) --\
+    \ It determines how the system rounds the shelf life period (up or down) when\
+    \ converting it into an exact expiration date.\n  - shelf_life_percentage (double)\
+    \ -- It is used to define the minimum remaining shelf life percentage that must\
+    \ be available for a material when it is transferred from one plant (like a distribution\
+    \ center) to another (like a store).\n  - material_desc (string) -- Short text\
+    \ description of material for quick identification in reports and user interfaces.\n\
+    ⦁ max 40 character , free text description\n  - material_group_short_text (string)\
+    \ -- Short description of material group for quick identification. Examples: PUMPS,\
+    \ POSITIVE DISP\n  - material_group_long_text (string) -- Extended description\
+    \ of material group for detailed classification. Example: PUMPS & COMPONENTS,\
+    \ POSITIVE DISPLACEMENT & NON-CENTRIFUGAL\n  - identifier (string) -- custom discriminator\
+    \ to differentiate vendors across multiple sap instances when client code alone\
+    \ is insufficient.\n  - HASH_KEY (string) -- System-generated hash key used for\
+    \ uniquely identifying records and ensuring data integrity.\n  - SYS_EFFECTIVE_START_DATE\
+    \ (date) -- System Effective Start Date, indicating when the record became valid\
+    \ in the system.\n  - SYS_EFFECTIVE_END_DATE (date) -- System Effective End Date,\
+    \ indicating when the record ceased to be valid in the system.\n  ... +1 more\n\
+    Discovered: 2026-04-30 12:31"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.material
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: material
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/material
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

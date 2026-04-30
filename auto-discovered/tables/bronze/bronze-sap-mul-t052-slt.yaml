@@ -1,0 +1,34 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: bronze-sap-mul-t052-slt
+  title: bronze_sap_mul.t052_slt
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.bronze_sap_mul.t052_slt\n\
+    Layer: bronze\nColumns (34):\n  - DI_SEQUENCE_NUMBER (bigint)\n  - DI_OPERATION_TYPE\
+    \ (string)\n  - MANDT (string)\n  - ZTERM (string)\n  - ZTAGG (bigint)\n  - ZDART\
+    \ (string)\n  - ZFAEL (bigint)\n  - ZMONA (bigint)\n  - ZTAG1 (bigint)\n  - ZPRZ1\
+    \ (double)\n  - ZTAG2 (bigint)\n  - ZPRZ2 (double)\n  - ZTAG3 (bigint)\n  - ZSTG1\
+    \ (bigint)\n  - ZSMN1 (bigint)\n  - ZSTG2 (bigint)\n  - ZSMN2 (bigint)\n  - ZSTG3\
+    \ (bigint)\n  - ZSMN3 (bigint)\n  - XZBRV (string)\n  ... +14 more\nDiscovered:\
+    \ 2026-04-30 12:22"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - bronze
+  - sap
+  - mul
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.bronze_sap_mul.t052_slt
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: bronze_sap_mul
+    databricks.com/table: t052_slt
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/bronze_sap_mul/t052_slt
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

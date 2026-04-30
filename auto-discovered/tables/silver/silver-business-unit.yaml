@@ -1,0 +1,33 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-business-unit
+  title: silver.business_unit
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.business_unit\n\
+    Layer: silver\nDescription: The business_unit table provides information about\
+    \ organizational units within the company. Each record includes a unique business\
+    \ unit identifier, the name of the business unit, and its associated cluster grouping.\
+    \ This structure helps in categorizing operations, reporting, and aligning business\
+    \ activities across different clusters.\nColumns (3):\n  - bu_id (string) -- Unique\
+    \ identifier for the business unit.\n  - business_unit (string) -- Business unit\
+    \ name.\n  - cluster (string) -- Cluster or division grouping of the business\
+    \ unit.\nDiscovered: 2026-04-30 12:30"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.business_unit
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: business_unit
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/business_unit
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

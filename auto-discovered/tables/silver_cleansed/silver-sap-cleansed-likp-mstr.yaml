@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-sap-cleansed-likp-mstr
+  title: silver_sap_cleansed.likp_mstr
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver_sap_cleansed.likp_mstr\n\
+    Layer: silver-cleansed\nColumns (207):\n  - DI_SEQUENCE_NUMBER (bigint) -- Data\
+    \ Services-generated integer for sequencing\n  - DI_OPERATION_TYPE (string) --\
+    \ Data Services-generated row operation type\n  - MANDT (string) -- Client\n \
+    \ - VBELN (string) -- Delivery\n  - ERNAM (string) -- Created By\n  - ERZET (string)\
+    \ -- Time\n  - ERDAT (date) -- Created On\n  - BZIRK (string) -- Sales district\n\
+    \  - VSTEL (string) -- Shipping Point/Receiving Pt\n  - VKORG (string) -- Sales\
+    \ Organization\n  - LFART (string) -- Delivery Type\n  - AUTLF (string) -- Complete\
+    \ delivery\n  - KZAZU (string) -- Order Combination\n  - WADAT (date) -- Pland\
+    \ Gds Mvmnt Date\n  - LDDAT (date) -- Loading Date\n  - TDDAT (date) -- Transptn\
+    \ Plang Date\n  - LFDAT (date) -- Delivery Date\n  - KODAT (date) -- Picking Date\n\
+    \  - ABLAD (string) -- Unloading Point\n  - INCO1 (string) -- Incoterms\n  ...\
+    \ +187 more\nDiscovered: 2026-04-30 12:25"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver-cleansed
+  - sap
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver_sap_cleansed.likp_mstr
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver_sap_cleansed
+    databricks.com/table: likp_mstr
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver_sap_cleansed/likp_mstr
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

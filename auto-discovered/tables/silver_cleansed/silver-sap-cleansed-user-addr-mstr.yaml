@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-sap-cleansed-user-addr-mstr
+  title: silver_sap_cleansed.user_addr_mstr
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver_sap_cleansed.user_addr_mstr\n\
+    Layer: silver-cleansed\nColumns (34):\n  - MANDT (string)\n  - BNAME (string)\n\
+    \  - NAME_FIRST (string)\n  - NAME_LAST (string)\n  - NAME_TEXTC (string)\n  -\
+    \ TEL_EXTENS (string)\n  - KOSTL (string)\n  - BUILDING (string)\n  - ROOMNUMBER\
+    \ (string)\n  - DEPARTMENT (string)\n  - INHOUSE_ML (string)\n  - NAME1 (string)\n\
+    \  - CITY1 (string)\n  - POST_CODE1 (string)\n  - MC_NAMEFIR (string)\n  - MC_NAMELAS\
+    \ (string)\n  - MC_NAME1 (string)\n  - MC_CITY1 (string)\n  - COMPANY (string)\n\
+    \  - IDADTYPE (string)\n  ... +14 more\nDiscovered: 2026-04-30 12:28"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver-cleansed
+  - sap
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver_sap_cleansed.user_addr_mstr
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver_sap_cleansed
+    databricks.com/table: user_addr_mstr
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver_sap_cleansed/user_addr_mstr
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake
+  dependsOn:
+  - component:bronze-sap-mul-user-addr

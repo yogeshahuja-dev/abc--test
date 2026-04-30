@@ -1,0 +1,53 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: gold-procurement-po-overview-po-plant-enriched
+  title: gold_procurement.po_overview_po_plant_enriched
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.gold_procurement.po_overview_po_plant_enriched\n\
+    Layer: gold\nColumns (18):\n  - po_number (string) -- Unique purchase order number\
+    \ assigned by SAP. Serves as the primary key for procurement transactions and\
+    \ links header and item details for procurement transactions.\n  - plant_code\
+    \ (string) -- It is a 4-character alphanumeric code. Plant code where material/service\
+    \ will be used. Critical for logistics and planning.\n  - po_approval_date (date)\n\
+    \  - eff_sum (double)\n  - pr_approval_date (date)\n  - ariba_flag (string)\n\
+    \  - auction_flag (string)\n  - po_pr_tat (int)\n  - plant_name (string) -- Primary\
+    \ name of the plant. Displayed in reports and transaction screens for identification\
+    \ and operational clarity.\n  - material_service (string) -- Classifies the Purchase\
+    \ Order (PO) as either a Material PO or a Service PO\n  - capex_opex_count (string)\
+    \ -- Classification of PO's into operational expenditures (OPEX) or capital expenditures\
+    \ (CAPEX) basis WBS element, important for budgeting and financial analysis.\n\
+    \  - vendor_code (string) -- Vendor code, a unique identifier assigned to each\
+    \ vendor. This field is essential for linking vendor data across various SAP modules,\
+    \ such as procurement and finance\n  - vendor_name (string) -- This field is used\
+    \ to store the primary name of a vendor. It typically contains the company name\
+    \ or the individual name, depending on the type of vendor.\n  - reason_for_ordering\
+    \ (string) -- This field indicates why a purchase order was created.\n  - catalogue_non_catalogue\
+    \ (string)\n  - arc_non_arc (string) -- Indicates whether a Purchase Order (PO)\
+    \ was created under an existing Annual Rate Contract (ARC). If the PO is linked\
+    \ to an ARC, it is classified as ARC; otherwise, it is classified as Non-ARC.\n\
+    \  - vendor_name_name1 (string)\n  - rfp_number (string)\nDiscovered: 2026-04-30\
+    \ 12:33"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - gold
+  - procurement
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.gold_procurement.po_overview_po_plant_enriched
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: gold_procurement
+    databricks.com/table: po_overview_po_plant_enriched
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/gold_procurement/po_overview_po_plant_enriched
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake
+  dependsOn:
+  - component:silver-plant
+  - component:silver-po-schedule-lines
+  - component:silver-plant-material

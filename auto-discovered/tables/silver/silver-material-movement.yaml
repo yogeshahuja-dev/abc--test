@@ -1,0 +1,94 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-material-movement
+  title: silver.material_movement
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.material_movement\n\
+    Layer: silver\nDescription: The table contains data related to procurement and\
+    \ inventory management within the SAP system. It includes details such as client\
+    \ and company codes, purchase order numbers, material document numbers, and inventory\
+    \ movement types. This data can be used for tracking procurement transactions,\
+    \ managing inventory levels, analyzing costs, and ensuring accurate financial\
+    \ reporting. Use cases include monitoring order statuses, managing vendor relationships,\
+    \ and analyzing material movements.\nColumns (56):\n  - client_id (string) --\
+    \ It is a three-char alphanumeric identifier that represents a client in the SAP\
+    \ system. A client is the highest organizational unit in SAP and serves as a self-contained\
+    \ unit with its own master data and set of tables.\n  - material_document_number\
+    \ (string) -- Material document number is an identifier assigned to each material\
+    \ document created during goods movements such as goods receipt, goods issue,\
+    \ or transfer postings.\n ⦁ 10-digit document created for material movement \n\
+    ⦁ Links to gatepass table in sap\n  - material_document_year (bigint) -- Fiscal\
+    \ year in which the material document was created. Used with Material document\
+    \ number to identify a document.  \n⦁  Max length 4 Char with YYYY format\n  -\
+    \ material_doc_item_number (string) -- Line item number within the material document.\
+    \ Differentiates multiple entries in the same document. \n⦁ Max length 4 char\
+    \ \n⦁ Common values (0001, 0002 etc)\n  - company_code (string) -- The company\
+    \ code representing the smallest organizational unit for which a complete, self-contained\
+    \ set of accounts can be drawn up, crucial for legal and financial reporting.\
+    \ \n⦁ Max  4 characters \n⦁  Common values: 1000, 2000\n  - purchase_order_number\
+    \ (string) -- A Purchase Order Number is an identifier assigned to a purchase\
+    \ order created by a company for procuring goods or services from a vendor. It\
+    \ is used throughout the procurement cycle to track, reference, and manage the\
+    \ order. \n⦁ Maximum 10 character field\n  - purchase_order_item_number (bigint)\
+    \ -- Purchase order item number. Identifies individual line items within a purchase\
+    \ order for granular tracking of materials, quantities, prices, and delivery schedules.\
+    \ \n⦁ Numeric field upto 5 character.\n  - internal_order_number (string) -- An\
+    \ Internal Order is used to plan, collect, and  monitor costs for specific activities,\
+    \ projects, or tasks within an organization. It acts as a temporary cost collector\
+    \ that can later be settled to cost centers, assets, or other receivers\n  - posting_date_header\
+    \ (date) -- It is the posting date of a material document, determining the financial\
+    \ period in which the material movement is recorded.\n  - movement_type (string)\
+    \ -- Movement type, a classification of the type of inventory movement (e.g.,\
+    \ goods receipt, stock transfer). This is important for understanding and categorizing\
+    \ inventory transactions. \nExamples: \n101 indicates GR - goods receipt \n102\
+    \ indicates GR for PO reversal \n103 indicates GR into blocked stock \n104 indicates\
+    \ GR to blocked reversal\n  - amount_loc_curr (double) -- Amount in local currency,\
+    \ indicating the financial value of the transaction. This helps in financial reporting\
+    \ and cost management.\n  - storage_location (string) -- It is a key organizational\
+    \ unit within a plant used to manage inventory at a more detailed level. It is\
+    \ a 4-character field and is essential for tracking where materials are physically\
+    \ or logically stored.\n ⦁ 4-character (e.g., CS01, CS02).\n ⦁ Identifies the\
+    \ exact storage subset within a plant\n  - vendor_number (string) -- A Vendor\
+    \ number is an identifier assigned to each vendor in the system. It represents\
+    \ the supplier from whom a company purchases goods or services. This code is used\
+    \ throughout the procurement and finance processes \n⦁ Maximum 10 character field.\n\
+    \  - material_number (string) -- Material Number is a identifier assigned to each\
+    \ material item in the inventory, crucial for tracking and managing inventory\
+    \ levels.\n ⦁ Max length 18-character\n  - material_units (string) -- Base unit\
+    \ of measure defines how quantities of a material are measured and managed in\
+    \ the system.\n ⦁ max 3-character.\n ⦁ stored in iso uom format (ea, kg, l, m,\
+    \ etc.).\n EA - each / unit / single piece KG - kilogram\n G - gram\n  - quantity\
+    \ (double) -- It is a standard field that represents the quantity of a material\
+    \ or item in a transaction.\n  - wbs_element (int) -- A WBS Element (Work Breakdown\
+    \ Structure Element) is a specific task, activity, or cost‑collecting area within\
+    \ a project. It represents a clearly defined part of the overall project that\
+    \ needs to be planned, budgeted, executed, and monitored separately.\n  - reservation_number\
+    \ (string) -- A Reservation Number identifies a material reservation created within\
+    \ the organization. A reservation is an internal request to set aside or allocate\
+    \ stock for a specific purpose so that the required quantity is available when\
+    \ needed.\n ⦁ Max length is 10 Characters\n  - debit_credit_ind (string) -- Debit/Credit\
+    \ Indicator, identifying whether the transaction is a debit or credit. It is crucial\
+    \ for accurate financial reconciliation. common value S stands for Debit H stands\
+    \ for Credit\n  - goods_recipient (string) -- Represents the purchase order or\
+    \ person or department receiving the goods. Used in goods receipt documentation\
+    \ generally for free issue materials.\n  ... +36 more\nDiscovered: 2026-04-30\
+    \ 12:31"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.material_movement
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: material_movement
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/material_movement
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

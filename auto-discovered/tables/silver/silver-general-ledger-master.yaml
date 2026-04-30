@@ -1,0 +1,76 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-general-ledger-master
+  title: silver.general_ledger_master
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.general_ledger_master\n\
+    Layer: silver\nDescription: general_ledger is a reference table that maintains\
+    \ the organization’s general ledger structure. It provides details of account\
+    \ numbers, account groups, and associated banking information, ensuring accurate\
+    \ financial classification and reporting. This table supports transparency and\
+    \ consistency in accounting processes by serving as a foundational element for\
+    \ transaction posting, compliance, and financial analysis.\nColumns (17):\n  -\
+    \ client_id (string) -- It is a three-char alphanumeric identifier that represents\
+    \ a client in the SAP system. A client is the highest organizational unit in SAP\
+    \ and serves as a self-contained unit with its own master data and set of tables.\n\
+    \  - gl_acct_number (string) -- It represents the General Ledger (G/L) account\
+    \ number to which a transaction line item is posted. It is used to determine the\
+    \ financial impact of a transaction, such as recording expenses, revenues, or\
+    \ asset movements.\n⦁ Max length 10 char\n  - chart_of_accounts (string) -- Defines\
+    \ the structure and categorization of G/L accounts assigned to a company code.\
+    \ Enables standardized financial reporting and supports legal and management reporting\
+    \ requirements. \n⦁ Max length 4 char\n  - gl_account_group (string) -- Specifies\
+    \ the account group for G/L accounts. Controls field status, number ranges, and\
+    \ account type classification. Important for master data governance and consistency\
+    \ in account creation. \n⦁ Controls number ranges for G/L accounts.\n⦁ Determines\
+    \ field status (required/optional/suppressed).\n⦁ Max length 4 char\n  - house_bank_id\
+    \ (string) -- Specifies the house bank identifier linked to G/L accounts for cash\
+    \ management and payment processing\n⦁ Max length 5 char. \n⦁ mainly relevant\
+    \ for bank accounts.\n  - gl_account_short_description (string) -- Short description\
+    \ of the G/L account (up to 20 characters). Used for reporting and user-friendly\
+    \ display. \n⦁ Free Text field.\n  - gl_account_description (string) -- Long description\
+    \ of the G/L account (up to 50 characters). Used for reporting and user-friendly\
+    \ display. \n⦁ Free Text field.\n  - identifier (string) -- Custom discriminator\
+    \ to differentiate vendors across multiple SAP instances when client code alone\
+    \ is insufficient.\n  - HASH_KEY (string) -- System-generated hash key used for\
+    \ uniquely identifying records and ensuring data integrity.\n  - SYS_EFFECTIVE_START_DATE\
+    \ (date) -- System Effective Start Date, indicating when the record became valid\
+    \ in the system.\n  - SYS_EFFECTIVE_END_DATE (date) -- System Effective End Date,\
+    \ indicating when the record ceased to be valid in the system.\n  - IS_ACTIVE\
+    \ (string) -- Flag indicating whether the record is currently active. Y indicates\
+    \ an active record which means that it is the latest record N indicates an in-active\
+    \ record which means that this record is old and has been changed\n  - creation_date\
+    \ (date) -- Date when the G/L account master record was created. Useful for tracking\
+    \ master data lifecycle and audit purposes.\n⦁ Max length 8 char\n⦁ Format: YYYY-MM-DD.\n\
+    \  - created_by_user (string) -- user ID who created the General Ledger account\
+    \ master record. Important for accountability and audit trails.\n ⦁ Max length\
+    \ 12 char.\n⦁ Supports audit transparency.\n  - balance_sheet_indicator (string)\
+    \ -- Specifies whether the G/L account is a balance sheet account. Used for financial\
+    \ statement classification and reporting. \nCommon Values: \nX indicates Balance\
+    \ sheet Ac Blank indicates Not a Balance sheet A/c\n  - deletion_flag (string)\
+    \ -- Indicates if the G/L account is marked for deletion. Helps in master data\
+    \ cleanup and prevents further postings.\n  - posting_block_indicator (string)\
+    \ -- Indicates whether postings are blocked for the G/L account. Used to prevent\
+    \ transactions during audits or maintenance. Common Values:\nX Indicates the GL\
+    \ is blocked for posting Blank indicates\nDiscovered: 2026-04-30 12:31"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.general_ledger_master
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: general_ledger_master
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/general_ledger_master
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake
+  dependsOn:
+  - component:silver-sap-cleansed-mast-mstr

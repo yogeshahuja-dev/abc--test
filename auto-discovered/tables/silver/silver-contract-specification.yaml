@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-contract-specification
+  title: silver.contract_specification
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.contract_specification\n\
+    Layer: silver\nDescription: Contract_Specification is a centralized repository\
+    \ that defines and governs all specifications related to business contracts. It\
+    \ ensures that contractual agreements adhere to organizational standards and compliance\
+    \ requirements by maintaining authoritative references and supporting documentation.\
+    \ This table acts as a single source of truth, enabling consistency, transparency,\
+    \ and streamlined access for stakeholders involved in contract creation, review,\
+    \ and execution.\nColumns (7):\n  - spec_key (bigint) -- Primary key for the contract\
+    \ specification\n  - standard_ref (string) -- Reference to applicable standard\
+    \ or guideline\n  - version (string) -- Version of the specification\n  - description\
+    \ (string) -- Detailed description of the specification\n  - document_link (string)\
+    \ -- Link to the supporting document or reference file\n  - load_timestamp (timestamp)\
+    \ -- Timestamp when the record was loaded\n  - update_timestamp (timestamp) --\
+    \ Timestamp when the record was last updated\nDiscovered: 2026-04-30 12:30"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.contract_specification
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: contract_specification
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/contract_specification
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

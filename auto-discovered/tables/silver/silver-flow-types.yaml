@@ -1,0 +1,82 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-flow-types
+  title: silver.flow_types
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.flow_types\n\
+    Layer: silver\nColumns (23):\n  - client_id (string) -- It is a three-char alphanumeric\
+    \ identifier that represents a client in the SAP system. A client is the highest\
+    \ organizational unit in SAP and serves as a self-contained unit with its own\
+    \ master data and set of tables.\n  - contract_type (string) -- This represents\
+    \ the type of Contract involved, such as borrowing money, lending money, or investing\
+    \ funds. It indicates what kind of financial arrangement the record is about.\
+    \ Examples include: 1 for Loans, 2 for Securities, 3 for Lease-Out - Real Estate,\
+    \ 4 for Foreign Exchange, 5 for Money Market, 6 for Derivatives, and 7 for Open\
+    \ Item Transactions.\n  - flow_type (string) -- This field describes the nature\
+    \ of money movement within a financial transaction, such as whether it is a payment,\
+    \ receipt, or charge. Examples include 0001 for Loan Disbursement, 0106 for Principal\
+    \ Amount Due, and 0107 for Charge Amount Due.\n  - flow_type_group (string) --\
+    \ The flow type group is used to organize and classify individual flow types for\
+    \ reporting purposes. It controls how flow records are aggregated when account\
+    \ statements are generated. Example values include 01 for Remaining Capital, 02\
+    \ for Repayment, 03 for Unscheduled Repayment, 04 for Interest Rates, and 05 for\
+    \ Costs or Various.\n  - flow_category (string) -- The flow category key assigns\
+    \ a flow within the cash flow framework to a specific flow category. Multiple\
+    \ flow types can be grouped under the same category. Examples include 3EIB for\
+    \ Collateral Security Deposit, 3GEB for Bank Charges Returned Debit Memo, 3GRM\
+    \ for Basic Rent, and 3IKM for Inclusive Rent.\n  - debit_credit_ind (string)\
+    \ -- Debit/Credit Indicator identifying whether the transaction is a debit or\
+    \ a credit. It is essential for financial reconciliation. Common values include\
+    \ S for Debit and H for Credit.\n  - calculation_category (string) -- The calculation\
+    \ category classifies the calculation and posting rules used by the cash flow\
+    \ calculator. These rules determine how condition types are processed. Examples\
+    \ include ERTR for Deferral Reset, FRAZ for Discounting FRA, and H001 for Future\
+    \ Settlement.\n  - activity_indicator (bigint) -- The activity indicator for debit\
+    \ or credit control determines how a flow is treated during cash flow processing.\
+    \ It ensures correct sign handling and classification of cash movements. Typical\
+    \ values include Receivable, Incoming Payment, Payable, and Outgoing Payment.\n\
+    \  - identifier (string) -- Custom discriminator to differentiate vendors across\
+    \ multiple SAP instances when client code alone is insufficient.\n  - name (string)\
+    \ -- The Name identifies the activity using a clear, unique, and readable label.\n\
+    \  - activity_category (string) -- The activity category defines the business\
+    \ classification of an activity and determines how it is grouped and interpreted\
+    \ during processing and reporting.\n  - assets_liabilities (string) -- The Assets\
+    \ or Liabilities activity category identifies activities related to balance sheet\
+    \ items and indicates whether an activity impacts asset or liability positions.\n\
+    \  - relevant_to_posting (string) -- The Relevant to Posting indicator determines\
+    \ whether an activity triggers an accounting posting to the general ledger. When\
+    \ enabled, the activity generates accounting entries; otherwise, it is informational\
+    \ only.\n  - posting_short_text (string) -- The Posting Short Text defines the\
+    \ default brief description populated in accounting documents during posting to\
+    \ provide a standardized transaction summary.\n  - posting_control (bigint) --\
+    \ The Posting Control defines how and under what conditions an activity is posted\
+    \ to accounting.\n  - interest_base (string) -- The Interest Base determines the\
+    \ basis on which interest is calculated by referencing the associated flow types.\n\
+    \  - interest_date (string) -- The Interest Date defines the key date used as\
+    \ the basis for interest calculation and accrual.\n  - transaction_remaining_balance\
+    \ (bigint) -- The Transaction Remaining Balance indicates the outstanding amount\
+    \ of a transaction after settlements have been applied.\n  - relevant_to_cm (string)\
+    \ -- The Relevant to Cash Management indicator specifies whether a transaction\
+    \ is considered in cash management processing, liquidity forecasting, and cash\
+    \ flow analysis.\n  - HASH_KEY (string) -- System-generated hash key used for\
+    \ uniquely identifying records and ensuring data integrity.\n  ... +3 more\nDiscovered:\
+    \ 2026-04-30 12:30"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.flow_types
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: flow_types
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/flow_types
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

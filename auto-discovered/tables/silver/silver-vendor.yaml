@@ -1,0 +1,92 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-vendor
+  title: silver.vendor
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.vendor\n\
+    Layer: silver\nDescription: The table contains detailed information about vendors\
+    \ in the SAP system. It includes identifiers such as client ID and vendor number,\
+    \ as well as essential vendor details like name, address, and tax information.\
+    \ This data can be used for vendor management, compliance reporting, and analysis\
+    \ of vendor classifications, including industry and MSME status. It is useful\
+    \ for procurement, finance, and strategic sourcing activities.\nColumns (30):\n\
+    \  - client_id (string) -- It is a three-char alphanumeric identifier that represents\
+    \ a client in the SAP system. A client is the highest organizational unit in SAP\
+    \ and serves as a self-contained unit with its own master data and set of tables.\n\
+    \  - vendor_number (string) -- A Vendor number is an identifier assigned to each\
+    \ vendor in the system. It represents the supplier from whom a company purchases\
+    \ goods or services. This code is used throughout the procurement and finance\
+    \ processes\n⦁ Maximum 10 character field.\n  - vendor_name (string) -- Vendor_name\
+    \ is a field used to store the primary name of a vendor. It typically contains\
+    \ the company name or the individual name, depending on the type of vendor.\n\
+    ⦁ Alphanumeric including spaces max length 35..\n  - vendor_extended_name (string)\
+    \ -- Vendor Extended Name represents the complete, consolidated name of a vendor\
+    \ by combining all available main and supplementary name fields into one unified\
+    \ value. It ensures a clear, full representation of the vendor official name by\
+    \ merging only the fields that contain valid information, resulting in a single\
+    \ clean and readable name.\n  - pan_number (string) -- The Permanent Account Number\
+    \ of the vendor, critical for tax reporting and compliance with financial regulations\n\
+    \ ⦁ Critical field.\n⦁ Always 10-character alphanumeric (e.g., ABCDE1234F).\n\
+    ⦁ Sensitive personal/commercial information\n  - creation_date (date) -- Date\
+    \ when the vendor was entered into the system\n  - primary_industry_key (string)\
+    \ -- Identifies the industry classification of a vendor and helps categorize vendors\
+    \ based on their business sector. It is essential for reporting, segmentation,\
+    \ compliance, and strategic sourcing \n⦁ Typically 1–4 alphanumeric characters.\
+    \ max length 4 characters\n⦁ Selected from configured industry list\n⦁ Used for\
+    \ reporting & compliance..\n  - trading_partner_code (string) -- It is a standard\
+    \ field used to identify the trading partner (intercompany business entities).\
+    \ It represents the company code of the affiliated entity involved in the transaction,\
+    \ enabling accurate tracking and reporting of intercompany activities.\n⦁ Max\
+    \ length 6-character alphanumeric.\n⦁ Used for intercompany elimination & consolidation\n\
+    \  - msme_indicator (string) -- It identifies whether a vendor is classified as\
+    \ an MSME or a non-MSME entity.\n  - vendor_group_code (string) -- Vendor group\
+    \ code is a 4-character code that classifies vendors into groups Examples: AWFR\
+    \ - Land and Farmers AONE – One time Vendors ACPG – Channel Partners\n  - industry_key_desc\
+    \ (string) -- It is the textual description for Industry classification assigned\
+    \ to a vendor which helps categorize vendors based on their business sector. It\
+    \ is essential for reporting, segmentation, compliance, and strategic sourcing.\n\
+    ⦁ Alphanumeric max 20 characters.\n  - Industry_type (string) -- This field classifies\
+    \ vendors as “Medium”, “Micro”, “Small” and “Not MSME”\n  - country_key (string)\
+    \ -- It is used to identify the country associated with a vendor in the system.\
+    \ The value of country key is typically based on ISO country codes\n ⦁ Common\
+    \ Value  IN for India\n  - city (string) -- Specifies the city where the vendor\
+    \ is located. It is part of the vendor’s address and is used in correspondence,\
+    \ shipping, and tax determination. Accurate city data ensures proper logistics\
+    \ and legal compliance. It also supports regional reporting and analysis.\n  -\
+    \ region (string) -- Region code indicating the geographic area associated with\
+    \ the transaction, essential for regional spend analysis and compliance. . Max\
+    \ 3-character code (e.g., 09 - Jammu and Kashmir , 19 Punjab).\n  - gst_number\
+    \ (string) -- It stores the tax identification number for the business partner\
+    \ generally GST number\n⦁ It is alphanumeric\n ⦁ Must match GSTIN structure.\n\
+    ⦁ Sensitive commercial information.\n  - language_key (string) -- The Language\
+    \ Key identifies the language in which texts, descriptions, and user‑specific\
+    \ information are stored or displayed in the system\n⦁ 1-character code. \n⦁ Common\
+    \ values: EN = English DE = German FR = French\n  - account_group_description\
+    \ (string) -- Contains the textual description of the vendor account group. It\
+    \ helps identify the purpose or classification of vendor master records.\n  -\
+    \ country_name (string) -- It provides the country name. This is essential for\
+    \ user interfaces and reports that require country names in the local language.\n\
+    \  - vendor_posting_block_flag (string) -- It is a field used to indicate a posting\
+    \ block for a vendor for all company codes. It prevents financial transactions\
+    \ such as invoice postings or payments for that particular vendor for all company\
+    \ codes. Common Values: X = Vendor centrally blocked; blank = Active\n  ... +10\
+    \ more\nDiscovered: 2026-04-30 12:33"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.vendor
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: vendor
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/vendor
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

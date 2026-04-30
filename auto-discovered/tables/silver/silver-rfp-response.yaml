@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-rfp-response
+  title: silver.rfp_response
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.rfp_response\n\
+    Layer: silver\nDescription: Vendor responses to RFPs with solution and pricing\
+    \ details\nColumns (10):\n  - proposal_id (bigint) -- Primary key for the RFP\
+    \ response\n  - rfp_id (bigint) -- Foreign key to the RFP\n  - vendor_id (bigint)\
+    \ -- Foreign key to the responding vendor\n  - submission_date (date) -- Date\
+    \ the proposal was submitted\n  - proposal_summary (string) -- Summary of the\
+    \ proposed solution\n  - proposed_cost (decimal(18,2)) -- Total proposed cost\n\
+    \  - currency (string) -- Currency of the proposal\n  - status (string) -- Proposal\
+    \ status (e.g., Submitted, Shortlisted, Rejected)\n  - load_timestamp (timestamp)\
+    \ -- Record creation timestamp.\n  - update_timestamp (timestamp) -- Record last\
+    \ updated timestamp.\nDiscovered: 2026-04-30 12:32"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.rfp_response
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: rfp_response
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/rfp_response
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

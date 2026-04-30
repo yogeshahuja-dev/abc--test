@@ -1,0 +1,84 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-purchase-order-history
+  title: silver.purchase_order_history
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.purchase_order_history\n\
+    Layer: silver\nDescription: The table contains detailed records of purchase order\
+    \ history within the SAP system. It includes information such as client identifiers,\
+    \ purchase order numbers, transaction types, and financial details like amounts\
+    \ and quantities. This data can be used for tracking procurement activities, analyzing\
+    \ financial transactions, and reconciling inventory movements. Use cases include\
+    \ auditing procurement processes, monitoring supplier performance, and managing\
+    \ financial reporting.\nColumns (24):\n  - client_id (string) -- It is a three-char\
+    \ alphanumeric identifier that represents a client in the SAP system. A client\
+    \ is the highest organizational unit in SAP and serves as a self-contained unit\
+    \ with its own master data and set of tables.\n  - purchase_order_number (string)\
+    \ -- A Purchase Order Number is an identifier assigned to a purchase order created\
+    \ by a company for procuring goods or services from a vendor. It is used throughout\
+    \ the procurement cycle to track, reference, and manage the order\n ⦁ Maximum\
+    \ 10 character field\n  - purchase_order_item_number (bigint) -- Purchase order\
+    \ item number. Identifies individual line items within a purchase order for granular\
+    \ tracking of materials, quantities, prices, and delivery schedules.\n⦁ Numeric\
+    \ field upto 5 character.\n  - material_document (string) -- Material document\
+    \ number is an identifier assigned to each material document created during goods\
+    \ movements such as goods receipt, goods issue, or transfer postings.\n  - material_doc_item_number\
+    \ (bigint) -- Line item number within the material document. Differentiates multiple\
+    \ entries in the same document. \n⦁ Max length 4 char\n⦁ Common values (0001,\
+    \ 0002 etc)\n  - transaction_type (string) -- It represents the transaction/event\
+    \ type in purchase order history. It categorizes the type of transaction (e.g.,\
+    \ goods receipt, invoice receipt, return delivery), helping track and analyze\
+    \ procurement activities \n⦁ Determines the nature of posting (GR/IR/Delivery)\n\
+    ⦁ Some Common values: 1 = Goods Receipt 2 = Invoice Receipt\n  - material_document_year\
+    \ (bigint) -- Fiscal year in which the material document was created. Used with\
+    \ Material document number to identify a document\n ⦁ Max length 4 Char with YYYY\
+    \ format\n  - document_date (date) -- It is the field that stores the document\
+    \ date, representing the actual date on which a business transaction occurred,\
+    \ such as the date on an invoice or delivery note etc\n  - po_seq_number (bigint)\
+    \ -- It identifies each account assignment line for a purchase order (PO) item.\
+    \ Used when a purchase order item has multiple account assignments (e.g., split\
+    \ between cost centers, internal orders, projects). \n⦁ Max 2-digit numeric (01,\
+    \ 02…).\n  - debit_credit_ind (string) -- Debit/Credit Indicator, identifying\
+    \ whether the transaction is a debit or credit. It is crucial for accurate financial\
+    \ reconciliation. common value S stands for Debit H stands for Credit\n  - amount_loc_curr\
+    \ (double) -- Amount in local currency, indicating the financial value of the\
+    \ transaction. This helps in financial reporting and cost management.\n  - posting_date\
+    \ (date) -- It is the date on which a financial transaction is posted, determining\
+    \ the accounting period for the entry.\n  - quantity (double) -- It is a standard\
+    \ field that represents the quantity of a material or item in a transaction.\n\
+    \  - movement_type (string) -- Movement type, a classification of the type of\
+    \ inventory movement (e.g., goods receipt, stock transfer). This is important\
+    \ for understanding and categorizing inventory transactions. Examples: 101 indicates\
+    \ GR - goods receipt 102 indicates GR for PO reversal 103 indicates GR into blocked\
+    \ stock 104 indicates GR to blocked reversal\n  - created_by (string) -- User\
+    \ ID of the person who created the document. It is important for accountability\
+    \ and auditing\n ⦁ max 12 chars\n  - reference_document_number (string) -- Number\
+    \ of the reference document (e.g., invoice, delivery note). Supports traceability\
+    \ and reconciliation.\n  - reference_document_fiscal_year (string) -- It is a\
+    \ field used to store the fiscal year of reference document in which a financial\
+    \ or logistics transaction is posted.\n  - reference_document_line_item (string)\
+    \ -- Item number in the reference document. Provides detailed linkage for multi-line\
+    \ documents.\n  - Purchase_order_history_category (string) -- Classification of\
+    \ the Purchase Order history record. Example: E stands for GRN Q stands for Invoice\n\
+    \  - identifier (string) -- Custom discriminator to differentiate vendors across\
+    \ multiple SAP instances when client code alone is insufficient.\n  ... +4 more\n\
+    Discovered: 2026-04-30 12:32"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.purchase_order_history
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: purchase_order_history
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/purchase_order_history
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

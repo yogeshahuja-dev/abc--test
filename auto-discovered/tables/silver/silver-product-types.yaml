@@ -1,0 +1,77 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-product-types
+  title: silver.product_types
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.product_types\n\
+    Layer: silver\nColumns (21):\n  - client_id (string) -- It is a three-char alphanumeric\
+    \ identifier that represents a client in the SAP system. A client is the highest\
+    \ organizational unit in SAP and serves as a self-contained unit with its own\
+    \ master data and set of tables.\n  - product_type_id (string) -- This field represents\
+    \ a subdivision of a product category that provides more detail about the kind\
+    \ of product. For example, within the Bonds product category, product types can\
+    \ include Fixed Interest Bonds or Variable Interest Bonds.\n  - contract_type\
+    \ (string) -- This represents the type of Contract involved, such as borrowing\
+    \ money, lending money, or investing funds. It indicates what kind of financial\
+    \ arrangement the record is about. Examples include: 1 for Loans, 2 for Securities,\
+    \ 3 for Lease-Out - Real Estate, 4 for Foreign Exchange, 5 for Money Market, 6\
+    \ for Derivatives, and 7 for Open Item Transactions.\n  - product_category (bigint)\
+    \ -- Product Category is a grouping under a contract type that broadly classifies\
+    \ related product types. For example, under the Securities contract type, product\
+    \ categories help organize product types such as stocks and bonds based on their\
+    \ general nature.\n  - condition_group (bigint) -- The condition group classifies\
+    \ financial instruments or products into predefined categories for condition processing.\
+    \ Possible values include categories such as Stocks, Investment Certificates,\
+    \ Drawable Bonds, etc.\n  - asset_liability_trans_indicator (string) -- This indicator\
+    \ specifies whether a transaction is classified as an asset or a liability. It\
+    \ controls how the flow is treated in valuation, cash flow processing, and reporting.\
+    \ Common values are 0 for Asset Transactions and 1 for Liability Transactions.\n\
+    \  - interest_calculation_method (string) -- This field represents the way in\
+    \ which interest is calculated on an amount, for example whether interest is worked\
+    \ out on a daily, monthly, or yearly basis.\n  - identifier (string) -- Custom\
+    \ discriminator to differentiate vendors across multiple SAP instances when client\
+    \ code alone is insufficient.\n  - cash_management_period (bigint) -- The CM Period\
+    \ defines the time bucket used to consider the product type in Cash Management\
+    \ processing and liquidity forecasting.\n  - number_range (string) -- The Number\
+    \ Range defines the interval used to automatically generate unique identifiers\
+    \ for transactions or documents associated with the product type.\n  - reference_data\
+    \ (string) -- The Reference Data specifies whether the product type is treated\
+    \ as reference or master data within the system and is used for configuration\
+    \ or lookup purposes.\n  - withhold_disbursment (string) -- The Withhold Disbursement\
+    \ indicator specifies whether disbursement of amounts for the product type should\
+    \ be temporarily withheld during processing.\n  - drawn_bond_product_type (string)\
+    \ -- The Drawn Bond Product Type specifies the product type used to represent\
+    \ the drawn or utilized portion of a bond and captures financial flows from bond\
+    \ drawdowns.\n  - additional_text (string) -- The Additional Text provides supplementary\
+    \ descriptive information for the product type beyond the primary text fields.\n\
+    \  - effect_int_method (bigint) -- The Effective Interest Method defines whether\
+    \ and how interest is calculated and allocated using the effective interest rate\
+    \ approach over the life of the product.\n  - HASH_KEY (string) -- System-generated\
+    \ hash key used for uniquely identifying records and ensuring data integrity.\n\
+    \  - SYS_EFFECTIVE_START_DATE (date) -- System Effective Start Date, indicating\
+    \ when the record became valid in the system.\n  - SYS_EFFECTIVE_END_DATE (date)\
+    \ -- System Effective End Date, indicating when the record ceased to be valid\
+    \ in the system.\n  - IS_ACTIVE (string) -- Flag indicating whether the record\
+    \ is currently active. Y indicates an active record meaning it is the latest record,\
+    \ and N indicates an inactive record meaning the record has been changed.\n  -\
+    \ long_text (string) -- The text represents the long descriptive name of the product\
+    \ type used throughout the system.\n  ... +1 more\nDiscovered: 2026-04-30 12:32"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.product_types
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: product_types
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/product_types
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

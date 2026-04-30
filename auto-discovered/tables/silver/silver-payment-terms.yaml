@@ -1,0 +1,53 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-payment-terms
+  title: silver.payment_terms
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver.payment_terms\n\
+    Layer: silver\nDescription: Payment terms\nColumns (13):\n  - client_id (string)\
+    \ -- Three-character alphanumeric identifier representing a client (highest organizational\
+    \ unit) in SAP; each client is a self-contained unit with its own master data\
+    \ and tables.\n  - days_from_baseline_date (bigint) -- Number of days after the\
+    \ baseline date within which a payment must be made to qualify for applicable\
+    \ cash discount and to complete payment within the net due period.\n  - payment_term\
+    \ (string) -- Payment Terms define when an invoice becomes due and whether early‑payment\
+    \ discounts apply. Example: A027 - Net due in 75 days from invoice date; Z005\
+    \ - 2% within 7 Days/1% within 30 Days.\n  - day_limit (bigint) -- Last day of\
+    \ the month up to which a specific set of payment terms applies, enabling split\
+    \ variants based on the baseline date (e.g., ≤15 vs. >15).\n  - days_from_baseline_date_2\
+    \ (bigint) -- Second-tier number of days from the baseline date specifying an\
+    \ alternative window for a different cash discount and/or extended net due period.\n\
+    \  - days_from_baseline_date_3 (bigint) -- Third-tier number of days from the\
+    \ baseline date defining the final permissible timeframe for payment, typically\
+    \ without cash discount.\n  - language_key (string) -- Language Key for texts/descriptions\
+    \ (1-character code). Common: EN=English, DE=German, FR=French.\n  - payment_term_desc\
+    \ (string) -- Textual explanation of the payment terms. Examples: \"Net due in\
+    \ 7 days from invoice date\", \"Net due in 21 days from receipt of Mat/Srv\".\n\
+    \  - identifier (string) -- Custom discriminator to differentiate vendors across\
+    \ multiple SAP instances when client code alone is insufficient.\n  - sys_effective_start_date\
+    \ (date) -- System Effective Start Date, indicating when the record became valid\
+    \ in the system.\n  - sys_effective_end_date (date) -- System Effective End Date,\
+    \ indicating when the record ceased to be valid in the system.\n  - is_active\
+    \ (string) -- Flag indicating whether the record is currently active. Y = latest\
+    \ active record; N = inactive (older superseded record).\n  - hash_key (string)\
+    \ -- System-generated hash key used for uniquely identifying records and ensuring\
+    \ data integrity.\nDiscovered: 2026-04-30 12:31"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver.payment_terms
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver
+    databricks.com/table: payment_terms
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver/payment_terms
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

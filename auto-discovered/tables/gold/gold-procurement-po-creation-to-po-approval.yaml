@@ -1,0 +1,48 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: gold-procurement-po-creation-to-po-approval
+  title: gold_procurement.po_creation_to_po_approval
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.gold_procurement.po_creation_to_po_approval\n\
+    Layer: gold\nDescription: The PO_Creation_to_Approval_Table provides granular\
+    \ timeline data for each PO, enabling: Cycle Time Analysis: Duration between PO\
+    \ creation and approval. Process Optimization: Identifying bottlenecks in approval\
+    \ workflows. Performance Monitoring: Comparing efficiency across business units\
+    \ and geographies. This dataset is critical for spend analytics, process improvement,\
+    \ and policy compliance. Grain: One row per PO with timestamps for creation and\
+    \ approval.\nColumns (4):\n  - CLIENT_ID (string) -- It is a three-digit identifier\
+    \ that represents a client in the SAP system. A client is the highest organizational\
+    \ unit in SAP and serves as a self-contained unit with its own master data and\
+    \ set of tables.\n  - PURCHASE_ORDER_NUMBER (string) -- Unique purchase order\
+    \ number assigned by SAP. Serves as the primary key for procurement transactions\
+    \ and links header and item details for procurement transactions.\n  - MIN_CHANGE_UPDATE_TIME\
+    \ (date) -- Represents the earliest update timestamp (UDATE) recorded for a given\
+    \ OBJECTID (Purchase Order) in the SAP Change Document Items table (CDPOS).  In\
+    \ the context of Purchase Orders (PO) corresponds to the initial release date\
+    \ of the PO.\n  - PO_CREATION_TO_APPROVAL_DAY (double) -- Represents the difference,\
+    \ in days, between the Purchase Order (PO) creation date and its first release\
+    \ (approval) date\nDiscovered: 2026-04-30 12:33"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - gold
+  - procurement
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.gold_procurement.po_creation_to_po_approval
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: gold_procurement
+    databricks.com/table: po_creation_to_po_approval
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/gold_procurement/po_creation_to_po_approval
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake
+  dependsOn:
+  - component:silver-equipment-to-bom-link
+  - component:silver-po-schedule-lines
+  - component:silver-permit-to-work

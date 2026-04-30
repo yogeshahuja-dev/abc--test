@@ -1,0 +1,38 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: silver-sap-cleansed-ksml-mstr
+  title: silver_sap_cleansed.ksml_mstr
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.silver_sap_cleansed.ksml_mstr\n\
+    Layer: silver-cleansed\nColumns (50):\n  - DI_SEQUENCE_NUMBER (bigint) -- Data\
+    \ Services-generated integer for sequencing\n  - DI_OPERATION_TYPE (string) --\
+    \ Data Services-generated row operation type\n  - MANDT (string) -- Client\n \
+    \ - CLINT (bigint) -- Internal class no.\n  - POSNR (bigint) -- Item number\n\
+    \  - ADZHL (bigint) -- Int. counter\n  - ABTEI (string) -- Organizational area\n\
+    \  - DINKB (string) -- Code letter\n  - HERKU (string) -- Charact. origin\n  -\
+    \ IMERK (bigint) -- Internal char no.\n  - OMERK (bigint) -- Object char.\n  -\
+    \ KLART (string) -- Class Type\n  - RELEV (string) -- Relevancy Indicator\n  -\
+    \ DATUV (date) -- Valid From\n  - TECHV (string) -- Effectivity ind.\n  - AENNR\
+    \ (string) -- Change Number\n  - LKENZ (string) -- Deletion Indicator\n  - VMERK\
+    \ (string) -- New charact.\n  - DPLEN (bigint) -- Output length\n  - OFFST (bigint)\
+    \ -- Offset\n  ... +30 more\nDiscovered: 2026-04-30 12:25"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - silver-cleansed
+  - sap
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.silver_sap_cleansed.ksml_mstr
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: silver_sap_cleansed
+    databricks.com/table: ksml_mstr
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/silver_sap_cleansed/ksml_mstr
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake
