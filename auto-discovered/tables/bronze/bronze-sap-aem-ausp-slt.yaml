@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: bronze-sap-aem-ausp-slt
+  title: bronze_sap_aem.ausp_slt
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.bronze_sap_aem.ausp_slt\n\
+    Columns (34):\n  - DI_SEQUENCE_NUMBER (bigint) -- Data Services-generated integer\
+    \ for sequencing\n  - DI_OPERATION_TYPE (string) -- Data Services-generated row\
+    \ operation type\n  - MANDT (string) -- Client\n  - OBJEK (string) -- Object\n\
+    \  - ATINN (bigint) -- Internal char no.\n  - ATZHL (bigint) -- Counter\n  - MAFID\
+    \ (string) -- Ind.: Object/Class\n  - KLART (string) -- Class Type\n  - ADZHL\
+    \ (bigint) -- Int. counter\n  - ATWRT (string) -- Characteristic Value\n  - ATFLV\
+    \ (double) -- Value from\n  - ATAWE (string) -- Int. meas. unit\n  - ATFLB (double)\
+    \ -- Value to\n  - ATAW1 (string) -- Int. meas. unit\n  - ATCOD (string) -- Code\n\
+    \  ... +19 more\nDiscovered: 2026-04-30 11:42"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - bronze
+  - sap
+  - aem
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.bronze_sap_aem.ausp_slt
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: bronze_sap_aem
+    databricks.com/table: ausp_slt
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/bronze_sap_aem/ausp_slt
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

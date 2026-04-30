@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: bronze-ariba-auction-logs-strings
+  title: bronze_ariba.auction_logs_strings
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.bronze_ariba.auction_logs_strings\n\
+    Columns (14):\n  - dateCreated (string)\n  - auction_id (string)\n  - realUser_uniqueName\
+    \ (string)\n  - realUser_name (string)\n  - realUser_emailAddress (string)\n \
+    \ - effectiveUser_emailAddress (string)\n  - effectiveUser_uniqueName (string)\n\
+    \  - effectiveUser_name (string)\n  - action (string)\n  - scope (string)\n  -\
+    \ details (string)\n  - logType (string)\n  - LOADING_STATUS (string)\n  - TRANSFER_TIMESTAMP\
+    \ (string)\nDiscovered: 2026-04-30 11:24"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - bronze
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.bronze_ariba.auction_logs_strings
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: bronze_ariba
+    databricks.com/table: auction_logs_strings
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/bronze_ariba/auction_logs_strings
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

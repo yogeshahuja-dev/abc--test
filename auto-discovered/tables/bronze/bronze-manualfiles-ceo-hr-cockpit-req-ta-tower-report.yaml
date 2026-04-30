@@ -1,0 +1,29 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: bronze-manualfiles-ceo-hr-cockpit-req-ta-tower-report
+  title: bronze_manualfiles.ceo_hr_cockpit_req_ta_tower_report
+  description: 'Auto-discovered from Databricks Unity Catalog.
+
+    Full name: adani_edl_governance_catalog_dev.bronze_manualfiles.ceo_hr_cockpit_req_ta_tower_report
+
+    Discovered: 2026-04-30 11:34'
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - bronze
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.bronze_manualfiles.ceo_hr_cockpit_req_ta_tower_report
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: bronze_manualfiles
+    databricks.com/table: ceo_hr_cockpit_req_ta_tower_report
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/bronze_manualfiles/ceo_hr_cockpit_req_ta_tower_report
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

@@ -1,0 +1,33 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: bronze-ariba-ui-report-ariba-new-rpa
+  title: bronze_ariba.ui_report_ariba_new_rpa
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.bronze_ariba.ui_report_ariba_new_rpa\n\
+    Columns (15):\n  - ProjectID_new (string)\n  - MAX_of_[SPRJ]_Load_update_time\
+    \ (string)\n  - max_of_[PTK]_Load_Update_Time (string)\n  - [SPRJ]Event_Type_Event_Type\
+    \ (string)\n  - [ELS]Event_Information_Event_Id (string)\n  - [ELS]Event_Information_Event_Title\
+    \ (string)\n  - [ELS]Event_Information_Event_Type (string)\n  - [SPRJ]Start_Date_Date\
+    \ (string)\n  - [ELS]Event_Create_Date_Date (string)\n  - [ELS]Bidding_End_Date_Date\
+    \ (string)\n  - [SPRJ]_Load_Update_Time (string)\n  - [ELS]_Load_Update_Time (string)\n\
+    \  - [ELS]Event_Information_Event_Status (string)\n  - countSourcingProject (bigint)\n\
+    \  - [PTK]_Load_Update_Time (string)\nDiscovered: 2026-04-30 11:25"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - bronze
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.bronze_ariba.ui_report_ariba_new_rpa
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: bronze_ariba
+    databricks.com/table: ui_report_ariba_new_rpa
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/bronze_ariba/ui_report_ariba_new_rpa
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: bronze-ariba-rfp-template-1
+  title: bronze_ariba.rfp_template_1
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.bronze_ariba.rfp_template_1\n\
+    Columns (16):\n  - auction_id (string)\n  - create_date (timestamp)\n  - currency\
+    \ (string)\n  - eventStateName (string)\n  - eventTypeName (string)\n  - has_award\
+    \ (boolean)\n  - internalId (string)\n  - owner_name (string)\n  - owner_uniqueName\
+    \ (string)\n  - parentProjectId (string)\n  - status (string)\n  - title (string)\n\
+    \  - LOADING_STATUS (string)\n  - TRANSFER_TIMESTAMP (string)\n  - createDate\
+    \ (string)\n  ... +1 more\nDiscovered: 2026-04-30 11:25"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - bronze
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.bronze_ariba.rfp_template_1
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: bronze_ariba
+    databricks.com/table: rfp_template_1
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/bronze_ariba/rfp_template_1
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

@@ -1,0 +1,27 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: bronze-btp-nfa-opex-chmolist
+  title: bronze_btp.nfa_opex_chmolist
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.bronze_btp.nfa_opex_chmolist\n\
+    Columns (3):\n  - ApproverName (string)\n  - ApproverEmail (string)\n  - Identifier\
+    \ (string)\nDiscovered: 2026-04-30 11:26"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - bronze
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.bronze_btp.nfa_opex_chmolist
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: bronze_btp
+    databricks.com/table: nfa_opex_chmolist
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/bronze_btp/nfa_opex_chmolist
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

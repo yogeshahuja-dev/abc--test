@@ -1,0 +1,29 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: audit-error-master
+  title: audit.error_master
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.audit.error_master\n\
+    Columns (13):\n  - ERROR_ID (int)\n  - ERROR_CODE (varchar(50))\n  - ERROR_DEFN\
+    \ (varchar(255))\n  - ERROR_DESC (varchar(255))\n  - ERROR_TYPE (varchar(50))\n\
+    \  - SEVERITY (varchar(20))\n  - SYS_ERR_CODE (varchar(50))\n  - SYS_ERR_DESC\
+    \ (varchar(255))\n  - CR_DT (date)\n  - UPD_DT (date)\n  - VERSION (int)\n  -\
+    \ SUBTYPE (string)\n  - CORRECTIVE_ACTION (string)\nDiscovered: 2026-04-30 11:19"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.audit.error_master
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: audit
+    databricks.com/table: error_master
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/audit/error_master
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

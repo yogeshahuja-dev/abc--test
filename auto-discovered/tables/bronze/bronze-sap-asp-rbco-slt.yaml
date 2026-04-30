@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: bronze-sap-asp-rbco-slt
+  title: bronze_sap_asp.rbco_slt
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.bronze_sap_asp.rbco_slt\n\
+    Columns (81):\n  - DI_SEQUENCE_NUMBER (bigint) -- Data Services-generated integer\
+    \ for sequencing\n  - DI_OPERATION_TYPE (string) -- Data Services-generated row\
+    \ operation type\n  - MANDT (string) -- Client\n  - BELNR (string) -- Document\
+    \ Number\n  - GJAHR (bigint) -- Fiscal Year\n  - BUZEI (bigint) -- Invoice Item\n\
+    \  - COBL_NR (bigint) -- Sequence Number\n  - WRBTR (double) -- Amount\n  - ANLN1\
+    \ (string) -- Asset\n  - ANLN2 (string) -- Subnumber\n  - APLZL (bigint) -- Opertn\
+    \ Task List No.\n  - AUFNR (string) -- Order\n  - DABRZ (date) -- Reference Date\n\
+    \  - FIPOS (string) -- Commitment Item\n  - FISTL (string) -- Funds Center\n \
+    \ ... +66 more\nDiscovered: 2026-04-30 11:53"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - bronze
+  - sap
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.bronze_sap_asp.rbco_slt
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: bronze_sap_asp
+    databricks.com/table: rbco_slt
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/bronze_sap_asp/rbco_slt
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: bronze-non-sap-btp-btp-commercial-sub-approval
+  title: bronze_non_sap_btp.btp_commercial_sub_approval
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.bronze_non_sap_btp.btp_commercial_sub_approval\n\
+    Columns (47):\n  - source_blob (string)\n  - APPROVALFLOWSTATUS (string)\n  -\
+    \ ARIBAPROJECTID (string)\n  - ApprovalRequestArrivalDate (string)\n  - ApprovalStartDate\
+    \ (string)\n  - BU_NAME (string)\n  - CAPEXOPEX (string)\n  - COMPANYNAME (string)\n\
+    \  - CREATEDAT (string)\n  - CREATEDAT_1 (string)\n  - CREATEDBY (string)\n  -\
+    \ CREATEDBY_1 (string)\n  - DESIGNATION (string)\n  - EMAIL (string)\n  - EMPLOYEEID\
+    \ (string)\n  ... +32 more\nDiscovered: 2026-04-30 11:37"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - bronze
+  - sap
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.bronze_non_sap_btp.btp_commercial_sub_approval
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: bronze_non_sap_btp
+    databricks.com/table: btp_commercial_sub_approval
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/bronze_non_sap_btp/btp_commercial_sub_approval
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

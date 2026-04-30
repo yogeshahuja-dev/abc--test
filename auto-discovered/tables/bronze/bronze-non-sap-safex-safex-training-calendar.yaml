@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: bronze-non-sap-safex-safex-training-calendar
+  title: bronze_non_sap_safex.safex_training_calendar
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.bronze_non_sap_safex.safex_training_calendar\n\
+    Columns (18):\n  - Business_Unit (string)\n  - Course_Code (string)\n  - Course_Duration\
+    \ (int)\n  - End_Date (timestamp)\n  - End_Time (string)\n  - Entry_Date (timestamp)\n\
+    \  - No_Attending (int)\n  - No_Cancelled (int)\n  - No_Session_Fails (int)\n\
+    \  - No_Session_Passes (int)\n  - Session_Creator (string)\n  - Session_ID (int)\n\
+    \  - Site (string)\n  - Start_Date (timestamp)\n  - Start_Time (string)\n  ...\
+    \ +3 more\nDiscovered: 2026-04-30 11:39"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - bronze
+  - sap
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.bronze_non_sap_safex.safex_training_calendar
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: bronze_non_sap_safex
+    databricks.com/table: safex_training_calendar
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/bronze_non_sap_safex/safex_training_calendar
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

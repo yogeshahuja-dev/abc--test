@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: bronze-sap-alp-kna1
+  title: bronze_sap_alp.kna1
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.bronze_sap_alp.kna1\n\
+    Columns (195):\n  - MANDT (string)\n  - KUNNR (string)\n  - LAND1 (string)\n \
+    \ - NAME1 (string)\n  - NAME2 (string)\n  - ORT01 (string)\n  - PSTLZ (string)\n\
+    \  - REGIO (string)\n  - SORTL (string)\n  - STRAS (string)\n  - TELF1 (string)\n\
+    \  - TELFX (string)\n  - XCPDK (string)\n  - ADRNR (string)\n  - MCOD1 (string)\n\
+    \  ... +180 more\nDiscovered: 2026-04-30 11:49"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - bronze
+  - sap
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.bronze_sap_alp.kna1
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: bronze_sap_alp
+    databricks.com/table: kna1
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/bronze_sap_alp/kna1
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

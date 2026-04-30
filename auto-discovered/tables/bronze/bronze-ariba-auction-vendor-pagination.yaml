@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: bronze-ariba-auction-vendor-pagination
+  title: bronze_ariba.auction_vendor_pagination
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.bronze_ariba.auction_vendor_pagination\n\
+    Columns (35):\n  - LOADING_STATUS (string)\n  - TRANSFER_TIMESTAMP (string)\n\
+    \  - _embedded_questionAnswerList_questionAnswer_active (string)\n  - _embedded_questionAnswerList_questionAnswer_alternative\
+    \ (string)\n  - _embedded_questionAnswerList_questionAnswer_answer (string)\n\
+    \  - _embedded_questionAnswerList_questionAnswer_answerType (string)\n  - _embedded_questionAnswerList_questionAnswer_dataType\
+    \ (string)\n  - _embedded_questionAnswerList_questionAnswer_enumerationCodeDelimiters\
+    \ (string)\n  - _embedded_questionAnswerList_questionAnswer_externalSystemCorrelationId\
+    \ (string)\n  - _embedded_questionAnswerList_questionAnswer_itemId (string)\n\
+    \  - _embedded_questionAnswerList_questionAnswer_lastTimePurgeStateUpdated (string)\n\
+    \  - _embedded_questionAnswerList_questionAnswer_multiValued (string)\n  - _embedded_questionAnswerList_questionAnswer_parentUniqueName\
+    \ (string)\n  - _embedded_questionAnswerList_questionAnswer_processId (string)\n\
+    \  - _embedded_questionAnswerList_questionAnswer_purgeState (string)\n  ... +20\
+    \ more\nDiscovered: 2026-04-30 11:24"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - bronze
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.bronze_ariba.auction_vendor_pagination
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: bronze_ariba
+    databricks.com/table: auction_vendor_pagination
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/bronze_ariba/auction_vendor_pagination
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

@@ -1,0 +1,29 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: ariba-ariba-auction-bid-console
+  title: ariba.ariba_auction_bid_console
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.ariba.ariba_auction_bid_console\n\
+    Columns (11):\n  - auction_id (string)\n  - alternativeId (string)\n  - bidRank\
+    \ (bigint)\n  - bidStatus (string)\n  - eventId (string)\n  - invitationId (string)\n\
+    \  - isRevisedBid (boolean)\n  - item (struct<itemId:string,rollUpTerms:array<struct<acceptableValues:string,fieldId:string,isMultiValue:boolean,isRequirement:boolean,prerequisiteReviewStatus:bigint,rankOrder:bigint,rollup:boolean,title:string,value:struct<moneyDifferenceValue:struct<difference:struct<amount:double,currency:string>,percentage:double>,moneyValue:struct<amount:double,currency:string>>,valueTypeName:string>>,terms:array<struct<acceptableValues:string,fieldId:string,historyValue:struct<moneyValue:struct<amount:double,currency:string>,supplierValue:struct<amount:double,currency:string>>,isCompetitiveTerm:boolean,isMultiValue:boolean,isRankable:boolean,isRequirement:boolean,itemBiddingRules:struct<bestBidRule:string,biddingRulesAllowed:boolean,haloBidRule:struct<absoluteBackBuffer:double,absoluteImprovement:double,percentageBackBuffer:string,percentageImprovement:string,rankPosition:bigint,ruleEnabled:boolean>,improvementType:bigint,readOnlyGlobalImprovementType:bigint,readOnlyGlobalNthRank:bigint,readOnlyGlobalTieRank:bigint,revisedBidRule:struct<absoluteImprovement:double,percentageImprovement:double,rankPosition:bigint,ruleEnabled:boolean>,ruleToRuleProperty:struct<HaloBidRule:bigint,HaloBidRule.AbsoluteBackBuffer:bigint,HaloBidRule.AbsoluteImprovement:bigint,ReadOnlyGlobalImprovementType:bigint,RevisedBidRule:bigint,RevisedBidRule.AbsoluteImprovement:bigint,TrafficLightBidRule:bigint>,tieBidRule:string,trafficLightBidRule:struct<absoluteImprovement:string,bestBidOnly:boolean,greenBandValue:double,percentageImprovement:string,rankPosition:bigint,ruleEnabled:boolean,yellowBandValue:double>>,prerequisiteReviewStatus:bigint,rankOrder:bigint,references:array<string>,rollup:boolean,title:string,value:struct<bigDecimalValue:double,moneyDifferenceValue:struct<difference:struct<amount:double,currency:string>,percentage:double>,moneyValue:struct<amount:double,currency:string>,quantityValue:struct<amount:double,unitOfMeasureCode:string,unitOfMeasureName:string>,supplierValue:struct<amount:double,currency:string>>,valueTypeName:string>>,title:string>)\n\
+    \  - itemId (string)\n  - itemsWithBid (array<string>)\n  - submissionDate (string)\n\
+    Discovered: 2026-04-30 11:14"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.ariba.ariba_auction_bid_console
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: ariba
+    databricks.com/table: ariba_auction_bid_console
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/ariba/ariba_auction_bid_console
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

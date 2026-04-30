@@ -1,0 +1,33 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: bronze-dwh-sap-server-910
+  title: bronze_dwh_sap.server_910
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.bronze_dwh_sap.server_910\n\
+    Columns (37):\n  - Server (string)\n  - Company_Code (string)\n  - Plant (string)\n\
+    \  - Vendor_Number (string)\n  - Bar_Code_Number (string)\n  - Checklist_Creation_Date\
+    \ (timestamp)\n  - Checklist_Cancel_Date (timestamp)\n  - Checklist_creator (string)\n\
+    \  - Full_Name_of_Person (string)\n  - Checklist_Document_Type_Description (string)\n\
+    \  - Received_date (timestamp)\n  - Location (string)\n  - BU (string)\n  - Received_User_Name\
+    \ (string)\n  - Scanned_User_Name (string)\n  ... +22 more\nDiscovered: 2026-04-30\
+    \ 11:27"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - bronze
+  - sap
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.bronze_dwh_sap.server_910
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: bronze_dwh_sap
+    databricks.com/table: server_910
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/bronze_dwh_sap/server_910
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: bronze-non-sap-safex-safex-survey-engine
+  title: bronze_non_sap_safex.safex_survey_engine
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.bronze_non_sap_safex.safex_survey_engine\n\
+    Columns (12):\n  - Answer (string)\n  - NameofSurvey (string)\n  - PersonEmail\
+    \ (string)\n  - PersonName (string)\n  - Question (string)\n  - QuestionID (int)\n\
+    \  - QuestionType (string)\n  - Status (string)\n  - TimeSubmitted (timestamp)\n\
+    \  - displayid (int)\n  - responseid (int)\n  - UpdateDate (timestamp)\nDiscovered:\
+    \ 2026-04-30 11:39"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - bronze
+  - sap
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.bronze_non_sap_safex.safex_survey_engine
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: bronze_non_sap_safex
+    databricks.com/table: safex_survey_engine
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/bronze_non_sap_safex/safex_survey_engine
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

@@ -1,0 +1,33 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: bronze-non-sap-safex-temp-safex-concernreporting
+  title: bronze_non_sap_safex_temp.safex_concernreporting
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.bronze_non_sap_safex_temp.safex_concernreporting\n\
+    Columns (36):\n  - AssignedTo (string)\n  - Business (string)\n  - ConcernDate\
+    \ (timestamp)\n  - ConcernDescription (string)\n  - ConcernDueDate (date)\n  -\
+    \ ConcernID (int)\n  - ConcernType (string)\n  - Concern_Closure_Category (string)\n\
+    \  - Concern_Time (string)\n  - Contact_Information (string)\n  - Corrective_Actions\
+    \ (string)\n  - DateConcernClosed (date)\n  - DateConcernLogged (timestamp)\n\
+    \  - Department (string)\n  - EscalatedStatus (string)\n  ... +21 more\nDiscovered:\
+    \ 2026-04-30 11:39"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - bronze
+  - sap
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.bronze_non_sap_safex_temp.safex_concernreporting
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: bronze_non_sap_safex_temp
+    databricks.com/table: safex_concernreporting
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/bronze_non_sap_safex_temp/safex_concernreporting
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: bronze-sap-aem-t007s
+  title: bronze_sap_aem.t007s
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.bronze_sap_aem.t007s\n\
+    Columns (8):\n  - MANDT (string)\n  - SPRAS (string)\n  - KALSM (string)\n  -\
+    \ MWSKZ (string)\n  - TEXT1 (string)\n  - SYS_INGESTION_DATE (date)\n  - SYS_FILE_NAME\
+    \ (string)\n  - SYS_MODIFIED_TIME (timestamp)\nDiscovered: 2026-04-30 11:46"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - bronze
+  - sap
+  - aem
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.bronze_sap_aem.t007s
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: bronze_sap_aem
+    databricks.com/table: t007s
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/bronze_sap_aem/t007s
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

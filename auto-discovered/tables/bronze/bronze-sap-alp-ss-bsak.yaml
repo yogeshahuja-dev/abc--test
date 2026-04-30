@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: bronze-sap-alp-ss-bsak
+  title: bronze_sap_alp_ss.bsak
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.bronze_sap_alp_ss.bsak\n\
+    Columns (184):\n  - MANDT (string) -- Client\n  - BUKRS (string) -- Company Code\n\
+    \  - LIFNR (string) -- Account Number of Vendor or Creditor\n  - UMSKS (string)\
+    \ -- Special G/L Transaction Type\n  - UMSKZ (string) -- Special G/L Indicator\n\
+    \  - AUGDT (timestamp) -- Clearing Date\n  - AUGBL (string) -- Document Number\
+    \ of the Clearing Document\n  - ZUONR (string) -- Assignment Number\n  - GJAHR\
+    \ (bigint) -- Fiscal Year\n  - BELNR (string) -- Accounting Document Number\n\
+    \  - BUZEI (bigint) -- Number of Line Item Within Accounting Document\n  - BUDAT\
+    \ (timestamp) -- Posting Date in the Document\n  - BLDAT (timestamp) -- Document\
+    \ Date in Document\n  - CPUDT (timestamp) -- Day On Which Accounting Document\
+    \ Was Entered\n  - WAERS (string) -- Currency Key\n  ... +169 more\nDiscovered:\
+    \ 2026-04-30 11:50"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - bronze
+  - sap
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.bronze_sap_alp_ss.bsak
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: bronze_sap_alp_ss
+    databricks.com/table: bsak
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/bronze_sap_alp_ss/bsak
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

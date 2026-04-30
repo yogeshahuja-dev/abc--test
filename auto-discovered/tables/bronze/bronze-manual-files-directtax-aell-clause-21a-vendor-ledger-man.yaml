@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: bronze-manual-files-directtax-aell-clause-21a-vendor-ledger-man
+  title: bronze_manual_files.directtax_aell_clause_21a_vendor_ledger_manual_file
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.bronze_manual_files.directtax_aell_clause_21a_vendor_ledger_manual_file\n\
+    Columns (25):\n  - account (string)\n  - account_name (string)\n  - amount_in_doc_curr\
+    \ (string)\n  - amount_in_local_currency (string)\n  - assignment (string)\n \
+    \ - business_area (string)\n  - clearing_date (string)\n  - clearing_document\
+    \ (string)\n  - company_code (string)\n  - document_date (string)\n  - document_number\
+    \ (string)\n  - document_type (string)\n  - eff_exchange_rate (string)\n  - fiscal_year\
+    \ (string)\n  - invoice_reference (string)\n  ... +10 more\nDiscovered: 2026-04-30\
+    \ 11:29"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - bronze
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.bronze_manual_files.directtax_aell_clause_21a_vendor_ledger_manual_file
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: bronze_manual_files
+    databricks.com/table: directtax_aell_clause_21a_vendor_ledger_manual_file
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/bronze_manual_files/directtax_aell_clause_21a_vendor_ledger_manual_file
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

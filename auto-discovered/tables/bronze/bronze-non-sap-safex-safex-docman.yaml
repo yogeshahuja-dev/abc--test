@@ -1,0 +1,29 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: bronze-non-sap-safex-safex-docman
+  title: bronze_non_sap_safex.safex_docman
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.bronze_non_sap_safex.safex_docman\n\
+    Columns (6):\n  - ID (int)\n  - Last_Modified (timestamp)\n  - Name (string)\n\
+    \  - Path (string)\n  - Status (string)\n  - Type (string)\nDiscovered: 2026-04-30\
+    \ 11:38"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - bronze
+  - sap
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.bronze_non_sap_safex.safex_docman
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: bronze_non_sap_safex
+    databricks.com/table: safex_docman
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/bronze_non_sap_safex/safex_docman
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

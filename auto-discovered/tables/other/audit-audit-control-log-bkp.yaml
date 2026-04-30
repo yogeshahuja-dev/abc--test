@@ -1,0 +1,29 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: audit-audit-control-log-bkp
+  title: audit.audit_control_log_bkp
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.audit.audit_control_log_bkp\n\
+    Columns (13):\n  - job_runid (string)\n  - job_name (string)\n  - table_groupid\
+    \ (string)\n  - source_layer (string)\n  - target_layer (string)\n  - table_name\
+    \ (string)\n  - record_processed (bigint)\n  - mode (string)\n  - status (string)\n\
+    \  - user_id (string)\n  - msg (string)\n  - start_time (timestamp)\n  - end_time\
+    \ (timestamp)\nDiscovered: 2026-04-30 11:18"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.audit.audit_control_log_bkp
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: audit
+    databricks.com/table: audit_control_log_bkp
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/audit/audit_control_log_bkp
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

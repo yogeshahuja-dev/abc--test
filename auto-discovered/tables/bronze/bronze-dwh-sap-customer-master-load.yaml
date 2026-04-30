@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: bronze-dwh-sap-customer-master-load
+  title: bronze_dwh_sap.customer_master_load
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.bronze_dwh_sap.customer_master_load\n\
+    Columns (38):\n  - Company_Code (string)\n  - Server (string)\n  - Customer_Code\
+    \ (string)\n  - NAME (string)\n  - STREET (string)\n  - Street_2 (string)\n  -\
+    \ Street_3 (string)\n  - Street_4 (string)\n  - STreet_5 (string)\n  - Postal_Code\
+    \ (string)\n  - City (string)\n  - Region_Key (string)\n  - Country_Key (string)\n\
+    \  - SMTP_ADDR (string)\n  - Created_ON (timestamp)\n  ... +23 more\nDiscovered:\
+    \ 2026-04-30 11:26"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - bronze
+  - sap
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.bronze_dwh_sap.customer_master_load
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: bronze_dwh_sap
+    databricks.com/table: customer_master_load
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/bronze_dwh_sap/customer_master_load
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

@@ -1,0 +1,48 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: bronze-ariba-rfp-rfq-combined
+  title: bronze_ariba.rfp_rfq_combined
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.bronze_ariba.rfp_rfq_combined\n\
+    Columns (16):\n  - title (string) -- The title provides a brief description or\
+    \ name of the item being represented in the table.\n  - processId (string) --\
+    \ A unique identifier for the process associated with the item, useful for tracking\
+    \ and referencing specific workflows.\n  - lastModified (string)\n  - parentProjectId\
+    \ (string) -- Represents the unique identifier of the parent project to which\
+    \ the item belongs, establishing a relationship between items.\n  - internalStatus\
+    \ (string) -- Describes the current internal status of the item, which can be\
+    \ used to assess its progress or state within a workflow.\n  - lastModifiedBy_name\
+    \ (string) -- The name of the individual or entity that owns the item, providing\
+    \ insight into accountability and responsibility.\n  - parentProjectTitle (string)\
+    \ -- The title of the parent project associated with the item, offering context\
+    \ and clarity regarding its broader purpose.\n  - internalId (string) -- A unique\
+    \ internal identifier for the item, which can be used for referencing and managing\
+    \ data within the system.\n  - lastModifiedBy_uniqueName (string) -- A unique\
+    \ identifier for the individual who last modified the item, facilitating easier\
+    \ tracking of changes.\n  - iconType (string) -- Specifies the type of icon associated\
+    \ with the item, which may be used for visual representation in user interfaces.\n\
+    \  - createDate (string)\n  - owner_uniqueName (string) -- A unique identifier\
+    \ for the owner of the item, which aids in managing ownership and permissions.\n\
+    \  - baseLanguage (string) -- Indicates the primary language used for the item,\
+    \ which is important for localization and understanding the content.\n  - LOADING_STATUS\
+    \ (string)\n  - TRANSFER_TIMESTAMP (string)\n  ... +1 more\nDiscovered: 2026-04-30\
+    \ 11:24"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - bronze
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.bronze_ariba.rfp_rfq_combined
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: bronze_ariba
+    databricks.com/table: rfp_rfq_combined
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/bronze_ariba/rfp_rfq_combined
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

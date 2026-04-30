@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: bronze-ariba-e-auction-bid-history-combined-string-1
+  title: bronze_ariba.e_auction_bid_history_combined_string_1
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.bronze_ariba.e_auction_bid_history_combined_string_1\n\
+    Columns (25):\n  - value_moneyValue_amount (string)\n  - valueTypeName (string)\n\
+    \  - title (string)\n  - rankOrder (string)\n  - item_itemId (string)\n  - isRequirement\
+    \ (string)\n  - value_supplierValue_currency (string)\n  - value_moneyValue_currency\
+    \ (string)\n  - prerequisiteReviewStatus (string)\n  - fieldId (string)\n  - eventId\
+    \ (string)\n  - isMultiValue (string)\n  - item_title (string)\n  - bidStatus\
+    \ (string)\n  - value_supplierValue_amount (string)\n  ... +10 more\nDiscovered:\
+    \ 2026-04-30 11:24"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - bronze
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.bronze_ariba.e_auction_bid_history_combined_string_1
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: bronze_ariba
+    databricks.com/table: e_auction_bid_history_combined_string_1
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/bronze_ariba/e_auction_bid_history_combined_string_1
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: ariba-etl-dashboard-aue-auction-bid-history-combined
+  title: ariba_etl_dashboard.aue_auction_bid_history_combined
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.ariba_etl_dashboard.aue_auction_bid_history_combined\n\
+    Columns (25):\n  - value_moneyValue_amount (string)\n  - valueTypeName (string)\n\
+    \  - title (string)\n  - rankOrder (string)\n  - item_itemId (string)\n  - isRequirement\
+    \ (string)\n  - value_supplierValue_currency (string)\n  - value_moneyValue_currency\
+    \ (string)\n  - prerequisiteReviewStatus (string)\n  - fieldId (string)\n  - eventId\
+    \ (string)\n  - isMultiValue (string)\n  - item_title (string)\n  - bidStatus\
+    \ (string)\n  - value_supplierValue_amount (string)\n  ... +10 more\nDiscovered:\
+    \ 2026-04-30 11:16"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.ariba_etl_dashboard.aue_auction_bid_history_combined
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: ariba_etl_dashboard
+    databricks.com/table: aue_auction_bid_history_combined
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/ariba_etl_dashboard/aue_auction_bid_history_combined
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

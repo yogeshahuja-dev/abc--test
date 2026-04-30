@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: bronze-autodesk-autodesk-master-projects
+  title: bronze_autodesk.autodesk_master_projects
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.bronze_autodesk.autodesk_master_projects\n\
+    Description: The table contains data on master projects, including project attributes\
+    \ and relationships to various resources. It can be used to track project loading\
+    \ status, transfer timestamps, and project types. The data also includes nested\
+    \ relationships such as cost data, issues, locations, and other related entities.\
+    \ This table is useful for project management and analysis, enabling users to\
+    \ map project structures and assess their attributes and relationships.\nColumns\
+    \ (78):\n  - LOADING_STATUS (string)\n  - TRANSFER_TIMESTAMP (string)\n  - attributes_extension_data_projectType\
+    \ (string)\n  - attributes_extension_schema_href (string)\n  - attributes_extension_type\
+    \ (string)\n  - attributes_extension_version (string)\n  - attributes_name (string)\n\
+    \  - attributes_scopes (string)\n  - id (string)\n  - links_self_href (string)\n\
+    \  - links_webView_href (string)\n  - relationships_cost_data_id (string)\n  -\
+    \ relationships_cost_data_type (string)\n  - relationships_cost_meta_link_href\
+    \ (string)\n  - relationships_hub_data_id (string)\n  ... +63 more\nDiscovered:\
+    \ 2026-04-30 11:25"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - bronze
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.bronze_autodesk.autodesk_master_projects
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: bronze_autodesk
+    databricks.com/table: autodesk_master_projects
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/bronze_autodesk/autodesk_master_projects
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

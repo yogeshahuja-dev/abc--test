@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: bronze-sap-asp-mska-slt
+  title: bronze_sap_asp.mska_slt
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.bronze_sap_asp.mska_slt\n\
+    Columns (46):\n  - DI_SEQUENCE_NUMBER (bigint)\n  - DI_OPERATION_TYPE (string)\n\
+    \  - MANDT (string)\n  - MATNR (string)\n  - WERKS (string)\n  - LGORT (string)\n\
+    \  - CHARG (string)\n  - SOBKZ (string)\n  - VBELN (string)\n  - POSNR (string)\n\
+    \  - LFGJA (string)\n  - LFMON (string)\n  - KASPR (string)\n  - KALAB (string)\n\
+    \  - KAINS (string)\n  ... +31 more\nDiscovered: 2026-04-30 11:52"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - bronze
+  - sap
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.bronze_sap_asp.mska_slt
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: bronze_sap_asp
+    databricks.com/table: mska_slt
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/bronze_sap_asp/mska_slt
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

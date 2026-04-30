@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: bronze-safex-safex-it-savedchecklists
+  title: bronze_safex.safex_it_savedchecklists
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.bronze_safex.safex_it_savedchecklists\n\
+    Columns (32):\n  - AnswerTypes (string)\n  - AssignedTo (string)\n  - AssignmentID\
+    \ (int)\n  - AssignmentStatus (string)\n  - AuditType (string)\n  - Auditor (string)\n\
+    \  - Building (string)\n  - Checklist (string)\n  - ChecklistArchive (boolean)\n\
+    \  - ChecklistQuestions (int)\n  - CompletedonGensuiteMobile_Desktop (string)\n\
+    \  - Department (string)\n  - DueDate (timestamp)\n  - FirstRecorded (timestamp)\n\
+    \  - Frequency (string)\n  ... +17 more\nDiscovered: 2026-04-30 11:42"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - bronze
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.bronze_safex.safex_it_savedchecklists
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: bronze_safex
+    databricks.com/table: safex_it_savedchecklists
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/bronze_safex/safex_it_savedchecklists
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

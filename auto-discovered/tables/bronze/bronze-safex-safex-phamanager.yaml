@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: bronze-safex-safex-phamanager
+  title: bronze_safex.safex_phamanager
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.bronze_safex.safex_phamanager\n\
+    Columns (41):\n  - Archive (boolean)\n  - BldgID (double)\n  - Chemical_List (string)\n\
+    \  - Chemical_List_Text (string)\n  - ClosedPhaDetails (int)\n  - CreatedBy (string)\n\
+    \  - CreatedDate (timestamp)\n  - Date_completed (string)\n  - DeptID (double)\n\
+    \  - Description (string)\n  - Frequency (double)\n  - Member_Id_Text (string)\n\
+    \  - OpenActions (int)\n  - OpenPhaDetails (int)\n  - OwnerID (double)\n  ...\
+    \ +26 more\nDiscovered: 2026-04-30 11:42"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - bronze
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.bronze_safex.safex_phamanager
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: bronze_safex
+    databricks.com/table: safex_phamanager
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/bronze_safex/safex_phamanager
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

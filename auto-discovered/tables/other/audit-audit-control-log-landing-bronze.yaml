@@ -1,0 +1,29 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: audit-audit-control-log-landing-bronze
+  title: audit.audit_control_log_landing_bronze
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.audit.audit_control_log_landing_bronze\n\
+    Columns (13):\n  - server (string)\n  - table (string)\n  - date (string)\n  -\
+    \ file_name (string)\n  - ingestion_timestamp_ist (string)\n  - landing_ingestion_timestamp_ist\
+    \ (string)\n  - concat (string)\n  - table_groupid (string)\n  - table_name (string)\n\
+    \  - record_processed (bigint)\n  - msg (string)\n  - bronze_ingestion_timestamp_ist\
+    \ (timestamp)\n  - diff_minutes (bigint)\nDiscovered: 2026-04-30 11:18"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.audit.audit_control_log_landing_bronze
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: audit
+    databricks.com/table: audit_control_log_landing_bronze
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/audit/audit_control_log_landing_bronze
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

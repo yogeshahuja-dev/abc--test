@@ -1,0 +1,26 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: audit-edl-summary
+  title: audit.edl_summary
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.audit.edl_summary\n\
+    Columns (5):\n  - process_date (date)\n  - Layer (string)\n  - Completed (bigint)\n\
+    \  - Failed (bigint)\n  - Skipped (bigint)\nDiscovered: 2026-04-30 11:19"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.audit.edl_summary
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: audit
+    databricks.com/table: edl_summary
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/audit/edl_summary
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

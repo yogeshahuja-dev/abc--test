@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: bronze-dwh-sap-audit-data-extract
+  title: bronze_dwh_sap.audit_data_extract
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.bronze_dwh_sap.audit_data_extract\n\
+    Columns (13):\n  - request (string)\n  - u_subcategory (string)\n  - due_date\
+    \ (string)\n  - priority (string)\n  - u_resolved_date (string)\n  - u_category\
+    \ (string)\n  - number (string)\n  - sys_created_on (string)\n  - state (string)\n\
+    \  - u_business_unit (string)\n  - sys_created_by (string)\n  - assigned_to (string)\n\
+    \  - u_change_request (string)\nDiscovered: 2026-04-30 11:26"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - bronze
+  - sap
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.bronze_dwh_sap.audit_data_extract
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: bronze_dwh_sap
+    databricks.com/table: audit_data_extract
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/bronze_dwh_sap/audit_data_extract
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

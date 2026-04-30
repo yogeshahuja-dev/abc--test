@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: audit-lifecycle-retention-logs
+  title: audit.lifecycle_retention_logs
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.audit.lifecycle_retention_logs\n\
+    Columns (9):\n  - run_id (string)\n  - process_date (date)\n  - full_table_name\
+    \ (string)\n  - mode (string)\n  - retention_days (int)\n  - where_clause (string)\n\
+    \  - matched_count (bigint)\n  - status (string)\n  - message (string)\nDiscovered:\
+    \ 2026-04-30 11:20"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.audit.lifecycle_retention_logs
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: audit
+    databricks.com/table: lifecycle_retention_logs
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/audit/lifecycle_retention_logs
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: ariba-etl-dashboard-rfp-template
+  title: ariba_etl_dashboard.rfp_template
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.ariba_etl_dashboard.rfp_template\n\
+    Columns (14):\n  - title (string)\n  - internalId (string)\n  - currency (string)\n\
+    \  - status (string)\n  - eventTypeName (string)\n  - owner_name (string)\n  -\
+    \ owner_uniqueName (string)\n  - auction_id (string)\n  - createDate (string)\n\
+    \  - hasAward (string)\n  - parentProjectId (string)\n  - eventStateName (string)\n\
+    \  - TRANSFER_TIMESTAMP (string)\n  - LOADING_STATUS (string)\nDiscovered: 2026-04-30\
+    \ 11:17"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.ariba_etl_dashboard.rfp_template
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: ariba_etl_dashboard
+    databricks.com/table: rfp_template
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/ariba_etl_dashboard/rfp_template
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

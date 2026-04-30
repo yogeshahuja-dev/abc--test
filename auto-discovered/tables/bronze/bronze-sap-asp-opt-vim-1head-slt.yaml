@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: bronze-sap-asp-opt-vim-1head-slt
+  title: bronze_sap_asp.opt_vim_1head_slt
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.bronze_sap_asp.opt_vim_1head_slt\n\
+    Columns (399):\n  - DI_SEQUENCE_NUMBER (bigint)\n  - DI_OPERATION_TYPE (string)\n\
+    \  - MANDT (string) -- Client\n  - DOCID (bigint) -- Document Ledger Number\n\
+    \  - DOCTYPE (string) -- Document Type\n  - ARCHIV_ID (string) -- Content Repository\
+    \ Identification\n  - ARC_DOC_ID (string) -- SAP ArchiveLink: Document ID\n  -\
+    \ AR_OBJECT (string) -- Archive Document Type\n  - EDI_DOCNUM (bigint) -- IDoc\
+    \ number\n  - ARCHIVE_DATE (date) -- Document Archive Date\n  - ARCHIVE_TIME (string)\
+    \ -- Document Archive Time\n  - ARCHIVE_USER (string) -- Document Archive User\n\
+    \  - INDEX_DATE (date) -- Document Create Date\n  - INDEX_TIME (string) -- Document\
+    \ Create Time\n  - INDEX_USER (string) -- User Responsible for Document Creation\n\
+    \  ... +384 more\nDiscovered: 2026-04-30 11:53"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - bronze
+  - sap
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.bronze_sap_asp.opt_vim_1head_slt
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: bronze_sap_asp
+    databricks.com/table: opt_vim_1head_slt
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/bronze_sap_asp/opt_vim_1head_slt
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

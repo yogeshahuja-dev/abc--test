@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: bronze-gentec-doormaster-gentec-device-doormaster
+  title: bronze_gentec_doormaster.gentec_device_doormaster
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.bronze_gentec_doormaster.gentec_device_doormaster\n\
+    Description: The table contains information about door master devices, including\
+    \ their unique identifiers, locations, and specific areas associated with each\
+    \ door. This data can be used for tracking device placements, managing inventory,\
+    \ and analyzing door usage across different locations.\nColumns (3):\n  - DM_DOOR_GUID\
+    \ (string) -- A unique identifier for each door entry, ensuring that every door\
+    \ can be distinctly referenced.\n  - DM_DOOR_LOCATION (string) -- Describes the\
+    \ physical location of the door, providing context for where it is situated within\
+    \ a building or area.\n  - DM_AREA_OF_DOOR (string) -- Indicates the specific\
+    \ area or section associated with the door, which can be useful for categorizing\
+    \ or managing door-related data.\nDiscovered: 2026-04-30 11:27"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - bronze
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.bronze_gentec_doormaster.gentec_device_doormaster
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: bronze_gentec_doormaster
+    databricks.com/table: gentec_device_doormaster
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/bronze_gentec_doormaster/gentec_device_doormaster
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

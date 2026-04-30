@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: access-control-data-model-mapping
+  title: access_control.data_model_mapping
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.access_control.data_model_mapping\n\
+    Columns (2):\n  - bu (string)\n  - group (string)\nDiscovered: 2026-04-30 11:10"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.access_control.data_model_mapping
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: access_control
+    databricks.com/table: data_model_mapping
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/access_control/data_model_mapping
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

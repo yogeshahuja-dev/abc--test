@@ -1,0 +1,33 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: bronze-non-sap-precon-precon-shells
+  title: bronze_non_sap_precon.precon_shells
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.bronze_non_sap_precon.precon_shells\n\
+    Columns (23):\n  - Administrator (string)\n  - Construction_Type (string)\n  -\
+    \ Creation_Date (string)\n  - Description (string)\n  - Location (string)\n  -\
+    \ Name (string)\n  - Number (string)\n  - Organization_Category (string)\n  -\
+    \ P6_Project_ID (string)\n  - Phase (string)\n  - Project_Std_Construction_Complete\
+    \ (string)\n  - Project_Std_Design_Complete (string)\n  - Project_Std_Notes (string)\n\
+    \  - Project_Std_Planned_Completion_Date (string)\n  - Project_Std_Revised_Completion_Date\
+    \ (string)\n  ... +8 more\nDiscovered: 2026-04-30 11:38"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - bronze
+  - sap
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.bronze_non_sap_precon.precon_shells
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: bronze_non_sap_precon
+    databricks.com/table: precon_shells
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/bronze_non_sap_precon/precon_shells
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

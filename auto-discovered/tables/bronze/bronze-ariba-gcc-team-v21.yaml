@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: bronze-ariba-gcc-team-v21
+  title: bronze_ariba.gcc_team_v21
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.bronze_ariba.gcc_team_v21\n\
+    Columns (36):\n  - LOADING_STATUS (string)\n  - TRANSFER_TIMESTAMP (string)\n\
+    \  - childGroups (string)\n  - id (string)\n  - isDeletable (string)\n  - isEditable\
+    \ (string)\n  - isGlobal (string)\n  - isOwner (string)\n  - name (string)\n \
+    \ - nameDefaultTranslation (string)\n  - roles (string)\n  - type (string)\n \
+    \ - users (string)\n  - parentProjectId (string)\n  - roles_name (string)\n  ...\
+    \ +21 more\nDiscovered: 2026-04-30 11:24"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - bronze
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.bronze_ariba.gcc_team_v21
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: bronze_ariba
+    databricks.com/table: gcc_team_v21
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/bronze_ariba/gcc_team_v21
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

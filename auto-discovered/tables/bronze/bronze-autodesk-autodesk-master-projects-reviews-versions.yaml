@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: bronze-autodesk-autodesk-master-projects-reviews-versions
+  title: bronze_autodesk.autodesk_master_projects_reviews_versions
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.bronze_autodesk.autodesk_master_projects_reviews_versions\n\
+    Columns (20):\n  - LOADING_STATUS (string)\n  - Project_Id (string)\n  - ReviewId\
+    \ (string)\n  - TRANSFER_TIMESTAMP (string)\n  - XUserId (string)\n  - approveStatus_id\
+    \ (string)\n  - approveStatus_label (string)\n  - approveStatus_value (string)\n\
+    \  - copiedFileVersionUrn (string)\n  - itemUrn (string)\n  - name (string)\n\
+    \  - reviewContent_customAttributes (string)\n  - reviewContent_name (string)\n\
+    \  - urn (string)\n  - approveStatus (string)\n  ... +5 more\nDiscovered: 2026-04-30\
+    \ 11:25"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - bronze
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.bronze_autodesk.autodesk_master_projects_reviews_versions
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: bronze_autodesk
+    databricks.com/table: autodesk_master_projects_reviews_versions
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/bronze_autodesk/autodesk_master_projects_reviews_versions
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: bronze-non-sap-ariba-ariba-rfp-tasks
+  title: bronze_non_sap_ariba.ariba_rfp_tasks
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.bronze_non_sap_ariba.ariba_rfp_tasks\n\
+    Columns (20):\n  - LOADING_STATUS (string)\n  - TRANSFER_TIMESTAMP (string)\n\
+    \  - baseLanguage (string)\n  - beginDate (string)\n  - createDate (string)\n\
+    \  - documentId (string)\n  - endDate (string)\n  - iconType (string)\n  - internalId\
+    \ (string)\n  - internalStatus (string)\n  - lastModified (string)\n  - lastModifiedBy_name\
+    \ (string)\n  - lastModifiedBy_uniqueName (string)\n  - owner_name (string)\n\
+    \  - owner_uniqueName (string)\n  ... +5 more\nDiscovered: 2026-04-30 11:37"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - bronze
+  - sap
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.bronze_non_sap_ariba.ariba_rfp_tasks
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: bronze_non_sap_ariba
+    databricks.com/table: ariba_rfp_tasks
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/bronze_non_sap_ariba/ariba_rfp_tasks
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

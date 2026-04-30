@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: bronze-sap-alp-rseg
+  title: bronze_sap_alp.rseg
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.bronze_sap_alp.rseg\n\
+    Columns (103):\n  - MANDT (string)\n  - BELNR (string)\n  - GJAHR (bigint)\n \
+    \ - BUZEI (bigint)\n  - EBELN (string)\n  - EBELP (bigint)\n  - ZEKKN (bigint)\n\
+    \  - MATNR (string)\n  - BWKEY (string)\n  - BWTAR (string)\n  - BUKRS (string)\n\
+    \  - WERKS (string)\n  - WRBTR (double)\n  - SHKZG (string)\n  - MWSKZ (string)\n\
+    \  ... +88 more\nDiscovered: 2026-04-30 11:49"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - bronze
+  - sap
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.bronze_sap_alp.rseg
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: bronze_sap_alp
+    databricks.com/table: rseg
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/bronze_sap_alp/rseg
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

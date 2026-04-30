@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: bronze-manual-files-p6-adoption-subscribers
+  title: bronze_manual_files.p6_adoption_subscribers
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.bronze_manual_files.p6_adoption_subscribers\n\
+    Columns (14):\n  - Last_Name (string)\n  - First_Name (string)\n  - Email (string)\n\
+    \  - Username (string)\n  - Company (string)\n  - User_Type (string)\n  - Locked\
+    \ (string)\n  - Active (string)\n  - Created_Date (string)\n  - Added_By (string)\n\
+    \  - Updated_Date (string)\n  - R_AdaniPrimaveraP6Stage (string)\n  - R_AdaniPrimaveraP6Production\
+    \ (string)\n  - Planner_Reporter (string)\nDiscovered: 2026-04-30 11:34"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - bronze
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.bronze_manual_files.p6_adoption_subscribers
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: bronze_manual_files
+    databricks.com/table: p6_adoption_subscribers
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/bronze_manual_files/p6_adoption_subscribers
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: bronze-non-sap-safex-it-questionsresponses
+  title: bronze_non_sap.safex_it_questionsresponses
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.bronze_non_sap.safex_it_questionsresponses\n\
+    Columns (28):\n  - AssignmentID (int)\n  - Building (string)\n  - Checklist (string)\n\
+    \  - ChecklistArchive (boolean)\n  - ClosureCategory (string)\n  - Department\
+    \ (string)\n  - FindingCRExported (int)\n  - FindingCategory (string)\n  - FindingID\
+    \ (int)\n  - FindingNotExported (int)\n  - FindingNum (int)\n  - FindingReference\
+    \ (string)\n  - FindingType (string)\n  - InspectionID (int)\n  - No_NonCompliant\
+    \ (int)\n  ... +13 more\nDiscovered: 2026-04-30 11:36"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - bronze
+  - sap
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.bronze_non_sap.safex_it_questionsresponses
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: bronze_non_sap
+    databricks.com/table: safex_it_questionsresponses
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/bronze_non_sap/safex_it_questionsresponses
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

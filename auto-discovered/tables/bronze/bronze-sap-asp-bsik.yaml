@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: bronze-sap-asp-bsik
+  title: bronze_sap_asp.bsik
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.bronze_sap_asp.bsik\n\
+    Columns (215):\n  - MANDT (string)\n  - BUKRS (string)\n  - LIFNR (string)\n \
+    \ - UMSKS (string)\n  - UMSKZ (string)\n  - AUGDT (date)\n  - AUGBL (string)\n\
+    \  - ZUONR (string)\n  - GJAHR (int)\n  - BELNR (string)\n  - BUZEI (int)\n  -\
+    \ BUDAT (date)\n  - BLDAT (date)\n  - CPUDT (date)\n  - WAERS (string)\n  ...\
+    \ +200 more\nDiscovered: 2026-04-30 11:50"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - bronze
+  - sap
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.bronze_sap_asp.bsik
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: bronze_sap_asp
+    databricks.com/table: bsik
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/bronze_sap_asp/bsik
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

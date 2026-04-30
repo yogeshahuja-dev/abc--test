@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: bronze-non-sap-p6-p6-activity-code-assignment
+  title: bronze_non_sap_p6.p6_activity_code_assignment
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.bronze_non_sap_p6.p6_activity_code_assignment\n\
+    Columns (7):\n  - ActivityCodeDescription (string)\n  - ActivityCodeTypeName (string)\n\
+    \  - ActivityCodeTypeObjectId (string)\n  - ActivityCodeValue (string)\n  - ActivityObjectId\
+    \ (string)\n  - ProjectId (string)\n  - __source_blob__ (string)\nDiscovered:\
+    \ 2026-04-30 11:37"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - bronze
+  - sap
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.bronze_non_sap_p6.p6_activity_code_assignment
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: bronze_non_sap_p6
+    databricks.com/table: p6_activity_code_assignment
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/bronze_non_sap_p6/p6_activity_code_assignment
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

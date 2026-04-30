@@ -1,0 +1,29 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: bronze-dwh-sap-sap-dsis-dq-report
+  title: bronze_dwh_sap.sap_dsis_dq_report
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.bronze_dwh_sap.sap_dsis_dq_report\n\
+    Columns (8):\n  - Master_Name (string)\n  - Key_Data_Domains (string)\n  - Dimensions\
+    \ (string)\n  - Rules (string)\n  - Total_Records (bigint)\n  - Pass_Records (bigint)\n\
+    \  - Failed_Records (bigint)\n  - DQ_Score (double)\nDiscovered: 2026-04-30 11:27"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - bronze
+  - sap
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.bronze_dwh_sap.sap_dsis_dq_report
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: bronze_dwh_sap
+    databricks.com/table: sap_dsis_dq_report
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/bronze_dwh_sap/sap_dsis_dq_report
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

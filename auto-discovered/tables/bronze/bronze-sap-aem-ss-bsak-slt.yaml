@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: bronze-sap-aem-ss-bsak-slt
+  title: bronze_sap_aem_ss.bsak_slt
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.bronze_sap_aem_ss.bsak_slt\n\
+    Columns (189):\n  - DI_SEQUENCE_NUMBER (bigint) -- Data Services-generated integer\
+    \ for sequencing\n  - DI_OPERATION_TYPE (string) -- Data Services-generated row\
+    \ operation type\n  - MANDT (string) -- Client\n  - BUKRS (string) -- Company\
+    \ Code\n  - LIFNR (string) -- Vendor\n  - UMSKS (string) -- Sp.G/L trans.type\n\
+    \  - UMSKZ (string) -- Special G/L ind.\n  - AUGDT (date) -- Clearing date\n \
+    \ - AUGBL (string) -- Clearing Document\n  - ZUONR (string) -- Assignment\n  -\
+    \ GJAHR (bigint) -- Fiscal Year\n  - BELNR (string) -- Document Number\n  - BUZEI\
+    \ (bigint) -- Line item\n  - BUDAT (date) -- Posting Date\n  - BLDAT (date) --\
+    \ Document Date\n  ... +174 more\nDiscovered: 2026-04-30 11:48"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - bronze
+  - sap
+  - aem
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.bronze_sap_aem_ss.bsak_slt
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: bronze_sap_aem_ss
+    databricks.com/table: bsak_slt
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/bronze_sap_aem_ss/bsak_slt
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

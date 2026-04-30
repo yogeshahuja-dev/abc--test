@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: bronze-dwh-sap-openticketapi
+  title: bronze_dwh_sap.openticketapi
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.bronze_dwh_sap.openticketapi\n\
+    Columns (19):\n  - string_field_0 (string)\n  - string_field_1 (string)\n  - string_field_2\
+    \ (string)\n  - string_field_3 (string)\n  - string_field_4 (string)\n  - string_field_5\
+    \ (string)\n  - string_field_6 (string)\n  - string_field_7 (string)\n  - string_field_8\
+    \ (string)\n  - string_field_9 (string)\n  - string_field_10 (string)\n  - string_field_11\
+    \ (string)\n  - string_field_12 (string)\n  - string_field_13 (string)\n  - string_field_14\
+    \ (string)\n  ... +4 more\nDiscovered: 2026-04-30 11:27"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - bronze
+  - sap
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.bronze_dwh_sap.openticketapi
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: bronze_dwh_sap
+    databricks.com/table: openticketapi
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/bronze_dwh_sap/openticketapi
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

@@ -1,0 +1,33 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: bronze-non-sap-safex-temp-safex-im-cases-data
+  title: bronze_non_sap_safex_temp.safex_im_cases_data
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.bronze_non_sap_safex_temp.safex_im_cases_data\n\
+    Columns (128):\n  - Accident_Type (string)\n  - Additional_SMS_Element (string)\n\
+    \  - Additional_Unsafe_Condition (string)\n  - Badge_Pay_No (string)\n  - Business\
+    \ (string)\n  - Case_DateCreated (timestamp)\n  - Case_Desc_Ext (string)\n  -\
+    \ Case_Emp_Address (string)\n  - Case_Emp_Date_Hire (timestamp)\n  - Case_Emp_SSN\
+    \ (string)\n  - Case_Emp_Sex (string)\n  - Case_Equipment (string)\n  - Case_Equipment_Family\
+    \ (string)\n  - Case_Ergo_Env (string)\n  - Case_Ergo_Indiv (string)\n  ... +113\
+    \ more\nDiscovered: 2026-04-30 11:39"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - bronze
+  - sap
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.bronze_non_sap_safex_temp.safex_im_cases_data
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: bronze_non_sap_safex_temp
+    databricks.com/table: safex_im_cases_data
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/bronze_non_sap_safex_temp/safex_im_cases_data
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

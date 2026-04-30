@@ -1,0 +1,34 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: br-sap-aem-quality-monitoring-summary
+  title: br_sap_aem._quality_monitoring_summary
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.br_sap_aem._quality_monitoring_summary\n\
+    Columns (13):\n  - event_time (timestamp)\n  - catalog_name (string)\n  - schema_name\
+    \ (string)\n  - table_name (string)\n  - catalog_id (string)\n  - schema_id (string)\n\
+    \  - table_id (string)\n  - status (string)\n  - freshness (struct<status:string,commit_freshness:struct<status:string,error_code:string,last_value:timestamp,predicted_value:timestamp>>)\n\
+    \  - completeness (struct<status:string,total_row_count:struct<status:string,error_code:string,last_value:bigint,min_predicted_value:bigint,max_predicted_value:bigint>,daily_row_count:struct<status:string,error_code:string,last_value:bigint,min_predicted_value:bigint,max_predicted_value:bigint>>)\n\
+    \  - downstream_impact (struct<impact_level:int,num_downstream_tables:bigint,num_queries_on_affected_tables:bigint>)\n\
+    \  - root_cause_analysis (struct<upstream_jobs:array<struct<job_id:string,workspace_id:string,job_name:string,last_run_status:string,run_page_url:string>>>)\n\
+    \  - _internal_debug_info (struct<event_freshness:struct<status:string,error_code:string,last_event_value:timestamp,predicted_event_value:timestamp,last_event_latency_seconds:bigint,predicted_event_latency_seconds:bigint,event_column:string>,unhealthy_groups:array<struct<group:map<string,string>>>,status_since:timestamp,is_static:boolean,completeness:struct<historical_row_count:array<struct<timestamp:timestamp,row_count:bigint>>>,commit_freshness:struct<commit_history:array<struct<version:string,timestamp:timestamp,operation:string,operation_metrics:map<string,string>>>>,custom_sql:array<struct<name:string,column_vars:map<string,string>,sql_query:string,actual_value:double,status:string,violation_type:string,predicted_lower_bound:double,predicted_upper_bound:double,error_code:string,_internal:struct<history:array<struct<timestamp:timestamp,value:double>>,model_selection:map<string,string>>>>>)\n\
+    Discovered: 2026-04-30 11:20"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - sap
+  - aem
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.br_sap_aem._quality_monitoring_summary
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: br_sap_aem
+    databricks.com/table: _quality_monitoring_summary
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/br_sap_aem/_quality_monitoring_summary
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

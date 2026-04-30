@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: ael-local-abc
+  title: ael_local.abc
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.ael_local.abc\n\
+    Columns (2):\n  - id (bigint)\n  - name (string)\nDiscovered: 2026-04-30 11:13"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.ael_local.abc
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: ael_local
+    databricks.com/table: abc
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/ael_local/abc
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

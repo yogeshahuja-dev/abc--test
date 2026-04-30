@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: bronze-dwh-sap-employee-balances
+  title: bronze_dwh_sap.employee_balances
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.bronze_dwh_sap.employee_balances\n\
+    Columns (20):\n  - Emp_Status (string)\n  - Server (string)\n  - BU (string)\n\
+    \  - Co_Cd (string)\n  - Combo (string)\n  - Company_Name (string)\n  - Emp_Code\
+    \ (string)\n  - Emp_Name (string)\n  - Assignment (string)\n  - Doc_No (string)\n\
+    \  - Type (string)\n  - Posting_Date (string)\n  - Amount (double)\n  - Text (string)\n\
+    \  - Sp_GL (string)\n  ... +5 more\nDiscovered: 2026-04-30 11:26"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - bronze
+  - sap
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.bronze_dwh_sap.employee_balances
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: bronze_dwh_sap
+    databricks.com/table: employee_balances
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/bronze_dwh_sap/employee_balances
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

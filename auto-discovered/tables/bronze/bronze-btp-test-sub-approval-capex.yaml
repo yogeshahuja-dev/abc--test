@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: bronze-btp-test-sub-approval-capex
+  title: bronze_btp_test.sub_approval_capex
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.bronze_btp_test.sub_approval_capex\n\
+    Columns (32):\n  - source_blob (string)\n  - ApprovalEndDate (string)\n  - ApprovalStartDate\
+    \ (string)\n  - Email (string)\n  - NextApproverEmailID (string)\n  - Rank (string)\n\
+    \  - Role (string)\n  - StageApprovalEndDate (string)\n  - StageApprovalStartDate\
+    \ (string)\n  - Status (string)\n  - approverDesignation (string)\n  - approverName\
+    \ (string)\n  - business (string)\n  - companyName (string)\n  - consultationEndDate\
+    \ (string)\n  ... +17 more\nDiscovered: 2026-04-30 11:26"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - bronze
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.bronze_btp_test.sub_approval_capex
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: bronze_btp_test
+    databricks.com/table: sub_approval_capex
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/bronze_btp_test/sub_approval_capex
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

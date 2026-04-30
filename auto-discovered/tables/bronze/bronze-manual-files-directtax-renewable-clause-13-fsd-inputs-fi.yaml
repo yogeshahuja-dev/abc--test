@@ -1,0 +1,29 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: bronze-manual-files-directtax-renewable-clause-13-fsd-inputs-fi
+  title: bronze_manual_files.directtax_renewable_clause_13_fsd_inputs_file
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.bronze_manual_files.directtax_renewable_clause_13_fsd_inputs_file\n\
+    Columns (7):\n  - fiscal_year (string)\n  - icds (string)\n  - main_account_name\
+    \ (string)\n  - main_gl_account_code (string)\n  - offsetting_account_name (string)\n\
+    \  - offsetting_gl_account_code (string)\n  - remarks (string)\nDiscovered: 2026-04-30\
+    \ 11:32"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - bronze
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.bronze_manual_files.directtax_renewable_clause_13_fsd_inputs_file
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: bronze_manual_files
+    databricks.com/table: directtax_renewable_clause_13_fsd_inputs_file
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/bronze_manual_files/directtax_renewable_clause_13_fsd_inputs_file
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

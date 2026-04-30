@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: bronze-sap-alp-j-1imovend
+  title: bronze_sap_alp.j_1imovend
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.bronze_sap_alp.j_1imovend\n\
+    Columns (25):\n  - MANDT (string)\n  - LIFNR (string)\n  - J_1IEXCD (string)\n\
+    \  - J_1IEXRN (string)\n  - J_1IEXRG (string)\n  - J_1IEXDI (string)\n  - J_1IEXCO\
+    \ (string)\n  - J_1ICSTNO (string)\n  - J_1ILSTNO (string)\n  - J_1IPANNO (string)\n\
+    \  - J_1IEXCIVE (string)\n  - J_1ISSIST (string)\n  - J_1IVTYP (string)\n  - J_1IVENCRE\
+    \ (string)\n  - AEDAT (date)\n  ... +10 more\nDiscovered: 2026-04-30 11:49"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - bronze
+  - sap
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.bronze_sap_alp.j_1imovend
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: bronze_sap_alp
+    databricks.com/table: j_1imovend
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/bronze_sap_alp/j_1imovend
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake

@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: bronze-sap-asp-qmel-slt
+  title: bronze_sap_asp.qmel_slt
+  description: "Auto-discovered from Databricks Unity Catalog.\nFull name: adani_edl_governance_catalog_dev.bronze_sap_asp.qmel_slt\n\
+    Columns (204):\n  - DI_SEQUENCE_NUMBER (bigint) -- Data Services-generated integer\
+    \ for sequencing\n  - DI_OPERATION_TYPE (string) -- Data Services-generated row\
+    \ operation type\n  - MANDT (string) -- Client\n  - QMNUM (string) -- Notification\n\
+    \  - QMART (string) -- Notification type\n  - QMTXT (string) -- Description\n\
+    \  - ARTPR (string) -- Priority type\n  - PRIOK (string) -- Priority\n  - ERNAM\
+    \ (string) -- Created By\n  - ERDAT (date) -- Created On\n  - AENAM (string) --\
+    \ Changed By\n  - AEDAT (date) -- Changed on\n  - MZEIT (string) -- Notification\
+    \ Time\n  - QMDAT (date) -- Notification date\n  - QMNAM (string) -- Reported\
+    \ by\n  ... +189 more\nDiscovered: 2026-04-30 11:53"
+  tags:
+  - databricks
+  - auto-discovered
+  - unity-catalog
+  - bronze
+  - sap
+  annotations:
+    databricks.com/full-table-name: adani_edl_governance_catalog_dev.bronze_sap_asp.qmel_slt
+    databricks.com/catalog: adani_edl_governance_catalog_dev
+    databricks.com/schema: bronze_sap_asp
+    databricks.com/table: qmel_slt
+  links:
+  - url: https://adb-2478587080594690.10.azuredatabricks.net/explore/data/adani_edl_governance_catalog_dev/bronze_sap_asp/qmel_slt
+    title: View in Databricks
+    icon: dashboard
+spec:
+  type: data-table
+  lifecycle: production
+  owner: edl-governance
+  system: enterprise-data-lake
